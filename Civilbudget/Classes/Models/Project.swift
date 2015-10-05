@@ -31,11 +31,13 @@ extension Project {
     
     static func reloadAllProjects() {
         Alamofire.request(CivilbudgetAPI.Router.Projects).responseJSON { response in
-            print(response.request)  // original URL request
-            print(response.response) // URL response
-            print(response.data)     // server data
-            print(response.result)   // result of response serialization
-
+            switch response.result {
+            case .Success:
+                print("Validation Successful")
+            case .Failure(let error):
+                print(error.localizedDescription)
+            }
+            
             if let data = response.data {
                 var projectsArray: [Project] = []
                 let json = JSON(data: data)
