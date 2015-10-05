@@ -1,0 +1,671 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F0F98121BBFBFEF00219A10 /* Pods_Civilbudget.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0F0F98171BBFD23E00219A10 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F98161BBFD23E00219A10 /* Project.swift */; settings = {ASSET_TAGS = (); }; };
+		0F0F981D1BBFD6B600219A10 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F981C1BBFD6B600219A10 /* ProjectTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */; settings = {ASSET_TAGS = (); }; };
+		0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */; settings = {ASSET_TAGS = (); }; };
+		0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
+		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		0FFF70851BBE78500042EC47 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707D1BBE78500042EC47 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
+			remoteInfo = AlamofireImage;
+		};
+		0FF8A9001BBFBA820025C59C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B49FEF19F923E571B8763E9920FAB23;
+			remoteInfo = CryptoSwift;
+		};
+		0FFF75321BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8098830EA9C6CD79275265D0B3229D8;
+			remoteInfo = Alamofire;
+		};
+		0FFF75341BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FBD96193C383DDE816EFB5BD0445C5EE;
+			remoteInfo = Bond;
+		};
+		0FFF75361BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4354BBEAE8AC92EEA984CB61FF273C00;
+			remoteInfo = FLEX;
+		};
+		0FFF75381BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E53F4AFD51078FD02FBD1F8410706E6E;
+			remoteInfo = "Pods-Civilbudget";
+		};
+		0FFF753A1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07FF7C3F94084535BC30E5959CEC014B;
+			remoteInfo = Realm;
+		};
+		0FFF753C1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7CD8B0BEE8B7B180ACEE8FEA9856A6B8;
+			remoteInfo = RealmSwift;
+		};
+		0FFF753E1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D4A83B7585DDF4A527D083B346C50887;
+			remoteInfo = SwiftyJSON;
+		};
+		0FFF75451BBE7DE30042EC47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B6A3D7EC2338E563955379CA56E015BA;
+			remoteInfo = "Pods-Civilbudget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0F0F98111BBFBFC600219A10 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0F0F98121BBFBFEF00219A10 /* Pods_Civilbudget.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0F0F98161BBFD23E00219A10 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0F0F981C1BBFD6B600219A10 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
+		0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdAPI.swift; sourceTree = "<group>"; };
+		0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
+		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		0FFF707C1BBE78500042EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0FFF707E1BBE78500042EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0FFF70811BBE78500042EC47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0FFF70831BBE78500042EC47 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		0FFF75411BBE79B00042EC47 /* Pods-Civilbudget.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-Civilbudget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Civilbudget/Pods-Civilbudget.debug.xcconfig"; sourceTree = "<group>"; };
+		0FFF75421BBE79B00042EC47 /* Pods-Civilbudget.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-Civilbudget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Civilbudget/Pods-Civilbudget.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0FFF6D911BBE6B890042EC47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0FFF6D8B1BBE6B890042EC47 = {
+			isa = PBXGroup;
+			children = (
+				0FFF6D961BBE6B890042EC47 /* Civilbudget */,
+				0FFF6D951BBE6B890042EC47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0FFF6D951BBE6B890042EC47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF6D941BBE6B890042EC47 /* Civilbudget.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0FFF6D961BBE6B890042EC47 /* Civilbudget */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF6DA91BBE784F0042EC47 /* Classes */,
+				0FFF707F1BBE78500042EC47 /* Resources */,
+				0FFF707A1BBE78500042EC47 /* Localized */,
+				0FFF70821BBE78500042EC47 /* Supporting Files */,
+			);
+			path = Civilbudget;
+			sourceTree = "<group>";
+		};
+		0FFF6DA91BBE784F0042EC47 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF6DAD1BBE784F0042EC47 /* Externals */,
+				0FFF70781BBE78500042EC47 /* Models */,
+				0FFF70791BBE78500042EC47 /* Views */,
+				0FFF6DAB1BBE784F0042EC47 /* Controllers */,
+				0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		0FFF6DAB1BBE784F0042EC47 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */,
+				0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0FFF6DAD1BBE784F0042EC47 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF71801BBE78BE0042EC47 /* Pods */,
+			);
+			path = Externals;
+			sourceTree = "<group>";
+		};
+		0FFF70781BBE78500042EC47 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F0F98161BBFD23E00219A10 /* Project.swift */,
+				0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */,
+				0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0FFF70791BBE78500042EC47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */,
+				0F0F981C1BBFD6B600219A10 /* ProjectTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0FFF707A1BBE78500042EC47 /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */,
+				0FFF707D1BBE78500042EC47 /* Main.storyboard */,
+			);
+			name = Localized;
+			path = Localizations;
+			sourceTree = "<group>";
+		};
+		0FFF707F1BBE78500042EC47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF70801BBE78500042EC47 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0FFF70801BBE78500042EC47 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF70811BBE78500042EC47 /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0FFF70821BBE78500042EC47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF70831BBE78500042EC47 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FFF71801BBE78BE0042EC47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF75401BBE78D70042EC47 /* Xcconfigs */,
+				0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		0FFF75291BBE78D00042EC47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF75331BBE78D00042EC47 /* Alamofire.framework */,
+				0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */,
+				0FFF75351BBE78D00042EC47 /* Bond.framework */,
+				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
+				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
+				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
+				0FFF753B1BBE78D00042EC47 /* Realm.framework */,
+				0FFF753D1BBE78D00042EC47 /* RealmSwift.framework */,
+				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0FFF75401BBE78D70042EC47 /* Xcconfigs */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF75411BBE79B00042EC47 /* Pods-Civilbudget.debug.xcconfig */,
+				0FFF75421BBE79B00042EC47 /* Pods-Civilbudget.release.xcconfig */,
+			);
+			name = Xcconfigs;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0FFF6D931BBE6B890042EC47 /* Civilbudget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FFF6DA61BBE6B890042EC47 /* Build configuration list for PBXNativeTarget "Civilbudget" */;
+			buildPhases = (
+				0FFF6D901BBE6B890042EC47 /* Sources */,
+				0FFF6D911BBE6B890042EC47 /* Frameworks */,
+				0FFF6D921BBE6B890042EC47 /* Resources */,
+				0F0F98111BBFBFC600219A10 /* Copy Frameworks */,
+				0F0F98141BBFC14700219A10 /* Embed Pods Frameworks */,
+				0F0F98151BBFC17A00219A10 /* Copy Pods Resources */,
+				0FFF75471BBE81570042EC47 /* Fabric Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FFF75461BBE7DE30042EC47 /* PBXTargetDependency */,
+			);
+			name = Civilbudget;
+			productName = Civilbudget;
+			productReference = 0FFF6D941BBE6B890042EC47 /* Civilbudget.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0FFF6D8C1BBE6B890042EC47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Build Apps";
+				TargetAttributes = {
+					0FFF6D931BBE6B890042EC47 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 0FFF6D8F1BBE6B890042EC47 /* Build configuration list for PBXProject "Civilbudget" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0FFF6D8B1BBE6B890042EC47;
+			productRefGroup = 0FFF6D951BBE6B890042EC47 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0FFF75291BBE78D00042EC47 /* Products */;
+					ProjectRef = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				0FFF6D931BBE6B890042EC47 /* Civilbudget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AlamofireImage.framework;
+			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = 0FF8A9001BBFBA820025C59C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF75331BBE78D00042EC47 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 0FFF75321BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF75351BBE78D00042EC47 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 0FFF75341BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF75371BBE78D00042EC47 /* FLEX.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = FLEX.framework;
+			remoteRef = 0FFF75361BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_Civilbudget.framework;
+			remoteRef = 0FFF75381BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF753B1BBE78D00042EC47 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 0FFF753A1BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF753D1BBE78D00042EC47 /* RealmSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmSwift.framework;
+			remoteRef = 0FFF753C1BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 0FFF753E1BBE78D00042EC47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0FFF6D921BBE6B890042EC47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */,
+				0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */,
+				0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F0F98141BBFC14700219A10 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-frameworks.sh\"";
+		};
+		0F0F98151BBFC17A00219A10 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-resources.sh\"";
+		};
+		0FFF75471BBE81570042EC47 /* Fabric Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/Fabric.framework/run 264b174ec054c5db597e9303201f05c26bf283cf 6bebb6150dcdc785982b70632821e58ae3ba56c9783d154009f94ca36c4939f0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0FFF6D901BBE6B890042EC47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */,
+				0F0F981D1BBFD6B600219A10 /* ProjectTableViewCell.swift in Sources */,
+				0FFF70851BBE78500042EC47 /* ProjectsViewController.swift in Sources */,
+				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
+				0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */,
+				0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */,
+				0F0F98171BBFD23E00219A10 /* Project.swift in Sources */,
+				0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0FFF75461BBE7DE30042EC47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Civilbudget";
+			targetProxy = 0FFF75451BBE7DE30042EC47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FFF707C1BBE78500042EC47 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0FFF707D1BBE78500042EC47 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0FFF707E1BBE78500042EC47 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0FFF6DA41BBE6B890042EC47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0FFF6DA51BBE6B890042EC47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0FFF6DA71BBE6B890042EC47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FFF75411BBE79B00042EC47 /* Pods-Civilbudget.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Crashlytics",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Fabric",
+				);
+				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0FFF6DA81BBE6B890042EC47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FFF75421BBE79B00042EC47 /* Pods-Civilbudget.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Crashlytics",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Fabric",
+				);
+				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FFF6D8F1BBE6B890042EC47 /* Build configuration list for PBXProject "Civilbudget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FFF6DA41BBE6B890042EC47 /* Debug */,
+				0FFF6DA51BBE6B890042EC47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FFF6DA61BBE6B890042EC47 /* Build configuration list for PBXNativeTarget "Civilbudget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FFF6DA71BBE6B890042EC47 /* Debug */,
+				0FFF6DA81BBE6B890042EC47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0FFF6D8C1BBE6B890042EC47 /* Project object */;
+}
