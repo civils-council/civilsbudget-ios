@@ -6,7 +6,7 @@ App supports authorization through Ukrainian [BankID](https://bankid.org.ua) use
 * Xcode 7.0+
 * CocoaPods 0.39.0.beta.5+
 
-Please note that app uses CocoaPods with '--no-integrate' switch (without Workspace creation). To update dependencies you should run
+Please note that app uses CocoaPods with '--no-integrate' switch (without Workspace creation). To install dependencies you should run
 ```
 ./podinstall.sh
 ```
