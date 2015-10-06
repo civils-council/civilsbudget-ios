@@ -6,54 +6,72 @@
 //  Copyright © 2015 Build Apps. All rights reserved.
 //
 
-import Foundation
 import Bond
 import Alamofire
-import SwiftyJSON
 
 struct Project {
     var id = 0
     var title = ""
     var description = ""
     var shortDescription = ""
-    var source = ""
-    var icon = ""
-    var picture = ""
-    var createdAt = ""
-    var likes = 0
-    var owner = ""
+    var source: String?
+    var picture: String?
+    var createdAt: String?
+    var likes: Int?
+    var owner: String?
 }
 
 extension Project {
     static let allProjects: ObservableArray<Project> = {
         return ObservableArray([])
-    }()
+        }()
     
-    static func reloadAllProjects() {
-        Alamofire.request(CivilbudgetAPI.Router.Projects).responseJSON { response in
-            switch response.result {
-            case .Success:
-                print("Validation Successful")
-            case .Failure(let error):
-                print(error.localizedDescription)
-            }
-            
-            if let data = response.data {
-                var projectsArray: [Project] = []
-                let json = JSON(data: data)
-                let projects = json["projects"].arrayValue
-                var i = 0
-                for project in projects {
-                    var prj = Project()
-                    prj.id = ++i
-                    prj.title = project["title"].stringValue
-                    let description: NSString = project["description"].stringValue
-                    prj.description = project["description"].stringValue
-                    prj.shortDescription = description.substringToIndex(100)
-                    projectsArray.append(prj)
+    static func reloadAllProjects(completionHandler: (Response<[Project], NSError> -> Void)? = nil) {
+        Alamofire.request(CivilbudgetAPI.Router.Projects)
+            .responseCollection { (response: Response<[Project], NSError>) in
+                switch response.result {
+                case .Success(let value):
+                    allProjects.array = value
+                case .Failure(let error):
+                    log.error(error.localizedDescription)
                 }
-                allProjects.array = projectsArray
-            }
+                completionHandler?(response)
         }
+    }
+}
+
+extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
+    struct Constants {
+        static let maxShortDescriptionLength = 100
+    }
+    
+    init?(response: NSHTTPURLResponse, representation: AnyObject) {
+        guard let id = representation.valueForKeyPath("id") as? Int,
+            title = representation.valueForKeyPath("title") as? String,
+            description = representation.valueForKeyPath("description") as? String
+            else {
+                log.error("Can't create project without mandatory field (id, title, description)")
+                return nil
+        }
+        
+        self.id = id
+        self.title = title
+        self.description = description
+        self.shortDescription = description.substringToIndex(description.startIndex.advancedBy(Constants.maxShortDescriptionLength))
+        
+        self.source = representation.valueForKeyPath("source") as? String
+        self.picture = representation.valueForKeyPath("picture") as? String
+        self.createdAt = representation.valueForKeyPath("createdAt") as? String
+        self.likes = representation.valueForKeyPath("likes") as? Int
+        self.owner = representation.valueForKeyPath("owner") as? String
+    }
+    
+    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
+        guard let representation = representation.valueForKeyPath("projects") as? [[String: AnyObject]] else {
+            log.error("Can't cast root JSON collection")
+            return []
+        }
+        
+        return representation.flatMap { Project(response: response, representation: $0) }
     }
 }

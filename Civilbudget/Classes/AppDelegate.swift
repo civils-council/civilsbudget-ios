@@ -9,17 +9,23 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Alamofire
+import XCGLogger
+
+let log = XCGLogger.defaultInstance()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         Fabric.with([Crashlytics.self()])
+        
+        #if DEBUG
+            log.setup(.Debug, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+        #else
+            log.setup(.Severe, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+        #endif
         
         return true
     }

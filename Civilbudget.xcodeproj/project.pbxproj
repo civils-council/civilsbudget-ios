@@ -13,6 +13,7 @@
 		0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FCACEDE1BC2D72B00FCD651 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */; settings = {ASSET_TAGS = (); }; };
 		0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		0FFF70851BBE78500042EC47 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -28,6 +29,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
 			remoteInfo = AlamofireImage;
+		};
+		0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 70E6BC1DAABBB0EF9D80759A3EEFFAA4;
+			remoteInfo = XCGLogger;
 		};
 		0FF8A9001BBFBA820025C59C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -89,7 +97,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = B6A3D7EC2338E563955379CA56E015BA;
+			remoteGlobalIDString = CCFD27D51BBF01498780D3E3DB45B555;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -114,6 +122,7 @@
 		0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
 		0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdAPI.swift; sourceTree = "<group>"; };
 		0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
 		0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FD9F07A1BC3DE240046316F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		0FFF6D8B1BBE6B890042EC47 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +214,7 @@
 		0FFF70781BBE78500042EC47 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0FD9F07A1BC3DE240046316F /* Extensions */,
 				0F0F98161BBFD23E00219A10 /* Project.swift */,
 				0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */,
 				0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */,
@@ -268,6 +286,7 @@
 				0FFF753B1BBE78D00042EC47 /* Realm.framework */,
 				0FFF753D1BBE78D00042EC47 /* RealmSwift.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
+				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -350,6 +369,13 @@
 			fileType = wrapper.framework;
 			path = AlamofireImage.framework;
 			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FD9F0791BC3DB230046316F /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = 0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */ = {
@@ -481,6 +507,7 @@
 				0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */,
 				0F0F98171BBFD23E00219A10 /* Project.swift in Sources */,
 				0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */,
+				0FCACEDE1BC2D72B00FCD651 /* AlamofireSerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +645,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -639,6 +667,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
