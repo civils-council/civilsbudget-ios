@@ -22,13 +22,15 @@ struct Project {
 }
 
 extension Project {
+    typealias ProjectResponse = Response<[Project], NSError>
+    
     static let allProjects: ObservableArray<Project> = {
         return ObservableArray([])
         }()
     
-    static func reloadAllProjects(completionHandler: (Response<[Project], NSError> -> Void)? = nil) {
+    static func reloadAllProjects(completionHandler: (ProjectResponse -> Void)? = nil) {
         Alamofire.request(CivilbudgetAPI.Router.Projects)
-            .responseCollection { (response: Response<[Project], NSError>) in
+            .responseCollection { (response: ProjectResponse) in
                 switch response.result {
                 case .Success(let value):
                     allProjects.array = value
@@ -45,7 +47,12 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         static let maxShortDescriptionLength = 100
     }
     
-    init?(response: NSHTTPURLResponse, representation: AnyObject) {
+    init?(response: NSHTTPURLResponse, var representation: AnyObject) {
+        if let projectDictionary = representation.valueForKey("project") as? NSDictionary
+            where representation.count == 1{
+            representation = projectDictionary
+        }
+        
         guard let id = representation.valueForKeyPath("id") as? Int,
             title = representation.valueForKeyPath("title") as? String,
             description = representation.valueForKeyPath("description") as? String
@@ -68,7 +75,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
         guard let representation = representation.valueForKeyPath("projects") as? [[String: AnyObject]] else {
-            log.error("Can't cast root JSON collection")
+            log.error("Can't cast root JSON collection to Project list")
             return []
         }
         
