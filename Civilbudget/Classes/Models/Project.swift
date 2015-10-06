@@ -10,15 +10,15 @@ import Bond
 import Alamofire
 
 struct Project {
-    var id = 0
-    var title = ""
-    var description = ""
-    var shortDescription = ""
-    var source: String?
-    var picture: String?
-    var createdAt: String?
-    var likes: Int?
-    var owner: String?
+    let id: Int
+    let title: String
+    let description: String
+    let shortDescription: String
+    let source: String?
+    let picture: String?
+    let createdAt: String?
+    let likes: Int?
+    let owner: String?
 }
 
 extension Project {
@@ -29,11 +29,11 @@ extension Project {
         }()
     
     static func reloadAllProjects(completionHandler: (ProjectResponse -> Void)? = nil) {
-        Alamofire.request(CivilbudgetAPI.Router.Projects)
+        Alamofire.request(CivilbudgetAPI.Router.GetProjects)
             .responseCollection { (response: ProjectResponse) in
                 switch response.result {
-                case .Success(let value):
-                    allProjects.array = value
+                case .Success(let projects):
+                    allProjects.array = projects
                 case .Failure(let error):
                     log.error(error.localizedDescription)
                 }
@@ -49,7 +49,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
     
     init?(response: NSHTTPURLResponse, var representation: AnyObject) {
         if let projectDictionary = representation.valueForKey("project") as? NSDictionary
-            where representation.count == 1{
+            where representation.count == 1 {
             representation = projectDictionary
         }
         

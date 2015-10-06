@@ -14,6 +14,7 @@
 		0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0FCACEDE1BC2D72B00FCD651 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */; settings = {ASSET_TAGS = (); }; };
+		0FD9F07C1BC4183D0046316F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD9F07B1BC4183D0046316F /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		0FFF70851BBE78500042EC47 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -123,6 +124,7 @@
 		0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdAPI.swift; sourceTree = "<group>"; };
 		0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
+		0FD9F07B1BC4183D0046316F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				0FD9F07A1BC3DE240046316F /* Extensions */,
 				0F0F98161BBFD23E00219A10 /* Project.swift */,
+				0FD9F07B1BC4183D0046316F /* User.swift */,
 				0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */,
 				0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */,
 			);
@@ -507,6 +510,7 @@
 				0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */,
 				0F0F98171BBFD23E00219A10 /* Project.swift in Sources */,
 				0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */,
+				0FD9F07C1BC4183D0046316F /* User.swift in Sources */,
 				0FCACEDE1BC2D72B00FCD651 /* AlamofireSerialization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
