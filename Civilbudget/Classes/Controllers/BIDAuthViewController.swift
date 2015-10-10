@@ -107,8 +107,6 @@ extension BIDAuthViewController {
         It is handy to use chrome://inspect page with *export modified CSS* function for this purpose.
     */
     func injectCSSPatch() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Phone else { return }
-        
         let bundle = NSBundle.mainBundle()
         var css = try! NSString(contentsOfFile: bundle.pathForResource("bid-index-mobile", ofType: "css")!, encoding: NSUTF8StringEncoding)
         css = css.stringByReplacingOccurrencesOfString("\n", withString: "\\n")
