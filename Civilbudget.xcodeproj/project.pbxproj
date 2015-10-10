@@ -367,6 +367,7 @@
 				TargetAttributes = {
 					0FFF6D931BBE6B890042EC47 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 75MA7AA7LG;
 					};
 				};
 			};
@@ -669,6 +670,7 @@
 			baseConfigurationReference = 0FFF75411BBE79B00042EC47 /* Pods-Civilbudget.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -684,6 +686,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 			};
 			name = Debug;
 		};
@@ -692,6 +695,7 @@
 			baseConfigurationReference = 0FFF75421BBE79B00042EC47 /* Pods-Civilbudget.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Crashlytics",
@@ -706,6 +710,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 			};
 			name = Release;
 		};
