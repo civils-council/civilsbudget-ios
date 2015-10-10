@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BIDAuthViewController" customModule="Civilbudget" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="KX3-Ur-5G1" id="rxL-g9-T52"/>
+                <outlet property="activityIndicatorContainer" destination="qba-bk-yzi" id="N0s-DP-vsB"/>
+                <outlet property="authNavigationItem" destination="YB4-vk-BVy" id="O7J-hY-5xB"/>
+                <outlet property="backButton" destination="Ixo-Iq-jgf" id="XBK-kU-orr"/>
+                <outlet property="forwardButton" destination="rC4-oL-XDc" id="XHp-jX-P2m"/>
+                <outlet property="view" destination="gGd-HI-o1e" id="bob-mh-P7a"/>
+                <outlet property="webView" destination="4r6-fp-Lhg" id="VbZ-KZ-emr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gGd-HI-o1e">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4r6-fp-Lhg">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="KTc-Zt-88b"/>
+                    </connections>
+                </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qba-bk-yzi">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KX3-Ur-5G1">
+                            <rect key="frame" x="281" y="282" width="37" height="37"/>
+                            <animations/>
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.077310026978417268" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="KX3-Ur-5G1" firstAttribute="centerX" secondItem="qba-bk-yzi" secondAttribute="centerX" id="FOv-So-csd"/>
+                        <constraint firstItem="KX3-Ur-5G1" firstAttribute="centerY" secondItem="qba-bk-yzi" secondAttribute="centerY" id="e0n-qc-Bbh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4r6-fp-Lhg" secondAttribute="trailing" id="DmP-S6-6hT"/>
+                <constraint firstAttribute="trailing" secondItem="qba-bk-yzi" secondAttribute="trailing" id="FCO-2C-8uO"/>
+                <constraint firstItem="4r6-fp-Lhg" firstAttribute="top" secondItem="gGd-HI-o1e" secondAttribute="top" id="JvM-C2-qd4"/>
+                <constraint firstItem="qba-bk-yzi" firstAttribute="top" secondItem="gGd-HI-o1e" secondAttribute="top" id="Lyh-OM-kRT"/>
+                <constraint firstAttribute="bottom" secondItem="qba-bk-yzi" secondAttribute="bottom" id="aTy-4E-JlS"/>
+                <constraint firstAttribute="bottom" secondItem="4r6-fp-Lhg" secondAttribute="bottom" id="kc0-Dt-go9"/>
+                <constraint firstItem="qba-bk-yzi" firstAttribute="leading" secondItem="gGd-HI-o1e" secondAttribute="leading" id="mnq-bq-X4O"/>
+                <constraint firstItem="4r6-fp-Lhg" firstAttribute="leading" secondItem="gGd-HI-o1e" secondAttribute="leading" id="nyg-PJ-lsZ"/>
+            </constraints>
+            <point key="canvasLocation" x="260" y="354"/>
+        </view>
+        <navigationItem id="YB4-vk-BVy">
+            <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="Jg1-RF-b2x">
+                <connections>
+                    <action selector="closeButtonTapped:" destination="-1" id="Ryt-Ib-sdm"/>
+                </connections>
+            </barButtonItem>
+            <rightBarButtonItems>
+                <barButtonItem title="❯" id="rC4-oL-XDc">
+                    <connections>
+                        <action selector="forwardButtonTapped:" destination="-1" id="H5D-Am-cOn"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem title="❮" id="Ixo-Iq-jgf">
+                    <connections>
+                        <action selector="backButtonTapped:" destination="-1" id="emL-Gh-ssO"/>
+                    </connections>
+                </barButtonItem>
+            </rightBarButtonItems>
+        </navigationItem>
+    </objects>
+</document>

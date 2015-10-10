@@ -13,6 +13,10 @@
 		0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FA496961BC4723B00E3B9E8 /* BIDAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA496951BC4723B00E3B9E8 /* BIDAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		0FA496A11BC565B900E3B9E8 /* BIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA496A01BC565B900E3B9E8 /* BIDService.swift */; settings = {ASSET_TAGS = (); }; };
+		0FA496A41BC56E7C00E3B9E8 /* BIDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A31BC56E7C00E3B9E8 /* BIDAuthViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		0FA496A91BC7E6CF00E3B9E8 /* bid-index-mobile.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A81BC7E6CF00E3B9E8 /* bid-index-mobile.css */; settings = {ASSET_TAGS = (); }; };
 		0FCACEDE1BC2D72B00FCD651 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */; settings = {ASSET_TAGS = (); }; };
 		0FD9F07C1BC4183D0046316F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD9F07B1BC4183D0046316F /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
@@ -123,6 +127,10 @@
 		0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
 		0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdAPI.swift; sourceTree = "<group>"; };
 		0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		0FA496951BC4723B00E3B9E8 /* BIDAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIDAuthViewController.swift; sourceTree = "<group>"; };
+		0FA496A01BC565B900E3B9E8 /* BIDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIDService.swift; sourceTree = "<group>"; };
+		0FA496A31BC56E7C00E3B9E8 /* BIDAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BIDAuthViewController.xib; sourceTree = "<group>"; };
+		0FA496A81BC7E6CF00E3B9E8 /* bid-index-mobile.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = "bid-index-mobile.css"; path = "CSS/bid-index-mobile.css"; sourceTree = "<group>"; };
 		0FCACEDD1BC2D72B00FCD651 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
 		0FD9F07B1BC4183D0046316F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FDC05CD1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
@@ -149,6 +157,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA496A21BC56E4700E3B9E8 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				0FA496A31BC56E7C00E3B9E8 /* BIDAuthViewController.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		0FA496A71BC7E63400E3B9E8 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				0FA496A81BC7E6CF00E3B9E8 /* bid-index-mobile.css */,
+			);
+			name = CSS;
+			sourceTree = "<group>";
+		};
 		0FD9F07A1BC3DE240046316F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +225,7 @@
 			children = (
 				0FFF6DAC1BBE784F0042EC47 /* ProjectsViewController.swift */,
 				0F0F982F1BC0458400219A10 /* ProjectDetailsViewController.swift */,
+				0FA496951BC4723B00E3B9E8 /* BIDAuthViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +246,7 @@
 				0FD9F07B1BC4183D0046316F /* User.swift */,
 				0F0F981F1BBFF0D400219A10 /* CivilbudgetAPI.swift */,
 				0F0F982D1BBFFA8800219A10 /* BankIdAPI.swift */,
+				0FA496A01BC565B900E3B9E8 /* BIDService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				0FFF70801BBE78500042EC47 /* Assets */,
+				0FA496A21BC56E4700E3B9E8 /* XIBs */,
+				0FA496A71BC7E63400E3B9E8 /* CSS */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -446,7 +474,9 @@
 			files = (
 				0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */,
 				0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */,
+				0FA496A41BC56E7C00E3B9E8 /* BIDAuthViewController.xib in Resources */,
 				0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */,
+				0FA496A91BC7E6CF00E3B9E8 /* bid-index-mobile.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,9 +535,11 @@
 				0F0F982E1BBFFA8800219A10 /* BankIdAPI.swift in Sources */,
 				0F0F981D1BBFD6B600219A10 /* ProjectTableViewCell.swift in Sources */,
 				0FFF70851BBE78500042EC47 /* ProjectsViewController.swift in Sources */,
+				0FA496961BC4723B00E3B9E8 /* BIDAuthViewController.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
 				0FDC05CE1BBF3A0600EA0C3B /* CivilbudgetStyleKit.swift in Sources */,
 				0F0F98301BC0458400219A10 /* ProjectDetailsViewController.swift in Sources */,
+				0FA496A11BC565B900E3B9E8 /* BIDService.swift in Sources */,
 				0F0F98171BBFD23E00219A10 /* Project.swift in Sources */,
 				0F0F98201BBFF0D400219A10 /* CivilbudgetAPI.swift in Sources */,
 				0FD9F07C1BC4183D0046316F /* User.swift in Sources */,

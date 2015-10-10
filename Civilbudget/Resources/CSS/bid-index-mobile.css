@@ -1,0 +1,353 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    height: auto !important;
+    min-height: 100%;
+    background: none;
+    color: #363636;
+    font-family: Arial,Tahoma,Verdana,sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0 auto;
+    min-width: 310px;
+    position: relative;
+}
+.container {
+    color: #363636;
+    line-height: 18px;
+    text-align: left;
+}
+.block {
+    /* background-clip: padding-box; */
+    /* box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5) inset; */
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 18px;
+    width: 300px;
+    min-width: 172px;
+    border-top: 3px solid #415e30;
+}
+.bankID {
+    cursor: pointer;
+    float: none;
+    font-size: 30px;
+    margin-top: 20px;
+    color: #00BFFF;
+    font-weight: 900;
+}
+.banks {
+    overflow: hidden;
+    padding: 0px;
+    text-align: left;
+}
+.privat {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    margin-left: 0px;
+    height: 25px;
+    width: 150px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.privat:hover {
+    border-color: #415e30;
+}
+.mhbank {
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    margin-left: 160px;
+    height: 25px;
+    width: 130px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.mhbank:hover {
+    border-color: #415e30;
+}
+.pivbank {
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 65px;
+    margin-left: 150px;
+    height: 25px;
+    width: 145px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.plbank:hover {
+    border-color: #415e30;
+}
+.alfabank {
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 120px;
+    margin-left: 4px;
+    height: 40px;
+    width: 145px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.fibank:hover {
+    border-color: #415e30;
+}
+.dibank {
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 290px;
+    text-align: left;
+    margin-left: 230px;
+    height: 25px;
+    width: 125px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.dibankoshad:hover {
+    border-color: #415e30;
+}
+.oshad {
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 280px;
+    text-align: center;
+    margin-left: 35px;
+    height: 25px;
+    width: 135px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.oshad:hover {
+    border-color: #415e30;
+}
+.abank {
+    cursor: pointer;
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-top: 270px;
+    text-align: center;
+    margin-left: 5px;
+    height: 35px;
+    width: 125px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.abank:hover {
+    border-color: #415e30;
+}
+.idealbank {
+    cursor: pointer;
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-top: 210px;
+    text-align: left;
+    margin-left: 143px;
+    height: 30px;
+    width: 145px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.idealbank:hover {
+    border-color: #415e30;
+}
+.unicrbank {
+    cursor: pointer;
+    padding: 5px;
+    padding-bottom: 10px;
+    margin-top: 210px;
+    text-align: center;
+    margin-left: 0px;
+    height: 25px;
+    width: 142px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.unicrbank:hover {
+    border-color: #415e30;
+}
+.plbank {
+    cursor: pointer;
+    padding: 5px;
+    margin-top: 130px;
+    text-align: center;
+    margin-left: 165px;
+    height: 25px;
+    width: 140px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.pivbank:hover {
+    border-color: #415e30;
+}
+.fibank {
+    cursor: pointer;
+    padding: 5px;
+    text-align: left;
+    margin-top: 65px;
+    margin-left: 4px;
+    height: 25px;
+    width: 140px;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    position: absolute;
+}
+.alfabank:hover {
+    border-color: #415e30;
+}
+.error_desc {
+    font-size: small;
+    color: #f40000;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    
+}
+.languages {
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    margin-top: 0px;
+}
+.languages span {
+    color: #999999;
+    margin-left: 9px;
+    text-decoration: none;
+}
+.languages a {
+    color: #999999;
+    margin-left: 9px;
+    text-decoration: none;
+}
+.languages a:focus {
+    text-decoration: underline;
+}
+.languages span {
+    font-weight: bold;
+}
+.footer {
+    margin-top: 0px;
+    border-top: 1px solid #b8b8b8;
+    width: 310px;
+    padding-bottom: 4px;
+    font-size: 12px;
+}
+.info {
+    /* margin-top: 10px; */
+    text-decoration: none;
+}
+.ecp-title {
+    margin-top: 335px;
+    text-decoration: none;
+}
+.callUs {
+    margin-top: 10px;
+    color: #484848;
+    text-decoration: none;
+}
+.site {
+    color: #484848;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.data {
+    color: #484848;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.data-info {
+    color: #484848;
+    text-decoration: none;
+    font-weight: 900;
+    margin-left: 20px;
+}
+.license {
+    margin-top: 10px;
+    color: #484848;
+    text-decoration: none;
+}
+.info-text {
+    width: 300px;
+    float: left;
+    /* position: relative; */
+}
+.info-menu {
+    width: 310px;
+    height: 330px;
+    /* float: right; */
+    padding-top: 15px;
+    /* display: block; */
+    /* position: relative; */
+    clear: both;
+}
+.preloder {
+    margin-top: 150px;
+    opacity: 0;
+    position: absolute;
+    display: none;
+}
+.client {
+    font-weight: 900;
+    margin-left: 20px;
+}
+.ecp {
+    margin-left: 470px;
+    margin-top: 400px;
+    display: none;
+}
+.ecp-button {
+    color: #FFFFFF;
+    border: 1px solid #ffffff;
+    background: #5cb85c none repeat scroll 0 0;
+    border-radius: 5px;
+    padding: 10px;
+    width: 280px;
+    cursor: pointer;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -o-box;
+    display: box;
+    
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    display: -ms-flex;
+    display: flex;
+}
+.ecp-button:hover {
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #5cb85c, #04B431) repeat scroll 0 0;
+}
+.ecp-button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#04B431));
+}
+.ecp-button:hover {
+    background: -o-linear-gradient(top, #5cb85c 0%, #04B431 100%);
+}
+.ecp-button:hover {
+    background: -ms-linear-gradient(top, #5cb85c, #04B431);
+}
+.ecp-button:hover {
+    background: linear-gradient(top, #5cb85c, #04B431);
+}
+.btn-text {
+    margin-left: 20px;
+}
+.ecp-img {
+    margin-left: 40px;
+    width: 25px;
+}

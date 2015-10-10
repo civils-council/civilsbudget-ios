@@ -48,9 +48,15 @@ class ProjectsViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        BankIdApi.requestCode { code in
-            print(code)
+        let authViewController = BIDAuthViewController(getOnlyAuthCode: true, patchIndexPage: true) { response in
+            print(response.value?.authCode)
         }
+        let navigationController = UINavigationController(rootViewController: authViewController)
+        presentViewController(navigationController, animated: true, completion: nil)
+        
+        /*BankIdApi.requestCode { code in
+            print(code)
+        }*/
     }
 }
 

@@ -10,6 +10,9 @@ import UIKit
 import Fabric
 import Crashlytics
 import XCGLogger
+#if DEBUG
+    import FLEX
+#endif
 
 let log = XCGLogger.defaultInstance()
 
@@ -22,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self()])
         
         #if DEBUG
+            FLEXManager.sharedManager().showExplorer()
             log.setup(.Debug, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
         #else
             log.setup(.Severe, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
