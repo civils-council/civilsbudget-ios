@@ -9,6 +9,17 @@
 import UIKit
 
 class BIDAuthViewController: UIViewController {
+    
+    /**
+        You may change this static property to specify custom *nib* name without subclassing `BIDAuthViewController` class
+    */
+    static var defaultAuthNibName: String? = "BIDAuthViewController"
+    
+    /**
+        You may change this static property to specify custom *nib* bundle without subclassing `BIDAuthViewController` class
+    */
+    static var defaultAuthNibBundle: NSBundle? = nil
+    
     var completionHandler: (BIDService.AuthorizationResult -> Void)?
     var getOnlyAuthCode = false
     var patchIndexPage = true
@@ -32,8 +43,22 @@ class BIDAuthViewController: UIViewController {
     @IBOutlet weak var activityIndicatorContainer: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    /**
+        Subclasses may override this type method to change name of default *nib* name
+    */
+    class func authNibName() -> String? {
+        return self.defaultAuthNibName
+    }
+    
+    /**
+        Subclasses may override this type method to load *nib* from another bundle
+    */
+    class func authNibBundle() -> NSBundle? {
+        return self.defaultAuthNibBundle
+    }
+    
     init(getOnlyAuthCode:Bool = false, patchIndexPage: Bool = true, completionHandler:BIDService.AuthorizationResult -> Void) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: self.dynamicType.authNibName(), bundle: self.dynamicType.authNibBundle())
         
         self.getOnlyAuthCode = getOnlyAuthCode
         self.completionHandler = completionHandler
