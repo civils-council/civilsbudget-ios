@@ -45,8 +45,8 @@ struct CivilbudgetAPI {
             let request = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
             request.HTTPMethod = method.rawValue
             
-            if let token = Router.APIKey {
-                request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            if let APIKey = Router.APIKey {
+                request.setValue("Bearer \(APIKey)", forHTTPHeaderField: "Authorization")
             }
             
             switch self {
@@ -55,28 +55,6 @@ struct CivilbudgetAPI {
             default:
                 return request
             }
-        }
-    }
-    
-    struct Error: ResponseObjectSerializable {
-        let code: Int
-        let message: String
-        
-        init?(response: NSHTTPURLResponse, var representation: AnyObject) {
-            if let errorDictionary = representation.valueForKey("error") as? NSDictionary
-                where representation.count == 1 {
-                    representation = errorDictionary
-            }
-            
-            guard let code = representation.valueForKey("code") as? Int,
-                message = representation.valueForKey("message") as? String
-                else {
-                    log.error("Can't create error without mandatory field (code, message)")
-                    return nil
-            }
-            
-            self.code = code
-            self.message = message
         }
     }
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Bond
+import Alamofire
 
 class ProjectsViewController: UIViewController {
     struct Constants {
@@ -48,8 +49,22 @@ class ProjectsViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = BIDAuthViewController(getOnlyAuthCode: true, patchIndexPage: true) { response in
-            print(response.value?.authCode)
+        let authViewController = BIDAuthViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
+            guard let authorization = result.value else {
+                log.warning("Authorization through BankID failed")
+                log.warning("\(result.error!.debugDescription)")
+                return
+            }
+            
+            BIDService.authorization = authorization
+            log.info("Authorized")
+            
+            // Request info
+            Alamofire.request(BIDService.Router.RequestInformation(fields: BIDService.allInfoFields))
+                .responseObject { (response: Response<BIDService.Information, NSError>) in
+                    log.info(response.debugDescription)
+                    log.info(NSString(data: response.data!, encoding: NSUTF8StringEncoding) as? String)
+            }
         }
         let navigationController = UINavigationController(rootViewController: authViewController)
         presentViewController(navigationController, animated: true, completion: nil)

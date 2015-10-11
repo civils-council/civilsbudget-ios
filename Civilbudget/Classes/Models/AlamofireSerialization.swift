@@ -9,11 +9,11 @@
 import Alamofire
 
 public protocol ResponseObjectSerializable {
-    init?(response: NSHTTPURLResponse, representation: AnyObject)
+    init(response: NSHTTPURLResponse, representation: AnyObject) throws
 }
 
 public protocol ResponseCollectionSerializable {
-    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Self]
+    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Self]
 }
 
 extension Request {
@@ -26,13 +26,14 @@ extension Request {
             
             switch result {
             case .Success(let value):
-                if let
-                    response = response,
-                    responseObject = T(response: response, representation: value)
-                {
-                    return .Success(responseObject)
+                if let response = response {
+                    do {
+                        return .Success(try T(response: response, representation: value))
+                    } catch let error as NSError {
+                        return .Failure(error)
+                    }
                 } else {
-                    let failureReason = "JSON could not be serialized into response object: \(value)"
+                    let failureReason = "Response could not be serialized due to nil response"
                     let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
                     return .Failure(error)
                 }
@@ -54,7 +55,11 @@ extension Request {
             switch result {
             case .Success(let value):
                 if let response = response {
-                    return .Success(T.collection(response: response, representation: value))
+                    do {
+                        return .Success(try T.collection(response: response, representation: value))
+                    } catch let error as NSError {
+                        return .Failure(error)
+                    }
                 } else {
                     let failureReason = "Response collection could not be serialized due to nil response"
                     let error = Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)

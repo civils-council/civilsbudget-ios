@@ -47,7 +47,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         static let maxShortDescriptionLength = 100
     }
     
-    init?(response: NSHTTPURLResponse, var representation: AnyObject) {
+    init(response: NSHTTPURLResponse, var representation: AnyObject) throws {
         if let projectDictionary = representation.valueForKey("project") as? NSDictionary
             where representation.count == 1 {
             representation = projectDictionary
@@ -57,8 +57,8 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
             title = representation.valueForKeyPath("title") as? String,
             description = representation.valueForKeyPath("description") as? String
             else {
-                log.error("Can't create project without mandatory field (id, title, description)")
-                return nil
+                let failureReason = "Can't create project without one of mandatory fields: id, title, description"
+                throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }
         
         self.id = id
@@ -73,12 +73,12 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.owner = representation.valueForKeyPath("owner") as? String
     }
     
-    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) -> [Project] {
+    static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Project] {
         guard let representation = representation.valueForKeyPath("projects") as? [[String: AnyObject]] else {
-            log.error("Can't cast root JSON collection to Project list")
-            return []
+            let failureReason = "Can't cast root JSON collection to Project list"
+            throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }
         
-        return representation.flatMap { Project(response: response, representation: $0) }
+        return representation.flatMap { try! Project(response: response, representation: $0) }
     }
 }

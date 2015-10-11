@@ -33,7 +33,7 @@ extension User {
 }
 
 extension User: ResponseObjectSerializable {
-    init?(response: NSHTTPURLResponse, var representation: AnyObject) {
+    init(response: NSHTTPURLResponse, var representation: AnyObject) throws {
         if let userDictionary = representation.valueForKey("project") as? NSDictionary
             where representation.count == 1 {
                 representation = userDictionary
@@ -41,11 +41,11 @@ extension User: ResponseObjectSerializable {
         
         guard let id = representation.valueForKey("project") as? Int,
             fullName = representation.valueForKey("fullName") as? String,
-            apiKey = representation.valueForKey("") as? String,
-            apiKeyExpired = representation.valueForKey("") as? String
+            apiKey = representation.valueForKey("apiKey") as? String,
+            apiKeyExpired = representation.valueForKey("apiKeyExpired") as? String
             else {
-                log.error("Can't create user without mandatory field (id, fullName, apiKey, apiKeyExpired)")
-                return nil
+                let failureReason = "Can't create user without one of mandatory fields (id, fullName, apiKey, apiKeyExpired)"
+                throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }
         
         self.id = id
