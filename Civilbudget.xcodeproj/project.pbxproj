@@ -338,6 +338,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FFF6DA61BBE6B890042EC47 /* Build configuration list for PBXNativeTarget "Civilbudget" */;
 			buildPhases = (
+				0F614C721BC96F7D002482B1 /* Check Pods Manifest.lock */,
 				0FFF6D901BBE6B890042EC47 /* Sources */,
 				0FFF6D911BBE6B890042EC47 /* Frameworks */,
 				0FFF6D921BBE6B890042EC47 /* Resources */,
@@ -497,6 +498,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-frameworks.sh\"";
+			showEnvVarsInLog = 0;
 		};
 		0F0F98151BBFC17A00219A10 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -511,6 +513,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-resources.sh\"";
+			showEnvVarsInLog = 0;
+		};
+		0F614C721BC96F7D002482B1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi";
+			showEnvVarsInLog = 0;
 		};
 		0FFF75471BBE81570042EC47 /* Fabric Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -595,6 +613,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -684,7 +703,7 @@
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 			};
@@ -708,7 +727,7 @@
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.modnovolyk.Civilbudget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 			};

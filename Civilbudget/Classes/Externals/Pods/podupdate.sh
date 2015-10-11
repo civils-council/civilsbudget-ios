@@ -1,1 +1,1 @@
-pod update --no-integrate
+pod _0.39.0.beta.5_ update --no-integrate
