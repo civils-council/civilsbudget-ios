@@ -11,14 +11,11 @@ import Alamofire
 
 class BIDAuthViewController: UIViewController {
     
-    /**
-        You may change this static property to specify custom *nib* name without subclassing `BIDAuthViewController` class
-    */
+    /// You may change this static property to specify custom *nib* name without subclassing `BIDAuthViewController` class
     static var defaultAuthNibName: String? = "BIDAuthViewController"
     
-    /**
-        You may change this static property to specify custom *nib* bundle without subclassing `BIDAuthViewController` class
-    */
+
+    /// You may change this static property to specify custom *nib* bundle without subclassing `BIDAuthViewController` class
     static var defaultAuthNibBundle: NSBundle? = nil
     
     private var completionHandler: (BIDService.AuthorizationResult -> Void)?
@@ -44,16 +41,12 @@ class BIDAuthViewController: UIViewController {
     @IBOutlet weak var activityIndicatorContainer: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    /**
-        Subclasses may override this type method to change name of default *nib* name
-    */
+    /// Subclasses may override this type method to change name of default *nib* name
     class func authNibName() -> String? {
         return self.defaultAuthNibName
     }
     
-    /**
-        Subclasses may override this type method to load *nib* from another bundle
-    */
+    /// Subclasses may override this type method to load *nib* from another bundle
     class func authNibBundle() -> NSBundle? {
         return self.defaultAuthNibBundle
     }
@@ -125,6 +118,8 @@ class BIDAuthViewController: UIViewController {
     }
 }
 
+// MARK: - UIWebView delegated methods
+
 extension BIDAuthViewController: UIWebViewDelegate {
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         log.info(request.URL?.absoluteString)
@@ -189,6 +184,8 @@ extension BIDAuthViewController: UIWebViewDelegate {
     }
 }
 
+// MARK: - Temp BankID mobile layout fix
+
 /**
     Inject custom CSS into BankID index page to add adaptation for tight mobile screens.
     Remove this extension when native mobile version of page will be added.
@@ -213,9 +210,8 @@ extension BIDAuthViewController {
         webView.stringByEvaluatingJavaScriptFromString(js)
     }
     
-    /**
-        Check if injection should be performed into the page with specific `URL`
-    */
+    
+    /// Check if injection should be performed into the page with specific `URL`
     func shouldPatchPageWithURL(URL: NSURL?) -> Bool {
         if let URLString = URL?.absoluteString
             where URLString.containsString("privatbank") {

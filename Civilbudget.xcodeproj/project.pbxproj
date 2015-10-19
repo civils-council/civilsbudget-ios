@@ -15,7 +15,7 @@
 		0F8D18C81BD02C2300B69419 /* BIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BB1BD02C2300B69419 /* BIDService.swift */; settings = {ASSET_TAGS = (); }; };
 		0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CB1BD02C2300B69419 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BF1BD02C2300B69419 /* ProjectTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		0F8D18CC1BD02C2300B69419 /* BIDAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C11BD02C2300B69419 /* BIDAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -129,7 +129,7 @@
 		0F8D18BB1BD02C2300B69419 /* BIDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIDService.swift; sourceTree = "<group>"; };
 		0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
 		0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
-		0F8D18BF1BD02C2300B69419 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F8D18C11BD02C2300B69419 /* BIDAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIDAuthViewController.swift; sourceTree = "<group>"; };
 		0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */,
-				0F8D18BF1BD02C2300B69419 /* ProjectTableViewCell.swift */,
+				0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				0F8D18C11BD02C2300B69419 /* BIDAuthViewController.swift */,
-				0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */,
 				0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */,
+				0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -561,7 +561,7 @@
 			files = (
 				0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
-				0F8D18CB1BD02C2300B69419 /* ProjectTableViewCell.swift in Sources */,
+				0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */,
 				0F8D18C81BD02C2300B69419 /* BIDService.swift in Sources */,
 				0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */,
 				0F8D18CC1BD02C2300B69419 /* BIDAuthViewController.swift in Sources */,

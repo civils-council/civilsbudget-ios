@@ -13,22 +13,19 @@ import Alamofire
 class ProjectsViewController: UIViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
-        static let defaultEstimatedRowHeight = CGFloat(54.0)
-        static let  showDetailsSegueIdentifier = "showProjectDetailsIdentifier"
+        static let showDetailsSegueIdentifier = "showProjectDetailsIdentifier"
+        static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
     var selectedProject: Project!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = Constants.defaultEstimatedRowHeight
-        
-        Project.allProjects.lift().bindTo(tableView) { indexPath, dataSource, tableView in
-            let cell = tableView.dequeueReusableCellWithIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectTableViewCell
+        Project.allProjects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
             cell.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
@@ -43,9 +40,10 @@ class ProjectsViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
@@ -75,9 +73,22 @@ class ProjectsViewController: UIViewController {
     }
 }
 
-extension ProjectsViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+// MARK: - UICollectionView delegated methods
+
+extension ProjectsViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedProject = Project.allProjects[indexPath.row]
         performSegueWithIdentifier(Constants.showDetailsSegueIdentifier, sender: nil)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout delegated methods
+
+extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
+        let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
+        let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
+        return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
     }
 }
