@@ -76,7 +76,7 @@ public class BIDService {
                 return Alamofire.ParameterEncoding.URL.encode(request,
                     parameters: ["response_type": "code", "client_id": clientID, "redirect_uri": redirectURI]).0
             case .GetAccessToken(let code):
-                let calculatedClientSecret = "\(clientID)\(clientSecret)\(code)".sha1()!
+                let calculatedClientSecret = "\(clientID)\(clientSecret)\(code)".sha1()
                 return Alamofire.ParameterEncoding.URL.encode(request,
                     parameters: ["grant_type": "authorization_code",
                                  "client_id": clientID,
