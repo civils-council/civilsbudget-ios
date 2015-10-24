@@ -20,7 +20,7 @@ public class BIDService {
     public static var baseAuthURLString = "https://bankid.privatbank.ua/DataAccessService"
     public static var baseDataURLString = "https://bankid.privatbank.ua/ResourceService"
     
-    public static var clientID = ""
+    public static var clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
     public static var clientSecret = ""
     public static var redirectURI = "bankidua://returncode"
     
