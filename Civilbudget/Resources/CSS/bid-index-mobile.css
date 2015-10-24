@@ -130,6 +130,9 @@ html {
 .oshad:hover {
     border-color: #415e30;
 }
+.clerk {
+    display: none;
+}
 .abank {
     cursor: pointer;
     padding: 5px;
