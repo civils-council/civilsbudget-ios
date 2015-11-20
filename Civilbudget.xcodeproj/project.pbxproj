@@ -7,24 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F0F98121BBFBFEF00219A10 /* Pods_Civilbudget.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18C71BD02C2300B69419 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BA1BD02C2300B69419 /* BankIdAPI.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18C81BD02C2300B69419 /* BIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BB1BD02C2300B69419 /* BIDService.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CC1BD02C2300B69419 /* BIDAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C11BD02C2300B69419 /* BIDAuthViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		0FA496A41BC56E7C00E3B9E8 /* BIDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A31BC56E7C00E3B9E8 /* BIDAuthViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		0FA496A91BC7E6CF00E3B9E8 /* bid-index-mobile.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A81BC7E6CF00E3B9E8 /* bid-index-mobile.css */; settings = {ASSET_TAGS = (); }; };
-		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
-		0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707D1BBE78500042EC47 /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
-		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
+		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
+		0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */; };
+		0F8D18C71BD02C2300B69419 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BA1BD02C2300B69419 /* BankIdAPI.swift */; };
+		0F8D18C81BD02C2300B69419 /* BIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BB1BD02C2300B69419 /* BIDService.swift */; };
+		0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */; };
+		0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */; };
+		0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */; };
+		0F8D18CC1BD02C2300B69419 /* BIDAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C11BD02C2300B69419 /* BIDAuthViewController.swift */; };
+		0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */; };
+		0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */; };
+		0FA496A41BC56E7C00E3B9E8 /* BIDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A31BC56E7C00E3B9E8 /* BIDAuthViewController.xib */; };
+		0FA496A91BC7E6CF00E3B9E8 /* bid-index-mobile.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FA496A81BC7E6CF00E3B9E8 /* bid-index-mobile.css */; };
+		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
+		0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */; };
+		0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707D1BBE78500042EC47 /* Main.storyboard */; };
+		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +113,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F0F98121BBFBFEF00219A10 /* Pods_Civilbudget.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +548,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/Fabric/Fabric.framework/run 264b174ec054c5db597e9303201f05c26bf283cf 6bebb6150dcdc785982b70632821e58ae3ba56c9783d154009f94ca36c4939f0";
+			shellScript = "${PODS_ROOT}/Fabric/run 264b174ec054c5db597e9303201f05c26bf283cf 6bebb6150dcdc785982b70632821e58ae3ba56c9783d154009f94ca36c4939f0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
