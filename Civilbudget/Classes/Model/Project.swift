@@ -44,7 +44,7 @@ extension Project {
 
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
     struct Constants {
-        static let maxShortDescriptionLength = 100
+        static let maxShortDescriptionLength = 10
     }
     
     init(response: NSHTTPURLResponse, var representation: AnyObject) throws {
