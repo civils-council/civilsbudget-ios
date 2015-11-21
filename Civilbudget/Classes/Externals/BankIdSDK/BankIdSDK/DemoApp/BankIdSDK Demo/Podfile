@@ -1,0 +1,10 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target 'BankIdSDK Demo' do
+
+pod 'Alamofire', '~> 3.1'
+pod 'CryptoSwift', '~> 0.0'
+
+end
+

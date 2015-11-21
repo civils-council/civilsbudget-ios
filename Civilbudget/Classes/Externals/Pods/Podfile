@@ -18,5 +18,6 @@ pod 'Bond', '~> 4.0'
 pod 'SwiftyJSON', '~> 2.3'
 pod 'RealmSwift', '~> 0.95'
 pod 'CryptoSwift', '~> 0.0'
+pod 'BankIdSDK', :path => '../BankIdSDK/'
 
 end

@@ -9,6 +9,7 @@
 import UIKit
 import Bond
 import Alamofire
+import BankIdSDK
 
 class ProjectsViewController: UIViewController {
     struct Constants {
@@ -47,7 +48,7 @@ class ProjectsViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = BIDAuthViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
+        let authViewController = AuthorizationViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
             
             /*guard let authCode = result.value?.authCode else {
                 log.warning("Authorization through BankID failed")
@@ -66,9 +67,9 @@ class ProjectsViewController: UIViewController {
                 return
             }
             
-            BIDService.authorization = authorization
+            Service.authorization = authorization
             
-            Alamofire.request(BIDService.Router.RequestInformation(fields: BIDService.allInfoFields))
+            Alamofire.request(Service.Router.RequestInformation(fields: BankIdSDK.Constants.allInfoFields))
                 .responseString { response in
                     log.info(response.result.value)
                 }
