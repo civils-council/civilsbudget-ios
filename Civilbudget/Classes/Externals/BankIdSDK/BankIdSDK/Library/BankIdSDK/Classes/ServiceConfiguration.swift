@@ -11,11 +11,11 @@ extension Service {
     /**
         `Service.Configuration` used to configure all needed BankID parameters
     */
-    public class Configuration {
+    public struct Configuration {
         public var baseAuthURLString = "https://bankid.privatbank.ua/DataAccessService"
         public var baseDataURLString = "https://bankid.privatbank.ua/ResourceService"
         
-        public var clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
+        public var clientID = ""
         public var clientSecret = ""
         public var redirectURI = "bankidua://returncode"
     }

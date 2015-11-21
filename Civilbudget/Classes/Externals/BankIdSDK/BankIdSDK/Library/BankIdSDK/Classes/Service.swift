@@ -17,7 +17,7 @@ public typealias AuthorizationResult = Result<Authorization, NSError>
 public class Service {
     
     /// `Service.Configuration` object used to configure BankID's `client_id`, `client_secret` and URLs
-    public static let configuration = Configuration()
+    public static var configuration = Configuration()
     
     /// `Authorization` is an struct that contains current session data (`auth_code`, `access_token`, etc)
     public static var authorization: Authorization?

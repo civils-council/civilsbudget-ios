@@ -31,6 +31,8 @@ class ProjectsViewController: UIViewController {
             return cell
         }
         
+        Service.configuration.clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
+        
         Project.reloadAllProjects()
     }
     
@@ -48,7 +50,7 @@ class ProjectsViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = AuthorizationViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
+        let authViewController = AuthorizationViewController(getOnlyAuthCode: true, patchIndexPage: true) { result in
             
             /*guard let authCode = result.value?.authCode else {
                 log.warning("Authorization through BankID failed")
