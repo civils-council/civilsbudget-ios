@@ -4,11 +4,18 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Projects-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ProjectsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ProjectsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,8 +24,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="450-GG-3Ni">
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STT-4g-g0j">
+                                        <rect key="frame" x="8" y="16" width="42" height="15"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oat-qV-zSl">
+                                        <rect key="frame" x="53" y="6" width="122" height="32"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="www.golos.ck.ua">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azJ-dB-pwP">
+                                        <rect key="frame" x="560" y="0.0" width="34" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="Gy4-9J-vTJ"/>
+                                            <constraint firstAttribute="height" constant="44" id="vy2-vS-hka"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-2"/>
+                                        <state key="normal">
+                                            <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94q-gH-A5t">
+                                        <rect key="frame" x="526" y="0.0" width="34" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="9Hd-7y-oEB"/>
+                                            <constraint firstAttribute="width" constant="34" id="p8u-6l-9LX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="1" maxY="-2"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGP-R0-I1u">
+                                        <rect key="frame" x="492" y="0.0" width="34" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3jv-GK-7hI"/>
+                                            <constraint firstAttribute="width" constant="34" id="ukP-gV-Uid"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="1" maxY="-2"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="BGP-R0-I1u" firstAttribute="centerY" secondItem="94q-gH-A5t" secondAttribute="centerY" id="8fV-uo-M76"/>
+                                    <constraint firstItem="94q-gH-A5t" firstAttribute="centerY" secondItem="azJ-dB-pwP" secondAttribute="centerY" id="BhJ-NR-KCX"/>
+                                    <constraint firstItem="Oat-qV-zSl" firstAttribute="centerY" secondItem="450-GG-3Ni" secondAttribute="centerY" id="Bt9-7N-2Gm"/>
+                                    <constraint firstAttribute="height" constant="44" id="Fq6-a7-y9S"/>
+                                    <constraint firstItem="Oat-qV-zSl" firstAttribute="leading" secondItem="STT-4g-g0j" secondAttribute="trailing" constant="3" id="HKQ-nV-wFJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="azJ-dB-pwP" secondAttribute="trailing" constant="6" id="VGn-0j-NL2"/>
+                                    <constraint firstItem="azJ-dB-pwP" firstAttribute="centerY" secondItem="450-GG-3Ni" secondAttribute="centerY" id="WiY-Mq-30N"/>
+                                    <constraint firstItem="azJ-dB-pwP" firstAttribute="leading" secondItem="94q-gH-A5t" secondAttribute="trailing" id="atR-ul-BMQ"/>
+                                    <constraint firstItem="STT-4g-g0j" firstAttribute="leading" secondItem="450-GG-3Ni" secondAttribute="leading" constant="8" id="bWe-q6-UAx"/>
+                                    <constraint firstItem="STT-4g-g0j" firstAttribute="centerY" secondItem="450-GG-3Ni" secondAttribute="centerY" constant="1" id="fKV-UV-7JF"/>
+                                    <constraint firstItem="94q-gH-A5t" firstAttribute="leading" secondItem="BGP-R0-I1u" secondAttribute="trailing" id="zeI-Lg-HOm"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-7F-qdf">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="512"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="pNO-uO-LNf">
@@ -98,10 +179,13 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zbw-7F-qdf" secondAttribute="bottom" id="Hiv-L5-vRa"/>
-                            <constraint firstAttribute="trailing" secondItem="zbw-7F-qdf" secondAttribute="trailing" id="LFt-bK-8NO"/>
-                            <constraint firstItem="zbw-7F-qdf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gej-Sj-htl"/>
-                            <constraint firstItem="zbw-7F-qdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nLL-m1-bIA"/>
+                            <constraint firstItem="450-GG-3Ni" firstAttribute="top" secondItem="zbw-7F-qdf" secondAttribute="bottom" id="73M-Kg-qbA"/>
+                            <constraint firstAttribute="trailing" secondItem="450-GG-3Ni" secondAttribute="trailing" id="RDH-dq-KAk"/>
+                            <constraint firstItem="zbw-7F-qdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UHQ-n0-Evb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="450-GG-3Ni" secondAttribute="bottom" id="bXf-ez-shq"/>
+                            <constraint firstItem="zbw-7F-qdf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" placeholder="YES" id="hWt-AT-4ib"/>
+                            <constraint firstAttribute="trailing" secondItem="zbw-7F-qdf" secondAttribute="trailing" id="yAH-Qp-Lv7"/>
+                            <constraint firstItem="450-GG-3Ni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zzS-0Q-Klc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Projects" id="wJ9-e7-SD2">
@@ -112,8 +196,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="bottomBarView" destination="450-GG-3Ni" id="gob-bL-o6I"/>
                         <outlet property="collectionView" destination="zbw-7F-qdf" id="ui3-R0-zF3"/>
+                        <outlet property="fbShareButton" destination="BGP-R0-I1u" id="3Gn-Gv-eRy"/>
+                        <outlet property="okShareButton" destination="azJ-dB-pwP" id="bOQ-zt-dje"/>
+                        <outlet property="vkShareButton" destination="94q-gH-A5t" id="oG4-jC-l2L"/>
+                        <outlet property="yearLabel" destination="STT-4g-g0j" id="UV6-3l-RbA"/>
                         <segue destination="PeF-nS-mhY" kind="show" identifier="showProjectDetailsIdentifier" id="BwJ-Vg-l9i"/>
                     </connections>
                 </viewController>
@@ -124,7 +214,7 @@
         <!--Title-->
         <scene sceneID="ASt-0B-YGf">
             <objects>
-                <viewController storyboardIdentifier="detailsViewController" automaticallyAdjustsScrollViewInsets="NO" id="PeF-nS-mhY" customClass="ProjectDetailsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailsViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="PeF-nS-mhY" customClass="ProjectDetailsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cAy-gk-cGN"/>
                         <viewControllerLayoutGuide type="bottom" id="KCe-Am-jdb"/>
@@ -134,7 +224,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQu-qM-lJv">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7x-O9-QQK">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -207,14 +297,20 @@
         <!--Navigation Controller-->
         <scene sceneID="KCy-eu-tFH">
             <objects>
-                <navigationController id="mLu-vw-yEj" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" navigationBarHidden="YES" toolbarHidden="NO" id="mLu-vw-yEj" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G3i-50-6WM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Dy8-NJ-W4f">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Vyx-Nv-okp"/>
                     </connections>

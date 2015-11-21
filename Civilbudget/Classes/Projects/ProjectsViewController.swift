@@ -19,11 +19,36 @@ class ProjectsViewController: UIViewController {
     }
     
     let projectsViewModel = ProjectsViewModel()
+    var paddingTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var bottomBarView: UIView!
+    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var fbShareButton: UIButton!
+    @IBOutlet weak var vkShareButton: UIButton!
+    @IBOutlet weak var okShareButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configure UI
+        bottomBarView.backgroundColor = CivilbudgetStyleKit.bottomBarBlue
+        yearLabel.textColor = CivilbudgetStyleKit.bottomCopyrightGrey
+        fbShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        fbShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        fbShareButton.setTitle("\u{f09a}", forState: .Normal)
+        vkShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        vkShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        vkShareButton.setTitle("\u{f189}", forState: .Normal)
+        okShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        okShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        okShareButton.setTitle("\u{f263}", forState: .Normal)
+        
+        
+        // Top padding constraint
+        paddingTopConstraint = NSLayoutConstraint(item: collectionView, attribute: .Top, relatedBy: .Equal,
+            toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0)
+        view.addConstraint(paddingTopConstraint)
         
         // Bind View Model to UI
         projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
@@ -32,7 +57,7 @@ class ProjectsViewController: UIViewController {
             return cell
         }
         
-        // Actions
+        // Bind Actions
         projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController

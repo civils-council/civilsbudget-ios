@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
 		0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */; };
@@ -31,6 +32,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
 			remoteInfo = AlamofireImage;
+		};
+		0F52E8031C01247C00C76F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A4B387EBFE812387DD88C6341ABD937;
+			remoteInfo = Realm;
+		};
+		0F52E8051C01247C00C76F62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 42A2B86F00490AEDE5A0B65502B8790B;
+			remoteInfo = RealmSwift;
 		};
 		0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -92,7 +107,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2A940FAC40ACB0C74D01F81B0FE16AF;
+			remoteGlobalIDString = 00C7E60F3B2476B9A27F46369178B6F3;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -111,6 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +160,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F52E7F81C01247C00C76F62 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0F52E8071C0124ED00C76F62 /* FontAwesome.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		0F8D18B41BD02C2300B69419 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				0FFF70801BBE78500042EC47 /* Assets */,
+				0F52E7F81C01247C00C76F62 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -300,6 +325,8 @@
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
+				0F52E8041C01247C00C76F62 /* Realm.framework */,
+				0F52E8061C01247C00C76F62 /* RealmSwift.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
@@ -388,6 +415,20 @@
 			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0F52E8041C01247C00C76F62 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 0F52E8031C01247C00C76F62 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F52E8061C01247C00C76F62 /* RealmSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmSwift.framework;
+			remoteRef = 0F52E8051C01247C00C76F62 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -453,6 +494,7 @@
 			files = (
 				0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */,
 				0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */,
+				0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */,
 				0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
