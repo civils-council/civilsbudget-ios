@@ -78,20 +78,6 @@
 			remoteGlobalIDString = E53F4AFD51078FD02FBD1F8410706E6E;
 			remoteInfo = "Pods-Civilbudget";
 		};
-		0FFF753A1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07FF7C3F94084535BC30E5959CEC014B;
-			remoteInfo = Realm;
-		};
-		0FFF753C1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7CD8B0BEE8B7B180ACEE8FEA9856A6B8;
-			remoteInfo = RealmSwift;
-		};
 		0FFF753E1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -103,7 +89,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 00C7E60F3B2476B9A27F46369178B6F3;
+			remoteGlobalIDString = D2A940FAC40ACB0C74D01F81B0FE16AF;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -297,8 +283,6 @@
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
-				0FFF753B1BBE78D00042EC47 /* Realm.framework */,
-				0FFF753D1BBE78D00042EC47 /* RealmSwift.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
@@ -434,20 +418,6 @@
 			fileType = wrapper.framework;
 			path = Pods_Civilbudget.framework;
 			remoteRef = 0FFF75381BBE78D00042EC47 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FFF753B1BBE78D00042EC47 /* Realm.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Realm.framework;
-			remoteRef = 0FFF753A1BBE78D00042EC47 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FFF753D1BBE78D00042EC47 /* RealmSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RealmSwift.framework;
-			remoteRef = 0FFF753C1BBE78D00042EC47 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */ = {
@@ -683,10 +653,7 @@
 				);
 				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -707,10 +674,7 @@
 				);
 				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Realm/core",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
