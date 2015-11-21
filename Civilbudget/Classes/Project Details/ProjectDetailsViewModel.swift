@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class ProjectDetailsViewModel: NSObject {
+    var project: Project!
+    
+    init(project: Project) {
+        super.init()
+        
+        self.project = project
+    }
+}

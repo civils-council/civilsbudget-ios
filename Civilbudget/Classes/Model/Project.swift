@@ -21,27 +21,6 @@ struct Project {
     let owner: String?
 }
 
-extension Project {
-    typealias ProjectResponse = Response<[Project], NSError>
-    
-    static let allProjects: ObservableArray<Project> = {
-        return ObservableArray([])
-        }()
-    
-    static func reloadAllProjects(completionHandler: (ProjectResponse -> Void)? = nil) {
-        Alamofire.request(CivilbudgetAPI.Router.GetProjects)
-            .responseCollection { (response: ProjectResponse) in
-                switch response.result {
-                case .Success(let projects):
-                    allProjects.array = projects
-                case .Failure(let error):
-                    log.error(error.localizedDescription)
-                }
-                completionHandler?(response)
-        }
-    }
-}
-
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
     struct Constants {
         static let maxShortDescriptionLength = 10

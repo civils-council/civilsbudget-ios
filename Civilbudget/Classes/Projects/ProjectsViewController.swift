@@ -18,27 +18,26 @@ class ProjectsViewController: UIViewController {
         static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
-    var selectedProject: Project!
+    let projectsViewModel = ProjectsViewModel()
     
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Project.allProjects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
+        projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
-            cell.project = dataSource[indexPath.section][indexPath.row]
+            cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
         Service.configuration.clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
-        
-        Project.reloadAllProjects()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
-        if let detailsViewController = destinationViewController as? ProjectDetailsViewController {
+        if let detailsViewController = destinationViewController as? ProjectDetailsViewController,
+            selectedProject = projectsViewModel.selectedProject.value?.project {
             detailsViewController.project = selectedProject
         }
     }
@@ -85,7 +84,6 @@ class ProjectsViewController: UIViewController {
 
 extension ProjectsViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedProject = Project.allProjects[indexPath.row]
         performSegueWithIdentifier(Constants.showDetailsSegueIdentifier, sender: nil)
     }
 }

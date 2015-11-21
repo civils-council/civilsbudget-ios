@@ -20,6 +20,8 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var detailsViewModel: ProjectDetailsViewModel!
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
