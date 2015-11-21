@@ -32,12 +32,8 @@ class ProjectsViewModel: NSObject {
                 }
         }
     }
-}
-
-// MARK: - UICollectionView delegated methods
-
-extension ProjectsViewModel: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    
+    func selectProjectWithIndexPath(indexPath: NSIndexPath) {
         let project = projects.array[indexPath.row]
         selectedProjectDetailsViewModel.value = ProjectDetailsViewModel(project: project)
     }
