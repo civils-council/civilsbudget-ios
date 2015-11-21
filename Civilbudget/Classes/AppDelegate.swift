@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import XCGLogger
+import BankIdSDK
 #if DEBUG
     import FLEX
 #endif
@@ -23,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Fabric.with([Crashlytics.self()])
+        
+        // Configure BankIdSDK
+        Service.configuration.clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
         
         #if DEBUG
             FLEXManager.sharedManager().showExplorer()

@@ -11,7 +11,7 @@ import Alamofire
 
 class ProjectsViewModel: NSObject {
     let projects = ObservableArray<Project>([])
-    let selectedProject = Observable<ProjectDetailsViewModel?>(nil)
+    let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
     let loadingError = Observable<NSError?>(nil)
     
     override init() {
@@ -38,6 +38,7 @@ class ProjectsViewModel: NSObject {
 
 extension ProjectsViewModel: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let project = projects.array[indexPath.row]
+        selectedProjectDetailsViewModel.value = ProjectDetailsViewModel(project: project)
     }
 }

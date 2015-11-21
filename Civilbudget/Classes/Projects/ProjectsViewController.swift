@@ -14,7 +14,7 @@ import BankIdSDK
 class ProjectsViewController: UIViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
-        static let showDetailsSegueIdentifier = "showProjectDetailsIdentifier"
+        static let productDetailsViewControllerIdentifier = "detailsViewController"
         static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
@@ -25,20 +25,21 @@ class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView.delegate = projectsViewModel
+        
+        // Bind View Model to UI
         projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
             cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
-        Service.configuration.clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController
-        if let detailsViewController = destinationViewController as? ProjectDetailsViewController,
-            selectedProjectViewModel = projectsViewModel.selectedProject.value {
-            detailsViewController.detailsViewModel = selectedProjectViewModel
+        // Actions
+        projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
+            detailsViewController.detailsViewModel = detailsViewModel
+            self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }
     
