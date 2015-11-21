@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
-		0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */; };
-		0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */; };
-		0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */; };
-		0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */; };
-		0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */; };
-		0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */; };
+		0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */; };
+		0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */; };
+		0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */; };
+		0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */; };
+		0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F31C0080E400FEA009 /* CivilbudgetAPI.swift */; };
+		0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */; };
+		0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */; };
+		0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
 		0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */; };
 		0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707D1BBE78500042EC47 /* Main.storyboard */; };
@@ -110,12 +112,14 @@
 /* Begin PBXFileReference section */
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
-		0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
-		0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
-		0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
-		0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
-		0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
+		0FB3A2F31C0080E400FEA009 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
+		0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
+		0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
+		0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF707C1BBE78500042EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,38 +151,47 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0F8D18B71BD02C2300B69419 /* Serialization */ = {
+		0FB3A2EB1C0080E400FEA009 /* Project Details */ = {
 			isa = PBXGroup;
 			children = (
-				0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */,
+				0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */,
+				0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */,
+			);
+			path = "Project Details";
+			sourceTree = "<group>";
+		};
+		0FB3A2ED1C0080E400FEA009 /* Projects */ = {
+			isa = PBXGroup;
+			children = (
+				0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */,
+				0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */,
+				0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */,
+			);
+			path = Projects;
+			sourceTree = "<group>";
+		};
+		0FB3A2F01C0080E400FEA009 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
 		};
-		0F8D18B91BD02C2300B69419 /* Service */ = {
+		0FB3A2F21C0080E400FEA009 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */,
+				0FB3A2F31C0080E400FEA009 /* CivilbudgetAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
 		};
-		0F8D18BD1BD02C2300B69419 /* View */ = {
+		0FB3A2F41C0080E400FEA009 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */,
-				0F8D18BF1BD02C2300B69419 /* ProjectCollectionViewCell.swift */,
+				0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0F8D18C01BD02C2300B69419 /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				0F8D18C31BD02C2300B69419 /* ProjectsViewController.swift */,
-				0F8D18C21BD02C2300B69419 /* ProjectDetailsViewController.swift */,
-			);
-			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		0FFF6D8B1BBE6B890042EC47 = {
@@ -213,10 +226,11 @@
 			children = (
 				0FFF6DAD1BBE784F0042EC47 /* Externals */,
 				0F8D18B41BD02C2300B69419 /* Model */,
-				0F8D18B71BD02C2300B69419 /* Serialization */,
-				0F8D18B91BD02C2300B69419 /* Service */,
-				0F8D18BD1BD02C2300B69419 /* View */,
-				0F8D18C01BD02C2300B69419 /* View Controller */,
+				0FB3A2F21C0080E400FEA009 /* Service */,
+				0FB3A2F01C0080E400FEA009 /* Serialization */,
+				0FB3A2F41C0080E400FEA009 /* View */,
+				0FB3A2ED1C0080E400FEA009 /* Projects */,
+				0FB3A2EB1C0080E400FEA009 /* Project Details */,
 				0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */,
 			);
 			path = Classes;
@@ -509,15 +523,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F8D18CE1BD02C2300B69419 /* ProjectsViewController.swift in Sources */,
+				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
+				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
+				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
-				0F8D18CB1BD02C2300B69419 /* ProjectCollectionViewCell.swift in Sources */,
-				0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */,
+				0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */,
+				0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */,
+				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
+				0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */,
+				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
-				0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */,
-				0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,
-				0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
