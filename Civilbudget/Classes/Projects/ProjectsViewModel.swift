@@ -33,3 +33,11 @@ class ProjectsViewModel: NSObject {
         }
     }
 }
+
+// MARK: - UICollectionView delegated methods
+
+extension ProjectsViewModel: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+}

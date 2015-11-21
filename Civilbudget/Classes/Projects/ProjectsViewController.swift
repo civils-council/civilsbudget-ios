@@ -37,8 +37,8 @@ class ProjectsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
         if let detailsViewController = destinationViewController as? ProjectDetailsViewController,
-            selectedProject = projectsViewModel.selectedProject.value?.project {
-            detailsViewController.project = selectedProject
+            selectedProjectViewModel = projectsViewModel.selectedProject.value {
+            detailsViewController.detailsViewModel = selectedProjectViewModel
         }
     }
     
@@ -77,14 +77,6 @@ class ProjectsViewController: UIViewController {
         }
         let navigationController = UINavigationController(rootViewController: authViewController)
         presentViewController(navigationController, animated: true, completion: nil)
-    }
-}
-
-// MARK: - UICollectionView delegated methods
-
-extension ProjectsViewController: UICollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier(Constants.showDetailsSegueIdentifier, sender: nil)
     }
 }
 
