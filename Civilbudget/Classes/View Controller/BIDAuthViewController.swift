@@ -227,3 +227,20 @@ extension BIDAuthViewController {
         return false
     }
 }
+
+
+extension NSURL {
+    var queries: [String: String] {
+        guard let components = NSURLComponents(URL: self, resolvingAgainstBaseURL: false),
+            let queryItems = components.queryItems else {
+                return [:]
+        }
+        
+        var queries: [String: String] = [:]
+        for item in queryItems {
+            queries[item.name] = item.value
+        }
+        
+        return queries
+    }
+}

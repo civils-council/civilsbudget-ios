@@ -10,7 +10,6 @@
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
 		0F8D18C61BD02C2300B69419 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */; };
-		0F8D18C71BD02C2300B69419 /* BankIdAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BA1BD02C2300B69419 /* BankIdAPI.swift */; };
 		0F8D18C81BD02C2300B69419 /* BIDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BB1BD02C2300B69419 /* BIDService.swift */; };
 		0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */; };
 		0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */; };
@@ -123,7 +122,6 @@
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0F8D18B81BD02C2300B69419 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
-		0F8D18BA1BD02C2300B69419 /* BankIdAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdAPI.swift; sourceTree = "<group>"; };
 		0F8D18BB1BD02C2300B69419 /* BIDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIDService.swift; sourceTree = "<group>"; };
 		0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
 		0F8D18BE1BD02C2300B69419 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		0F8D18B91BD02C2300B69419 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0F8D18BA1BD02C2300B69419 /* BankIdAPI.swift */,
 				0F8D18BB1BD02C2300B69419 /* BIDService.swift */,
 				0F8D18BC1BD02C2300B69419 /* CivilbudgetAPI.swift */,
 			);
@@ -565,7 +562,6 @@
 				0F8D18CC1BD02C2300B69419 /* BIDAuthViewController.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
 				0F8D18CD1BD02C2300B69419 /* ProjectDetailsViewController.swift in Sources */,
-				0F8D18C71BD02C2300B69419 /* BankIdAPI.swift in Sources */,
 				0F8D18C91BD02C2300B69419 /* CivilbudgetAPI.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,
 				0F8D18CA1BD02C2300B69419 /* CivilbudgetStyleKit.swift in Sources */,

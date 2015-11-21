@@ -47,19 +47,31 @@ class ProjectsViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = BIDAuthViewController(getOnlyAuthCode: true, patchIndexPage: true) { result in
-            guard let authCode = result.value?.authCode else {
+        let authViewController = BIDAuthViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
+            
+            /*guard let authCode = result.value?.authCode else {
                 log.warning("Authorization through BankID failed")
                 log.warning("\(result.error!.debugDescription)")
                 return
+            }*/
+            
+            // log.info("Authorized with code \(authCode)")
+            
+            /*Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
+                .responseString { response in
+                log.info(response.result.value)
+            }*/
+            
+            guard let authorization = result.value else {
+                return
             }
             
-            log.info("Authorized with code \(authCode)")
+            BIDService.authorization = authorization
             
-            Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
-                .responseObject { (response: Response<User, NSError>) in
-                log.info(response.debugDescription)
-            }
+            Alamofire.request(BIDService.Router.RequestInformation(fields: BIDService.allInfoFields))
+                .responseString { response in
+                    log.info(response.result.value)
+                }
         }
         let navigationController = UINavigationController(rootViewController: authViewController)
         presentViewController(navigationController, animated: true, completion: nil)
