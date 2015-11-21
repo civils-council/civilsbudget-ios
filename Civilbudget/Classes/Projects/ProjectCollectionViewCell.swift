@@ -16,7 +16,11 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = project.title.capitalizedString
             descriptionLabel.text = project.shortDescription
-            headerImage.af_setImageWithURL(NSURL(string: "http://lorempixel.com/300/100/sports/\(project.id)/")!)
+            if let picURL = project.picture.value {
+                headerImage.af_setImageWithURL(NSURL(string: picURL)!)
+            } else {
+                headerImage.image = nil
+            }
         }
     }
     
