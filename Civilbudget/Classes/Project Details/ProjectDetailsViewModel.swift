@@ -13,6 +13,7 @@ class ProjectDetailsViewModel: NSObject {
     let projectTitle = Observable<String>("")
     let projectDescription = Observable<String>("")
     let projectPicture = Observable<String?>("")
+    let projectOwner = Observable<String?>("")
     
     var project: Project! {
         didSet {
@@ -30,6 +31,7 @@ class ProjectDetailsViewModel: NSObject {
     func updateFields() {
         projectTitle.value = project.title
         projectDescription.value = project.description
+        projectOwner.value = project.owner
         if let picURL = project.picture {
             projectPicture.value = picURL
         }
