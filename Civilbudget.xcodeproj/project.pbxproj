@@ -17,6 +17,7 @@
 		0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */; };
 		0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */; };
 		0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */; };
+		0FB3A3021C00B8EE00FEA009 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A3011C00B8EE00FEA009 /* GlobalConstants.swift */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
 		0FFF714F1BBE78500042EC47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707B1BBE78500042EC47 /* LaunchScreen.storyboard */; };
 		0FFF71501BBE78500042EC47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF707D1BBE78500042EC47 /* Main.storyboard */; };
@@ -120,6 +121,7 @@
 		0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
 		0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
+		0FB3A3011C00B8EE00FEA009 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF707C1BBE78500042EC47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				0FB3A2F41C0080E400FEA009 /* View */,
 				0FB3A2ED1C0080E400FEA009 /* Projects */,
 				0FB3A2EB1C0080E400FEA009 /* Project Details */,
+				0FB3A3011C00B8EE00FEA009 /* GlobalConstants.swift */,
 				0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */,
 			);
 			path = Classes;
@@ -533,6 +536,7 @@
 				0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
+				0FB3A3021C00B8EE00FEA009 /* GlobalConstants.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

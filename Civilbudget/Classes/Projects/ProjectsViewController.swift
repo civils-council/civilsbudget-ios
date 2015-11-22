@@ -25,8 +25,6 @@ class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = projectsViewModel
-        
         // Bind View Model to UI
         projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
@@ -36,7 +34,7 @@ class ProjectsViewController: UIViewController {
         
         // Actions
         projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
             detailsViewController.detailsViewModel = detailsViewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
@@ -89,5 +87,9 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
         let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
         let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
         return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        projectsViewModel.selectProjectWithIndexPath(indexPath)
     }
 }
