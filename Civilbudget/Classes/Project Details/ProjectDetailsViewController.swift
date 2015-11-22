@@ -19,10 +19,9 @@ class ProjectDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*topImageView.af_setImageWithURL(NSURL(string: "http://lorempixel.com/400/200/sports/\(project.id)/")!)
-        title = project.title
-        titleLabel.text = project.title
-        descriptionLabel.text = project.description
-        */
+        detailsViewModel.projectTitle.bindTo(titleLabel.bnd_text)
+        detailsViewModel.projectDescription.bindTo(descriptionLabel.bnd_text)
+        detailsViewModel.projectPicture.observe{  pic in
+            self.topImageView.af_setImageWithURL(NSURL(string: pic!)!)}
     }
 }
