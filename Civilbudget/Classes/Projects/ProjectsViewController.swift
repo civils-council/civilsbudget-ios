@@ -17,7 +17,6 @@ class ProjectsViewController: BaseScrollViewController {
         static let headerCellIdentifier = "headerCell"
         static let productDetailsViewControllerIdentifier = "detailsViewController"
         static let collectionViewVerticalInset = CGFloat(10.0)
-        static let headerHeight = CGFloat(240.0)
     }
     
     let projectsViewModel = ProjectsViewModel()
@@ -30,7 +29,7 @@ class ProjectsViewController: BaseScrollViewController {
         
         // Configure collection view layout
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, Constants.headerHeight);
+            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, GlobalConstants.exposedHeaderViewHeight);
         }
         
         // Bind View Model to UI
@@ -84,21 +83,5 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
 extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         projectsViewModel.selectProjectWithIndexPath(indexPath)
-    }
-}
-
-// MARK: - UIScrollViewDelegate methods to limit bounce of scroll view
-
-extension ProjectsViewController {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        guard let collectionView = scrollView as? UICollectionView,
-            collectionViewLayout = collectionView.collectionViewLayout as? StretchyHeaderCollectionViewLayout
-            else {
-                return
-        }
-        
-        if scrollView.contentOffset.y < -collectionViewLayout.headerBounceThreshold {
-            scrollView.contentOffset = CGPointMake(0, -collectionViewLayout.headerBounceThreshold);
-        }
     }
 }

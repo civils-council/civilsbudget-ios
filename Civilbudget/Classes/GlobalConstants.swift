@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import CoreGraphics
 
 struct GlobalConstants {
     static let mainBundleName = "Main"
+    static let topBarBackgroundOpacity = CGFloat(0.85)
+    static let exposedHeaderViewHeight = CGFloat(240.0)
 }
