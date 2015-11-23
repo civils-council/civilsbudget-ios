@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class ProjectDetailsViewController: UIViewController {
+class ProjectDetailsViewController: BaseScrollViewController {
     var detailsViewModel: ProjectDetailsViewModel!
     
     @IBOutlet weak var topImageView: UIImageView!
