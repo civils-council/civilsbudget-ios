@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Projects-->
@@ -27,19 +28,19 @@
                                     </constraint>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-7F-qdf">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-7F-qdf">
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="pNO-uO-LNf">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="10" id="pNO-uO-LNf" customClass="StretchyHeaderCollectionViewLayout" customModule="Civilbudget" customModuleProvider="target">
                                     <size key="itemSize" width="300" height="200"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="230"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="projectCell" id="Xuc-fy-Wb3" customClass="ProjectCollectionViewCell" customModule="Civilbudget" customModuleProvider="target">
-                                        <rect key="frame" x="150" y="0.0" width="300" height="200"/>
+                                        <rect key="frame" x="150" y="230" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -99,6 +100,74 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="ciV-2k-vlf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bu4-HQ-c5K" customClass="FullScreenWidthImageView" customModule="Civilbudget" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="-47" width="600" height="324"/>
+                                            <animations/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderGradient" translatesAutoresizingMaskIntoConstraints="NO" id="7y3-ma-PfN">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
+                                            <animations/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aux-MJ-ea4" customClass="GradientHeaderView" customModule="Civilbudget" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="dzR-XG-OaQ"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                                    <color key="value" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="bottomYPoint">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gT4-jI-JAA">
+                                            <rect key="frame" x="247" y="0.0" width="107" height="141"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="107" id="khX-kU-R8u"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-Av-vDf">
+                                            <rect key="frame" x="177" y="151" width="247" height="56"/>
+                                            <animations/>
+                                            <string key="text">Громадський бюджетв місті Черкаси 2015</string>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="7y3-ma-PfN" firstAttribute="trailing" secondItem="ciV-2k-vlf" secondAttribute="trailing" id="EVQ-Im-Ygd"/>
+                                        <constraint firstAttribute="bottom" secondItem="7y3-ma-PfN" secondAttribute="bottom" id="FY9-XO-3fi"/>
+                                        <constraint firstItem="gT4-jI-JAA" firstAttribute="centerX" secondItem="ciV-2k-vlf" secondAttribute="centerX" id="GgR-79-Z4O"/>
+                                        <constraint firstAttribute="trailing" secondItem="aux-MJ-ea4" secondAttribute="trailing" id="H9v-Md-CVq"/>
+                                        <constraint firstItem="RNa-Av-vDf" firstAttribute="centerX" secondItem="ciV-2k-vlf" secondAttribute="centerX" id="QLx-SA-Qs6"/>
+                                        <constraint firstItem="7y3-ma-PfN" firstAttribute="leading" secondItem="ciV-2k-vlf" secondAttribute="leading" id="SCf-X3-cTW"/>
+                                        <constraint firstItem="aux-MJ-ea4" firstAttribute="leading" secondItem="ciV-2k-vlf" secondAttribute="leading" id="Y67-Uf-4Cf"/>
+                                        <constraint firstAttribute="bottom" secondItem="Bu4-HQ-c5K" secondAttribute="bottom" constant="-47" id="dYW-BZ-HJ5"/>
+                                        <constraint firstAttribute="bottom" secondItem="RNa-Av-vDf" secondAttribute="bottom" constant="23" id="fp6-Nx-Y47"/>
+                                        <constraint firstItem="gT4-jI-JAA" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="frP-SF-5VO"/>
+                                        <constraint firstItem="Bu4-HQ-c5K" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" constant="-47" id="icJ-K9-U4u"/>
+                                        <constraint firstAttribute="trailing" secondItem="Bu4-HQ-c5K" secondAttribute="trailing" id="lFF-02-vNz"/>
+                                        <constraint firstItem="gT4-jI-JAA" firstAttribute="height" secondItem="ciV-2k-vlf" secondAttribute="height" multiplier="0.615" id="ljW-Op-ghr"/>
+                                        <constraint firstItem="7y3-ma-PfN" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="nPF-8p-hpQ"/>
+                                        <constraint firstItem="aux-MJ-ea4" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="rMT-Xx-ZFJ"/>
+                                        <constraint firstItem="Bu4-HQ-c5K" firstAttribute="leading" secondItem="ciV-2k-vlf" secondAttribute="leading" id="riS-Ko-JPm"/>
+                                    </constraints>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="RL6-Z2-Rnd"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HNO-HS-AXJ"/>
@@ -117,14 +186,7 @@
                             <constraint firstItem="450-GG-3Ni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zzS-0Q-Klc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Projects" id="wJ9-e7-SD2">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="zRp-07-K2W"/>
-                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="KSc-xS-d1M">
-                            <connections>
-                                <action selector="signInButtonTapped:" destination="BYZ-38-t0r" id="eup-a7-vP1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Projects" id="wJ9-e7-SD2"/>
                     <connections>
                         <outlet property="bottomToolbarPlaceholderView" destination="450-GG-3Ni" id="Tii-iz-0cf"/>
                         <outlet property="collectionView" destination="zbw-7F-qdf" id="ui3-R0-zF3"/>
@@ -244,4 +306,9 @@
             <point key="canvasLocation" x="-99" y="-472"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ProjectsHeaderBackground" width="533" height="300"/>
+        <image name="ProjectsHeaderGradient" width="375" height="254"/>
+        <image name="ProjectsHeaderLogo" width="107" height="107"/>
+    </resources>
 </document>
