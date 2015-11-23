@@ -33,6 +33,10 @@ class ProjectsViewModel: NSObject {
         }
     }
     
+    func projectForIndexPath(indexPath: NSIndexPath) -> Project {
+        return projects.array[indexPath.row]
+    }
+    
     func selectProjectWithIndexPath(indexPath: NSIndexPath) {
         let project = projects.array[indexPath.row]
         selectedProjectDetailsViewModel.value = ProjectDetailsViewModel(project: project)

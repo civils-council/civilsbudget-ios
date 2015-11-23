@@ -16,7 +16,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = project.title.capitalizedString
             descriptionLabel.text = project.shortDescription
-            headerImage.af_setImageWithURL(NSURL(string: "http://lorempixel.com/300/100/sports/\(project.id)/")!)
+            headerImage.af_setImageWithURL(NSURL(string: project.picture!)!)
         }
     }
     
@@ -30,6 +30,5 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundImage.image = CivilbudgetStyleKit.imageOfProjectCellBackground()
     }
 }

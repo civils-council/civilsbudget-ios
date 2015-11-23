@@ -43,7 +43,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.id = id
         self.title = title
         self.description = description
-        self.shortDescription = description.substringToIndex(description.startIndex.advancedBy(Constants.maxShortDescriptionLength))
+        self.shortDescription = description
         
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String

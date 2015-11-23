@@ -11,7 +11,7 @@ import Bond
 import Alamofire
 import BankIdSDK
 
-class ProjectsViewController: BaseScrollViewController {
+class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
         static let headerCellIdentifier = "headerCell"
@@ -20,17 +20,13 @@ class ProjectsViewController: BaseScrollViewController {
     }
     
     let projectsViewModel = ProjectsViewModel()
-    var headerCell: UICollectionReusableView?
+    var sizingCell: ProjectCollectionViewCell?
     
-    @IBOutlet weak var collectionView: UICollectionView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure collection view layout
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, GlobalConstants.exposedHeaderViewHeight);
-        }
+        // Register Projects Cell class
+        collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
         
         // Bind View Model to UI
         projectsViewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
@@ -70,11 +66,34 @@ extension ProjectsViewController: BNDCollectionViewProxyDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
 extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    /*func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
         let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
         let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
         return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
+    }*/
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let targetWidth: CGFloat = self.collectionView.bounds.width
+
+        if sizingCell == nil {
+            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil)[0] as? ProjectCollectionViewCell
+        }
+        
+        guard let sizingCell = sizingCell else {
+            return CGSize()
+        }
+        
+        sizingCell.project = projectsViewModel.projectForIndexPath(indexPath)
+        sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
+        sizingCell.contentView.bounds = sizingCell.bounds
+        
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        
+        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        size.width = targetWidth
+        return size
     }
 }
 
