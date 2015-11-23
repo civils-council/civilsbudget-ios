@@ -11,28 +11,36 @@ import Bond
 import Alamofire
 import BankIdSDK
 
-class ProjectsViewController: UIViewController {
+class ProjectsViewController: BaseScrollViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
+        static let headerCellIdentifier = "headerCell"
         static let productDetailsViewControllerIdentifier = "detailsViewController"
         static let collectionViewVerticalInset = CGFloat(10.0)
+        static let headerHeight = CGFloat(240.0)
     }
     
     let projectsViewModel = ProjectsViewModel()
+    var headerCell: UICollectionReusableView?
     
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configure collection view layout
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, Constants.headerHeight);
+        }
+        
         // Bind View Model to UI
-        projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
+        projectsViewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
             cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
-        // Actions
+        // Bind Actions
         projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
@@ -46,40 +54,21 @@ class ProjectsViewController: UIViewController {
         
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
-    
-    @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = AuthorizationViewController(getOnlyAuthCode: true, patchIndexPage: true) { result in
-            
-            /*guard let authCode = result.value?.authCode else {
-                log.warning("Authorization through BankID failed")
-                log.warning("\(result.error!.debugDescription)")
-                return
-            }*/
-            
-            // log.info("Authorized with code \(authCode)")
-            
-            /*Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
-                .responseString { response in
-                log.info(response.result.value)
-            }*/
-            
-            guard let authorization = result.value else {
-                return
-            }
-            
-            Service.authorization = authorization
-            
-            Alamofire.request(Service.Router.RequestInformation(fields: BankIdSDK.Constants.allInfoFields))
-                .responseString { response in
-                    log.info(response.result.value)
-                }
+}
+
+// MARK: - BNDCollectionViewProxyDataSource methods (provide header cell)
+
+extension ProjectsViewController: BNDCollectionViewProxyDataSource {
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard headerCell == nil else {
+            return headerCell!
         }
-        let navigationController = UINavigationController(rootViewController: authViewController)
-        presentViewController(navigationController, animated: true, completion: nil)
+        headerCell = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.headerCellIdentifier, forIndexPath: indexPath)
+        return headerCell!
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout delegated methods
+// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
 extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -88,8 +77,28 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
         let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
         return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
     }
-    
+}
+
+// MARK: - UICollectionViewDelegate method for cell tap handling
+
+extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         projectsViewModel.selectProjectWithIndexPath(indexPath)
+    }
+}
+
+// MARK: - UIScrollViewDelegate methods to limit bounce of scroll view
+
+extension ProjectsViewController {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        guard let collectionView = scrollView as? UICollectionView,
+            collectionViewLayout = collectionView.collectionViewLayout as? StretchyHeaderCollectionViewLayout
+            else {
+                return
+        }
+        
+        if scrollView.contentOffset.y < -collectionViewLayout.headerBounceThreshold {
+            scrollView.contentOffset = CGPointMake(0, -collectionViewLayout.headerBounceThreshold);
+        }
     }
 }

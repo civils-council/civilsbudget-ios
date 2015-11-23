@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseScrollViewController" customModule="Civilbudget" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomToolbar" destination="bUX-Mn-VKf" id="f45-W2-zlV"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="BootomToolbar" customModule="Civilbudget" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
+                    <rect key="frame" x="8" y="294" width="42" height="15"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-mL-w4d">
+                    <rect key="frame" x="53" y="284" width="122" height="32"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="www.golos.ck.ua">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="siteLinkButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="UMT-RR-PuH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXb-CZ-JwP">
+                    <rect key="frame" x="560" y="278" width="34" height="44"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="8le-qF-SsO"/>
+                        <constraint firstAttribute="width" constant="34" id="fTy-A5-5Ll"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-2"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="okShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="Mx4-1c-r8z"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-1D-IMt">
+                    <rect key="frame" x="526" y="278" width="34" height="44"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="12l-9e-Eag"/>
+                        <constraint firstAttribute="width" constant="34" id="u0y-wH-eyY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="1" maxY="-2"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="vkShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="QJc-ED-rQW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-9P-OMK">
+                    <rect key="frame" x="492" y="278" width="34" height="44"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="34" id="YXC-eM-4Co"/>
+                        <constraint firstAttribute="height" constant="44" id="hKw-E1-cKn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="1" maxY="-2"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="fbShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="Ep9-7G-RY6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="dXb-CZ-JwP" secondAttribute="trailing" constant="6" id="6Cl-5k-sX3"/>
+                <constraint firstItem="ONY-1D-IMt" firstAttribute="centerY" secondItem="dXb-CZ-JwP" secondAttribute="centerY" id="9BA-of-Rj0"/>
+                <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="ONY-1D-IMt" secondAttribute="centerY" id="9Sv-0X-HMC"/>
+                <constraint firstItem="K9I-mL-w4d" firstAttribute="leading" secondItem="q0g-0G-2Lw" secondAttribute="trailing" constant="3" id="E1p-mx-ScM"/>
+                <constraint firstItem="q0g-0G-2Lw" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" constant="1" id="FL7-tp-x4V"/>
+                <constraint firstItem="K9I-mL-w4d" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="Hyy-xY-4JR"/>
+                <constraint firstItem="dXb-CZ-JwP" firstAttribute="leading" secondItem="ONY-1D-IMt" secondAttribute="trailing" id="MbE-9c-O21"/>
+                <constraint firstItem="q0g-0G-2Lw" firstAttribute="leading" secondItem="bUX-Mn-VKf" secondAttribute="leading" constant="8" id="Vnk-Kf-Lzs"/>
+                <constraint firstItem="dXb-CZ-JwP" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="ZS5-IZ-hKR"/>
+                <constraint firstItem="ONY-1D-IMt" firstAttribute="leading" secondItem="njj-9P-OMK" secondAttribute="trailing" id="gtW-ju-XuS"/>
+            </constraints>
+            <connections>
+                <outlet property="fbShareButton" destination="njj-9P-OMK" id="7lr-TL-axh"/>
+                <outlet property="okShareButton" destination="dXb-CZ-JwP" id="ZEy-ON-wdA"/>
+                <outlet property="vkShareButton" destination="ONY-1D-IMt" id="SbL-w9-2BQ"/>
+                <outlet property="yearLabel" destination="q0g-0G-2Lw" id="O51-ik-eSa"/>
+            </connections>
+        </view>
+    </objects>
+</document>
