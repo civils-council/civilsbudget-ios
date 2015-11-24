@@ -12,6 +12,7 @@ class BaseScrollViewController: UIViewController {
     var paddingTopConstraint: NSLayoutConstraint!
     
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var topToolbar: UIView!
     @IBOutlet var bottomToolbar: BootomToolbar!
     @IBOutlet var bottomToolbarPlaceholderView: UIView!
     
@@ -25,6 +26,11 @@ class BaseScrollViewController: UIViewController {
             view.addConstraint(paddingTopConstraint)
         }
         
+        // Top bar configuration
+        if let topToolbar = topToolbar {
+            topToolbar.backgroundColor = CivilbudgetStyleKit.bottomBarBlue.colorWithAlpha(GlobalConstants.topBarBackgroundOpacity)
+        }
+        
         // Load BottomToolbar XIB
         NSBundle.mainBundle().loadNibNamed("BottomToolbar", owner: self, options: nil)
         if let container = bottomToolbarPlaceholderView, toolbar = bottomToolbar {
@@ -33,6 +39,31 @@ class BaseScrollViewController: UIViewController {
             container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Bottom, relatedBy: .Equal, toItem: container, attribute: .Bottom, multiplier: 1.0, constant: 0.0))
             container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Left, relatedBy: .Equal, toItem: container, attribute: .Left, multiplier: 1.0, constant: 0.0))
             container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Right, relatedBy: .Equal, toItem: container, attribute: .Right, multiplier: 1.0, constant: 0.0))
+        }
+    }
+}
+
+// MARK: - UIScrollViewDelegate methods to limit bounce of scroll view
+
+extension BaseScrollViewController {
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        guard let collectionView = scrollView as? UICollectionView,
+            collectionViewLayout = collectionView.collectionViewLayout as? StretchyHeaderCollectionViewLayout
+            else {
+                return
+        }
+        
+        if scrollView.contentOffset.y < -collectionViewLayout.headerBounceThreshold {
+            scrollView.contentOffset = CGPointMake(0, -collectionViewLayout.headerBounceThreshold);
+        }
+        
+        guard let topToolbar = topToolbar else {
+            return
+        }
+        
+        topToolbar.hidden = collectionView.contentOffset.y < GlobalConstants.exposedHeaderViewHeight - topToolbar.frame.height
+        if !topToolbar.hidden {
+            topToolbar.alpha =  (collectionView.contentOffset.y - GlobalConstants.exposedHeaderViewHeight + topToolbar.frame.height) / topToolbar.frame.height
         }
     }
 }

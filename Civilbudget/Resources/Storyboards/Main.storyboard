@@ -153,15 +153,42 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HNO-HS-AXJ"/>
                                 </connections>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WU4-9g-ggs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Громадський бюджет в місті Черкаси 2015" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTC-gZ-hPH">
+                                        <rect key="frame" x="128" y="20" width="344" height="44"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Vnw-KQ-LAp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="GTC-gZ-hPH" firstAttribute="top" secondItem="WU4-9g-ggs" secondAttribute="top" constant="20" id="GOA-SD-nQ9"/>
+                                    <constraint firstItem="GTC-gZ-hPH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WU4-9g-ggs" secondAttribute="leading" constant="5" id="Ogx-9g-ohI"/>
+                                    <constraint firstAttribute="height" constant="64" id="QQE-J9-2as"/>
+                                    <constraint firstItem="GTC-gZ-hPH" firstAttribute="centerX" secondItem="WU4-9g-ggs" secondAttribute="centerX" id="mWk-7w-Uw2"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GTC-gZ-hPH" secondAttribute="trailing" constant="5" id="sNU-vE-4B3"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WU4-9g-ggs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0ug-Wx-fnx"/>
                             <constraint firstItem="450-GG-3Ni" firstAttribute="top" secondItem="zbw-7F-qdf" secondAttribute="bottom" id="73M-Kg-qbA"/>
+                            <constraint firstItem="WU4-9g-ggs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="MOU-GA-evp"/>
                             <constraint firstAttribute="trailing" secondItem="450-GG-3Ni" secondAttribute="trailing" id="RDH-dq-KAk"/>
                             <constraint firstItem="zbw-7F-qdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UHQ-n0-Evb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="450-GG-3Ni" secondAttribute="bottom" id="bXf-ez-shq"/>
                             <constraint firstItem="zbw-7F-qdf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" placeholder="YES" id="hWt-AT-4ib"/>
+                            <constraint firstAttribute="trailing" secondItem="WU4-9g-ggs" secondAttribute="trailing" id="mZL-gF-mTb"/>
                             <constraint firstAttribute="trailing" secondItem="zbw-7F-qdf" secondAttribute="trailing" id="yAH-Qp-Lv7"/>
                             <constraint firstItem="450-GG-3Ni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zzS-0Q-Klc"/>
                         </constraints>
@@ -171,6 +198,7 @@
                         <outlet property="bottomToolbarPlaceholderView" destination="450-GG-3Ni" id="Tii-iz-0cf"/>
                         <outlet property="collectionView" destination="zbw-7F-qdf" id="ui3-R0-zF3"/>
                         <outlet property="scrollView" destination="zbw-7F-qdf" id="qBq-fU-jNi"/>
+                        <outlet property="topToolbar" destination="WU4-9g-ggs" id="eur-UY-uu9"/>
                         <segue destination="PeF-nS-mhY" kind="show" identifier="showProjectDetailsIdentifier" id="BwJ-Vg-l9i"/>
                     </connections>
                 </viewController>

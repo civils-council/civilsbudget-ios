@@ -21,15 +21,8 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="BootomToolbar" customModule="Civilbudget" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
-                    <rect key="frame" x="8" y="294" width="42" height="15"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-mL-w4d">
-                    <rect key="frame" x="53" y="284" width="122" height="32"/>
+                    <rect key="frame" x="55" y="284" width="122" height="32"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="www.golos.ck.ua">
@@ -87,20 +80,35 @@
                         <action selector="fbShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="Ep9-7G-RY6"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
+                    <rect key="frame" x="10" y="294" width="42" height="15"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dXb-CZ-JwP" secondAttribute="trailing" constant="6" id="6Cl-5k-sX3"/>
+                <constraint firstAttribute="trailing" secondItem="dXb-CZ-JwP" secondAttribute="trailing" constant="6" id="6Cl-5k-sX3">
+                    <variation key="widthClass=regular" constant="14"/>
+                </constraint>
                 <constraint firstItem="ONY-1D-IMt" firstAttribute="centerY" secondItem="dXb-CZ-JwP" secondAttribute="centerY" id="9BA-of-Rj0"/>
                 <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="ONY-1D-IMt" secondAttribute="centerY" id="9Sv-0X-HMC"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="leading" secondItem="q0g-0G-2Lw" secondAttribute="trailing" constant="3" id="E1p-mx-ScM"/>
                 <constraint firstItem="q0g-0G-2Lw" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" constant="1" id="FL7-tp-x4V"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="Hyy-xY-4JR"/>
-                <constraint firstItem="dXb-CZ-JwP" firstAttribute="leading" secondItem="ONY-1D-IMt" secondAttribute="trailing" id="MbE-9c-O21"/>
-                <constraint firstItem="q0g-0G-2Lw" firstAttribute="leading" secondItem="bUX-Mn-VKf" secondAttribute="leading" constant="8" id="Vnk-Kf-Lzs"/>
+                <constraint firstItem="dXb-CZ-JwP" firstAttribute="leading" secondItem="ONY-1D-IMt" secondAttribute="trailing" id="MbE-9c-O21">
+                    <variation key="widthClass=regular" constant="5"/>
+                </constraint>
+                <constraint firstItem="q0g-0G-2Lw" firstAttribute="leading" secondItem="bUX-Mn-VKf" secondAttribute="leading" constant="10" id="Vnk-Kf-Lzs">
+                    <variation key="widthClass=regular" constant="18"/>
+                </constraint>
                 <constraint firstItem="dXb-CZ-JwP" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="ZS5-IZ-hKR"/>
-                <constraint firstItem="ONY-1D-IMt" firstAttribute="leading" secondItem="njj-9P-OMK" secondAttribute="trailing" id="gtW-ju-XuS"/>
+                <constraint firstItem="ONY-1D-IMt" firstAttribute="leading" secondItem="njj-9P-OMK" secondAttribute="trailing" id="gtW-ju-XuS">
+                    <variation key="widthClass=regular" constant="5"/>
+                </constraint>
             </constraints>
             <connections>
                 <outlet property="fbShareButton" destination="njj-9P-OMK" id="7lr-TL-axh"/>
