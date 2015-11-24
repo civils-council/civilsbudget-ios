@@ -33,12 +33,16 @@ class ProjectsViewModel: NSObject {
         }
     }
     
-    func projectForIndexPath(indexPath: NSIndexPath) -> Project {
-        return projects.array[indexPath.row]
+    func projectViewModelForIndexPath(indexPath: NSIndexPath, existingViewModel: ProjectDetailsViewModel? = nil) -> ProjectDetailsViewModel {
+        let project = projects.array[indexPath.row]
+        guard let existingViewModel = existingViewModel else {
+            return ProjectDetailsViewModel(project: project)
+        }
+        existingViewModel.project = project
+        return existingViewModel
     }
     
     func selectProjectWithIndexPath(indexPath: NSIndexPath) {
-        let project = projects.array[indexPath.row]
-        selectedProjectDetailsViewModel.value = ProjectDetailsViewModel(project: project)
+        selectedProjectDetailsViewModel.value = projectViewModelForIndexPath(indexPath)
     }
 }

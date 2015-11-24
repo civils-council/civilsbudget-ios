@@ -42,8 +42,22 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31-10-2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-LP-ydO">
+                        <rect key="frame" x="91" y="194" width="74" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Підтримало:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idW-7n-XPp">
                         <rect key="frame" x="20" y="213" width="81" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7E-1Z-4qA">
+                        <rect key="frame" x="104" y="213" width="8" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,23 +72,31 @@
             <constraints>
                 <constraint firstItem="3D1-oD-leT" firstAttribute="trailing" secondItem="Ewh-1n-YAp" secondAttribute="trailing" id="3b0-YD-MWY"/>
                 <constraint firstItem="Ina-h0-Ec8" firstAttribute="leading" secondItem="HXY-j5-sYe" secondAttribute="leading" constant="17" id="4Sg-Qo-ATz"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lrd-LP-ydO" secondAttribute="trailing" constant="20" id="5yi-az-mNG"/>
                 <constraint firstItem="Ina-h0-Ec8" firstAttribute="top" secondItem="HXY-j5-sYe" secondAttribute="top" constant="14" id="9bF-rT-Hw4"/>
+                <constraint firstItem="G7E-1Z-4qA" firstAttribute="leading" secondItem="idW-7n-XPp" secondAttribute="trailing" constant="3" id="JWf-j1-rlU"/>
                 <constraint firstAttribute="trailing" secondItem="Ina-h0-Ec8" secondAttribute="trailing" constant="17" id="Kkm-4l-UF7"/>
                 <constraint firstItem="sEC-Mp-2eP" firstAttribute="top" secondItem="3D1-oD-leT" secondAttribute="bottom" constant="8" id="QTg-na-gMH"/>
                 <constraint firstItem="Ewh-1n-YAp" firstAttribute="leading" secondItem="HXY-j5-sYe" secondAttribute="leading" constant="20" id="QX8-gT-Szf"/>
                 <constraint firstItem="idW-7n-XPp" firstAttribute="top" secondItem="sEC-Mp-2eP" secondAttribute="bottom" constant="2" id="Rdd-Zg-k9U"/>
                 <constraint firstItem="3D1-oD-leT" firstAttribute="leading" secondItem="Ewh-1n-YAp" secondAttribute="leading" id="TLT-81-aXv"/>
                 <constraint firstItem="Ewh-1n-YAp" firstAttribute="top" secondItem="Ina-h0-Ec8" secondAttribute="bottom" constant="7" id="VXl-a8-l4U"/>
+                <constraint firstItem="Lrd-LP-ydO" firstAttribute="centerY" secondItem="sEC-Mp-2eP" secondAttribute="centerY" id="WSe-Ih-gXR"/>
+                <constraint firstItem="Lrd-LP-ydO" firstAttribute="leading" secondItem="sEC-Mp-2eP" secondAttribute="trailing" constant="3" id="fHb-vP-Tke"/>
                 <constraint firstItem="3D1-oD-leT" firstAttribute="top" secondItem="Ewh-1n-YAp" secondAttribute="bottom" constant="5" id="gIs-Y4-JuY"/>
                 <constraint firstAttribute="bottom" secondItem="idW-7n-XPp" secondAttribute="bottom" constant="12" id="gkQ-QM-hYy"/>
                 <constraint firstItem="sEC-Mp-2eP" firstAttribute="leading" secondItem="3D1-oD-leT" secondAttribute="leading" id="hPM-C1-gRz"/>
+                <constraint firstItem="G7E-1Z-4qA" firstAttribute="centerY" secondItem="idW-7n-XPp" secondAttribute="centerY" id="jQt-5W-bYi"/>
                 <constraint firstItem="idW-7n-XPp" firstAttribute="leading" secondItem="sEC-Mp-2eP" secondAttribute="leading" id="jmO-yb-XXJ"/>
                 <constraint firstAttribute="trailing" secondItem="Ewh-1n-YAp" secondAttribute="trailing" constant="20" id="v4b-3E-4WQ"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G7E-1Z-4qA" secondAttribute="trailing" constant="20" id="wkM-BY-fg9"/>
             </constraints>
             <size key="customSize" width="300" height="242"/>
             <connections>
+                <outlet property="createdAtLabel" destination="Lrd-LP-ydO" id="70p-8v-kUf"/>
                 <outlet property="descriptionLabel" destination="3D1-oD-leT" id="ZWe-fe-5v7"/>
                 <outlet property="headerImage" destination="Ina-h0-Ec8" id="nKa-qd-6TI"/>
+                <outlet property="supportedByLabel" destination="G7E-1Z-4qA" id="frU-XU-JWD"/>
                 <outlet property="titleLabel" destination="Ewh-1n-YAp" id="fxS-0t-gVm"/>
             </connections>
             <point key="canvasLocation" x="520" y="359"/>

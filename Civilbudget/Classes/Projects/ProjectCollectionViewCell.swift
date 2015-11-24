@@ -8,27 +8,37 @@
 
 import UIKit
 import AlamofireImage
+import Bond
 
 class ProjectCollectionViewCell: UICollectionViewCell {
-    static let width = CGFloat(300.0)
-        
-    var project: Project! {
-        didSet {
-            titleLabel.text = project.title.capitalizedString
-            descriptionLabel.text = project.shortDescription
-            headerImage.af_setImageWithURL(NSURL(string: project.picture!)!)
+    static let maxWidth = CGFloat(300.0)
+    
+    private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
+    
+    var viewModel: ProjectDetailsViewModel! {
+        set(value) {
+            _viewModel.project = value.project
+        }
+        get {
+            return _viewModel
         }
     }
     
-    var detailsViewModel: ProjectDetailsViewModel!
-    
-    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var headerImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var supportedByLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    
+        createdAtLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
+        supportedByLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
         
+        viewModel.title.bindTo(titleLabel.bnd_text)
+        viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
+        viewModel.createdAt.bindTo(createdAtLabel.bnd_text)
+        viewModel.supportedBy.bindTo(supportedByLabel.bnd_text)
     }
 }

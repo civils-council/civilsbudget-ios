@@ -19,7 +19,7 @@ class ProjectsViewController: BaseCollectionViewController {
         static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
-    let projectsViewModel = ProjectsViewModel()
+    let viewModel = ProjectsViewModel()
     var sizingCell: ProjectCollectionViewCell?
     
     override func viewDidLoad() {
@@ -29,14 +29,14 @@ class ProjectsViewController: BaseCollectionViewController {
         collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
         
         // Bind View Model to UI
-        projectsViewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
+        viewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
-            cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
+            cell.viewModel.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
         // Bind Actions
-        projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
+        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
             detailsViewController.detailsViewModel = detailsViewModel
@@ -84,7 +84,7 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
             return CGSize()
         }
         
-        sizingCell.project = projectsViewModel.projectForIndexPath(indexPath)
+        sizingCell.viewModel = viewModel.projectViewModelForIndexPath(indexPath)
         sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
         sizingCell.contentView.bounds = sizingCell.bounds
         
@@ -101,6 +101,6 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
 
 extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        projectsViewModel.selectProjectWithIndexPath(indexPath)
+        viewModel.selectProjectWithIndexPath(indexPath)
     }
 }
