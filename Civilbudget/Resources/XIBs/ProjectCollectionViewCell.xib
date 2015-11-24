@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,6 +26,13 @@
                             <constraint firstAttribute="height" constant="120" id="TUh-xR-n22"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-iU-neJ">
+                        <rect key="frame" x="17" y="14" width="266" height="120"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="28"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ewh-1n-YAp">
                         <rect key="frame" x="20" y="141" width="260" height="21"/>
                         <animations/>
@@ -63,6 +75,19 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaX-sD-xKW">
+                        <rect key="frame" x="176" y="202" width="102" height="24"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Z6p-fG-cKB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="3"/>
+                        <state key="normal" title="Детальніше">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -74,20 +99,26 @@
                 <constraint firstItem="Ina-h0-Ec8" firstAttribute="leading" secondItem="HXY-j5-sYe" secondAttribute="leading" constant="17" id="4Sg-Qo-ATz"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lrd-LP-ydO" secondAttribute="trailing" constant="20" id="5yi-az-mNG"/>
                 <constraint firstItem="Ina-h0-Ec8" firstAttribute="top" secondItem="HXY-j5-sYe" secondAttribute="top" constant="14" id="9bF-rT-Hw4"/>
+                <constraint firstAttribute="bottom" secondItem="TaX-sD-xKW" secondAttribute="bottom" constant="16" id="BZw-yC-pbX"/>
                 <constraint firstItem="G7E-1Z-4qA" firstAttribute="leading" secondItem="idW-7n-XPp" secondAttribute="trailing" constant="3" id="JWf-j1-rlU"/>
                 <constraint firstAttribute="trailing" secondItem="Ina-h0-Ec8" secondAttribute="trailing" constant="17" id="Kkm-4l-UF7"/>
+                <constraint firstItem="N1g-iU-neJ" firstAttribute="top" secondItem="Ina-h0-Ec8" secondAttribute="top" id="OEm-Y9-GkS"/>
                 <constraint firstItem="sEC-Mp-2eP" firstAttribute="top" secondItem="3D1-oD-leT" secondAttribute="bottom" constant="8" id="QTg-na-gMH"/>
                 <constraint firstItem="Ewh-1n-YAp" firstAttribute="leading" secondItem="HXY-j5-sYe" secondAttribute="leading" constant="20" id="QX8-gT-Szf"/>
                 <constraint firstItem="idW-7n-XPp" firstAttribute="top" secondItem="sEC-Mp-2eP" secondAttribute="bottom" constant="2" id="Rdd-Zg-k9U"/>
                 <constraint firstItem="3D1-oD-leT" firstAttribute="leading" secondItem="Ewh-1n-YAp" secondAttribute="leading" id="TLT-81-aXv"/>
+                <constraint firstItem="N1g-iU-neJ" firstAttribute="bottom" secondItem="Ina-h0-Ec8" secondAttribute="bottom" id="U0O-AD-Hc8"/>
                 <constraint firstItem="Ewh-1n-YAp" firstAttribute="top" secondItem="Ina-h0-Ec8" secondAttribute="bottom" constant="7" id="VXl-a8-l4U"/>
                 <constraint firstItem="Lrd-LP-ydO" firstAttribute="centerY" secondItem="sEC-Mp-2eP" secondAttribute="centerY" id="WSe-Ih-gXR"/>
                 <constraint firstItem="Lrd-LP-ydO" firstAttribute="leading" secondItem="sEC-Mp-2eP" secondAttribute="trailing" constant="3" id="fHb-vP-Tke"/>
                 <constraint firstItem="3D1-oD-leT" firstAttribute="top" secondItem="Ewh-1n-YAp" secondAttribute="bottom" constant="5" id="gIs-Y4-JuY"/>
                 <constraint firstAttribute="bottom" secondItem="idW-7n-XPp" secondAttribute="bottom" constant="12" id="gkQ-QM-hYy"/>
                 <constraint firstItem="sEC-Mp-2eP" firstAttribute="leading" secondItem="3D1-oD-leT" secondAttribute="leading" id="hPM-C1-gRz"/>
+                <constraint firstItem="N1g-iU-neJ" firstAttribute="trailing" secondItem="Ina-h0-Ec8" secondAttribute="trailing" id="hma-bQ-1mb"/>
                 <constraint firstItem="G7E-1Z-4qA" firstAttribute="centerY" secondItem="idW-7n-XPp" secondAttribute="centerY" id="jQt-5W-bYi"/>
                 <constraint firstItem="idW-7n-XPp" firstAttribute="leading" secondItem="sEC-Mp-2eP" secondAttribute="leading" id="jmO-yb-XXJ"/>
+                <constraint firstAttribute="trailing" secondItem="TaX-sD-xKW" secondAttribute="trailing" constant="22" id="jte-fC-q03"/>
+                <constraint firstItem="N1g-iU-neJ" firstAttribute="leading" secondItem="Ina-h0-Ec8" secondAttribute="leading" id="l39-6W-eUh"/>
                 <constraint firstAttribute="trailing" secondItem="Ewh-1n-YAp" secondAttribute="trailing" constant="20" id="v4b-3E-4WQ"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G7E-1Z-4qA" secondAttribute="trailing" constant="20" id="wkM-BY-fg9"/>
             </constraints>
@@ -95,7 +126,9 @@
             <connections>
                 <outlet property="createdAtLabel" destination="Lrd-LP-ydO" id="70p-8v-kUf"/>
                 <outlet property="descriptionLabel" destination="3D1-oD-leT" id="ZWe-fe-5v7"/>
+                <outlet property="detailsButton" destination="TaX-sD-xKW" id="Ial-Cy-BXT"/>
                 <outlet property="headerImage" destination="Ina-h0-Ec8" id="nKa-qd-6TI"/>
+                <outlet property="placeholderIconLabel" destination="N1g-iU-neJ" id="fUl-vo-irM"/>
                 <outlet property="supportedByLabel" destination="G7E-1Z-4qA" id="frU-XU-JWD"/>
                 <outlet property="titleLabel" destination="Ewh-1n-YAp" id="fxS-0t-gVm"/>
             </connections>
