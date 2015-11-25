@@ -6,27 +6,30 @@
 //  Copyright © 2015 Build Apps. All rights reserved.
 //
 
+import Bond
 import Foundation
 import Bond
 
 class ProjectDetailsViewModel: NSObject {
+    
     static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "dd-MM-YYYY"
+        formatter.dateFormat = "dd.M.yy"
         return formatter
     }()
+    
+    let projectTitle = Observable<String>("")
+    let projectDescription = Observable<String>("")
+    let projectPictureURL = Observable<NSURL?>(nil)
+    let projectOwner = Observable<String?>("")
+    let supportedBy = Observable("")
+    let createdAt = Observable("")
     
     var project: Project! {
         didSet {
             updateFields()
         }
     }
-    
-    let pictureURL = Observable<NSURL?>(nil)
-    let title = Observable("")
-    let fullDescription = Observable("")
-    let supportedBy = Observable("")
-    let createdAt = Observable("")
     
     init(project: Project? = nil) {
         super.init()
@@ -38,9 +41,10 @@ class ProjectDetailsViewModel: NSObject {
     }
     
     func updateFields() {
-        pictureURL.value = NSURL(string: project.picture ?? "")
-        title.value = project.title
-        fullDescription.value = project.description
+        projectTitle.value = project.title
+        projectDescription.value = project.description
+        projectOwner.value = project.owner
+        projectPictureURL.value = NSURL(string: project.picture ?? "")
         supportedBy.value = "\(project.likes ?? 0)"
         if let createdDate = project.createdAt {
             createdAt.value = self.dynamicType.dateFormatter.stringFromDate(createdDate)

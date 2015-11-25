@@ -34,7 +34,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    
+        
         createdAtLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
         supportedByLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
         detailsButton.setBackgroundImage(CivilbudgetStyleKit.imageOfDetailsButtonBackground, forState: .Normal)
@@ -43,14 +43,14 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         
         // Configure selected background
         selectedBackgroundView = UIView()
-        selectedBackgroundView?.backgroundColor = CivilbudgetStyleKit.selectedCellBackgroundGrey 
+        selectedBackgroundView?.backgroundColor = CivilbudgetStyleKit.selectedCellBackgroundGrey
         
         // Bind View Model to UI
-        viewModel.title.bindTo(titleLabel.bnd_text)
-        viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
+        viewModel.projectTitle.bindTo(titleLabel.bnd_text)
+        viewModel.projectDescription.bindTo(descriptionLabel.bnd_text)
         viewModel.createdAt.bindTo(createdAtLabel.bnd_text)
         viewModel.supportedBy.bindTo(supportedByLabel.bnd_text)
-        viewModel.pictureURL.observe { [weak self] url in
+        viewModel.projectPictureURL.observe { [weak self] url in
             guard let headerImage = self?.headerImage, placeholderIconLabel = self?.placeholderIconLabel else {
                 return
             }
@@ -59,7 +59,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
             if let url = url {
                 self?.headerImage.af_setImageWithURL(url, placeholderImage: nil, filter: nil,
                     imageTransition: UIImageView.ImageTransition.None) { response in
-                    placeholderIconLabel.hidden = response.result.error == nil
+                        placeholderIconLabel.hidden = response.result.error == nil
                 }
             }
         }
