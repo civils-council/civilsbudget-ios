@@ -51,7 +51,7 @@ class BaseCollectionViewController: UIViewController {
 
 // MARK: - UIScrollViewDelegate methods to limit bounce of scroll view
 
-extension BaseCollectionViewController {
+extension BaseCollectionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         guard let collectionView = scrollView as? UICollectionView,
             collectionViewLayout = collectionView.collectionViewLayout as? StretchyHeaderCollectionViewLayout
@@ -71,5 +71,13 @@ extension BaseCollectionViewController {
         if !topToolbar.hidden {
             topToolbar.alpha =  (collectionView.contentOffset.y - GlobalConstants.exposedHeaderViewHeight + topToolbar.frame.height) / topToolbar.frame.height
         }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
+
+extension BaseCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: collectionView.bounds.width, height: GlobalConstants.exposedHeaderViewHeight): CGSizeZero
     }
 }

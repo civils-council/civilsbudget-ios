@@ -23,10 +23,10 @@ class ProjectDetailsViewModel: NSObject {
     }
     
     let pictureURL = Observable<NSURL?>(nil)
-    let title = Observable<String>("")
-    let fullDescription = Observable<String>("")
-    let supportedBy = Observable<String>("")
-    let createdAt = Observable<String>("")
+    let title = Observable("")
+    let fullDescription = Observable("")
+    let supportedBy = Observable("")
+    let createdAt = Observable("")
     
     init(project: Project? = nil) {
         super.init()

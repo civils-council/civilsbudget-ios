@@ -29,7 +29,7 @@ class ProjectsViewController: BaseCollectionViewController {
         collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
         
         // Bind View Model to UI
-        viewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
+        viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
             cell.viewModel.project = dataSource[indexPath.section][indexPath.row]
             return cell
@@ -65,7 +65,7 @@ extension ProjectsViewController: BNDCollectionViewProxyDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
-extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
+extension ProjectsViewController {
     /*func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
         let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
@@ -77,7 +77,7 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
         let targetWidth: CGFloat = self.collectionView.bounds.width
 
         if sizingCell == nil {
-            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil)[0] as? ProjectCollectionViewCell
+            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil).first as? ProjectCollectionViewCell
         }
         
         guard let sizingCell = sizingCell else {
