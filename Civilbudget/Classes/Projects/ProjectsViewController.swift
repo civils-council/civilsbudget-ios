@@ -36,10 +36,10 @@ class ProjectsViewController: BaseCollectionViewController {
         }
         
         // Bind Actions
-        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
+        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
-            detailsViewController.detailsViewModel = detailsViewModel
+            detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }

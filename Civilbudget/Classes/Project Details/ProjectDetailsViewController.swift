@@ -9,8 +9,8 @@
 import UIKit
 import AlamofireImage
 
-class ProjectDetailsViewController: UIViewController {
-    var detailsViewModel: ProjectDetailsViewModel!
+class ProjectDetailsViewController: BaseCollectionViewController {
+    var viewModel: ProjectDetailsViewModel!
     
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
