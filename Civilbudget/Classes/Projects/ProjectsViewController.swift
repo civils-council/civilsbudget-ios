@@ -11,7 +11,7 @@ import Bond
 import Alamofire
 import BankIdSDK
 
-class ProjectsViewController: BaseScrollViewController {
+class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
         static let headerCellIdentifier = "headerCell"
@@ -19,31 +19,27 @@ class ProjectsViewController: BaseScrollViewController {
         static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
-    let projectsViewModel = ProjectsViewModel()
-    var headerCell: UICollectionReusableView?
+    let viewModel = ProjectsViewModel()
+    var sizingCell: ProjectCollectionViewCell?
     
-    @IBOutlet weak var collectionView: UICollectionView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure collection view layout
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, GlobalConstants.exposedHeaderViewHeight);
-        }
+        // Register Projects Cell class
+        collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
         
         // Bind View Model to UI
-        projectsViewModel.projects.lift().bindTo(collectionView, proxyDataSource: self) { indexPath, dataSource, collectionView in
+        viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
-            cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
+            cell.viewModel.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
         // Bind Actions
-        projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
+        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
-            detailsViewController.detailsViewModel = detailsViewModel
+            detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }
@@ -69,12 +65,35 @@ extension ProjectsViewController: BNDCollectionViewProxyDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
-extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+extension ProjectsViewController {
+    /*func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
         let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
         let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
         return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
+    }*/
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let targetWidth: CGFloat = self.collectionView.bounds.width
+
+        if sizingCell == nil {
+            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil).first as? ProjectCollectionViewCell
+        }
+        
+        guard let sizingCell = sizingCell else {
+            return CGSize()
+        }
+        
+        sizingCell.viewModel = viewModel.projectViewModelForIndexPath(indexPath)
+        sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
+        sizingCell.contentView.bounds = sizingCell.bounds
+        
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        
+        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        size.width = targetWidth
+        return size
     }
 }
 
@@ -82,6 +101,6 @@ extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
 
 extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        projectsViewModel.selectProjectWithIndexPath(indexPath)
+        viewModel.selectProjectWithIndexPath(indexPath)
     }
 }

@@ -8,6 +8,7 @@
 
 import Bond
 import Foundation
+import Bond
 
 class ProjectDetailsViewModel: NSObject {
     let projectTitle = Observable<String>("")
@@ -21,7 +22,19 @@ class ProjectDetailsViewModel: NSObject {
         }
     }
     
-    init(project: Project) {
+    var project: Project! {
+        didSet {
+            updateFields()
+        }
+    }
+    
+    let pictureURL = Observable<NSURL?>(nil)
+    let title = Observable("")
+    let fullDescription = Observable("")
+    let supportedBy = Observable("")
+    let createdAt = Observable("")
+    
+    init(project: Project? = nil) {
         super.init()
         
         self.project = project

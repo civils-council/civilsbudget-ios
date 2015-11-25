@@ -12,7 +12,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseScrollViewController" customModule="Civilbudget" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseCollectionViewController" customModule="Civilbudget" customModuleProvider="target">
             <connections>
                 <outlet property="bottomToolbar" destination="bUX-Mn-VKf" id="f45-W2-zlV"/>
             </connections>

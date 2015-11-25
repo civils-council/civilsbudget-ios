@@ -8,10 +8,11 @@
 
 import UIKit
 
-class BaseScrollViewController: UIViewController {
+class BaseCollectionViewController: UIViewController {
     var paddingTopConstraint: NSLayoutConstraint!
+    var headerCell: UICollectionReusableView?
     
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var topToolbar: UIView!
     @IBOutlet var bottomToolbar: BootomToolbar!
     @IBOutlet var bottomToolbarPlaceholderView: UIView!
@@ -20,10 +21,15 @@ class BaseScrollViewController: UIViewController {
         super.viewDidLoad()
         
         // Top padding constraint
-        if let scrollView = scrollView {
-            paddingTopConstraint = NSLayoutConstraint(item: scrollView, attribute: .Top, relatedBy: .Equal,
+        if let collectionView = collectionView {
+            paddingTopConstraint = NSLayoutConstraint(item: collectionView, attribute: .Top, relatedBy: .Equal,
                 toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0)
             view.addConstraint(paddingTopConstraint)
+        }
+        
+        // Configure collection view layout
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, GlobalConstants.exposedHeaderViewHeight);
         }
         
         // Top bar configuration
@@ -45,7 +51,7 @@ class BaseScrollViewController: UIViewController {
 
 // MARK: - UIScrollViewDelegate methods to limit bounce of scroll view
 
-extension BaseScrollViewController {
+extension BaseCollectionViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         guard let collectionView = scrollView as? UICollectionView,
             collectionViewLayout = collectionView.collectionViewLayout as? StretchyHeaderCollectionViewLayout
@@ -65,5 +71,13 @@ extension BaseScrollViewController {
         if !topToolbar.hidden {
             topToolbar.alpha =  (collectionView.contentOffset.y - GlobalConstants.exposedHeaderViewHeight + topToolbar.frame.height) / topToolbar.frame.height
         }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
+
+extension BaseCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: collectionView.bounds.width, height: GlobalConstants.exposedHeaderViewHeight): CGSizeZero
     }
 }
