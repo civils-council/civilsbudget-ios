@@ -17,24 +17,28 @@ public class CivilbudgetStyleKit : NSObject {
     //// Cache
 
     private struct Cache {
-        static let bottomBarBlue: UIColor = UIColor(red: 0.322, green: 0.361, blue: 0.600, alpha: 1.000)
+        static let themeDarkBlue: UIColor = UIColor(red: 0.322, green: 0.361, blue: 0.600, alpha: 1.000)
         static let bottomCopyrightGrey: UIColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.000)
         static let placeholderBackgroundGrey: UIColor = UIColor(red: 0.977, green: 0.977, blue: 0.977, alpha: 1.000)
         static let selectedCellBackgroundGrey: UIColor = UIColor(red: 0.926, green: 0.926, blue: 0.926, alpha: 1.000)
+        static let themeLightBlue: UIColor = UIColor(red: 0.388, green: 0.584, blue: 0.878, alpha: 1.000)
         static var imageOfBankIDFullLogoImage: UIImage?
         static var bankIDFullLogoImageTargets: [AnyObject]?
         static var imageOfBottomSocialButtonBackground: UIImage?
         static var bottomSocialButtonBackgroundTargets: [AnyObject]?
         static var imageOfDetailsButtonBackground: UIImage?
         static var detailsButtonBackgroundTargets: [AnyObject]?
+        static var imageOfSupportButtonBackground: UIImage?
+        static var supportButtonBackgroundTargets: [AnyObject]?
     }
 
     //// Colors
 
-    public class var bottomBarBlue: UIColor { return Cache.bottomBarBlue }
+    public class var themeDarkBlue: UIColor { return Cache.themeDarkBlue }
     public class var bottomCopyrightGrey: UIColor { return Cache.bottomCopyrightGrey }
     public class var placeholderBackgroundGrey: UIColor { return Cache.placeholderBackgroundGrey }
     public class var selectedCellBackgroundGrey: UIColor { return Cache.selectedCellBackgroundGrey }
+    public class var themeLightBlue: UIColor { return Cache.themeLightBlue }
 
     //// Drawing Methods
 
@@ -355,11 +359,45 @@ public class CivilbudgetStyleKit : NSObject {
 
     public class func drawDetailsButtonBackground() {
         //// Color Declarations
-        let detailsButtonBlue = UIColor(red: 0.388, green: 0.584, blue: 0.878, alpha: 1.000)
+        let color4 = CivilbudgetStyleKit.themeLightBlue
 
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRectMake(0, 0, 60, 20), cornerRadius: 6)
-        detailsButtonBlue.setFill()
+        color4.setFill()
+        rectanglePath.fill()
+    }
+
+    public class func drawSupportButtonBackground() {
+        //// Color Declarations
+        let color10 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let color = color10.colorWithBrightness(1)
+        let color2 = color
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath()
+        rectanglePath.moveToPoint(CGPointMake(9.17, 0))
+        rectanglePath.addLineToPoint(CGPointMake(50.83, 0))
+        rectanglePath.addCurveToPoint(CGPointMake(55.98, 0.39), controlPoint1: CGPointMake(53.47, 0), controlPoint2: CGPointMake(54.79, 0))
+        rectanglePath.addLineToPoint(CGPointMake(56.21, 0.45))
+        rectanglePath.addCurveToPoint(CGPointMake(59.55, 3.79), controlPoint1: CGPointMake(57.76, 1.01), controlPoint2: CGPointMake(58.99, 2.24))
+        rectanglePath.addCurveToPoint(CGPointMake(60, 9.17), controlPoint1: CGPointMake(60, 5.21), controlPoint2: CGPointMake(60, 6.53))
+        rectanglePath.addLineToPoint(CGPointMake(60, 10.83))
+        rectanglePath.addCurveToPoint(CGPointMake(59.61, 15.98), controlPoint1: CGPointMake(60, 13.47), controlPoint2: CGPointMake(60, 14.79))
+        rectanglePath.addLineToPoint(CGPointMake(59.55, 16.21))
+        rectanglePath.addCurveToPoint(CGPointMake(56.21, 19.55), controlPoint1: CGPointMake(58.99, 17.76), controlPoint2: CGPointMake(57.76, 18.99))
+        rectanglePath.addCurveToPoint(CGPointMake(50.83, 20), controlPoint1: CGPointMake(54.79, 20), controlPoint2: CGPointMake(53.47, 20))
+        rectanglePath.addLineToPoint(CGPointMake(9.17, 20))
+        rectanglePath.addCurveToPoint(CGPointMake(4.02, 19.61), controlPoint1: CGPointMake(6.53, 20), controlPoint2: CGPointMake(5.21, 20))
+        rectanglePath.addLineToPoint(CGPointMake(3.79, 19.55))
+        rectanglePath.addCurveToPoint(CGPointMake(0.45, 16.21), controlPoint1: CGPointMake(2.24, 18.99), controlPoint2: CGPointMake(1.01, 17.76))
+        rectanglePath.addCurveToPoint(CGPointMake(0, 10.83), controlPoint1: CGPointMake(0, 14.79), controlPoint2: CGPointMake(0, 13.47))
+        rectanglePath.addLineToPoint(CGPointMake(0, 9.17))
+        rectanglePath.addCurveToPoint(CGPointMake(0.39, 4.02), controlPoint1: CGPointMake(0, 6.53), controlPoint2: CGPointMake(0, 5.21))
+        rectanglePath.addLineToPoint(CGPointMake(0.45, 3.79))
+        rectanglePath.addCurveToPoint(CGPointMake(3.79, 0.45), controlPoint1: CGPointMake(1.01, 2.24), controlPoint2: CGPointMake(2.24, 1.01))
+        rectanglePath.addCurveToPoint(CGPointMake(9.17, 0), controlPoint1: CGPointMake(5.21, 0), controlPoint2: CGPointMake(6.53, 0))
+        rectanglePath.closePath()
+        color2.setFill()
         rectanglePath.fill()
     }
 
@@ -417,6 +455,20 @@ public class CivilbudgetStyleKit : NSObject {
         return Cache.imageOfDetailsButtonBackground!
     }
 
+    public class var imageOfSupportButtonBackground: UIImage {
+        if Cache.imageOfSupportButtonBackground != nil {
+            return Cache.imageOfSupportButtonBackground!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(60, 20), false, 0)
+            CivilbudgetStyleKit.drawSupportButtonBackground()
+
+        Cache.imageOfSupportButtonBackground = UIGraphicsGetImageFromCurrentImageContext().resizableImageWithCapInsets(UIEdgeInsetsMake(7, 7, 7, 7), resizingMode: .Tile).imageWithRenderingMode(.AlwaysOriginal)
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfSupportButtonBackground!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var bankIDFullLogoImageTargets: [AnyObject]! {
@@ -445,6 +497,16 @@ public class CivilbudgetStyleKit : NSObject {
             Cache.detailsButtonBackgroundTargets = newValue
             for target: AnyObject in newValue {
                 target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfDetailsButtonBackground)
+            }
+        }
+    }
+
+    @IBOutlet var supportButtonBackgroundTargets: [AnyObject]! {
+        get { return Cache.supportButtonBackgroundTargets }
+        set {
+            Cache.supportButtonBackgroundTargets = newValue
+            for target: AnyObject in newValue {
+                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfSupportButtonBackground)
             }
         }
     }

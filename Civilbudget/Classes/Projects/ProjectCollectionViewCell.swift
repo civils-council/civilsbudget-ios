@@ -35,8 +35,8 @@ class ProjectCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        createdAtLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
-        supportedByLabel.textColor = CivilbudgetStyleKit.bottomBarBlue
+        createdAtLabel.textColor = CivilbudgetStyleKit.themeDarkBlue
+        supportedByLabel.textColor = CivilbudgetStyleKit.themeDarkBlue
         detailsButton.setBackgroundImage(CivilbudgetStyleKit.imageOfDetailsButtonBackground, forState: .Normal)
         placeholderIconLabel.backgroundColor = CivilbudgetStyleKit.placeholderBackgroundGrey
         placeholderIconLabel.text = "\u{f03e}"

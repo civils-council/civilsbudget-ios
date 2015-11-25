@@ -25,7 +25,7 @@ class ProjectsViewController: BaseCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register Projects Cell class
+        // Register Project cell class
         collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
         
         // Bind View Model to UI
@@ -42,24 +42,6 @@ class ProjectsViewController: BaseCollectionViewController {
             detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
-    }
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        
-        self.collectionView.collectionViewLayout.invalidateLayout()
-    }
-}
-
-// MARK: - BNDCollectionViewProxyDataSource methods (provide header cell)
-
-extension ProjectsViewController: BNDCollectionViewProxyDataSource {
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        guard headerCell == nil else {
-            return headerCell!
-        }
-        headerCell = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.headerCellIdentifier, forIndexPath: indexPath)
-        return headerCell!
     }
 }
 

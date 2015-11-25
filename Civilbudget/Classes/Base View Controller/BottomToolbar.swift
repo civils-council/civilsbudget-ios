@@ -18,16 +18,16 @@ class BootomToolbar: UIView {
         super.awakeFromNib()
         
         // Configure UI
-        self.backgroundColor = CivilbudgetStyleKit.bottomBarBlue
+        self.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
         yearLabel.textColor = CivilbudgetStyleKit.bottomCopyrightGrey
         fbShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        fbShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        fbShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         fbShareButton.setTitle("\u{f09a}", forState: .Normal)
         vkShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        vkShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        vkShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         vkShareButton.setTitle("\u{f189}", forState: .Normal)
         okShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        okShareButton.setTitleColor(CivilbudgetStyleKit.bottomBarBlue, forState: .Normal)
+        okShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         okShareButton.setTitle("\u{f263}", forState: .Normal)
     }
     

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import Bond
 
 class BaseCollectionViewController: UIViewController {
+    struct Constants {
+        static let headerCellIdentifier = "headerCell"
+    }
+    
     var paddingTopConstraint: NSLayoutConstraint!
     var headerCell: UICollectionReusableView?
     
@@ -34,7 +39,7 @@ class BaseCollectionViewController: UIViewController {
         
         // Top bar configuration
         if let topToolbar = topToolbar {
-            topToolbar.backgroundColor = CivilbudgetStyleKit.bottomBarBlue.colorWithAlpha(GlobalConstants.topBarBackgroundOpacity)
+            topToolbar.backgroundColor = CivilbudgetStyleKit.themeDarkBlue.colorWithAlpha(GlobalConstants.topBarBackgroundOpacity)
         }
         
         // Load BottomToolbar XIB
@@ -46,6 +51,24 @@ class BaseCollectionViewController: UIViewController {
             container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Left, relatedBy: .Equal, toItem: container, attribute: .Left, multiplier: 1.0, constant: 0.0))
             container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Right, relatedBy: .Equal, toItem: container, attribute: .Right, multiplier: 1.0, constant: 0.0))
         }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+        
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+}
+
+// MARK: - BNDCollectionViewProxyDataSource methods (provide header cell)
+
+extension BaseCollectionViewController: BNDCollectionViewProxyDataSource {
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard headerCell == nil else {
+            return headerCell!
+        }
+        headerCell = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: Constants.headerCellIdentifier, forIndexPath: indexPath)
+        return headerCell!
     }
 }
 

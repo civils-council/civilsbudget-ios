@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
-		0F52E80D1C01F9BC00C76F62 /* BottomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F52E80C1C01F9BC00C76F62 /* BottomToolbar.swift */; };
 		0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */; };
 		0F52E81C1C01FC8500C76F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81A1C01FC8500C76F62 /* Main.storyboard */; };
 		0F52E81F1C01FD3500C76F62 /* BottomToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81E1C01FD3500C76F62 /* BottomToolbar.xib */; };
-		0F5645AE1C02579B0055EAEF /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5645AD1C02579B0055EAEF /* StretchyHeaderCollectionViewLayout.swift */; };
-		0F5645BC1C02993A0055EAEF /* FullWidthImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5645BB1C02993A0055EAEF /* FullWidthImageView.swift */; };
 		0F5645BE1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */; };
 		0F87BA081C020D1800D7938A /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
@@ -27,6 +24,12 @@
 		0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */; };
 		0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */; };
 		0FB3A3021C00B8EE00FEA009 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A3011C00B8EE00FEA009 /* GlobalConstants.swift */; };
+		0FE4C5981C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */; };
+		0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A31C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift */; };
+		0FE4C5A81C05E9DF00B3B66E /* BottomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */; };
+		0FE4C5A91C05E9DF00B3B66E /* FullWidthImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */; };
+		0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */; };
+		0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
 		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -133,12 +136,9 @@
 
 /* Begin PBXFileReference section */
 		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
-		0F52E80C1C01F9BC00C76F62 /* BottomToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomToolbar.swift; sourceTree = "<group>"; };
 		0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F52E81A1C01FC8500C76F62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0F52E81E1C01FD3500C76F62 /* BottomToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomToolbar.xib; sourceTree = "<group>"; };
-		0F5645AD1C02579B0055EAEF /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchyHeaderCollectionViewLayout.swift; sourceTree = "<group>"; };
-		0F5645BB1C02993A0055EAEF /* FullWidthImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullWidthImageView.swift; sourceTree = "<group>"; };
 		0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCollectionViewController.swift; path = "Base View Controller/BaseCollectionViewController.swift"; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -152,6 +152,12 @@
 		0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
 		0FB3A3011C00B8EE00FEA009 /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		0FE4C5A31C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomToolbar.swift; path = "Base View Controller/BottomToolbar.swift"; sourceTree = "<group>"; };
+		0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullWidthImageView.swift; path = "Base View Controller/FullWidthImageView.swift"; sourceTree = "<group>"; };
+		0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderCollectionViewLayout.swift; path = "Base View Controller/StretchyHeaderCollectionViewLayout.swift"; sourceTree = "<group>"; };
+		0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsHeaderReusableView.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF70811BBE78500042EC47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 			children = (
 				0F52E81E1C01FD3500C76F62 /* BottomToolbar.xib */,
 				0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */,
+				0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -201,6 +208,9 @@
 		0F52E8201C02019900C76F62 /* Base View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */,
+				0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */,
+				0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */,
 				0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */,
 			);
 			name = "Base View Controller";
@@ -220,6 +230,8 @@
 			children = (
 				0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */,
 				0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */,
+				0FE4C5A31C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift */,
+				0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */,
 			);
 			path = "Project Details";
 			sourceTree = "<group>";
@@ -254,9 +266,6 @@
 			isa = PBXGroup;
 			children = (
 				0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */,
-				0F52E80C1C01F9BC00C76F62 /* BottomToolbar.swift */,
-				0F5645AD1C02579B0055EAEF /* StretchyHeaderCollectionViewLayout.swift */,
-				0F5645BB1C02993A0055EAEF /* FullWidthImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */,
+				0FE4C5981C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib in Resources */,
 				0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */,
 				0F52E81F1C01FD3500C76F62 /* BottomToolbar.xib in Resources */,
 				0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */,
@@ -606,18 +616,20 @@
 				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
 				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
+				0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
+				0FE4C5A91C05E9DF00B3B66E /* FullWidthImageView.swift in Sources */,
 				0F87BA081C020D1800D7938A /* BaseCollectionViewController.swift in Sources */,
 				0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */,
 				0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */,
-				0F52E80D1C01F9BC00C76F62 /* BottomToolbar.swift in Sources */,
+				0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */,
 				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
 				0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */,
+				0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
 				0FB3A3021C00B8EE00FEA009 /* GlobalConstants.swift in Sources */,
-				0F5645AE1C02579B0055EAEF /* StretchyHeaderCollectionViewLayout.swift in Sources */,
-				0F5645BC1C02993A0055EAEF /* FullWidthImageView.swift in Sources */,
+				0FE4C5A81C05E9DF00B3B66E /* BottomToolbar.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
