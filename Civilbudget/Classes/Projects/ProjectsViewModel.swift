@@ -25,7 +25,7 @@ class ProjectsViewModel: NSObject {
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {
                 case let .Success(project):
-                    self?.projects.array[1].array = project
+                    self?.projects.array.last?.array = project
                 case let .Failure(error):
                     log.error(error.localizedDescription)
                     self?.loadingError.value = error
@@ -34,7 +34,7 @@ class ProjectsViewModel: NSObject {
     }
     
     func projectViewModelForIndexPath(indexPath: NSIndexPath, existingViewModel: ProjectDetailsViewModel? = nil) -> ProjectDetailsViewModel {
-        let project = projects.array[1][indexPath.row]
+        let project = projects.array.last?[indexPath.row]
         guard let existingViewModel = existingViewModel else {
             return ProjectDetailsViewModel(project: project)
         }
