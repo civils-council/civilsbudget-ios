@@ -403,12 +403,10 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="bottomToolbarPlaceholderView" destination="Uxr-x2-5Sx" id="qOq-xU-kJv"/>
                         <outlet property="descriptionLabel" destination="tbK-0n-bvW" id="lrc-Dz-uKZ"/>
                         <outlet property="endingDateTitleLabel" destination="Enz-1N-fvE" id="HME-xa-UgZ"/>
                         <outlet property="endingDateValueLabel" destination="Ymd-Ti-mPL" id="IRX-hY-Vfi"/>
                         <outlet property="projectPriceLabel" destination="dVo-zL-RYw" id="qGS-0j-YfG"/>
-                        <outlet property="scrollView" destination="oQu-qM-lJv" id="GJ5-1M-YVX"/>
                         <outlet property="supportedCountLabel" destination="UA9-pC-8pM" id="dH3-CN-jBN"/>
                         <outlet property="supportedTitleLabel" destination="qcy-5c-zDW" id="FkD-qF-Pxb"/>
                         <outlet property="titleLabel" destination="hwC-Yp-hjB" id="lqh-7G-AVv"/>

@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class ProjectDetailsViewController: BaseScrollViewController {
+class ProjectDetailsViewController: UIViewController {
     var detailsViewModel: ProjectDetailsViewModel!
     
     @IBOutlet weak var topImageView: UIImageView!
@@ -29,18 +29,26 @@ class ProjectDetailsViewController: BaseScrollViewController {
         detailsViewModel.projectDescription.bindTo(descriptionLabel.bnd_text)
         detailsViewModel.projectOwner.observe{  owner in
             self.title = owner}
-        detailsViewModel.projectPicture.observe{  pic in
-            self.topImageView.af_setImageWithURL(NSURL(string: pic!)!)}
+        detailsViewModel.projectPictureURL.observe{ [weak self] url in
+            guard let topImageView = self?.topImageView else {
+                return
+            }
+            topImageView.image = nil
+            if let url = url {
+                self?.topImageView.af_setImageWithURL(url, placeholderImage: nil, filter: nil,
+                    imageTransition: UIImageView.ImageTransition.None) { response in
+//                        placeholderIconLabel.hidden = response.result.error == nil
+                }
+            }
+        }
+        
+        detailsViewModel.supportedBy.bindTo(supportedCountLabel.bnd_text)
+        detailsViewModel.createdAt.bindTo(endingDateValueLabel.bnd_text)
         
         voteButton.layer.cornerRadius = 3.0
         voteButton.layer.masksToBounds = true
         
 //        MARK: hard code
-        supportedCountLabel.text = "0"
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.M.yy"
-        endingDateValueLabel.text = dateFormatter.stringFromDate(NSDate())
         
         let price = 15000
         let formatter = NSNumberFormatter()
