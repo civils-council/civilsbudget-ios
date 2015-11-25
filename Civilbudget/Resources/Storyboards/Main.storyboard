@@ -320,7 +320,7 @@
                                     </view>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sVl-rV-OIL" firstAttribute="centerX" secondItem="oQu-qM-lJv" secondAttribute="centerX" id="6tg-54-COG"/>
                                     <constraint firstItem="sVl-rV-OIL" firstAttribute="top" secondItem="oQu-qM-lJv" secondAttribute="top" constant="72" id="8rX-xC-Nw8"/>
