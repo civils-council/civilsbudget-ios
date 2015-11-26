@@ -6,14 +6,26 @@
 //  Copyright © 2015 Build Apps. All rights reserved.
 //
 
-import Bond
 import Foundation
+import Bond
 
 class ProjectDetailsViewModel: NSObject {
-    let projectTitle = Observable<String>("")
-    let projectDescription = Observable<String>("")
-    let projectPicture = Observable<String?>("")
-    let projectOwner = Observable<String?>("")
+    static let dateFormatter: NSDateFormatter = {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd-MM-YYYY"
+        return formatter
+    }()
+    
+    static let currencyFormatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        // formatter.locale = NSLocale(localeIdentifier: "ua_UKR")
+        // formatter.numberStyle = .CurrencyStyle
+        formatter.groupingSeparator = " "
+        formatter.numberStyle = .DecimalStyle
+        return formatter
+    }()
+    
+    static let ownerImagePlaceholder: UIImage = CivilbudgetStyleKit.imageOfUserProfilePlaceholder.af_imageRoundedIntoCircle()
     
     var project: Project! {
         didSet {
@@ -21,19 +33,32 @@ class ProjectDetailsViewModel: NSObject {
         }
     }
     
-    init(project: Project) {
+    let pictureURL = Observable<NSURL?>(nil)
+    let title = Observable("")
+    let fullDescription = Observable("")
+    let supportedBy = Observable("")
+    let createdAt = Observable("")
+    let author = Observable("")
+    let ownerImage = Observable(ProjectDetailsViewModel.ownerImagePlaceholder)
+    let budgetLabel = Observable("")
+    
+    init(project: Project? = nil) {
         super.init()
         
-        self.project = project
-        updateFields()
+        if let project = project {
+            self.project = project
+            updateFields()
+        }
     }
     
     func updateFields() {
-        projectTitle.value = project.title
-        projectDescription.value = project.description
-        projectOwner.value = project.owner
-        if let picURL = project.picture {
-            projectPicture.value = picURL
-        }
+        pictureURL.value = NSURL(string: project.picture ?? "")
+        title.value = project.title
+        fullDescription.value = project.description
+        supportedBy.value = "\(project.likes ?? 0)"
+        createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
+        author.value = project.owner ?? ""
+        ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
+        budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
     }
 }

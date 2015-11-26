@@ -7,45 +7,82 @@
 //
 
 import UIKit
-import AlamofireImage
 
-class ProjectDetailsViewController: UIViewController {
-    var detailsViewModel: ProjectDetailsViewModel!
+class ProjectDetailsViewController: BaseCollectionViewController {
+    struct Constants {
+        static let detailsCellIdentifier = "detailsCell"
+    }
     
-    @IBOutlet weak var topImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var supportedTitleLabel: UILabel!
-    @IBOutlet weak var supportedCountLabel: UILabel!
-    @IBOutlet weak var endingDateTitleLabel: UILabel!
-    @IBOutlet weak var endingDateValueLabel: UILabel!
-    @IBOutlet weak var projectPriceLabel: UILabel!
-    @IBOutlet weak var voteButton: UIButton!
+    var viewModel: ProjectDetailsViewModel!
+    var sizingCell: ProjectDetailsCollectionViewCell?
+    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var supportButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailsViewModel.projectTitle.bindTo(titleLabel.bnd_text)
-        detailsViewModel.projectDescription.bindTo(descriptionLabel.bnd_text)
-        detailsViewModel.projectOwner.observe{  owner in
-            self.title = owner}
-        detailsViewModel.projectPicture.observe{  pic in
-            self.topImageView.af_setImageWithURL(NSURL(string: pic!)!)}
+        // Configure UI
+        backButton.setTitle("\u{f104}", forState: .Normal)
+        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground, forState: .Normal)
+        supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         
-        voteButton.layer.cornerRadius = 3.0
-        voteButton.layer.masksToBounds = true
+        // Register Projects details cell class
+        collectionView.registerNib(UINib(nibName: "ProjectDetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
+    }
+    
+    @IBAction func backButtonTapped(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+// MARK: - UICollectionViewDataSource methods
+
+extension ProjectDetailsViewController: UICollectionViewDataSource {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return section == 0 ? 0 : 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.detailsCellIdentifier, forIndexPath: indexPath) as! ProjectDetailsCollectionViewCell
+        cell.viewModel = viewModel
+        return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let view = super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath) as! ProjectDetailsHeaderReusableView
+        view.viewModel = viewModel
+        return view
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
+
+extension ProjectDetailsViewController {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let targetWidth: CGFloat = self.collectionView.bounds.width
         
-//        MARK: hard code
-        supportedCountLabel.text = "0"
+        if sizingCell == nil {
+            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectDetailsCollectionViewCell", owner: self, options: nil).first as? ProjectDetailsCollectionViewCell
+        }
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd.M.yy"
-        endingDateValueLabel.text = dateFormatter.stringFromDate(NSDate())
+        guard let sizingCell = sizingCell else {
+            return CGSize()
+        }
         
-        let price = 15000
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        formatter.locale = NSLocale(localeIdentifier: "uk")
-        projectPriceLabel.text = "Ціна проекту: " + formatter.stringFromNumber(price)! + " грн"
+        sizingCell.viewModel = viewModel
+        sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
+        sizingCell.contentView.bounds = sizingCell.bounds
+        
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        
+        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        size.width = targetWidth
+        return size
     }
 }

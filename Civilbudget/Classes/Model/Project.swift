@@ -13,15 +13,27 @@ struct Project {
     let id: Int
     let title: String
     let description: String
-    let shortDescription: String
     let source: String?
     let picture: String?
-    let createdAt: String?
+    let createdAt: NSDate?
     let likes: Int?
     let owner: String?
+    let budget: Double?
 }
 
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
+    static var dateFormatter: NSDateFormatter {
+        let formatterDictionaryKey = "CreatedDateFormatterKey"
+        let threadDictionary = NSThread.currentThread().threadDictionary
+        var formatter = threadDictionary[formatterDictionaryKey] as? NSDateFormatter
+        if formatter == nil {
+            formatter = NSDateFormatter()
+            formatter!.dateFormat = "YYYY-MM-dd'T'HH:mm:ssxx"
+            threadDictionary[formatterDictionaryKey] = formatter!
+        }
+        return formatter!
+    }
+    
     struct Constants {
         static let maxShortDescriptionLength = 10
     }
@@ -43,13 +55,13 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.id = id
         self.title = title
         self.description = description
-        self.shortDescription = description.substringToIndex(description.startIndex.advancedBy(Constants.maxShortDescriptionLength))
         
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String
-        self.createdAt = representation.valueForKeyPath("createdAt") as? String
-        self.likes = representation.valueForKeyPath("likes") as? Int
+        self.createdAt = Project.dateFormatter.dateFromString((representation.valueForKeyPath("createdAt") as? String) ?? "")
+        self.likes = representation.valueForKeyPath("likes_count") as? Int
         self.owner = representation.valueForKeyPath("owner") as? String
+        self.budget = representation.valueForKeyPath("budget") as? Double
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Project] {

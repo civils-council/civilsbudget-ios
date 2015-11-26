@@ -11,85 +11,86 @@ import Bond
 import Alamofire
 import BankIdSDK
 
-class ProjectsViewController: UIViewController {
+class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
+        static let headerCellIdentifier = "headerCell"
         static let productDetailsViewControllerIdentifier = "detailsViewController"
         static let collectionViewVerticalInset = CGFloat(10.0)
     }
     
-    let projectsViewModel = ProjectsViewModel()
+    let viewModel = ProjectsViewModel()
+    var sizingCell: ProjectCollectionViewCell?
     
-    @IBOutlet weak var collectionView: UICollectionView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Register Project cell class
+        collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
+        
         // Bind View Model to UI
-        projectsViewModel.projects.lift().bindTo(collectionView) { indexPath, dataSource, collectionView in
+        viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
-            cell/*.detailsViewModel*/.project = dataSource[indexPath.section][indexPath.row]
+            cell.viewModel.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
         
-        // Actions
-        projectsViewModel.selectedProjectDetailsViewModel.observeNew { [weak self] detailsViewModel in
+        // Bind Actions
+        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
-            detailsViewController.detailsViewModel = detailsViewModel
+            detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.collectionView.collectionViewLayout.invalidateLayout()
-    }
-    
-    @IBAction func signInButtonTapped(sender: UIBarButtonItem) {
-        let authViewController = AuthorizationViewController(getOnlyAuthCode: true, patchIndexPage: true) { result in
-            
-            /*guard let authCode = result.value?.authCode else {
-                log.warning("Authorization through BankID failed")
-                log.warning("\(result.error!.debugDescription)")
-                return
-            }*/
-            
-            // log.info("Authorized with code \(authCode)")
-            
-            /*Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
-                .responseString { response in
-                log.info(response.result.value)
-            }*/
-            
-            guard let authorization = result.value else {
-                return
-            }
-            
-            Service.authorization = authorization
-            
-            Alamofire.request(Service.Router.RequestInformation(fields: BankIdSDK.Constants.allInfoFields))
-                .responseString { response in
-                    log.info(response.result.value)
-                }
+        if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
+            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
         }
-        let navigationController = UINavigationController(rootViewController: authViewController)
-        presentViewController(navigationController, animated: true, completion: nil)
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout delegated methods
+// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
-extension ProjectsViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+extension ProjectsViewController {
+    /*func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
         let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
         let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
         return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
-    }
+    }*/
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let targetWidth: CGFloat = self.collectionView.bounds.width
+
+        if sizingCell == nil {
+            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil).first as? ProjectCollectionViewCell
+        }
+        
+        guard let sizingCell = sizingCell else {
+            return CGSize()
+        }
+        
+        sizingCell.viewModel = viewModel.projectViewModelForIndexPath(indexPath)
+        sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
+        sizingCell.contentView.bounds = sizingCell.bounds
+        
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        
+        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        size.width = targetWidth
+        return size
+    }
+}
+
+// MARK: - UICollectionViewDelegate method for cell tap handling
+
+extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        projectsViewModel.selectProjectWithIndexPath(indexPath)
+        viewModel.selectProjectWithIndexPath(indexPath)
     }
 }
