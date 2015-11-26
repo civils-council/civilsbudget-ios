@@ -59,7 +59,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String
         self.createdAt = Project.dateFormatter.dateFromString((representation.valueForKeyPath("createdAt") as? String) ?? "")
-        self.likes = representation.valueForKeyPath("likes") as? Int
+        self.likes = representation.valueForKeyPath("likes_count") as? Int
         self.owner = representation.valueForKeyPath("owner") as? String
         self.budget = representation.valueForKeyPath("budget") as? Double
     }
