@@ -74,9 +74,11 @@ class ProjectDetailsViewModel: NSObject {
     
     func handleAuthorizationResult(result: AuthorizationResult) {
         guard let authorization = result.value, authCode = authorization.authCode else {
-            log.warning("Can't find authorization")
+            log.warning("Can't find authorization code")
             return
         }
+        
+        log.warning(authCode)
         
         Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
             .responseString { response in

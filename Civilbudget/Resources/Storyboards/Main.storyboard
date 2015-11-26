@@ -304,9 +304,6 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <inset key="contentEdgeInsets" minX="20" minY="7" maxX="20" maxY="7"/>
                                             <state key="normal" title="ПІДТРИМАТИ"/>
-                                            <connections>
-                                                <action selector="supportButtonTapped:" destination="w5z-xH-qga" eventType="touchUpInside" id="Q3f-50-xc4"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <animations/>

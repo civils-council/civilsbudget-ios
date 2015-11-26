@@ -9,11 +9,13 @@
 import UIKit
 
 class ProjectDetailsHeaderReusableView: UICollectionReusableView {
+    private var parentViewModel: ProjectDetailsViewModel? = nil
     private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
     
     var viewModel: ProjectDetailsViewModel! {
         set(value) {
             _viewModel.project = value.project
+            parentViewModel = value
         }
         get {
             return _viewModel
@@ -40,7 +42,6 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         ownerBackgroundImageView.image = CivilbudgetStyleKit.imageOfUserProfileBackground
         
-        
         // Binding
         viewModel.author.bindTo(ownerLabel.bnd_text)
         viewModel.supportedBy.bindTo(supportedByLabel.bnd_text)
@@ -53,8 +54,8 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
                 self?.pictureImageView.image = nil
             }
         }
-    }
-    
-    @IBAction func supportButtonTapped(sender: AnyObject) {
+        
+        // UI Control actions
+        supportButton.bnd_tap.observeNew { [weak self] in self?.parentViewModel?.voteForCurrentProject() }
     }
 }

@@ -51,7 +51,7 @@ struct CivilbudgetAPI {
             
             switch self {
             case .Authorize(let code):
-                return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["user" : ["code": code]]).0
+                return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["code": code]).0
             default:
                 return request
             }
