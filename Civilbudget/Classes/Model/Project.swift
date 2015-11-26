@@ -18,7 +18,7 @@ struct Project {
     let createdAt: NSDate?
     let likes: Int?
     let owner: String?
-    let budget: Double?
+    let budget: Int?
 }
 
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
@@ -61,7 +61,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.createdAt = Project.dateFormatter.dateFromString((representation.valueForKeyPath("createdAt") as? String) ?? "")
         self.likes = representation.valueForKeyPath("likes_count") as? Int
         self.owner = representation.valueForKeyPath("owner") as? String
-        self.budget = representation.valueForKeyPath("budget") as? Double
+        self.budget = representation.valueForKeyPath("charge") as? Int
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Project] {

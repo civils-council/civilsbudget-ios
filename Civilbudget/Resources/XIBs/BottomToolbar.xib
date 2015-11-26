@@ -8,7 +8,6 @@
         <mutableArray key="FontAwesome.otf">
             <string>FontAwesome</string>
             <string>FontAwesome</string>
-            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -32,24 +31,8 @@
                         <action selector="siteLinkButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="UMT-RR-PuH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXb-CZ-JwP">
-                    <rect key="frame" x="560" y="278" width="34" height="44"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="8le-qF-SsO"/>
-                        <constraint firstAttribute="width" constant="34" id="fTy-A5-5Ll"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-2"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="okShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="Mx4-1c-r8z"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-1D-IMt">
-                    <rect key="frame" x="526" y="278" width="34" height="44"/>
+                    <rect key="frame" x="561" y="278" width="34" height="44"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="12l-9e-Eag"/>
@@ -65,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-9P-OMK">
-                    <rect key="frame" x="492" y="278" width="34" height="44"/>
+                    <rect key="frame" x="527" y="278" width="34" height="44"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="YXC-eM-4Co"/>
@@ -91,28 +74,23 @@
             <animations/>
             <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="dXb-CZ-JwP" secondAttribute="trailing" constant="6" id="6Cl-5k-sX3">
-                    <variation key="widthClass=regular" constant="14"/>
-                </constraint>
-                <constraint firstItem="ONY-1D-IMt" firstAttribute="centerY" secondItem="dXb-CZ-JwP" secondAttribute="centerY" id="9BA-of-Rj0"/>
                 <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="ONY-1D-IMt" secondAttribute="centerY" id="9Sv-0X-HMC"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="leading" secondItem="q0g-0G-2Lw" secondAttribute="trailing" constant="3" id="E1p-mx-ScM"/>
                 <constraint firstItem="q0g-0G-2Lw" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" constant="1" id="FL7-tp-x4V"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="Hyy-xY-4JR"/>
-                <constraint firstItem="dXb-CZ-JwP" firstAttribute="leading" secondItem="ONY-1D-IMt" secondAttribute="trailing" id="MbE-9c-O21">
-                    <variation key="widthClass=regular" constant="5"/>
+                <constraint firstItem="ONY-1D-IMt" firstAttribute="centerY" secondItem="K9I-mL-w4d" secondAttribute="centerY" id="S54-kY-Z6h"/>
+                <constraint firstAttribute="trailing" secondItem="ONY-1D-IMt" secondAttribute="trailing" constant="5" id="TTG-L1-aw1">
+                    <variation key="widthClass=regular" constant="14"/>
                 </constraint>
                 <constraint firstItem="q0g-0G-2Lw" firstAttribute="leading" secondItem="bUX-Mn-VKf" secondAttribute="leading" constant="10" id="Vnk-Kf-Lzs">
                     <variation key="widthClass=regular" constant="18"/>
                 </constraint>
-                <constraint firstItem="dXb-CZ-JwP" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="ZS5-IZ-hKR"/>
                 <constraint firstItem="ONY-1D-IMt" firstAttribute="leading" secondItem="njj-9P-OMK" secondAttribute="trailing" id="gtW-ju-XuS">
                     <variation key="widthClass=regular" constant="5"/>
                 </constraint>
             </constraints>
             <connections>
                 <outlet property="fbShareButton" destination="njj-9P-OMK" id="7lr-TL-axh"/>
-                <outlet property="okShareButton" destination="dXb-CZ-JwP" id="ZEy-ON-wdA"/>
                 <outlet property="vkShareButton" destination="ONY-1D-IMt" id="SbL-w9-2BQ"/>
                 <outlet property="yearLabel" destination="q0g-0G-2Lw" id="O51-ik-eSa"/>
             </connections>
