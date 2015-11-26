@@ -399,9 +399,6 @@
                                 <state key="normal" title="&lt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="PeF-nS-mhY" eventType="touchUpInside" id="FDy-M4-4Qu"/>
-                                </connections>
                             </button>
                         </subviews>
                         <animations/>

@@ -9,7 +9,7 @@
 import UIKit
 import Bond
 import Alamofire
-import BankIdSDK
+
 
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {

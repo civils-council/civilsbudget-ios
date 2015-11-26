@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BankIdSDK
 
 class ProjectDetailsViewController: BaseCollectionViewController {
     struct Constants {
@@ -29,10 +30,21 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         
         // Register Projects details cell class
         collectionView.registerNib(UINib(nibName: "ProjectDetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
-    }
-    
-    @IBAction func backButtonTapped(sender: AnyObject) {
-        navigationController?.popViewControllerAnimated(true)
+        
+        // Listen to View Model changes
+        viewModel.authorizeWithCompletion.observeNew { [weak self] completionHandler in
+            guard let completionHandler = completionHandler, viewController = self else {
+                return
+            }
+            
+            let authViewController = AuthorizationViewController(getOnlyAuthCode: true, patchIndexPage: true, completionHandler: completionHandler)
+            let navigationController = UINavigationController(rootViewController: authViewController)
+            viewController.presentViewController(navigationController, animated: true, completion: nil)
+        }
+        
+        // UI Controls actions
+        backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }
+        supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
     }
 }
 

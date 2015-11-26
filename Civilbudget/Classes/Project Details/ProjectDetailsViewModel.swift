@@ -8,6 +8,8 @@
 
 import Foundation
 import Bond
+import BankIdSDK
+import Alamofire
 
 class ProjectDetailsViewModel: NSObject {
     static let dateFormatter: NSDateFormatter = {
@@ -42,6 +44,8 @@ class ProjectDetailsViewModel: NSObject {
     let ownerImage = Observable(ProjectDetailsViewModel.ownerImagePlaceholder)
     let budgetLabel = Observable("")
     
+    let authorizeWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
+    
     init(project: Project? = nil) {
         super.init()
         
@@ -60,5 +64,23 @@ class ProjectDetailsViewModel: NSObject {
         author.value = project.owner ?? ""
         ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
         budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
+    }
+    
+    func voteForCurrentProject() {
+        if true /*!authorized*/ {
+            authorizeWithCompletion.value = handleAuthorizationResult
+        }
+    }
+    
+    func handleAuthorizationResult(result: AuthorizationResult) {
+        guard let authorization = result.value, authCode = authorization.authCode else {
+            log.warning("Can't find authorization")
+            return
+        }
+        
+        Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
+            .responseString { response in
+                print(response.result.value)
+        }
     }
 }

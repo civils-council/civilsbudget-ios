@@ -9,12 +9,12 @@
 import Alamofire
 
 public struct Authorization: BankIdObjectSerializable {
-    let authCode: String?
-    let accessToken: String
-    let tokenType: String?
-    let refreshToken: String
-    let expiresIn: Int?
-    let scope: String?
+    public let authCode: String?
+    public let accessToken: String
+    public let tokenType: String?
+    public let refreshToken: String
+    public let expiresIn: Int?
+    public let scope: String?
     
     init(authCode: String) {
         self.authCode = authCode
