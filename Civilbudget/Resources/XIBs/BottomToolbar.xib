@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-mL-w4d">
-                    <rect key="frame" x="55" y="284" width="122" height="32"/>
+                    <rect key="frame" x="54.5" y="284" width="122" height="32"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="www.golos.ck.ua">
@@ -32,12 +32,12 @@
                         <action selector="siteLinkButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="UMT-RR-PuH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXb-CZ-JwP">
-                    <rect key="frame" x="560" y="278" width="34" height="44"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXb-CZ-JwP">
+                    <rect key="frame" x="594" y="278" width="0.0" height="44"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="8le-qF-SsO"/>
-                        <constraint firstAttribute="width" constant="34" id="fTy-A5-5Ll"/>
+                        <constraint firstAttribute="width" id="fTy-A5-5Ll"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                     <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-2"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-1D-IMt">
-                    <rect key="frame" x="526" y="278" width="34" height="44"/>
+                    <rect key="frame" x="560" y="278" width="34" height="44"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="12l-9e-Eag"/>
@@ -65,7 +65,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-9P-OMK">
-                    <rect key="frame" x="492" y="278" width="34" height="44"/>
+                    <rect key="frame" x="526" y="278" width="34" height="44"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="YXC-eM-4Co"/>
@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
-                    <rect key="frame" x="10" y="294" width="42" height="15"/>
+                    <rect key="frame" x="10" y="294.5" width="41.5" height="14.5"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

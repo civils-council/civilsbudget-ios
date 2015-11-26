@@ -14,6 +14,13 @@ class BootomToolbar: UIView {
     @IBOutlet weak var vkShareButton: UIButton!
     @IBOutlet weak var okShareButton: UIButton!
     
+    enum OpenLinkType:String {
+        case Facebook = "https://www.facebook.com/civilscouncil"
+        case VKontakte = "https://vk.com/civilscouncil"
+        case Odnoklassniki = "http://ok.ru"
+        case HomePage = "http://www.golos.ck.ua"
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,18 +40,24 @@ class BootomToolbar: UIView {
     
     
     @IBAction func siteLinkButtonTapped(sender: UIButton) {
-        log.warning("Open home page")
+        openLinkFor(OpenLinkType.HomePage)
     }
     
     @IBAction func fbShareButtonTapped(sender: UIButton) {
-        log.warning("Open fb page")
+        openLinkFor(OpenLinkType.Facebook)
     }
     
     @IBAction func vkShareButtonTapped(sender: UIButton) {
-        log.warning("Open vk page")
+        openLinkFor(OpenLinkType.VKontakte)
     }
     
     @IBAction func okShareButtonTapped(sender: UIButton) {
-        log.warning("Open ok page")
+        openLinkFor(OpenLinkType.Odnoklassniki)
+    }
+    
+    func openLinkFor(linkType: OpenLinkType) {
+        var url : NSURL
+        url = NSURL(string: linkType.rawValue)!
+        UIApplication.sharedApplication().openURL(url)
     }
 }
