@@ -14,7 +14,6 @@ class BaseCollectionViewController: UIViewController {
         static let headerCellIdentifier = "headerCell"
     }
     
-    var paddingTopConstraint: NSLayoutConstraint!
     var headerCell: UICollectionReusableView?
     
     @IBOutlet var collectionView: UICollectionView!
@@ -27,7 +26,7 @@ class BaseCollectionViewController: UIViewController {
         
         // Top padding constraint
         if let collectionView = collectionView {
-            paddingTopConstraint = NSLayoutConstraint(item: collectionView, attribute: .Top, relatedBy: .Equal,
+            let paddingTopConstraint = NSLayoutConstraint(item: collectionView, attribute: .Top, relatedBy: .Equal,
                 toItem: view, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0.0)
             view.addConstraint(paddingTopConstraint)
         }

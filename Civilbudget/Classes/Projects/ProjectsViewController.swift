@@ -43,6 +43,14 @@ class ProjectsViewController: BaseCollectionViewController {
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
+            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)

@@ -16,6 +16,17 @@ class ProjectDetailsViewModel: NSObject {
         return formatter
     }()
     
+    static let currencyFormatter: NSNumberFormatter = {
+        let formatter = NSNumberFormatter()
+        // formatter.locale = NSLocale(localeIdentifier: "ua_UKR")
+        // formatter.numberStyle = .CurrencyStyle
+        formatter.groupingSeparator = " "
+        formatter.numberStyle = .DecimalStyle
+        return formatter
+    }()
+    
+    static let ownerImagePlaceholder: UIImage = CivilbudgetStyleKit.imageOfUserProfilePlaceholder.af_imageRoundedIntoCircle()
+    
     var project: Project! {
         didSet {
             updateFields()
@@ -27,6 +38,9 @@ class ProjectDetailsViewModel: NSObject {
     let fullDescription = Observable("")
     let supportedBy = Observable("")
     let createdAt = Observable("")
+    let author = Observable("")
+    let ownerImage = Observable(ProjectDetailsViewModel.ownerImagePlaceholder)
+    let budgetLabel = Observable("")
     
     init(project: Project? = nil) {
         super.init()
@@ -42,8 +56,9 @@ class ProjectDetailsViewModel: NSObject {
         title.value = project.title
         fullDescription.value = project.description
         supportedBy.value = "\(project.likes ?? 0)"
-        if let createdDate = project.createdAt {
-            createdAt.value = self.dynamicType.dateFormatter.stringFromDate(createdDate)
-        }
+        createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
+        author.value = project.owner ?? ""
+        ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
+        budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
     }
 }

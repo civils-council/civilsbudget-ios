@@ -30,6 +30,10 @@ public class CivilbudgetStyleKit : NSObject {
         static var detailsButtonBackgroundTargets: [AnyObject]?
         static var imageOfSupportButtonBackground: UIImage?
         static var supportButtonBackgroundTargets: [AnyObject]?
+        static var imageOfUserProfileBackground: UIImage?
+        static var userProfileBackgroundTargets: [AnyObject]?
+        static var imageOfUserProfilePlaceholder: UIImage?
+        static var userProfilePlaceholderTargets: [AnyObject]?
     }
 
     //// Colors
@@ -401,6 +405,47 @@ public class CivilbudgetStyleKit : NSObject {
         rectanglePath.fill()
     }
 
+    public class func drawUserProfileBackground() {
+        //// Color Declarations
+        let color5 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 40, 40))
+        color5.setFill()
+        ovalPath.fill()
+    }
+
+    public class func drawUserProfilePlaceholder() {
+        //// Color Declarations
+        let color6 = CivilbudgetStyleKit.bottomCopyrightGrey
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 34, 34))
+        color6.setFill()
+        rectanglePath.fill()
+
+
+        //// Text Drawing
+        let textPath = UIBezierPath()
+        textPath.moveToPoint(CGPointMake(28, 23.97))
+        textPath.addCurveToPoint(CGPointMake(22.6, 15.04), controlPoint1: CGPointMake(28, 20.44), controlPoint2: CGPointMake(27.17, 15.04))
+        textPath.addCurveToPoint(CGPointMake(17.02, 17.2), controlPoint1: CGPointMake(22.12, 15.04), controlPoint2: CGPointMake(20.08, 17.2))
+        textPath.addCurveToPoint(CGPointMake(11.43, 15.04), controlPoint1: CGPointMake(13.96, 17.2), controlPoint2: CGPointMake(11.92, 15.04))
+        textPath.addCurveToPoint(CGPointMake(6.04, 23.97), controlPoint1: CGPointMake(6.86, 15.04), controlPoint2: CGPointMake(6.04, 20.44))
+        textPath.addCurveToPoint(CGPointMake(10.2, 28), controlPoint1: CGPointMake(6.04, 26.49), controlPoint2: CGPointMake(7.72, 28))
+        textPath.addLineToPoint(CGPointMake(23.83, 28))
+        textPath.addCurveToPoint(CGPointMake(28, 23.97), controlPoint1: CGPointMake(26.32, 28), controlPoint2: CGPointMake(28, 26.49))
+        textPath.closePath()
+        textPath.moveToPoint(CGPointMake(23.01, 10.05))
+        textPath.addCurveToPoint(CGPointMake(17.02, 4.07), controlPoint1: CGPointMake(23.01, 6.75), controlPoint2: CGPointMake(20.32, 4.07))
+        textPath.addCurveToPoint(CGPointMake(11.03, 10.05), controlPoint1: CGPointMake(13.71, 4.07), controlPoint2: CGPointMake(11.03, 6.75))
+        textPath.addCurveToPoint(CGPointMake(17.02, 16.04), controlPoint1: CGPointMake(11.03, 13.36), controlPoint2: CGPointMake(13.71, 16.04))
+        textPath.addCurveToPoint(CGPointMake(23.01, 10.05), controlPoint1: CGPointMake(20.32, 16.04), controlPoint2: CGPointMake(23.01, 13.36))
+        textPath.closePath()
+        CivilbudgetStyleKit.themeDarkBlue.setFill()
+        textPath.fill()
+    }
+
     //// Generated Images
 
     public class var imageOfBankIDFullLogoImage: UIImage {
@@ -469,6 +514,34 @@ public class CivilbudgetStyleKit : NSObject {
         return Cache.imageOfSupportButtonBackground!
     }
 
+    public class var imageOfUserProfileBackground: UIImage {
+        if Cache.imageOfUserProfileBackground != nil {
+            return Cache.imageOfUserProfileBackground!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(40, 40), false, 0)
+            CivilbudgetStyleKit.drawUserProfileBackground()
+
+        Cache.imageOfUserProfileBackground = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfUserProfileBackground!
+    }
+
+    public class var imageOfUserProfilePlaceholder: UIImage {
+        if Cache.imageOfUserProfilePlaceholder != nil {
+            return Cache.imageOfUserProfilePlaceholder!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(34, 34), false, 0)
+            CivilbudgetStyleKit.drawUserProfilePlaceholder()
+
+        Cache.imageOfUserProfilePlaceholder = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfUserProfilePlaceholder!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet var bankIDFullLogoImageTargets: [AnyObject]! {
@@ -507,6 +580,26 @@ public class CivilbudgetStyleKit : NSObject {
             Cache.supportButtonBackgroundTargets = newValue
             for target: AnyObject in newValue {
                 target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfSupportButtonBackground)
+            }
+        }
+    }
+
+    @IBOutlet var userProfileBackgroundTargets: [AnyObject]! {
+        get { return Cache.userProfileBackgroundTargets }
+        set {
+            Cache.userProfileBackgroundTargets = newValue
+            for target: AnyObject in newValue {
+                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfUserProfileBackground)
+            }
+        }
+    }
+
+    @IBOutlet var userProfilePlaceholderTargets: [AnyObject]! {
+        get { return Cache.userProfilePlaceholderTargets }
+        set {
+            Cache.userProfilePlaceholderTargets = newValue
+            for target: AnyObject in newValue {
+                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfUserProfilePlaceholder)
             }
         }
     }

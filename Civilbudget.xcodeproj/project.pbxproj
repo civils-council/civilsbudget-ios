@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F3B89151C06664D00BF817E /* BaseDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B89141C06664D00BF817E /* BaseDetailsCell.swift */; };
 		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
 		0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */; };
 		0F52E81C1C01FC8500C76F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81A1C01FC8500C76F62 /* Main.storyboard */; };
@@ -27,7 +28,7 @@
 		0FE4C5981C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */; };
 		0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A31C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift */; };
 		0FE4C5A81C05E9DF00B3B66E /* BottomToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */; };
-		0FE4C5A91C05E9DF00B3B66E /* FullWidthImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */; };
+		0FE4C5A91C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */; };
 		0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */; };
 		0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
@@ -135,6 +136,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F3B89141C06664D00BF817E /* BaseDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseDetailsCell.swift; path = "Base View Controller/BaseDetailsCell.swift"; sourceTree = "<group>"; };
 		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F52E81A1C01FC8500C76F62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -155,7 +157,7 @@
 		0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		0FE4C5A31C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BottomToolbar.swift; path = "Base View Controller/BottomToolbar.swift"; sourceTree = "<group>"; };
-		0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullWidthImageView.swift; path = "Base View Controller/FullWidthImageView.swift"; sourceTree = "<group>"; };
+		0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderBackgroundImageView.swift; path = "Base View Controller/StretchyHeaderBackgroundImageView.swift"; sourceTree = "<group>"; };
 		0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderCollectionViewLayout.swift; path = "Base View Controller/StretchyHeaderCollectionViewLayout.swift"; sourceTree = "<group>"; };
 		0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsHeaderReusableView.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,9 +211,10 @@
 			isa = PBXGroup;
 			children = (
 				0FE4C5A51C05E9DF00B3B66E /* BottomToolbar.swift */,
-				0FE4C5A61C05E9DF00B3B66E /* FullWidthImageView.swift */,
+				0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */,
 				0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */,
 				0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */,
+				0F3B89141C06664D00BF817E /* BaseDetailsCell.swift */,
 			);
 			name = "Base View Controller";
 			sourceTree = "<group>";
@@ -618,9 +621,10 @@
 				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
 				0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
-				0FE4C5A91C05E9DF00B3B66E /* FullWidthImageView.swift in Sources */,
+				0FE4C5A91C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift in Sources */,
 				0F87BA081C020D1800D7938A /* BaseCollectionViewController.swift in Sources */,
 				0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */,
+				0F3B89151C06664D00BF817E /* BaseDetailsCell.swift in Sources */,
 				0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */,
 				0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */,
 				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
