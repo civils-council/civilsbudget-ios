@@ -59,6 +59,6 @@ class ProjectDetailsViewModel: NSObject {
         createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
         author.value = project.owner ?? ""
         ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
-        budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
+        budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(project.budget ?? 0)!) грн"
     }
 }
