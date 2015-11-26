@@ -54,6 +54,10 @@ extension ProjectDetailsViewController: UICollectionViewDataSource {
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard headerCell == nil else {
+            return headerCell!
+        }
+        
         let view = super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath) as! ProjectDetailsHeaderReusableView
         view.viewModel = viewModel
         return view
