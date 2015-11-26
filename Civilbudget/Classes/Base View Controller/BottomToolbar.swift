@@ -9,10 +9,17 @@
 import UIKit
 
 class BootomToolbar: UIView {
+    enum Link: String {
+        case Facebook = "https://www.facebook.com/civilscouncil"
+        case VKontakte = "https://vk.com/civilscouncil"
+        case Odnoklassniki = "http://ok.ru"
+        case HomePage = "http://www.golos.ck.ua"
+    }
+    
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var fbShareButton: UIButton!
     @IBOutlet weak var vkShareButton: UIButton!
-    @IBOutlet weak var okShareButton: UIButton!
+    //@IBOutlet weak var okShareButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,25 +33,32 @@ class BootomToolbar: UIView {
         vkShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
         vkShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         vkShareButton.setTitle("\u{f189}", forState: .Normal)
-        okShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        okShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
-        okShareButton.setTitle("\u{f263}", forState: .Normal)
+        //okShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        //okShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
+        //okShareButton.setTitle("\u{f263}", forState: .Normal)
     }
     
     
     @IBAction func siteLinkButtonTapped(sender: UIButton) {
-        log.warning("Open home page")
+        openPage(.HomePage)
     }
     
     @IBAction func fbShareButtonTapped(sender: UIButton) {
-        log.warning("Open fb page")
+        openPage(.Facebook)
     }
     
     @IBAction func vkShareButtonTapped(sender: UIButton) {
-        log.warning("Open vk page")
+        openPage(.VKontakte)
     }
     
     @IBAction func okShareButtonTapped(sender: UIButton) {
-        log.warning("Open ok page")
+        openPage(.Odnoklassniki)
+    }
+    
+    func openPage(link: Link) {
+        guard let URL = NSURL(string: link.rawValue) else {
+            return
+        }
+        UIApplication.sharedApplication().openURL(URL)
     }
 }
