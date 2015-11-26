@@ -91,12 +91,12 @@ class ProjectDetailsViewModel: NSObject {
             .responseObject { [weak self] (response: Response<User, NSError>) in
                 print(response)
                 
-                guard let user = response.result.value else {
+                guard let user = response.result.value, projectId = self?.project.id else {
                     self?.loadingIndicatorVisible.value = false
                     return
                 }
                 
-                Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: self!.project.id, clid: user.clid)).responseString { response in
+                Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: projectId, clid: user.clid)).responseString { response in
                     self?.loadingIndicatorVisible.value = false
                     
                     print(response.description)
