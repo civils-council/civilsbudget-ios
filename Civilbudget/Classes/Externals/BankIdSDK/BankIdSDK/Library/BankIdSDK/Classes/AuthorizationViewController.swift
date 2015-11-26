@@ -110,10 +110,12 @@ public class AuthorizationViewController: UIViewController {
             return
         }
         
-        completionHandler(result)
+        let handler = completionHandler
         self.completionHandler = nil
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: {
+            handler(result)
+        })
     }
 }
 

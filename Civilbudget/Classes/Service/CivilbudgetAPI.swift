@@ -11,12 +11,11 @@ import Alamofire
 struct CivilbudgetAPI {
     enum Router: URLRequestConvertible {
         static let baseURLString = "http://www.golos.ck.ua/app_dev.php/api"
-        static var APIKey: String?
         
-        case Authorize(code: String)
+        case Authorize(accessToken: String)
         case GetProjects
         case GetProject(id: Int)
-        case LikeProject(id: Int)
+        case LikeProject(id: Int, clid: String)
         
         var path: String {
             switch self {
@@ -24,18 +23,18 @@ struct CivilbudgetAPI {
                 return "/authorization"
             case .GetProjects:
                 return "/projects"
-            case .GetProject(let id):
+            case let .GetProject(id):
                 return "/projects/\(id)"
-            case .LikeProject(let id):
+            case let .LikeProject(id, _):
                 return "/projects/\(id)/like"
             }
         }
         
         var method:  Alamofire.Method {
             switch self {
-            case .Authorize, .LikeProject:
+            case .LikeProject:
                 return .POST
-            case .GetProjects, .GetProject:
+            case .Authorize, .GetProjects, .GetProject:
                 return .GET
             }
         }
@@ -45,13 +44,11 @@ struct CivilbudgetAPI {
             let request = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
             request.HTTPMethod = method.rawValue
             
-            if let APIKey = Router.APIKey {
-                request.setValue("Bearer \(APIKey)", forHTTPHeaderField: "Authorization")
-            }
-            
             switch self {
-            case .Authorize(let code):
-                return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["code": code]).0
+            case let .Authorize(accessToken):
+                return Alamofire.ParameterEncoding.URL.encode(request, parameters: ["code": accessToken]).0
+            case let .LikeProject(_, clid):
+                return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["clid": clid]).0
             default:
                 return request
             }

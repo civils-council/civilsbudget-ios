@@ -8,6 +8,7 @@
 
 import UIKit
 import BankIdSDK
+import SVProgressHUD
 
 class ProjectDetailsViewController: BaseCollectionViewController {
     struct Constants {
@@ -37,10 +38,21 @@ class ProjectDetailsViewController: BaseCollectionViewController {
                 return
             }
             
-            let authViewController = AuthorizationViewController(getOnlyAuthCode: true, patchIndexPage: true, completionHandler: completionHandler)
+            let authViewController = AuthorizationViewController(getOnlyAuthCode: false, patchIndexPage: true, completionHandler: completionHandler)
             let navigationController = UINavigationController(rootViewController: authViewController)
             viewController.presentViewController(navigationController, animated: true, completion: nil)
         }
+        viewModel.showAlertWithStatus.observeNew { [weak self] description in
+            guard let viewController = self else {
+                return
+            }
+            
+            let title = description ?? "Сталася прикра помилка ;("
+            let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "ОК", style: .Cancel, handler: nil))
+            viewController.presentViewController(alert, animated: true, completion: nil)
+        }
+        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? SVProgressHUD.show() : SVProgressHUD.dismiss() }
         
         // UI Controls actions
         backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }

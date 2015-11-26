@@ -43,8 +43,10 @@ class ProjectDetailsViewModel: NSObject {
     let author = Observable("")
     let ownerImage = Observable(ProjectDetailsViewModel.ownerImagePlaceholder)
     let budgetLabel = Observable("")
+    let loadingIndicatorVisible = Observable(false)
     
     let authorizeWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
+    let showAlertWithStatus = Observable<String?>(nil)
     
     init(project: Project? = nil) {
         super.init()
@@ -63,7 +65,7 @@ class ProjectDetailsViewModel: NSObject {
         createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
         author.value = project.owner ?? ""
         ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
-        budgetLabel.value = "Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
+        budgetLabel.value = "\u{f02b} Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(15000)!) грн"
     }
     
     func voteForCurrentProject() {
@@ -73,16 +75,32 @@ class ProjectDetailsViewModel: NSObject {
     }
     
     func handleAuthorizationResult(result: AuthorizationResult) {
-        guard let authorization = result.value, authCode = authorization.authCode else {
-            log.warning("Can't find authorization code")
+        if let error = result.error {
+            showAlertWithStatus.value = error.localizedDescription
             return
         }
         
-        log.warning(authCode)
+        guard let accessToken = result.value?.accessToken else {
+            return
+        }
         
-        Alamofire.request(CivilbudgetAPI.Router.Authorize(code: authCode))
-            .responseString { response in
-                print(response.result.value)
+        log.warning(accessToken)
+        loadingIndicatorVisible.value = true
+        
+        Alamofire.request(CivilbudgetAPI.Router.Authorize(accessToken: accessToken))
+            .responseObject { [weak self] (response: Response<User, NSError>) in
+                print(response)
+                
+                guard let user = response.result.value else {
+                    self?.loadingIndicatorVisible.value = false
+                    return
+                }
+                
+                Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: self!.project.id, clid: user.clid)).responseString { response in
+                    self?.loadingIndicatorVisible.value = false
+                    
+                    print(response.description)
+                }
         }
     }
 }

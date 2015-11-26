@@ -9,6 +9,7 @@
     <customFonts key="customFonts">
         <mutableArray key="FontAwesome.otf">
             <string>FontAwesome</string>
+            <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -284,9 +285,9 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бюджет проекту" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM5-eK-XhY">
-                                            <rect key="frame" x="241" y="143" width="118" height="18"/>
+                                            <rect key="frame" x="241" y="145" width="119" height="15"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
