@@ -57,6 +57,10 @@ class BaseCollectionViewController: UIViewController {
         
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }
 
 // MARK: - BNDCollectionViewProxyDataSource methods (provide header cell)

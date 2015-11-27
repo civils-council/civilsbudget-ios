@@ -79,6 +79,10 @@ public class AuthorizationViewController: UIViewController {
         moveUIFromUnderNavigationBar()
     }
     
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     @IBAction func closeButtonTapped(sender: UIBarButtonItem) {
         dismissWithResult(AuthorizationResult.Failure(Error(code: .Canceled)))
     }
