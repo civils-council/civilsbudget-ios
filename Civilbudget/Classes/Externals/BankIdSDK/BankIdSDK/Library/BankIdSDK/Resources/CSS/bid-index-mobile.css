@@ -271,12 +271,14 @@ html {
     color: #484848;
     text-decoration: none;
     margin-top: 10px;
+    display: none
 }
 .data-info {
     color: #484848;
     text-decoration: none;
     font-weight: 900;
     margin-left: 20px;
+    display:none
 }
 .license {
     margin-top: 10px;
@@ -310,6 +312,9 @@ html {
 .ecp {
     margin-left: 470px;
     margin-top: 400px;
+    display: none;
+}
+.otherOperations {
     display: none;
 }
 .ecp-button {
