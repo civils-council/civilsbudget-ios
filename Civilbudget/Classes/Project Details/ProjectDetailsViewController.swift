@@ -8,7 +8,7 @@
 
 import UIKit
 import BankIdSDK
-import SVProgressHUD
+import KVNProgress
 
 class ProjectDetailsViewController: BaseCollectionViewController {
     struct Constants {
@@ -52,7 +52,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             alert.addAction(UIAlertAction(title: "ОК", style: .Cancel, handler: nil))
             viewController.presentViewController(alert, animated: true, completion: nil)
         }
-        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? SVProgressHUD.show() : SVProgressHUD.dismiss() }
+        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
         
         // UI Controls actions
         backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }
