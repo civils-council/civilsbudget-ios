@@ -56,15 +56,11 @@ class ProjectsViewController: BaseCollectionViewController {
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
 extension ProjectsViewController {
-    /*func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        let numberOfCells = floor(self.view.frame.size.width / ProjectCollectionViewCell.width)
-        let horizontalEdgeInset = (self.view.frame.size.width - (numberOfCells * ProjectCollectionViewCell.width)) / (numberOfCells + 1);
-        let verticalEdgeInset = numberOfCells < 2 ? Constants.collectionViewVerticalInset : horizontalEdgeInset
-        return UIEdgeInsetsMake(verticalEdgeInset, horizontalEdgeInset, verticalEdgeInset, horizontalEdgeInset);
-    }*/
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let targetWidth: CGFloat = self.collectionView.bounds.width
+        let cellMinWidth = ProjectCollectionViewCell.maxWidth
+        let containerWidth = collectionView.bounds.width
+        let numberOfColumns = floor(containerWidth / cellMinWidth)
+        let targetWidth = floor(numberOfColumns >= 2.0 ? containerWidth / numberOfColumns : containerWidth)
 
         if sizingCell == nil {
             sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil).first as? ProjectCollectionViewCell

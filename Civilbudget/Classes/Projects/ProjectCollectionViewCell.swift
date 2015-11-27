@@ -11,7 +11,7 @@ import AlamofireImage
 import Bond
 
 class ProjectCollectionViewCell: UICollectionViewCell {
-    static let maxWidth = CGFloat(300.0)
+    static let maxWidth = CGFloat(320.0)
     
     private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
     

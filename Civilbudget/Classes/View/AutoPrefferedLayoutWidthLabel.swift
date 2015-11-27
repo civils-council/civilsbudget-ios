@@ -14,7 +14,8 @@ class AutoPrefferedLayoutWidthLabel: UILabel {
         super.layoutSubviews()
         
         if #available(iOS 9, *) {
-            // Do nothing
+            // - Do nothing -
+            preferredMaxLayoutWidth = bounds.width
         } else /*if #available(iOS 8, *)*/ {
             preferredMaxLayoutWidth = bounds.width
         }
