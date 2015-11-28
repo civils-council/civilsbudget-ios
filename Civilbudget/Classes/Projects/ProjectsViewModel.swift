@@ -12,7 +12,7 @@ import Alamofire
 class ProjectsViewModel: NSObject {
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
-    let loadingError = Observable<NSError?>(nil)
+    let loadingState = Observable(LoadingState.Loaded)
     
     override init() {
         super.init()
@@ -21,14 +21,17 @@ class ProjectsViewModel: NSObject {
     }
     
     func refreshProjectList() {
+        loadingState.value = .Loading(label: "Завантаження списку проектів")
         Alamofire.request(CivilbudgetAPI.Router.GetProjects)
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {
-                case let .Success(project):
-                    self?.projects.array.last?.array = project
+                case let .Success(projects):
+                    self?.projects.array.last?.array = projects
+                    let state = projects.count > 0 ? LoadingState.Loaded : LoadingState.NoData(label: "Список проектів порожній")
+                    self?.loadingState.value = state
                 case let .Failure(error):
                     log.error(error.localizedDescription)
-                    self?.loadingError.value = error
+                    self?.loadingState.value = .Failure(description: error.localizedDescription)
                 }
         }
     }

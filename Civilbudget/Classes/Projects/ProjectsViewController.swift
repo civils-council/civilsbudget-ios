@@ -23,6 +23,13 @@ class ProjectsViewController: BaseCollectionViewController {
     var sizingCell: ProjectCollectionViewCell?
     
     @IBOutlet weak var infoTopPaddingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var infoContainerView: UIView!
+    @IBOutlet weak var noDataView: UIView!
+    @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var loadingIndicatorView: UIView!
+    @IBOutlet weak var loadingIndicatorLabel: UILabel!
+    @IBOutlet weak var loadingErrorView: UIView!
+    @IBOutlet weak var loadingErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +46,28 @@ class ProjectsViewController: BaseCollectionViewController {
             cell.viewModel.project = dataSource[indexPath.section][indexPath.row]
             return cell
         }
-        
+        viewModel.loadingState.observe { [weak self] state in
+            self?.infoContainerView.hidden = true
+            self?.noDataView.hidden = true
+            self?.loadingIndicatorView.hidden = true
+            self?.loadingErrorView.hidden = true
+            switch state {
+            case let .Loading(label):
+                self?.infoContainerView.hidden = false
+                self?.loadingIndicatorLabel.text = label
+                self?.loadingIndicatorView.hidden = false
+            case let .Failure(description):
+                self?.infoContainerView.hidden = false
+                self?.loadingErrorLabel.text = description
+                self?.loadingErrorView.hidden = false
+            case let .NoData(description):
+                self?.infoContainerView.hidden = false
+                self?.noDataLabel.text = description
+                self?.noDataView.hidden = false
+            default: break
+            }
+        }
+    
         // Bind Actions
         viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)

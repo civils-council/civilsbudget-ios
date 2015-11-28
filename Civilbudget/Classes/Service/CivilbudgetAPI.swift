@@ -55,3 +55,24 @@ struct CivilbudgetAPI {
         }
     }
 }
+
+enum LoadingState {
+    case Loading(label: String?)
+    case Loaded
+    case NoData(label: String?)
+    case Failure(description: String)
+    case VoteAccepted(message: String)
+    case VoteDeclined(warning: String)
+}
+
+func ==(a: LoadingState, b: LoadingState) -> Bool {
+    switch (a, b) {
+    case (.Loaded, .Loaded): return true
+    case (.Loading, .Loading): return true
+    case (.NoData, .NoData): return true
+    case (.Failure, .Failure): return true
+    case (.VoteAccepted, .VoteAccepted): return true
+    case (.VoteDeclined, .VoteDeclined): return true
+    default: return false
+    }
+}
