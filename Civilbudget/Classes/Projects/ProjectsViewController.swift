@@ -22,8 +22,13 @@ class ProjectsViewController: BaseCollectionViewController {
     let viewModel = ProjectsViewModel()
     var sizingCell: ProjectCollectionViewCell?
     
+    @IBOutlet weak var infoTopPaddingConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configure layout
+        infoTopPaddingConstraint.constant = GlobalConstants.exposedHeaderViewHeight
         
         // Register Project cell class
         collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)

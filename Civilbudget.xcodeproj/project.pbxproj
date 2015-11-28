@@ -32,6 +32,7 @@
 		0FE4C5A91C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */; };
 		0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */; };
 		0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */; };
+		0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D27C1C099C5800A4648E /* VoteResult.swift */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
 		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -43,20 +44,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
 			remoteInfo = AlamofireImage;
-		};
-		0F52E8031C01247C00C76F62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3A4B387EBFE812387DD88C6341ABD937;
-			remoteInfo = Realm;
-		};
-		0F52E8051C01247C00C76F62 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 42A2B86F00490AEDE5A0B65502B8790B;
-			remoteInfo = RealmSwift;
 		};
 		0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -71,6 +58,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 70E6BC1DAABBB0EF9D80759A3EEFFAA4;
 			remoteInfo = XCGLogger;
+		};
+		0FF5D2871C099C5900A4648E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 75910FC1AC29D56B4C0AC915511C4094;
+			remoteInfo = KVNProgress;
 		};
 		0FF8A9001BBFBA820025C59C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -118,7 +112,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 00C7E60F3B2476B9A27F46369178B6F3;
+			remoteGlobalIDString = 839E56A1DF34AD38EA18A0354D468AF6;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -162,6 +156,7 @@
 		0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderBackgroundImageView.swift; path = "Base View Controller/StretchyHeaderBackgroundImageView.swift"; sourceTree = "<group>"; };
 		0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderCollectionViewLayout.swift; path = "Base View Controller/StretchyHeaderCollectionViewLayout.swift"; sourceTree = "<group>"; };
 		0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsHeaderReusableView.swift; sourceTree = "<group>"; };
+		0FF5D27C1C099C5800A4648E /* VoteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResult.swift; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF70811BBE78500042EC47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -226,6 +221,7 @@
 			children = (
 				0F8D18B51BD02C2300B69419 /* Project.swift */,
 				0F8D18B61BD02C2300B69419 /* User.swift */,
+				0FF5D27C1C099C5800A4648E /* VoteResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -372,9 +368,8 @@
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
+				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
-				0F52E8041C01247C00C76F62 /* Realm.framework */,
-				0F52E8061C01247C00C76F62 /* RealmSwift.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
@@ -463,20 +458,6 @@
 			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0F52E8041C01247C00C76F62 /* Realm.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Realm.framework;
-			remoteRef = 0F52E8031C01247C00C76F62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F52E8061C01247C00C76F62 /* RealmSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = RealmSwift.framework;
-			remoteRef = 0F52E8051C01247C00C76F62 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -489,6 +470,13 @@
 			fileType = wrapper.framework;
 			path = XCGLogger.framework;
 			remoteRef = 0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FF5D2881C099C5900A4648E /* KVNProgress.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KVNProgress.framework;
+			remoteRef = 0FF5D2871C099C5900A4648E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */ = {
@@ -623,6 +611,7 @@
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
 				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
 				0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
+				0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */,
 				0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
 				0FE4C5A91C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift in Sources */,
