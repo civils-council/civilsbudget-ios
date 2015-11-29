@@ -7,6 +7,8 @@
 //
 
 import Alamofire
+import Bond
+import Locksmith
 
 struct User {
     let id: Int
@@ -33,4 +35,29 @@ extension User: ResponseObjectSerializable {
         self.fullName = fullName
         self.clid = clid
     }
+}
+
+// MARK: - Locksmith protocols to support writting to Keychain
+
+extension User: ReadableSecureStorable,
+                CreateableSecureStorable,
+                DeleteableSecureStorable,
+                GenericPasswordSecureStorable {
+    var service: String { return "civilbudget_api"}
+    var account: String { return "current_user" }
+    var data: [String: AnyObject] {
+        return ["id": id,
+                "fullName": fullName,
+                "clid": clid]
+    }
+}
+
+// MARK: - Manage logged in user details
+
+extension User {
+    static var currentUser: Observable<User?> = {
+        let observable = Observable<User?>(nil)
+        
+        return observable
+    }()
 }

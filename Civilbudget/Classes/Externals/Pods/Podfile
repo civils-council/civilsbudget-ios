@@ -17,6 +17,7 @@ pod 'AlamofireImage', '~> 2.0'
 pod 'Bond', '~> 4.0'
 pod 'SwiftyJSON', '~> 2.3'
 pod 'KVNProgress', '~> 2.2'
+pod 'Locksmith', '~> 2.0'
 pod 'BankIdSDK', :path => '../BankIdSDK/'
 
 end
