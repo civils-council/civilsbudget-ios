@@ -21,7 +21,7 @@ class ProjectsViewModel: NSObject {
     }
     
     func refreshProjectList() {
-        loadingState.value = .Loading(label: "Завантаження списку проектів")
+        loadingState.value = .Loading(label: "Завантаження проектів")
         Alamofire.request(CivilbudgetAPI.Router.GetProjects)
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {
@@ -31,7 +31,7 @@ class ProjectsViewModel: NSObject {
                     self?.loadingState.value = state
                 case let .Failure(error):
                     log.error(error.localizedDescription)
-                    self?.loadingState.value = .Failure(description: error.localizedDescription)
+                    self?.loadingState.value = .Failure(description: "Помилка завантаження")
                 }
         }
     }

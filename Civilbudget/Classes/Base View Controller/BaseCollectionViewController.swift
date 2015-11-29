@@ -18,8 +18,7 @@ class BaseCollectionViewController: UIViewController {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var topToolbar: UIView!
-    @IBOutlet var bottomToolbar: BootomToolbar!
-    @IBOutlet var bottomToolbarPlaceholderView: UIView!
+    @IBOutlet var bottomToolbarContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +41,9 @@ class BaseCollectionViewController: UIViewController {
         }
         
         // Load BottomToolbar XIB
-        NSBundle.mainBundle().loadNibNamed("BottomToolbar", owner: self, options: nil)
-        if let container = bottomToolbarPlaceholderView, toolbar = bottomToolbar {
-            container.addSubview(toolbar)
-            container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Top, relatedBy: .Equal, toItem: container, attribute: .Top, multiplier: 1.0, constant: 0.0))
-            container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Bottom, relatedBy: .Equal, toItem: container, attribute: .Bottom, multiplier: 1.0, constant: 0.0))
-            container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Left, relatedBy: .Equal, toItem: container, attribute: .Left, multiplier: 1.0, constant: 0.0))
-            container.addConstraint(NSLayoutConstraint(item: toolbar, attribute: .Right, relatedBy: .Equal, toItem: container, attribute: .Right, multiplier: 1.0, constant: 0.0))
+        if let toolbar = UIView.loadFirstViewFromNibNamed("BottomToolbarView") {
+            bottomToolbarContainerView.addSubview(toolbar)
+            toolbar.addConstraintsToFitSuperview()
         }
     }
     

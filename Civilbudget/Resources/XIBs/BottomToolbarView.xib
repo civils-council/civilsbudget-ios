@@ -11,11 +11,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseCollectionViewController" customModule="Civilbudget" customModuleProvider="target">
-            <connections>
-                <outlet property="bottomToolbar" destination="bUX-Mn-VKf" id="f45-W2-zlV"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="BootomToolbar" customModule="Civilbudget" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
