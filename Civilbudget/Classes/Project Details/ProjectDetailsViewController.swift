@@ -25,6 +25,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         super.viewDidLoad()
         
         // Configure UI
+        collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
         backButton.setTitle("\u{f104}", forState: .Normal)
         supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground, forState: .Normal)
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)

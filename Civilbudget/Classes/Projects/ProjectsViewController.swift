@@ -30,6 +30,7 @@ class ProjectsViewController: BaseCollectionViewController {
         
         // Register Project cell class
         collectionView.registerNib(UINib(nibName: "ProjectCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.productCellIdentifier)
+        collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
         
         // Load ProjectsLoadingState view
         if let loadingStateView = UIView.loadFirstViewFromNibNamed("ProjectsLoadingStateView") as? ProjectsLoadingStateView {
