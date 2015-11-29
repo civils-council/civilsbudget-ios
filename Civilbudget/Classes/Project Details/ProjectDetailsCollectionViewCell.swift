@@ -22,11 +22,13 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         viewModel.title.bindTo(titleLabel.bnd_text)
         viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
+        viewModel.author.bindTo(authorLabel.bnd_text)
     }
 }

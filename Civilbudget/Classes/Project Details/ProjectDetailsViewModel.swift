@@ -27,8 +27,6 @@ class ProjectDetailsViewModel: NSObject {
         return formatter
     }()
     
-    static let ownerImagePlaceholder: UIImage = CivilbudgetStyleKit.imageOfUserProfilePlaceholder.af_imageRoundedIntoCircle()
-    
     var project: Project! {
         didSet {
             updateFields()
@@ -41,7 +39,6 @@ class ProjectDetailsViewModel: NSObject {
     let supportedBy = Observable("")
     let createdAt = Observable("")
     let author = Observable("")
-    let ownerImage = Observable(ProjectDetailsViewModel.ownerImagePlaceholder)
     let budgetLabel = Observable("")
     let loadingIndicatorVisible = Observable(false)
     
@@ -64,7 +61,6 @@ class ProjectDetailsViewModel: NSObject {
         supportedBy.value = "\(project.likes ?? 0)"
         createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
         author.value = project.owner ?? ""
-        ownerImage.value = ProjectDetailsViewModel.ownerImagePlaceholder
         budgetLabel.value = "\u{f02b} Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(project.budget ?? 0)!) грн"
     }
     

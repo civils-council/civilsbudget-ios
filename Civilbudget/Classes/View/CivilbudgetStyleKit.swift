@@ -31,10 +31,8 @@ public class CivilbudgetStyleKit : NSObject {
         static var detailsButtonBackgroundTargets: [AnyObject]?
         static var imageOfSupportButtonBackground: UIImage?
         static var supportButtonBackgroundTargets: [AnyObject]?
-        static var imageOfUserProfileBackground: UIImage?
-        static var userProfileBackgroundTargets: [AnyObject]?
-        static var imageOfUserProfilePlaceholder: UIImage?
-        static var userProfilePlaceholderTargets: [AnyObject]?
+        static var imageOfUserProfileImagePlaceholder: UIImage?
+        static var userProfileImagePlaceholderTargets: [AnyObject]?
         static var imageOfSadCloudImage: UIImage?
         static var sadCloudImageTargets: [AnyObject]?
         static var imageOfDownloadingCloudsImage: UIImage?
@@ -411,45 +409,167 @@ public class CivilbudgetStyleKit : NSObject {
         rectanglePath.fill()
     }
 
-    public class func drawUserProfileBackground() {
+    public class func drawUserProfileImagePlaceholder() {
         //// Color Declarations
-        let color5 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let color10 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+        let color5 = color10.colorWithAlpha(0.3)
+        let fillColor5 = CivilbudgetStyleKit.themeDarkBlue
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(0, 0, 40, 40))
+        let ovalPath = UIBezierPath(ovalInRect: CGRectMake(5, 5, 30, 30))
         color5.setFill()
         ovalPath.fill()
-    }
-
-    public class func drawUserProfilePlaceholder() {
-        //// Color Declarations
-        let color6 = CivilbudgetStyleKit.bottomCopyrightGrey
-
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRectMake(0, 0, 34, 34))
-        color6.setFill()
-        rectanglePath.fill()
 
 
-        //// Text Drawing
-        let textPath = UIBezierPath()
-        textPath.moveToPoint(CGPointMake(28, 23.97))
-        textPath.addCurveToPoint(CGPointMake(22.6, 15.04), controlPoint1: CGPointMake(28, 20.44), controlPoint2: CGPointMake(27.17, 15.04))
-        textPath.addCurveToPoint(CGPointMake(17.02, 17.2), controlPoint1: CGPointMake(22.12, 15.04), controlPoint2: CGPointMake(20.08, 17.2))
-        textPath.addCurveToPoint(CGPointMake(11.43, 15.04), controlPoint1: CGPointMake(13.96, 17.2), controlPoint2: CGPointMake(11.92, 15.04))
-        textPath.addCurveToPoint(CGPointMake(6.04, 23.97), controlPoint1: CGPointMake(6.86, 15.04), controlPoint2: CGPointMake(6.04, 20.44))
-        textPath.addCurveToPoint(CGPointMake(10.2, 28), controlPoint1: CGPointMake(6.04, 26.49), controlPoint2: CGPointMake(7.72, 28))
-        textPath.addLineToPoint(CGPointMake(23.83, 28))
-        textPath.addCurveToPoint(CGPointMake(28, 23.97), controlPoint1: CGPointMake(26.32, 28), controlPoint2: CGPointMake(28, 26.49))
-        textPath.closePath()
-        textPath.moveToPoint(CGPointMake(23.01, 10.05))
-        textPath.addCurveToPoint(CGPointMake(17.02, 4.07), controlPoint1: CGPointMake(23.01, 6.75), controlPoint2: CGPointMake(20.32, 4.07))
-        textPath.addCurveToPoint(CGPointMake(11.03, 10.05), controlPoint1: CGPointMake(13.71, 4.07), controlPoint2: CGPointMake(11.03, 6.75))
-        textPath.addCurveToPoint(CGPointMake(17.02, 16.04), controlPoint1: CGPointMake(11.03, 13.36), controlPoint2: CGPointMake(13.71, 16.04))
-        textPath.addCurveToPoint(CGPointMake(23.01, 10.05), controlPoint1: CGPointMake(20.32, 16.04), controlPoint2: CGPointMake(23.01, 13.36))
-        textPath.closePath()
-        CivilbudgetStyleKit.themeDarkBlue.setFill()
-        textPath.fill()
+        //// Oval 2 Drawing
+        let oval2Path = UIBezierPath(ovalInRect: CGRectMake(7, 7, 26, 26))
+        color10.setFill()
+        oval2Path.fill()
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.moveToPoint(CGPointMake(33, 20))
+        bezierPath.addCurveToPoint(CGPointMake(20, 7), controlPoint1: CGPointMake(33, 12.83), controlPoint2: CGPointMake(27.17, 7))
+        bezierPath.addCurveToPoint(CGPointMake(11, 10.62), controlPoint1: CGPointMake(16.63, 7), controlPoint2: CGPointMake(13.43, 8.29))
+        bezierPath.addCurveToPoint(CGPointMake(10.98, 11.71), controlPoint1: CGPointMake(10.69, 10.91), controlPoint2: CGPointMake(10.68, 11.4))
+        bezierPath.addCurveToPoint(CGPointMake(12.07, 11.73), controlPoint1: CGPointMake(11.27, 12.01), controlPoint2: CGPointMake(11.76, 12.02))
+        bezierPath.addCurveToPoint(CGPointMake(20, 8.54), controlPoint1: CGPointMake(14.21, 9.67), controlPoint2: CGPointMake(17.03, 8.54))
+        bezierPath.addCurveToPoint(CGPointMake(31.46, 20), controlPoint1: CGPointMake(26.32, 8.54), controlPoint2: CGPointMake(31.46, 13.68))
+        bezierPath.addCurveToPoint(CGPointMake(28.45, 27.74), controlPoint1: CGPointMake(31.46, 22.87), controlPoint2: CGPointMake(30.39, 25.62))
+        bezierPath.addCurveToPoint(CGPointMake(20, 31.46), controlPoint1: CGPointMake(26.28, 30.1), controlPoint2: CGPointMake(23.2, 31.46))
+        bezierPath.addCurveToPoint(CGPointMake(11.82, 28.02), controlPoint1: CGPointMake(16.93, 31.46), controlPoint2: CGPointMake(13.97, 30.21))
+        bezierPath.addCurveToPoint(CGPointMake(11.86, 27.86), controlPoint1: CGPointMake(11.83, 27.97), controlPoint2: CGPointMake(11.85, 27.91))
+        bezierPath.addCurveToPoint(CGPointMake(11.89, 27.73), controlPoint1: CGPointMake(11.87, 27.82), controlPoint2: CGPointMake(11.88, 27.77))
+        bezierPath.addCurveToPoint(CGPointMake(11.95, 27.53), controlPoint1: CGPointMake(11.91, 27.66), controlPoint2: CGPointMake(11.93, 27.6))
+        bezierPath.addCurveToPoint(CGPointMake(11.99, 27.42), controlPoint1: CGPointMake(11.96, 27.49), controlPoint2: CGPointMake(11.97, 27.46))
+        bezierPath.addCurveToPoint(CGPointMake(12.06, 27.2), controlPoint1: CGPointMake(12.01, 27.34), controlPoint2: CGPointMake(12.04, 27.27))
+        bezierPath.addCurveToPoint(CGPointMake(12.09, 27.11), controlPoint1: CGPointMake(12.07, 27.17), controlPoint2: CGPointMake(12.08, 27.14))
+        bezierPath.addCurveToPoint(CGPointMake(12.34, 26.52), controlPoint1: CGPointMake(12.17, 26.91), controlPoint2: CGPointMake(12.25, 26.71))
+        bezierPath.addCurveToPoint(CGPointMake(12.38, 26.44), controlPoint1: CGPointMake(12.36, 26.49), controlPoint2: CGPointMake(12.37, 26.47))
+        bezierPath.addCurveToPoint(CGPointMake(12.48, 26.24), controlPoint1: CGPointMake(12.42, 26.37), controlPoint2: CGPointMake(12.45, 26.3))
+        bezierPath.addCurveToPoint(CGPointMake(12.54, 26.13), controlPoint1: CGPointMake(12.5, 26.2), controlPoint2: CGPointMake(12.52, 26.17))
+        bezierPath.addCurveToPoint(CGPointMake(12.64, 25.96), controlPoint1: CGPointMake(12.57, 26.08), controlPoint2: CGPointMake(12.6, 26.02))
+        bezierPath.addCurveToPoint(CGPointMake(12.7, 25.85), controlPoint1: CGPointMake(12.66, 25.92), controlPoint2: CGPointMake(12.68, 25.89))
+        bezierPath.addCurveToPoint(CGPointMake(12.8, 25.69), controlPoint1: CGPointMake(12.74, 25.8), controlPoint2: CGPointMake(12.77, 25.74))
+        bezierPath.addCurveToPoint(CGPointMake(12.88, 25.58), controlPoint1: CGPointMake(12.83, 25.65), controlPoint2: CGPointMake(12.85, 25.62))
+        bezierPath.addCurveToPoint(CGPointMake(12.98, 25.43), controlPoint1: CGPointMake(12.91, 25.53), controlPoint2: CGPointMake(12.94, 25.48))
+        bezierPath.addCurveToPoint(CGPointMake(13.06, 25.32), controlPoint1: CGPointMake(13, 25.39), controlPoint2: CGPointMake(13.03, 25.36))
+        bezierPath.addCurveToPoint(CGPointMake(13.16, 25.18), controlPoint1: CGPointMake(13.09, 25.27), controlPoint2: CGPointMake(13.13, 25.23))
+        bezierPath.addCurveToPoint(CGPointMake(13.25, 25.07), controlPoint1: CGPointMake(13.19, 25.14), controlPoint2: CGPointMake(13.22, 25.11))
+        bezierPath.addCurveToPoint(CGPointMake(13.36, 24.93), controlPoint1: CGPointMake(13.29, 25.02), controlPoint2: CGPointMake(13.32, 24.98))
+        bezierPath.addCurveToPoint(CGPointMake(13.45, 24.83), controlPoint1: CGPointMake(13.39, 24.9), controlPoint2: CGPointMake(13.42, 24.86))
+        bezierPath.addCurveToPoint(CGPointMake(13.57, 24.7), controlPoint1: CGPointMake(13.49, 24.78), controlPoint2: CGPointMake(13.53, 24.74))
+        bezierPath.addCurveToPoint(CGPointMake(13.66, 24.6), controlPoint1: CGPointMake(13.6, 24.66), controlPoint2: CGPointMake(13.63, 24.63))
+        bezierPath.addCurveToPoint(CGPointMake(13.78, 24.47), controlPoint1: CGPointMake(13.7, 24.55), controlPoint2: CGPointMake(13.74, 24.51))
+        bezierPath.addCurveToPoint(CGPointMake(13.88, 24.37), controlPoint1: CGPointMake(13.82, 24.44), controlPoint2: CGPointMake(13.85, 24.41))
+        bezierPath.addCurveToPoint(CGPointMake(14.01, 24.26), controlPoint1: CGPointMake(13.92, 24.33), controlPoint2: CGPointMake(13.97, 24.29))
+        bezierPath.addCurveToPoint(CGPointMake(14.11, 24.16), controlPoint1: CGPointMake(14.04, 24.22), controlPoint2: CGPointMake(14.08, 24.19))
+        bezierPath.addCurveToPoint(CGPointMake(14.24, 24.05), controlPoint1: CGPointMake(14.16, 24.12), controlPoint2: CGPointMake(14.2, 24.09))
+        bezierPath.addCurveToPoint(CGPointMake(14.35, 23.96), controlPoint1: CGPointMake(14.28, 24.02), controlPoint2: CGPointMake(14.31, 23.99))
+        bezierPath.addCurveToPoint(CGPointMake(14.48, 23.85), controlPoint1: CGPointMake(14.39, 23.92), controlPoint2: CGPointMake(14.44, 23.89))
+        bezierPath.addCurveToPoint(CGPointMake(14.6, 23.77), controlPoint1: CGPointMake(14.52, 23.82), controlPoint2: CGPointMake(14.56, 23.79))
+        bezierPath.addCurveToPoint(CGPointMake(14.73, 23.67), controlPoint1: CGPointMake(14.64, 23.73), controlPoint2: CGPointMake(14.69, 23.7))
+        bezierPath.addCurveToPoint(CGPointMake(14.85, 23.58), controlPoint1: CGPointMake(14.77, 23.64), controlPoint2: CGPointMake(14.81, 23.61))
+        bezierPath.addCurveToPoint(CGPointMake(14.99, 23.49), controlPoint1: CGPointMake(14.9, 23.55), controlPoint2: CGPointMake(14.94, 23.52))
+        bezierPath.addCurveToPoint(CGPointMake(15.11, 23.41), controlPoint1: CGPointMake(15.03, 23.46), controlPoint2: CGPointMake(15.07, 23.44))
+        bezierPath.addCurveToPoint(CGPointMake(15.26, 23.32), controlPoint1: CGPointMake(15.16, 23.38), controlPoint2: CGPointMake(15.21, 23.35))
+        bezierPath.addCurveToPoint(CGPointMake(15.38, 23.25), controlPoint1: CGPointMake(15.3, 23.3), controlPoint2: CGPointMake(15.34, 23.27))
+        bezierPath.addCurveToPoint(CGPointMake(15.53, 23.17), controlPoint1: CGPointMake(15.43, 23.22), controlPoint2: CGPointMake(15.48, 23.2))
+        bezierPath.addCurveToPoint(CGPointMake(15.66, 23.1), controlPoint1: CGPointMake(15.57, 23.15), controlPoint2: CGPointMake(15.61, 23.12))
+        bezierPath.addCurveToPoint(CGPointMake(15.81, 23.03), controlPoint1: CGPointMake(15.71, 23.08), controlPoint2: CGPointMake(15.76, 23.05))
+        bezierPath.addCurveToPoint(CGPointMake(15.94, 22.96), controlPoint1: CGPointMake(15.85, 23.01), controlPoint2: CGPointMake(15.89, 22.98))
+        bezierPath.addCurveToPoint(CGPointMake(16.09, 22.9), controlPoint1: CGPointMake(15.99, 22.94), controlPoint2: CGPointMake(16.04, 22.92))
+        bezierPath.addCurveToPoint(CGPointMake(16.23, 22.84), controlPoint1: CGPointMake(16.14, 22.88), controlPoint2: CGPointMake(16.18, 22.86))
+        bezierPath.addCurveToPoint(CGPointMake(16.39, 22.78), controlPoint1: CGPointMake(16.28, 22.82), controlPoint2: CGPointMake(16.33, 22.8))
+        bezierPath.addCurveToPoint(CGPointMake(16.52, 22.72), controlPoint1: CGPointMake(16.43, 22.76), controlPoint2: CGPointMake(16.48, 22.74))
+        bezierPath.addCurveToPoint(CGPointMake(16.68, 22.67), controlPoint1: CGPointMake(16.58, 22.7), controlPoint2: CGPointMake(16.63, 22.69))
+        bezierPath.addCurveToPoint(CGPointMake(16.82, 22.62), controlPoint1: CGPointMake(16.73, 22.65), controlPoint2: CGPointMake(16.78, 22.64))
+        bezierPath.addCurveToPoint(CGPointMake(16.99, 22.57), controlPoint1: CGPointMake(16.88, 22.61), controlPoint2: CGPointMake(16.93, 22.59))
+        bezierPath.addCurveToPoint(CGPointMake(17.13, 22.53), controlPoint1: CGPointMake(17.03, 22.56), controlPoint2: CGPointMake(17.08, 22.55))
+        bezierPath.addCurveToPoint(CGPointMake(17.3, 22.49), controlPoint1: CGPointMake(17.18, 22.52), controlPoint2: CGPointMake(17.24, 22.51))
+        bezierPath.addCurveToPoint(CGPointMake(17.44, 22.46), controlPoint1: CGPointMake(17.34, 22.48), controlPoint2: CGPointMake(17.39, 22.47))
+        bezierPath.addCurveToPoint(CGPointMake(17.61, 22.42), controlPoint1: CGPointMake(17.5, 22.45), controlPoint2: CGPointMake(17.55, 22.43))
+        bezierPath.addCurveToPoint(CGPointMake(17.75, 22.4), controlPoint1: CGPointMake(17.66, 22.41), controlPoint2: CGPointMake(17.71, 22.4))
+        bezierPath.addCurveToPoint(CGPointMake(17.94, 22.37), controlPoint1: CGPointMake(17.81, 22.38), controlPoint2: CGPointMake(17.87, 22.38))
+        bezierPath.addCurveToPoint(CGPointMake(18.07, 22.35), controlPoint1: CGPointMake(17.98, 22.36), controlPoint2: CGPointMake(18.03, 22.35))
+        bezierPath.addCurveToPoint(CGPointMake(18.27, 22.32), controlPoint1: CGPointMake(18.14, 22.34), controlPoint2: CGPointMake(18.2, 22.33))
+        bezierPath.addCurveToPoint(CGPointMake(18.39, 22.31), controlPoint1: CGPointMake(18.31, 22.32), controlPoint2: CGPointMake(18.35, 22.31))
+        bezierPath.addCurveToPoint(CGPointMake(18.61, 22.3), controlPoint1: CGPointMake(18.47, 22.3), controlPoint2: CGPointMake(18.54, 22.3))
+        bezierPath.addCurveToPoint(CGPointMake(18.72, 22.29), controlPoint1: CGPointMake(18.65, 22.29), controlPoint2: CGPointMake(18.69, 22.29))
+        bezierPath.addCurveToPoint(CGPointMake(19.05, 22.28), controlPoint1: CGPointMake(18.83, 22.28), controlPoint2: CGPointMake(18.94, 22.28))
+        bezierPath.addLineToPoint(CGPointMake(20.95, 22.28))
+        bezierPath.addCurveToPoint(CGPointMake(26.68, 24.99), controlPoint1: CGPointMake(23.17, 22.28), controlPoint2: CGPointMake(25.26, 23.27))
+        bezierPath.addCurveToPoint(CGPointMake(27.77, 25.09), controlPoint1: CGPointMake(26.95, 25.32), controlPoint2: CGPointMake(27.44, 25.36))
+        bezierPath.addCurveToPoint(CGPointMake(27.87, 24.01), controlPoint1: CGPointMake(28.09, 24.82), controlPoint2: CGPointMake(28.14, 24.34))
+        bezierPath.addCurveToPoint(CGPointMake(23.26, 21.04), controlPoint1: CGPointMake(26.66, 22.54), controlPoint2: CGPointMake(25.05, 21.52))
+        bezierPath.addCurveToPoint(CGPointMake(24.92, 17.36), controlPoint1: CGPointMake(24.28, 20.14), controlPoint2: CGPointMake(24.92, 18.82))
+        bezierPath.addCurveToPoint(CGPointMake(20, 12.44), controlPoint1: CGPointMake(24.92, 14.65), controlPoint2: CGPointMake(22.71, 12.44))
+        bezierPath.addCurveToPoint(CGPointMake(15.08, 17.36), controlPoint1: CGPointMake(17.29, 12.44), controlPoint2: CGPointMake(15.08, 14.65))
+        bezierPath.addCurveToPoint(CGPointMake(16.74, 21.04), controlPoint1: CGPointMake(15.08, 18.82), controlPoint2: CGPointMake(15.72, 20.14))
+        bezierPath.addCurveToPoint(CGPointMake(16.66, 21.06), controlPoint1: CGPointMake(16.72, 21.05), controlPoint2: CGPointMake(16.69, 21.06))
+        bezierPath.addCurveToPoint(CGPointMake(16.35, 21.16), controlPoint1: CGPointMake(16.56, 21.09), controlPoint2: CGPointMake(16.45, 21.12))
+        bezierPath.addCurveToPoint(CGPointMake(16.31, 21.17), controlPoint1: CGPointMake(16.34, 21.16), controlPoint2: CGPointMake(16.32, 21.16))
+        bezierPath.addCurveToPoint(CGPointMake(15.96, 21.29), controlPoint1: CGPointMake(16.19, 21.2), controlPoint2: CGPointMake(16.08, 21.24))
+        bezierPath.addCurveToPoint(CGPointMake(15.86, 21.33), controlPoint1: CGPointMake(15.93, 21.3), controlPoint2: CGPointMake(15.89, 21.31))
+        bezierPath.addCurveToPoint(CGPointMake(15.62, 21.42), controlPoint1: CGPointMake(15.78, 21.36), controlPoint2: CGPointMake(15.7, 21.39))
+        bezierPath.addCurveToPoint(CGPointMake(15.5, 21.47), controlPoint1: CGPointMake(15.58, 21.44), controlPoint2: CGPointMake(15.54, 21.46))
+        bezierPath.addCurveToPoint(CGPointMake(15.29, 21.57), controlPoint1: CGPointMake(15.43, 21.5), controlPoint2: CGPointMake(15.36, 21.53))
+        bezierPath.addCurveToPoint(CGPointMake(15.15, 21.63), controlPoint1: CGPointMake(15.24, 21.59), controlPoint2: CGPointMake(15.2, 21.61))
+        bezierPath.addCurveToPoint(CGPointMake(14.96, 21.73), controlPoint1: CGPointMake(15.09, 21.66), controlPoint2: CGPointMake(15.02, 21.69))
+        bezierPath.addCurveToPoint(CGPointMake(14.83, 21.8), controlPoint1: CGPointMake(14.91, 21.75), controlPoint2: CGPointMake(14.87, 21.77))
+        bezierPath.addCurveToPoint(CGPointMake(14.63, 21.9), controlPoint1: CGPointMake(14.76, 21.83), controlPoint2: CGPointMake(14.7, 21.87))
+        bezierPath.addCurveToPoint(CGPointMake(14.51, 21.97), controlPoint1: CGPointMake(14.59, 21.93), controlPoint2: CGPointMake(14.55, 21.95))
+        bezierPath.addCurveToPoint(CGPointMake(14.31, 22.1), controlPoint1: CGPointMake(14.44, 22.01), controlPoint2: CGPointMake(14.37, 22.06))
+        bezierPath.addCurveToPoint(CGPointMake(14.2, 22.16), controlPoint1: CGPointMake(14.27, 22.12), controlPoint2: CGPointMake(14.23, 22.14))
+        bezierPath.addCurveToPoint(CGPointMake(13.95, 22.33), controlPoint1: CGPointMake(14.12, 22.22), controlPoint2: CGPointMake(14.04, 22.27))
+        bezierPath.addCurveToPoint(CGPointMake(13.9, 22.37), controlPoint1: CGPointMake(13.94, 22.34), controlPoint2: CGPointMake(13.92, 22.35))
+        bezierPath.addCurveToPoint(CGPointMake(13.61, 22.58), controlPoint1: CGPointMake(13.8, 22.44), controlPoint2: CGPointMake(13.7, 22.51))
+        bezierPath.addCurveToPoint(CGPointMake(13.53, 22.64), controlPoint1: CGPointMake(13.58, 22.6), controlPoint2: CGPointMake(13.55, 22.62))
+        bezierPath.addCurveToPoint(CGPointMake(13.32, 22.81), controlPoint1: CGPointMake(13.46, 22.7), controlPoint2: CGPointMake(13.39, 22.75))
+        bezierPath.addCurveToPoint(CGPointMake(13.22, 22.89), controlPoint1: CGPointMake(13.29, 22.83), controlPoint2: CGPointMake(13.26, 22.86))
+        bezierPath.addCurveToPoint(CGPointMake(13.05, 23.04), controlPoint1: CGPointMake(13.16, 22.94), controlPoint2: CGPointMake(13.11, 22.99))
+        bezierPath.addCurveToPoint(CGPointMake(12.94, 23.14), controlPoint1: CGPointMake(13.01, 23.08), controlPoint2: CGPointMake(12.98, 23.11))
+        bezierPath.addCurveToPoint(CGPointMake(12.78, 23.29), controlPoint1: CGPointMake(12.89, 23.19), controlPoint2: CGPointMake(12.84, 23.24))
+        bezierPath.addCurveToPoint(CGPointMake(12.68, 23.4), controlPoint1: CGPointMake(12.75, 23.33), controlPoint2: CGPointMake(12.71, 23.36))
+        bezierPath.addCurveToPoint(CGPointMake(12.53, 23.55), controlPoint1: CGPointMake(12.63, 23.45), controlPoint2: CGPointMake(12.58, 23.5))
+        bezierPath.addCurveToPoint(CGPointMake(12.43, 23.66), controlPoint1: CGPointMake(12.49, 23.59), controlPoint2: CGPointMake(12.46, 23.62))
+        bezierPath.addCurveToPoint(CGPointMake(12.28, 23.83), controlPoint1: CGPointMake(12.38, 23.72), controlPoint2: CGPointMake(12.33, 23.77))
+        bezierPath.addCurveToPoint(CGPointMake(12.19, 23.93), controlPoint1: CGPointMake(12.25, 23.87), controlPoint2: CGPointMake(12.22, 23.9))
+        bezierPath.addCurveToPoint(CGPointMake(12.01, 24.15), controlPoint1: CGPointMake(12.13, 24), controlPoint2: CGPointMake(12.07, 24.08))
+        bezierPath.addCurveToPoint(CGPointMake(11.96, 24.21), controlPoint1: CGPointMake(12, 24.17), controlPoint2: CGPointMake(11.98, 24.19))
+        bezierPath.addCurveToPoint(CGPointMake(11.74, 24.51), controlPoint1: CGPointMake(11.89, 24.31), controlPoint2: CGPointMake(11.81, 24.41))
+        bezierPath.addCurveToPoint(CGPointMake(11.69, 24.59), controlPoint1: CGPointMake(11.73, 24.53), controlPoint2: CGPointMake(11.71, 24.56))
+        bezierPath.addCurveToPoint(CGPointMake(11.54, 24.81), controlPoint1: CGPointMake(11.64, 24.66), controlPoint2: CGPointMake(11.59, 24.73))
+        bezierPath.addCurveToPoint(CGPointMake(11.47, 24.92), controlPoint1: CGPointMake(11.51, 24.85), controlPoint2: CGPointMake(11.49, 24.88))
+        bezierPath.addCurveToPoint(CGPointMake(11.35, 25.12), controlPoint1: CGPointMake(11.43, 24.99), controlPoint2: CGPointMake(11.39, 25.05))
+        bezierPath.addCurveToPoint(CGPointMake(11.27, 25.25), controlPoint1: CGPointMake(11.32, 25.16), controlPoint2: CGPointMake(11.3, 25.2))
+        bezierPath.addCurveToPoint(CGPointMake(11.16, 25.44), controlPoint1: CGPointMake(11.24, 25.31), controlPoint2: CGPointMake(11.2, 25.37))
+        bezierPath.addCurveToPoint(CGPointMake(11.09, 25.57), controlPoint1: CGPointMake(11.14, 25.48), controlPoint2: CGPointMake(11.12, 25.53))
+        bezierPath.addCurveToPoint(CGPointMake(10.99, 25.77), controlPoint1: CGPointMake(11.06, 25.64), controlPoint2: CGPointMake(11.03, 25.71))
+        bezierPath.addCurveToPoint(CGPointMake(10.93, 25.91), controlPoint1: CGPointMake(10.97, 25.82), controlPoint2: CGPointMake(10.95, 25.86))
+        bezierPath.addCurveToPoint(CGPointMake(10.83, 26.12), controlPoint1: CGPointMake(10.9, 25.98), controlPoint2: CGPointMake(10.87, 26.05))
+        bezierPath.addCurveToPoint(CGPointMake(10.78, 26.25), controlPoint1: CGPointMake(10.82, 26.16), controlPoint2: CGPointMake(10.8, 26.2))
+        bezierPath.addCurveToPoint(CGPointMake(10.68, 26.5), controlPoint1: CGPointMake(10.74, 26.33), controlPoint2: CGPointMake(10.71, 26.41))
+        bezierPath.addCurveToPoint(CGPointMake(10.64, 26.59), controlPoint1: CGPointMake(10.67, 26.53), controlPoint2: CGPointMake(10.65, 26.56))
+        bezierPath.addCurveToPoint(CGPointMake(10.64, 26.61), controlPoint1: CGPointMake(10.64, 26.6), controlPoint2: CGPointMake(10.64, 26.6))
+        bezierPath.addCurveToPoint(CGPointMake(8.54, 20), controlPoint1: CGPointMake(9.28, 24.68), controlPoint2: CGPointMake(8.54, 22.38))
+        bezierPath.addCurveToPoint(CGPointMake(7.77, 19.23), controlPoint1: CGPointMake(8.54, 19.57), controlPoint2: CGPointMake(8.2, 19.23))
+        bezierPath.addCurveToPoint(CGPointMake(7, 20), controlPoint1: CGPointMake(7.35, 19.23), controlPoint2: CGPointMake(7, 19.57))
+        bezierPath.addCurveToPoint(CGPointMake(10.42, 28.78), controlPoint1: CGPointMake(7, 23.26), controlPoint2: CGPointMake(8.21, 26.38))
+        bezierPath.addCurveToPoint(CGPointMake(20, 33), controlPoint1: CGPointMake(12.87, 31.46), controlPoint2: CGPointMake(16.37, 33))
+        bezierPath.addCurveToPoint(CGPointMake(29.58, 28.78), controlPoint1: CGPointMake(23.63, 33), controlPoint2: CGPointMake(27.13, 31.46))
+        bezierPath.addLineToPoint(CGPointMake(29.58, 28.78))
+        bezierPath.addCurveToPoint(CGPointMake(33, 20), controlPoint1: CGPointMake(31.79, 26.38), controlPoint2: CGPointMake(33, 23.26))
+        bezierPath.closePath()
+        bezierPath.moveToPoint(CGPointMake(20, 13.98))
+        bezierPath.addCurveToPoint(CGPointMake(23.38, 17.36), controlPoint1: CGPointMake(21.86, 13.98), controlPoint2: CGPointMake(23.38, 15.5))
+        bezierPath.addCurveToPoint(CGPointMake(20, 20.74), controlPoint1: CGPointMake(23.38, 19.22), controlPoint2: CGPointMake(21.86, 20.74))
+        bezierPath.addCurveToPoint(CGPointMake(16.62, 17.36), controlPoint1: CGPointMake(18.14, 20.74), controlPoint2: CGPointMake(16.62, 19.22))
+        bezierPath.addCurveToPoint(CGPointMake(20, 13.98), controlPoint1: CGPointMake(16.62, 15.5), controlPoint2: CGPointMake(18.14, 13.98))
+        bezierPath.closePath()
+        fillColor5.setFill()
+        bezierPath.fill()
     }
 
     public class func drawSadCloudImage() {
@@ -727,32 +847,18 @@ public class CivilbudgetStyleKit : NSObject {
         return Cache.imageOfSupportButtonBackground!
     }
 
-    public class var imageOfUserProfileBackground: UIImage {
-        if Cache.imageOfUserProfileBackground != nil {
-            return Cache.imageOfUserProfileBackground!
+    public class var imageOfUserProfileImagePlaceholder: UIImage {
+        if Cache.imageOfUserProfileImagePlaceholder != nil {
+            return Cache.imageOfUserProfileImagePlaceholder!
         }
 
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(40, 40), false, 0)
-            CivilbudgetStyleKit.drawUserProfileBackground()
+            CivilbudgetStyleKit.drawUserProfileImagePlaceholder()
 
-        Cache.imageOfUserProfileBackground = UIGraphicsGetImageFromCurrentImageContext()
+        Cache.imageOfUserProfileImagePlaceholder = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        return Cache.imageOfUserProfileBackground!
-    }
-
-    public class var imageOfUserProfilePlaceholder: UIImage {
-        if Cache.imageOfUserProfilePlaceholder != nil {
-            return Cache.imageOfUserProfilePlaceholder!
-        }
-
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(34, 34), false, 0)
-            CivilbudgetStyleKit.drawUserProfilePlaceholder()
-
-        Cache.imageOfUserProfilePlaceholder = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return Cache.imageOfUserProfilePlaceholder!
+        return Cache.imageOfUserProfileImagePlaceholder!
     }
 
     public class var imageOfSadCloudImage: UIImage {
@@ -825,22 +931,12 @@ public class CivilbudgetStyleKit : NSObject {
         }
     }
 
-    @IBOutlet var userProfileBackgroundTargets: [AnyObject]! {
-        get { return Cache.userProfileBackgroundTargets }
+    @IBOutlet var userProfileImagePlaceholderTargets: [AnyObject]! {
+        get { return Cache.userProfileImagePlaceholderTargets }
         set {
-            Cache.userProfileBackgroundTargets = newValue
+            Cache.userProfileImagePlaceholderTargets = newValue
             for target: AnyObject in newValue {
-                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfUserProfileBackground)
-            }
-        }
-    }
-
-    @IBOutlet var userProfilePlaceholderTargets: [AnyObject]! {
-        get { return Cache.userProfilePlaceholderTargets }
-        set {
-            Cache.userProfilePlaceholderTargets = newValue
-            for target: AnyObject in newValue {
-                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfUserProfilePlaceholder)
+                target.performSelector("setImage:", withObject: CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder)
             }
         }
     }
