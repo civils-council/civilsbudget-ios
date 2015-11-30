@@ -36,10 +36,11 @@ class ProjectDetailsViewModel {
     let pictureURL = Observable<NSURL?>(nil)
     let title = Observable("")
     let fullDescription = Observable("")
-    let supportedBy = Observable("")
+    let supportedByCount = Observable("")
     let createdAt = Observable("")
     let author = Observable("")
     let budgetLabel = Observable("")
+    let supportButtonSelected = Observable(false)
     let loadingIndicatorVisible = Observable(false)
     
     let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
@@ -57,10 +58,11 @@ class ProjectDetailsViewModel {
         pictureURL.value = NSURL(string: project.picture ?? "")
         title.value = project.title
         fullDescription.value = project.description
-        supportedBy.value = "\(project.likes ?? 0)"
+        supportedByCount.value = "\(project.likes ?? 0)"
         createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
         author.value = project.owner ?? ""
         budgetLabel.value = "\u{f02b} Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(project.budget ?? 0)!) грн"
+        supportButtonSelected.value = project.voted
     }
     
     func voteForCurrentProject() {

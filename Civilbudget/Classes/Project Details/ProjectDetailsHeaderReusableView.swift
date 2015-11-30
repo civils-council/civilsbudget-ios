@@ -36,12 +36,14 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         // Appearence
         supportedByContainerView.backgroundColor = CivilbudgetStyleKit.themeLightBlue
         endDateContainerView.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
-        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground, forState: .Normal)
+        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: false), forState: .Normal)
+        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: true), forState: .Selected)
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
+        supportButton.setTitleColor(UIColor.whiteColor(), forState: .Selected)
         userProfileButton.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder, forState: .Normal)
         
         // Binding
-        viewModel.supportedBy.bindTo(supportedByLabel.bnd_text)
+        viewModel.supportedByCount.bindTo(supportedByLabel.bnd_text)
         viewModel.budgetLabel.bindTo(budgetLabel.bnd_text)
         viewModel.pictureURL.observeNew { [weak self] url in
             if let url = url {
@@ -50,10 +52,12 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
                 self?.pictureImageView.image = nil
             }
         }
+        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
+        viewModel.supportButtonSelected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
         User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
         
         // UI Control actions
         supportButton.bnd_tap.observeNew { [weak self] in self?.parentViewModel?.voteForCurrentProject() }
-        userProfileButton.bnd_tap.observeNew { UserViewModel.currentUser.presentAccountDialog() }
+        userProfileButton.bnd_tap.observeNew { [weak self] in UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton) }
     }
 }

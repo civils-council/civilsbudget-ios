@@ -27,13 +27,17 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         // Configure UI
         collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
         backButton.setTitle("\u{f104}", forState: .Normal)
-        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground, forState: .Normal)
+        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: false), forState: .Normal)
+        supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: true), forState: .Selected)
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
+        supportButton.setTitleColor(UIColor.whiteColor(), forState: .Selected)
         
         // Register Projects details cell class
         collectionView.registerNib(UINib(nibName: "ProjectDetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
         
         // Listen to View Model changes
+        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
+        viewModel.supportButtonSelected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
         viewModel.authorizationWithCompletion.observeNew { [weak self] completionHandler in
             guard let completionHandler = completionHandler, viewController = self else {
                 return
@@ -56,13 +60,11 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         }
         
         UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
-            guard let (fullName, handler) = value, viewController = self else {
-                return
+            guard let (fullName, handler, sender) = value, sourceView = sender as? UIView, viewController = self
+                where viewController.navigationController?.visibleViewController == viewController else {
+                    return
             }
-            let alert = UIAlertController(title: fullName, message: nil, preferredStyle: .ActionSheet)
-            alert.addAction(UIAlertAction(title: "Вихід", style: .Destructive, handler: handler))
-            alert.addAction(UIAlertAction(title: "Скасувати", style: .Cancel, handler: nil))
-            viewController.presentViewController(alert, animated: true, completion: nil)
+            self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
         
         viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }

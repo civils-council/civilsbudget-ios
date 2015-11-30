@@ -19,6 +19,7 @@ struct Project {
     let likes: Int?
     let owner: String?
     let budget: Int?
+    let voted: Bool
 }
 
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
@@ -62,6 +63,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.likes = representation.valueForKeyPath("likes_count") as? Int
         self.owner = representation.valueForKeyPath("owner") as? String
         self.budget = representation.valueForKeyPath("charge") as? Int
+        self.voted = (representation.valueForKeyPath("vote") as? Bool) ?? false
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Project] {

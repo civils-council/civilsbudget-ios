@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmV-LR-4is">
-                                <rect key="frame" x="128" y="160" width="345" height="280"/>
+                                <rect key="frame" x="100" y="160" width="400" height="280"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VSy-hd-40P">
-                                        <rect key="frame" x="72" y="0.0" width="201" height="201"/>
+                                        <rect key="frame" x="100" y="0.0" width="201" height="201"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="201" id="7eA-Ld-ZK4"/>
                                             <constraint firstAttribute="height" constant="201" id="eNb-NR-L0P"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Civils Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esX-Ng-FTt">
-                                        <rect key="frame" x="14" y="211" width="317" height="69"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Народна Рада" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esX-Ng-FTt">
+                                        <rect key="frame" x="15" y="211" width="370" height="69"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="57"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                 <color key="backgroundColor" red="0.32156862745098036" green="0.36078431372549019" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="VSy-hd-40P" firstAttribute="top" secondItem="fmV-LR-4is" secondAttribute="top" id="41E-UH-4NJ"/>
-                                    <constraint firstAttribute="width" constant="345" id="JTD-zR-5bq"/>
+                                    <constraint firstAttribute="width" constant="400" id="JTD-zR-5bq"/>
                                     <constraint firstItem="VSy-hd-40P" firstAttribute="centerX" secondItem="fmV-LR-4is" secondAttribute="centerX" id="LcY-K1-qQA"/>
                                     <constraint firstItem="esX-Ng-FTt" firstAttribute="top" secondItem="VSy-hd-40P" secondAttribute="bottom" constant="10" id="MpU-7l-LpU"/>
                                     <constraint firstAttribute="bottom" secondItem="esX-Ng-FTt" secondAttribute="bottom" id="Ogl-Ib-ygU"/>

@@ -49,7 +49,7 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         viewModel.title.bindTo(titleLabel.bnd_text)
         viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
         viewModel.createdAt.bindTo(createdAtLabel.bnd_text)
-        viewModel.supportedBy.bindTo(supportedByLabel.bnd_text)
+        viewModel.supportedByCount.bindTo(supportedByLabel.bnd_text)
         viewModel.pictureURL.observe { [weak self] url in
             guard let headerImage = self?.headerImage, placeholderIconLabel = self?.placeholderIconLabel else {
                 return

@@ -19,6 +19,6 @@ class ProjectsHeaderReusableView: UICollectionReusableView {
         
         // Binding
         User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
-        userProfileButton.bnd_tap.observeNew{ UserViewModel.currentUser.presentAccountDialog() }
+        userProfileButton.bnd_tap.observeNew { [weak self] in UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton) }
     }
 }

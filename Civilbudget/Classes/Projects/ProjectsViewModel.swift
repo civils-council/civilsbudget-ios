@@ -22,7 +22,7 @@ class ProjectsViewModel: NSObject {
     
     func refreshProjectList() {
         loadingState.value = .Loading(label: "Завантаження проектів")
-        Alamofire.request(CivilbudgetAPI.Router.GetProjects)
+        Alamofire.request(CivilbudgetAPI.Router.GetProjects(clid: User.currentUser.value?.clid))
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {
                 case let .Success(projects):

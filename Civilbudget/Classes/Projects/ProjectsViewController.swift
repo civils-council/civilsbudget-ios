@@ -59,14 +59,11 @@ class ProjectsViewController: BaseCollectionViewController {
         }
         
         UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
-            guard let (fullName, handler) = value, viewController = self
+            guard let (fullName, handler, sender) = value, sourceView = sender as? UIView, viewController = self
                 where viewController.navigationController?.visibleViewController == viewController else {
                 return
             }
-            let alert = UIAlertController(title: fullName, message: nil, preferredStyle: .ActionSheet)
-            alert.addAction(UIAlertAction(title: "Вихід", style: .Destructive, handler: handler))
-            alert.addAction(UIAlertAction(title: "Скасувати", style: .Cancel, handler: nil))
-            viewController.presentViewController(alert, animated: true, completion: nil)
+            self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
     }
     

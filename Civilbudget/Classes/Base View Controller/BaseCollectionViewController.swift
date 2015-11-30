@@ -58,6 +58,20 @@ class BaseCollectionViewController: UIViewController {
     }
 }
 
+// MARK: - Present LogOut dialog
+
+extension BaseCollectionViewController {
+    func presentUserProfilePopupWithFullName(fullName: String, sourceView: UIView, logoutHandler: (UIAlertAction) -> Void) {
+        let alert = UIAlertController(title: fullName, message: nil, preferredStyle: .ActionSheet)
+        alert.addAction(UIAlertAction(title: "Вихід", style: .Destructive, handler: logoutHandler))
+        alert.addAction(UIAlertAction(title: "Скасувати", style: .Cancel, handler: nil))
+        alert.modalPresentationStyle = .Popover
+        alert.popoverPresentationController?.sourceView = sourceView
+        alert.popoverPresentationController?.sourceRect = sourceView.bounds
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+}
+
 // MARK: - BNDCollectionViewProxyDataSource methods (provide header cell)
 
 extension BaseCollectionViewController: BNDCollectionViewProxyDataSource {

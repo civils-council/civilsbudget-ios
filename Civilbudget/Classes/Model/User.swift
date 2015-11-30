@@ -67,7 +67,7 @@ extension User {
 
 extension User {
     static let currentUser: Observable<User?> = {
-        let user = /*User.readFromSecureStorage()*/ User(id: 1, fullName: "Max Odnovolyk", clid: "Test")
+        let user = User.readFromSecureStorage()
         let observable = Observable<User?>(user)
         observable.observeNew { $0?.saveToSecureStorage() }
         return observable

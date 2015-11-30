@@ -12,12 +12,12 @@ import Bond
 class UserViewModel {
     static let currentUser = UserViewModel()
     
-    let accountDialog = Observable<(String, ((UIAlertAction) -> Void))?>(nil)
+    let accountDialog = Observable<(String, ((UIAlertAction) -> Void), AnyObject?)?>(nil)
     
-    func presentAccountDialog() {
+    func presentAccountDialog(sender: AnyObject?) {
         guard let fullName = User.currentUser.value?.fullName else {
             return
         }
-        accountDialog.value = (fullName, { _ in User.clearCurrentUser() })
+        accountDialog.value = (fullName, { _ in User.clearCurrentUser() }, sender)
     }
 }

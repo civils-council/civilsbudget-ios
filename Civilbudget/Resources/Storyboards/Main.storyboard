@@ -267,7 +267,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3y-NR-ZOu">
                                             <rect key="frame" x="300" y="174" width="300" height="56"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16.12.15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmu-dp-Luy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14.12.15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmu-dp-Luy">
                                                     <rect key="frame" x="96" y="19" width="109" height="33"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
@@ -312,6 +312,7 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <inset key="contentEdgeInsets" minX="20" minY="7" maxX="20" maxY="7"/>
                                             <state key="normal" title="ПІДТРИМАТИ"/>
+                                            <state key="selected" title="ПІДТРИМАНО" image="CheckmarkSmall"/>
                                         </button>
                                     </subviews>
                                     <animations/>
@@ -367,6 +368,7 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
                                         <state key="normal" title="Підтримати"/>
+                                        <state key="selected" title="Підтримано" image="CheckmarkSmall"/>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -456,6 +458,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CheckmarkSmall" width="24" height="19"/>
         <image name="ProjectsHeaderBackground" width="533" height="300"/>
         <image name="ProjectsHeaderGradient" width="375" height="254"/>
         <image name="ProjectsHeaderLogo" width="107" height="107"/>

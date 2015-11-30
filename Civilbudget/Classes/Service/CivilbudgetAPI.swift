@@ -13,7 +13,7 @@ struct CivilbudgetAPI {
         static let baseURLString = "http://www.golos.ck.ua/app_dev.php/api"
         
         case Authorize(accessToken: String)
-        case GetProjects
+        case GetProjects(clid: String?)
         case GetProject(id: Int)
         case LikeProject(id: Int, clid: String)
         
@@ -21,7 +21,7 @@ struct CivilbudgetAPI {
             switch self {
             case .Authorize:
                 return "/authorization"
-            case .GetProjects:
+            case .GetProjects(_):
                 return "/projects"
             case let .GetProject(id):
                 return "/projects/\(id)"
@@ -47,6 +47,9 @@ struct CivilbudgetAPI {
             switch self {
             case let .Authorize(accessToken):
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: ["code": accessToken]).0
+            case let .GetProjects(clid):
+                let parameters: [String: AnyObject]? = clid != nil ? ["clid": clid!] : nil
+                return Alamofire.ParameterEncoding.URL.encode(request, parameters: parameters).0
             case let .LikeProject(_, clid):
                 return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["clid": clid]).0
             default:
