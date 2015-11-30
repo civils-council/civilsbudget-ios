@@ -458,7 +458,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CheckmarkSmall" width="24" height="19"/>
+        <image name="CheckmarkSmall" width="28" height="19"/>
         <image name="ProjectsHeaderBackground" width="533" height="300"/>
         <image name="ProjectsHeaderGradient" width="375" height="254"/>
         <image name="ProjectsHeaderLogo" width="107" height="107"/>

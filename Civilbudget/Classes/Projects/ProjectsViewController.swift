@@ -9,7 +9,7 @@
 import UIKit
 import Bond
 import Alamofire
-
+import PullToRefresh
 
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
@@ -39,6 +39,11 @@ class ProjectsViewController: BaseCollectionViewController {
             self.loadingStateView = loadingStateView
         }
         
+        // Configure PullToRefresh
+        collectionView.addPullToRefresh(PullToRefresh()) { [weak self] in
+            self?.viewModel.refreshProjectList()
+        }
+        
         // Bind View Model to UI
         viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.productCellIdentifier, forIndexPath: indexPath) as! ProjectCollectionViewCell
@@ -46,6 +51,15 @@ class ProjectsViewController: BaseCollectionViewController {
             return cell
         }
         viewModel.loadingState.bindTo(loadingStateView.state)
+        viewModel.loadingState.observeNew { [weak self] _ in
+            self?.loadingStateContainerView.hidden = self?.viewModel.projects.last?.count > 0
+        }
+        viewModel.loadingState.observeNew { [weak self] state in
+            switch state {
+            case .Failure, .Loaded, .NoData: self?.collectionView.endRefreshing()
+            default: break
+            }
+        }
         viewModel.projects.last!.observe { [weak self] _ in
             self?.collectionView.userInteractionEnabled = self?.viewModel.projects.last?.count > 0
         }
