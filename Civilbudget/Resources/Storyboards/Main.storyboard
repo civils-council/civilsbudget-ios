@@ -45,7 +45,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="ciV-2k-vlf">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="headerCell" id="ciV-2k-vlf" customClass="ProjectsHeaderReusableView" customModule="Civilbudget" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -69,6 +69,22 @@
                                                 <constraint firstAttribute="width" constant="107" id="khX-kU-R8u"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tr-tT-7dF">
+                                            <rect key="frame" x="287" y="0.0" width="26" height="28"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="26" id="cBe-Ce-QRT"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEB-n3-NmH">
+                                            <rect key="frame" x="549" y="18" width="44" height="44"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Dpi-pV-2he"/>
+                                                <constraint firstAttribute="width" constant="44" id="Xzd-xv-FVW"/>
+                                            </constraints>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-Av-vDf">
                                             <rect key="frame" x="177" y="151" width="247" height="56"/>
                                             <animations/>
@@ -82,11 +98,15 @@
                                     <animations/>
                                     <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="DEB-n3-NmH" secondAttribute="trailing" constant="7" id="2tE-JX-7sU"/>
                                         <constraint firstItem="7y3-ma-PfN" firstAttribute="trailing" secondItem="ciV-2k-vlf" secondAttribute="trailing" id="EVQ-Im-Ygd"/>
                                         <constraint firstAttribute="bottom" secondItem="7y3-ma-PfN" secondAttribute="bottom" id="FY9-XO-3fi"/>
+                                        <constraint firstItem="2Tr-tT-7dF" firstAttribute="height" secondItem="ciV-2k-vlf" secondAttribute="height" multiplier="0.12" id="Fli-xk-B7n"/>
                                         <constraint firstItem="gT4-jI-JAA" firstAttribute="centerX" secondItem="ciV-2k-vlf" secondAttribute="centerX" id="GgR-79-Z4O"/>
                                         <constraint firstItem="RNa-Av-vDf" firstAttribute="centerX" secondItem="ciV-2k-vlf" secondAttribute="centerX" id="QLx-SA-Qs6"/>
                                         <constraint firstItem="7y3-ma-PfN" firstAttribute="leading" secondItem="ciV-2k-vlf" secondAttribute="leading" id="SCf-X3-cTW"/>
+                                        <constraint firstItem="2Tr-tT-7dF" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="Vq1-Zh-rtZ"/>
+                                        <constraint firstItem="2Tr-tT-7dF" firstAttribute="centerX" secondItem="ciV-2k-vlf" secondAttribute="centerX" id="c3w-bq-0AH"/>
                                         <constraint firstAttribute="bottom" secondItem="Bu4-HQ-c5K" secondAttribute="bottom" constant="-47" id="dYW-BZ-HJ5"/>
                                         <constraint firstAttribute="bottom" secondItem="RNa-Av-vDf" secondAttribute="bottom" constant="23" id="fp6-Nx-Y47"/>
                                         <constraint firstItem="gT4-jI-JAA" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="frP-SF-5VO"/>
@@ -95,7 +115,11 @@
                                         <constraint firstItem="gT4-jI-JAA" firstAttribute="height" secondItem="ciV-2k-vlf" secondAttribute="height" multiplier="0.615" id="ljW-Op-ghr"/>
                                         <constraint firstItem="7y3-ma-PfN" firstAttribute="top" secondItem="ciV-2k-vlf" secondAttribute="top" id="nPF-8p-hpQ"/>
                                         <constraint firstItem="Bu4-HQ-c5K" firstAttribute="leading" secondItem="ciV-2k-vlf" secondAttribute="leading" id="riS-Ko-JPm"/>
+                                        <constraint firstItem="DEB-n3-NmH" firstAttribute="top" secondItem="2Tr-tT-7dF" secondAttribute="bottom" constant="-10" id="wNU-9E-3Cv"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="userProfileButton" destination="DEB-n3-NmH" id="Ul2-Lv-nUg"/>
+                                    </connections>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="RL6-Z2-Rnd"/>
@@ -222,8 +246,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПІДТРИМАЛО:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-PJ-S8c">
-                                                    <rect key="frame" x="119" y="9" width="63" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПІДТРИМАЛО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-PJ-S8c">
+                                                    <rect key="frame" x="120" y="9" width="60" height="11"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -250,8 +274,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КІНЦЕВА ДАТА ГОЛОСУВАННЯ:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-cS-4fa">
-                                                    <rect key="frame" x="81" y="9" width="138" height="11"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КІНЦЕВА ДАТА ГОЛОСУВАННЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-cS-4fa">
+                                                    <rect key="frame" x="82" y="9" width="136" height="11"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

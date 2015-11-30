@@ -34,7 +34,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         collectionView.registerNib(UINib(nibName: "ProjectDetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
         
         // Listen to View Model changes
-        viewModel.authorizeWithCompletion.observeNew { [weak self] completionHandler in
+        viewModel.authorizationWithCompletion.observeNew { [weak self] completionHandler in
             guard let completionHandler = completionHandler, viewController = self else {
                 return
             }
@@ -43,7 +43,8 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             let navigationController = UINavigationController(rootViewController: authViewController)
             viewController.presentViewController(navigationController, animated: true, completion: nil)
         }
-        viewModel.showAlertWithStatus.observeNew { [weak self] description in
+        
+        viewModel.alertWithStatus.observeNew { [weak self] description in
             guard let viewController = self else {
                 return
             }
@@ -53,6 +54,17 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             alert.addAction(UIAlertAction(title: "ОК", style: .Cancel, handler: nil))
             viewController.presentViewController(alert, animated: true, completion: nil)
         }
+        
+        UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
+            guard let (fullName, handler) = value, viewController = self else {
+                return
+            }
+            let alert = UIAlertController(title: fullName, message: nil, preferredStyle: .ActionSheet)
+            alert.addAction(UIAlertAction(title: "Вихід", style: .Destructive, handler: handler))
+            alert.addAction(UIAlertAction(title: "Скасувати", style: .Cancel, handler: nil))
+            viewController.presentViewController(alert, animated: true, completion: nil)
+        }
+        
         viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
         
         // UI Controls actions

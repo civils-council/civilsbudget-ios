@@ -13,7 +13,7 @@ import Locksmith
 struct User {
     let id: Int
     let fullName: String
-    let clid: String
+    let clid: String                    // From Ukrainian BankID System terminology :)
 }
 
 extension User: ResponseObjectSerializable {
@@ -37,27 +37,48 @@ extension User: ResponseObjectSerializable {
     }
 }
 
-// MARK: - Locksmith protocols to support writting to Keychain
+// MARK: - Methods for storing and recovering data from keychain
 
-extension User: ReadableSecureStorable,
-                CreateableSecureStorable,
-                DeleteableSecureStorable,
-                GenericPasswordSecureStorable {
-    var service: String { return "civilbudget_api"}
-    var account: String { return "current_user" }
-    var data: [String: AnyObject] {
-        return ["id": id,
-                "fullName": fullName,
-                "clid": clid]
+extension User {
+    static let keychainUserAccount = "DefaultUser"
+    
+    static func readFromSecureStorage() -> User? {
+        guard let data = Locksmith.loadDataForUserAccount(User.keychainUserAccount),
+            id = data["id"] as? Int,
+            fullName = data["fullName"] as? String,
+            clid = data["clid"] as? String else {
+                return nil
+        }
+        
+        return User(id: id, fullName: fullName, clid: clid)
+    }
+    
+    func saveToSecureStorage() {
+        let dictionary: [String: AnyObject] = ["id": id, "fullName": fullName, "clid": clid]
+        let _ = try? Locksmith.saveData(dictionary, forUserAccount: User.keychainUserAccount)
+    }
+    
+    func removeFromSecureStorage() {
+        let _ = try? Locksmith.deleteDataForUserAccount(User.keychainUserAccount)
     }
 }
 
 // MARK: - Manage logged in user details
 
 extension User {
-    static var currentUser: Observable<User?> = {
-        let observable = Observable<User?>(nil)
-        
+    static let currentUser: Observable<User?> = {
+        let user = /*User.readFromSecureStorage()*/ User(id: 1, fullName: "Max Odnovolyk", clid: "Test")
+        let observable = Observable<User?>(user)
+        observable.observeNew { $0?.saveToSecureStorage() }
         return observable
     }()
+    
+    static func clearCurrentUser() {
+        User.currentUser.value?.removeFromSecureStorage()
+        User.currentUser.value = nil
+    }
+    
+    static func isAuthorized() -> Bool {
+        return currentUser.value != nil
+    }
 }

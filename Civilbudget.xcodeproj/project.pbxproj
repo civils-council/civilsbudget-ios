@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */; };
+		0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4102E41C0C666300B49D1A /* UserViewModel.swift */; };
 		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
 		0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */; };
 		0F52E81C1C01FC8500C76F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81A1C01FC8500C76F62 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		0F87BA081C020D1800D7938A /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
+		0F9BFA2C1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */; };
 		0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */; };
 		0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */; };
 		0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */; };
@@ -53,6 +55,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = A5FE0D46EF2ECB4D0A485AB8E77A2BD9;
 			remoteInfo = BankIdSDK;
+		};
+		0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2B3855B20090411235D2A572A7F83AAE;
+			remoteInfo = Locksmith;
 		};
 		0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -114,7 +123,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 839E56A1DF34AD38EA18A0354D468AF6;
+			remoteGlobalIDString = 2A95270FE0B2D4E32BCFAA2062A512B2;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -134,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPrefferedLayoutWidthLabel.swift; sourceTree = "<group>"; };
+		0F4102E41C0C666300B49D1A /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F52E81A1C01FC8500C76F62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +152,7 @@
 		0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCollectionViewController.swift; path = "Base View Controller/BaseCollectionViewController.swift"; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsHeaderReusableView.swift; sourceTree = "<group>"; };
 		0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F4102D91C0C664500B49D1A /* User Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0F4102E41C0C666300B49D1A /* UserViewModel.swift */,
+			);
+			path = "User Profile";
+			sourceTree = "<group>";
+		};
 		0F52E7F81C01247C00C76F62 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +267,7 @@
 				0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */,
 				0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */,
 				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
+				0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -323,6 +343,7 @@
 				0F52E8201C02019900C76F62 /* Base View Controller */,
 				0FB3A2ED1C0080E400FEA009 /* Projects */,
 				0FB3A2EB1C0080E400FEA009 /* Project Details */,
+				0F4102D91C0C664500B49D1A /* User Profile */,
 				0FF5D2891C09FFE600A4648E /* Other */,
 				0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */,
 			);
@@ -383,6 +404,7 @@
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
+				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
@@ -477,6 +499,13 @@
 			fileType = wrapper.framework;
 			path = BankIdSDK.framework;
 			remoteRef = 0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Locksmith.framework;
+			remoteRef = 0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FD9F0791BC3DB230046316F /* XCGLogger.framework */ = {
@@ -639,7 +668,9 @@
 				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
 				0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */,
 				0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */,
+				0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
+				0F9BFA2C1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
 				0FE4C5A81C05E9DF00B3B66E /* BottomToolbar.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,

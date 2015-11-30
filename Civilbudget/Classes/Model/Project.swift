@@ -53,8 +53,8 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         }
         
         self.id = id
-        self.title = title
-        self.description = description
+        self.title = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        self.description = description.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
         
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String

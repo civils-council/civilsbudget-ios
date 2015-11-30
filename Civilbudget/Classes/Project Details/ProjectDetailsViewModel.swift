@@ -11,7 +11,7 @@ import Bond
 import BankIdSDK
 import Alamofire
 
-class ProjectDetailsViewModel: NSObject {
+class ProjectDetailsViewModel {
     static let dateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "dd-MM-YYYY"
@@ -42,12 +42,11 @@ class ProjectDetailsViewModel: NSObject {
     let budgetLabel = Observable("")
     let loadingIndicatorVisible = Observable(false)
     
-    let authorizeWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
-    let showAlertWithStatus = Observable<String?>(nil)
+    let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
+    let alertWithStatus = Observable<String?>(nil)
+    
     
     init(project: Project? = nil) {
-        super.init()
-        
         if let project = project {
             self.project = project
             updateFields()
@@ -65,37 +64,44 @@ class ProjectDetailsViewModel: NSObject {
     }
     
     func voteForCurrentProject() {
-        if true /*!authorized*/ {
-            authorizeWithCompletion.value = handleAuthorizationResult
+        if !User.isAuthorized() {
+            authorizationWithCompletion.value = handleBankIdAuthorizationResult
+        } else {
+            
         }
     }
     
-    func handleAuthorizationResult(result: AuthorizationResult) {
+    func handleBankIdAuthorizationResult(result: AuthorizationResult) {
         if let error = result.error {
-            showAlertWithStatus.value = error.localizedDescription
+            alertWithStatus.value = error.localizedDescription
             return
         }
         
         guard let accessToken = result.value?.accessToken else {
+            log.error("Unhandled unexpected error occured")
             return
         }
         
-        log.warning(accessToken)
         loadingIndicatorVisible.value = true
+        
+        log.info("BankID Access token: \(accessToken)")
         
         Alamofire.request(CivilbudgetAPI.Router.Authorize(accessToken: accessToken))
             .responseObject { [weak self] (response: Response<User, NSError>) in
-                print(response)
+                log.info(NSString(data: response.data!, encoding: NSUTF8StringEncoding)?.description)
+                log.info(response.description)
                 
                 guard let user = response.result.value, projectId = self?.project.id else {
                     self?.loadingIndicatorVisible.value = false
                     return
                 }
                 
+                User.currentUser.value = user
+                
                 Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: projectId, clid: user.clid)).responseString { response in
                     self?.loadingIndicatorVisible.value = false
                     
-                    print(response.description)
+                    log.info(response.description)
                 }
         }
     }

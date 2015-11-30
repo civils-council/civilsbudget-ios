@@ -1,0 +1,23 @@
+//
+//  UserProfileViewModel.swift
+//  Civilbudget
+//
+//  Created by Max Odnovolyk on 11/30/15.
+//  Copyright © 2015 Build Apps. All rights reserved.
+//
+
+import Foundation
+import Bond
+
+class UserViewModel {
+    static let currentUser = UserViewModel()
+    
+    let accountDialog = Observable<(String, ((UIAlertAction) -> Void))?>(nil)
+    
+    func presentAccountDialog() {
+        guard let fullName = User.currentUser.value?.fullName else {
+            return
+        }
+        accountDialog.value = (fullName, { _ in User.clearCurrentUser() })
+    }
+}

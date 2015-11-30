@@ -50,8 +50,10 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
                 self?.pictureImageView.image = nil
             }
         }
+        User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
         
         // UI Control actions
         supportButton.bnd_tap.observeNew { [weak self] in self?.parentViewModel?.voteForCurrentProject() }
+        userProfileButton.bnd_tap.observeNew { UserViewModel.currentUser.presentAccountDialog() }
     }
 }
