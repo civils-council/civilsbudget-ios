@@ -15,6 +15,7 @@ class UserViewModel {
     static let currentUser = UserViewModel()
     
     let votedProject = Observable(User.currentUser.value?.votedProjectId)
+    let recentlyVotedProject = Observable<Int?>(nil)
     let accountDialog = Observable<(String, ((UIAlertAction) -> Void), AnyObject?)?>(nil)
     
     func presentAccountDialog(sender: AnyObject?) {

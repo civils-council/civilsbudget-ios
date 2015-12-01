@@ -17,6 +17,17 @@ class ProjectsViewModel: NSObject {
     override init() {
         super.init()
 
+        UserViewModel.currentUser.recentlyVotedProject.observeNew { [weak self] id in
+            guard let id = id, projects = self?.projects.last,
+                let index = projects.indexOf({ $0.id == id }) else {
+                return
+            }
+            
+            var project = projects[index]
+            project.likes++
+            projects[index] = project
+        }
+        
         refreshProjectList()
     }
     

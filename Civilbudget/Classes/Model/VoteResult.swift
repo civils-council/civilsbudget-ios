@@ -26,8 +26,5 @@ extension VoteResult: ResponseObjectSerializable {
         
         self.warning = warning
         self.success = success
-        
-        /*self.success = warning
-        self.warning = success*/
     }
 }

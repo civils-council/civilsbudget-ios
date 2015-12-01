@@ -89,8 +89,8 @@ class ProjectsViewController: BaseCollectionViewController {
         super.viewWillAppear(animated)
         
         if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
-            let selectedView = collectionView.cellForItemAtIndexPath(selectedIndexPath) as? ProjectCollectionViewCell
-            selectedView?.viewModel = viewModel.projectViewModelForIndexPath(selectedIndexPath, existingViewModel: selectedView?.viewModel)
+            /*let selectedView = collectionView.cellForItemAtIndexPath(selectedIndexPath) as? ProjectCollectionViewCell
+            selectedView?.viewModel = viewModel.projectViewModelForIndexPath(selectedIndexPath, existingViewModel: selectedView?.viewModel)*/
             collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
         }
     }
