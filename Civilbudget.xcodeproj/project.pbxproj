@@ -32,6 +32,8 @@
 		0FE4C5A91C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */; };
 		0FE4C5AA1C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */; };
 		0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */; };
+		0FEA405A1C0E3EEE001A6B23 /* CivilbudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA40591C0E3EEE001A6B23 /* CivilbudgetUITests.swift */; };
+		0FEA40721C0E3F1F001A6B23 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA40711C0E3F1F001A6B23 /* SnapshotHelper.swift */; };
 		0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D27C1C099C5800A4648E /* VoteResult.swift */; };
 		0FF5D28B1C09FFE600A4648E /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D28A1C09FFE600A4648E /* GlobalConstants.swift */; };
 		0FF5D28D1C0A007B00A4648E /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D28C1C0A007B00A4648E /* UIView+Helpers.swift */; };
@@ -84,19 +86,26 @@
 			remoteGlobalIDString = E93B81D9ED085924BA15C72018953ACD;
 			remoteInfo = PromiseKit;
 		};
-		0FE0A1F41C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 0589C0A37E32CFECFDDFE8FD203860FB;
-			remoteInfo = PullToRefresher;
-		};
 		0FE0A1F61C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = AB57164154E15639FE529A776E3460DC;
 			remoteInfo = SCLAlertView;
+		};
+		0FEA405C1C0E3EEE001A6B23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF6D8C1BBE6B890042EC47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0FFF6D931BBE6B890042EC47;
+			remoteInfo = Civilbudget;
+		};
+		0FEA406E1C0E3EEE001A6B23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1066A6591F1EBB7781666F034444BC7;
+			remoteInfo = DGActivityIndicatorView;
 		};
 		0FF5D2871C099C5900A4648E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -151,7 +160,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 19549E838D1C68734DEB9522B21E3F87;
+			remoteGlobalIDString = 7BCCF7ECFA600B781776CF9B33EEDF97;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -195,6 +204,10 @@
 		0FE4C5A61C05E9DF00B3B66E /* StretchyHeaderBackgroundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderBackgroundImageView.swift; path = "Base View Controller/StretchyHeaderBackgroundImageView.swift"; sourceTree = "<group>"; };
 		0FE4C5A71C05E9DF00B3B66E /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderCollectionViewLayout.swift; path = "Base View Controller/StretchyHeaderCollectionViewLayout.swift"; sourceTree = "<group>"; };
 		0FE4C5AB1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsHeaderReusableView.swift; sourceTree = "<group>"; };
+		0FEA40571C0E3EEE001A6B23 /* CivilbudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CivilbudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FEA40591C0E3EEE001A6B23 /* CivilbudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilbudgetUITests.swift; sourceTree = "<group>"; };
+		0FEA405B1C0E3EEE001A6B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FEA40711C0E3F1F001A6B23 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		0FF5D27C1C099C5800A4648E /* VoteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResult.swift; sourceTree = "<group>"; };
 		0FF5D28A1C09FFE600A4648E /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		0FF5D28C1C0A007B00A4648E /* UIView+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
@@ -210,6 +223,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0FEA40541C0E3EEE001A6B23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FFF6D911BBE6B890042EC47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +346,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0FEA40581C0E3EEE001A6B23 /* CivilbudgetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0FEA40711C0E3F1F001A6B23 /* SnapshotHelper.swift */,
+				0FEA40591C0E3EEE001A6B23 /* CivilbudgetUITests.swift */,
+				0FEA405B1C0E3EEE001A6B23 /* Info.plist */,
+			);
+			path = CivilbudgetUITests;
+			sourceTree = "<group>";
+		};
 		0FF5D2891C09FFE600A4648E /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				0FFF6D961BBE6B890042EC47 /* Civilbudget */,
+				0FEA40581C0E3EEE001A6B23 /* CivilbudgetUITests */,
 				0FFF6D951BBE6B890042EC47 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -346,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				0FFF6D941BBE6B890042EC47 /* Civilbudget.app */,
+				0FEA40571C0E3EEE001A6B23 /* CivilbudgetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -430,13 +462,13 @@
 				0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */,
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
+				0FEA406F1C0E3EEE001A6B23 /* DGActivityIndicatorView.framework */,
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
-				0FE0A1F51C0CFD3D00D19904 /* PullToRefresh.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
@@ -456,6 +488,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0FEA40561C0E3EEE001A6B23 /* CivilbudgetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FEA40701C0E3EEE001A6B23 /* Build configuration list for PBXNativeTarget "CivilbudgetUITests" */;
+			buildPhases = (
+				0FEA40531C0E3EEE001A6B23 /* Sources */,
+				0FEA40541C0E3EEE001A6B23 /* Frameworks */,
+				0FEA40551C0E3EEE001A6B23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0FEA405D1C0E3EEE001A6B23 /* PBXTargetDependency */,
+			);
+			name = CivilbudgetUITests;
+			productName = CivilbudgetUITests;
+			productReference = 0FEA40571C0E3EEE001A6B23 /* CivilbudgetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		0FFF6D931BBE6B890042EC47 /* Civilbudget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FFF6DA61BBE6B890042EC47 /* Build configuration list for PBXNativeTarget "Civilbudget" */;
@@ -485,9 +535,14 @@
 		0FFF6D8C1BBE6B890042EC47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Build Apps";
 				TargetAttributes = {
+					0FEA40561C0E3EEE001A6B23 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = 0FFF6D931BBE6B890042EC47;
+					};
 					0FFF6D931BBE6B890042EC47 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 75MA7AA7LG;
@@ -514,6 +569,7 @@
 			projectRoot = "";
 			targets = (
 				0FFF6D931BBE6B890042EC47 /* Civilbudget */,
+				0FEA40561C0E3EEE001A6B23 /* CivilbudgetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -561,18 +617,18 @@
 			remoteRef = 0FE0A1F21C0CFD3D00D19904 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0FE0A1F51C0CFD3D00D19904 /* PullToRefresh.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PullToRefresh.framework;
-			remoteRef = 0FE0A1F41C0CFD3D00D19904 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SCLAlertView.framework;
 			remoteRef = 0FE0A1F61C0CFD3D00D19904 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FEA406F1C0E3EEE001A6B23 /* DGActivityIndicatorView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DGActivityIndicatorView.framework;
+			remoteRef = 0FEA406E1C0E3EEE001A6B23 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FF5D2881C099C5900A4648E /* KVNProgress.framework */ = {
@@ -627,6 +683,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0FEA40551C0E3EEE001A6B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FFF6D921BBE6B890042EC47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -707,6 +770,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0FEA40531C0E3EEE001A6B23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FEA405A1C0E3EEE001A6B23 /* CivilbudgetUITests.swift in Sources */,
+				0FEA40721C0E3F1F001A6B23 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FFF6D901BBE6B890042EC47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -741,6 +813,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0FEA405D1C0E3EEE001A6B23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0FFF6D931BBE6B890042EC47 /* Civilbudget */;
+			targetProxy = 0FEA405C1C0E3EEE001A6B23 /* PBXContainerItemProxy */;
+		};
 		0FFF75461BBE7DE30042EC47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Civilbudget";
@@ -749,6 +826,32 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0FEA405E1C0E3EEE001A6B23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CivilbudgetUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.CivilbudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Civilbudget;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		0FEA405F1C0E3EEE001A6B23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CivilbudgetUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.CivilbudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Civilbudget;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		0FFF6DA41BBE6B890042EC47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -883,6 +986,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0FEA40701C0E3EEE001A6B23 /* Build configuration list for PBXNativeTarget "CivilbudgetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FEA405E1C0E3EEE001A6B23 /* Debug */,
+				0FEA405F1C0E3EEE001A6B23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		0FFF6D8F1BBE6B890042EC47 /* Build configuration list for PBXProject "Civilbudget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
