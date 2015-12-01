@@ -312,6 +312,9 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <inset key="contentEdgeInsets" minX="20" minY="7" maxX="20" maxY="7"/>
                                             <state key="normal" title="ПІДТРИМАТИ"/>
+                                            <state key="disabled">
+                                                <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                            </state>
                                             <state key="selected" title="ПІДТРИМАНО" image="CheckmarkSmall"/>
                                         </button>
                                     </subviews>
@@ -368,6 +371,9 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
                                         <state key="normal" title="Підтримати"/>
+                                        <state key="disabled">
+                                            <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <state key="selected" title="Підтримано" image="CheckmarkSmall"/>
                                     </button>
                                 </subviews>

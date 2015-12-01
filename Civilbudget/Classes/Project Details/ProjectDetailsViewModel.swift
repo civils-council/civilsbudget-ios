@@ -43,11 +43,11 @@ class ProjectDetailsViewModel {
     let budgetLabel = Observable("")
     let supportButtonSelected = Observable(false)
     let loadingIndicatorVisible = Observable(false)
-    let votingState = Observable<LoadingState?>(nil)
     
     let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
-    let alertWithStatus = Observable<String?>(nil)
-    
+    let errorAlertWithDescription = Observable("")
+    let infoAlertWithDescription = Observable("")
+    let successAlertWithDescription = Observable("")
     
     init(project: Project? = nil) {
         if let project = project {
@@ -64,11 +64,15 @@ class ProjectDetailsViewModel {
         createdAt.value = self.dynamicType.dateFormatter.stringFromDate(project.createdAt ?? NSDate())
         author.value = project.owner ?? ""
         budgetLabel.value = "\u{f02b} Бюджет проекту: \(ProjectDetailsViewModel.currencyFormatter.stringFromNumber(project.budget ?? 0)!) грн"
-        supportButtonSelected.value = project.voted
+        UserViewModel.currentUser.votedProject.map { [weak self] in $0 == self?.project.id }.bindTo(supportButtonSelected)
     }
     
     func voteForCurrentProject() {
         if !User.isAuthorized() {
+            if !User.warningWasShownBefore {
+                infoAlertWithDescription.value = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
+            }
+            
             authorizationWithCompletion.value = handleBankIdAuthorizationResult
             return
         }
@@ -82,16 +86,16 @@ class ProjectDetailsViewModel {
                 self.project.voted = true
                 self.project.likes++
                 self.updateFields()
-                self.votingState.value = .VoteAccepted(message: voteResult.success!)
+                self.successAlertWithDescription.value = voteResult.success!
             } else {
-                self.alertWithStatus.value = voteResult.warning
+                self.errorAlertWithDescription.value = voteResult.warning!
                 // self?.votingState.value = LoadingState.VoteDeclined(warning: voteResult.warning)
             }
         }.always { _ in
             self.loadingIndicatorVisible.value = false
         }.error { (error: ErrorType) -> Void in
             let error = error as NSError
-            self.alertWithStatus.value = error.localizedDescription
+            self.errorAlertWithDescription.value = error.localizedDescription
         }
     }
     
@@ -110,10 +114,12 @@ class ProjectDetailsViewModel {
             let error = error as NSError
             switch (error.domain, error.code) {
             case (BankIdSDK.Error.errorDomain, BankIdSDK.ErrorCode.Canceled.rawValue): break
-            default: self.alertWithStatus.value = error.localizedDescription
+            default: self.errorAlertWithDescription.value = error.localizedDescription
             }
         }
     }
+    
+    // MARK: Promises
     
     private func checkBankIdResult(authResult: AuthorizationResult) -> Promise<Authorization> {
         return Promise { fulfill, reject in
@@ -147,8 +153,13 @@ class ProjectDetailsViewModel {
                         reject(response.result.error!)
                         return
                     }
+                    
+                    if voteResult.isSuccessful {
+                        User.currentUser.value?.votedProjectId = projectId
+                    }
+                    
                     fulfill(voteResult)
-                }
+            }
         }
     }
 }

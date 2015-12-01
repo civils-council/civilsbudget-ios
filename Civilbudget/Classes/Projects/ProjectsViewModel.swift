@@ -16,7 +16,7 @@ class ProjectsViewModel: NSObject {
     
     override init() {
         super.init()
-        
+
         refreshProjectList()
     }
     

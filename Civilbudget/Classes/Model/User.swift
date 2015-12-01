@@ -14,6 +14,7 @@ struct User {
     let id: Int
     let fullName: String
     let clid: String                    // From Ukrainian BankID System terminology :)
+    var votedProjectId: Int?
 }
 
 extension User: ResponseObjectSerializable {
@@ -34,6 +35,7 @@ extension User: ResponseObjectSerializable {
         self.id = id
         self.fullName = fullName
         self.clid = clid
+        self.votedProjectId = representation.valueForKey("voted_project") as? Int
     }
 }
 
@@ -49,12 +51,16 @@ extension User {
             clid = data["clid"] as? String else {
                 return nil
         }
+        let votedProjectId = data["votedProjectId"] as? Int
         
-        return User(id: id, fullName: fullName, clid: clid)
+        return User(id: id, fullName: fullName, clid: clid, votedProjectId: votedProjectId)
     }
     
     func saveToSecureStorage() {
-        let dictionary: [String: AnyObject] = ["id": id, "fullName": fullName, "clid": clid]
+        var dictionary: [String: AnyObject] = ["id": id, "fullName": fullName, "clid": clid]
+        if votedProjectId != nil {
+            dictionary["votedProjectId"] = votedProjectId
+        }
         let _ = try? Locksmith.saveData(dictionary, forUserAccount: User.keychainUserAccount)
     }
     
@@ -69,7 +75,9 @@ extension User {
     static let currentUser: Observable<User?> = {
         let user = User.readFromSecureStorage()
         let observable = Observable<User?>(user)
-        observable.observeNew { $0?.saveToSecureStorage() }
+        observable.observeNew { user in
+            user?.saveToSecureStorage()
+        }
         return observable
     }()
     
@@ -80,5 +88,21 @@ extension User {
     
     static func isAuthorized() -> Bool {
         return currentUser.value != nil
+    }
+}
+
+// MARK: - Warning was shown before
+
+extension User {
+    private static let warningWasShownBeforeKey = "WarningWasShownKey"
+    
+    static var warningWasShownBefore: Bool {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        guard let _ = userDefaults.objectForKey(User.warningWasShownBeforeKey) else {
+            userDefaults.setBool(true, forKey: User.warningWasShownBeforeKey)
+            userDefaults.synchronize()
+            return false
+        }
+        return true
     }
 }

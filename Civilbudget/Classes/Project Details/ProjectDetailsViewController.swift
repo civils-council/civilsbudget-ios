@@ -10,6 +10,7 @@ import UIKit
 import BankIdSDK
 import KVNProgress
 import SCLAlertView
+import Bond
 
 class ProjectDetailsViewController: BaseCollectionViewController {
     struct Constants {
@@ -37,8 +38,10 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         collectionView.registerNib(UINib(nibName: "ProjectDetailsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
         
         // Listen to View Model changes
-        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
-        viewModel.supportButtonSelected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
+        combineLatest(viewModel.supportButtonSelected, User.currentUser).map { $0 && $1 != nil }.bindTo(supportButton.bnd_selected)
+        supportButton.bnd_selected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
+        combineLatest(viewModel.supportButtonSelected, User.currentUser, UserViewModel.currentUser.votedProject)
+            .map { !(!$0 && $1 != nil && $2 != nil) }.bindTo(supportButton.bnd_enabled)
         viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
         viewModel.authorizationWithCompletion.observeNew { [weak self] completionHandler in
             guard let completionHandler = completionHandler, viewController = self else {
@@ -50,15 +53,16 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             viewController.presentViewController(navigationController, animated: true, completion: nil)
         }
         
-        viewModel.alertWithStatus.observeNew { [weak self] description in
-            guard let viewController = self else {
-                return
-            }
-            
-            let title = description ?? "Сталася прикра помилка ;("
-            let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Закрити", style: .Cancel, handler: nil))
-            viewController.presentViewController(alert, animated: true, completion: nil)
+        viewModel.errorAlertWithDescription.observeNew { [weak self] description in
+            self?.showAlertWithTitle("Помилка", subtitle: description, style: .Error)
+        }
+        
+        viewModel.infoAlertWithDescription.observeNew { [weak self] description in
+            self?.showAlertWithTitle("Увага!", subtitle: description, closeTitle: "Зрозуміло", style: .Info)
+        }
+        
+        viewModel.successAlertWithDescription.observeNew { [weak self] _ in            
+            self?.showAlertWithTitle("Дякуємо!", subtitle: "Ваш голос важливий для нас", style: .Success)
         }
         
         UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
@@ -69,25 +73,14 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
         
-        viewModel.votingState.observeNew { state in
-            guard let state = state else {
-                return
-            }
-            
-            switch state {
-            case .VoteAccepted: break
-            default: return
-            }
-            
-            let alertView = SCLAlertView()
-            // alertView.addButton("Розповісти друзям", target: viewController, selector: "shareButtonTapped:")
-            alertView.showTitle("Дякуємо!", subTitle: " Ваш голос важливий для нас", duration: 0.0, completeText: "Закрити",
-                style: .Success, colorStyle: 0x525c99, colorTextButton: 0xFFFFFF)
-        }
-        
         // UI Controls actions
         backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }
         supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
+    }
+    
+    func showAlertWithTitle(title: String, subtitle: String, closeTitle: String = "Закрити", style: SCLAlertViewStyle) {
+        SCLAlertView().showTitle(title, subTitle: subtitle, duration: 0.0, completeText: closeTitle,
+            style: style, colorStyle: 0x525c99, colorTextButton: 0xFFFFFF)
     }
     
     func shareButtonTapped(sender: UIButton) {

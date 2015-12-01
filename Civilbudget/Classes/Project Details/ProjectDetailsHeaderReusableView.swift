@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Bond
 
 class ProjectDetailsHeaderReusableView: UICollectionReusableView {
     private var _viewModel: ProjectDetailsViewModel!
@@ -48,15 +49,17 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         // Binding
         viewModel.supportedByCount.bindTo(supportedByLabel.bnd_text)
         viewModel.budgetLabel.bindTo(budgetLabel.bnd_text)
-        viewModel.pictureURL.observeNew { [weak self] url in
+        viewModel.pictureURL.observe { [weak self] url in
             if let url = url {
                 self?.pictureImageView.af_setImageWithURL(url)
             } else {
                 self?.pictureImageView.image = nil
             }
         }
-        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
-        viewModel.supportButtonSelected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
+        combineLatest(viewModel.supportButtonSelected, User.currentUser).map { $0 && $1 != nil }.bindTo(supportButton.bnd_selected)
+        supportButton.bnd_selected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
+        combineLatest(viewModel.supportButtonSelected, User.currentUser, UserViewModel.currentUser.votedProject)
+            .map { !(!$0 && $1 != nil && $2 != nil) }.bindTo(supportButton.bnd_enabled)
         User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
         
         // UI Control actions

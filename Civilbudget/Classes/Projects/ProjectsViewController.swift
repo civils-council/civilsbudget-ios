@@ -10,7 +10,6 @@ import UIKit
 import Bond
 import Alamofire
 import PullToRefresh
-import SCLAlertView
 
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
