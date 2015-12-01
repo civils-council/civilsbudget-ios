@@ -9,7 +9,6 @@
 import UIKit
 import Bond
 import Alamofire
-import PullToRefresh
 
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
@@ -40,9 +39,9 @@ class ProjectsViewController: BaseCollectionViewController {
         }
         
         // Configure PullToRefresh
-        collectionView.addPullToRefresh(PullToRefresh()) { [weak self] in
+        /* collectionView.addPullToRefresh(PullToRefresh()) { [weak self] in
             self?.viewModel.refreshProjectList()
-        }
+        }*/
         
         // Bind View Model to UI
         viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
@@ -56,7 +55,7 @@ class ProjectsViewController: BaseCollectionViewController {
         }
         viewModel.loadingState.observeNew { [weak self] state in
             switch state {
-            case .Failure, .Loaded, .NoData: self?.collectionView.endRefreshing()
+            case .Failure, .Loaded, .NoData: (self?.headerCell as? ProjectsHeaderReusableView)?.stopLoadingAnimation()
             default: break
             }
         }
@@ -89,13 +88,25 @@ class ProjectsViewController: BaseCollectionViewController {
         super.viewWillAppear(animated)
         
         if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
-            /*let selectedView = collectionView.cellForItemAtIndexPath(selectedIndexPath) as? ProjectCollectionViewCell
-            selectedView?.viewModel = viewModel.projectViewModelForIndexPath(selectedIndexPath, existingViewModel: selectedView?.viewModel)*/
             collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
         }
     }
 }
 
+// MARK: - UICollectionViewDataSource methods
+
+extension ProjectsViewController {
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        guard headerCell == nil else {
+            return headerCell!
+        }
+        
+        let view = super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath) as! ProjectsHeaderReusableView
+        view.viewModel = viewModel
+        return view
+    }
+}
+    
 // MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
 
 extension ProjectsViewController {

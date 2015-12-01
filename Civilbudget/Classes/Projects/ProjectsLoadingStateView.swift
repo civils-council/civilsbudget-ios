@@ -23,7 +23,7 @@ class ProjectsLoadingStateView: UIView {
         
         // Configure UI
         backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
-        reloadButton.setTitle("Спробувати ще раз\n\n\u{f021}", forState: .Normal)
+        reloadButton.setTitle("Спробувати ще раз\n\u{f021}", forState: .Normal)
         reloadButton.titleLabel?.lineBreakMode = .ByWordWrapping
         reloadButton.titleLabel?.textAlignment = .Center
         reloadButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)

@@ -15,11 +15,11 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="ProjectsLoadingStateView" customModule="Civilbudget" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <subviews>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPX-Vw-3nr">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPX-Vw-3nr">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-gg-TXZ">
-                            <rect key="frame" x="182" y="206" width="236" height="189"/>
+                            <rect key="frame" x="182" y="209" width="236" height="182"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Помилка завантаження" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZg-CW-yGw">
                                     <rect key="frame" x="37" y="10" width="163" height="17"/>
@@ -29,7 +29,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rH1-uO-XRW">
-                                    <rect key="frame" x="29" y="36" width="178" height="114"/>
+                                    <rect key="frame" x="29" y="35" width="178" height="114"/>
                                     <animations/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="114" id="DMh-HA-4og"/>
@@ -37,7 +37,7 @@
                                     </constraints>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbz-Ey-moE">
-                                    <rect key="frame" x="15" y="160" width="206" height="29"/>
+                                    <rect key="frame" x="15" y="153" width="206" height="29"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                     <state key="normal" title="Перезавантажити ще раз"/>
@@ -46,13 +46,13 @@
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="Lbz-Ey-moE" firstAttribute="top" secondItem="rH1-uO-XRW" secondAttribute="bottom" constant="10" id="Nzp-5l-cNC"/>
+                                <constraint firstItem="Lbz-Ey-moE" firstAttribute="top" secondItem="rH1-uO-XRW" secondAttribute="bottom" constant="4" id="Nzp-5l-cNC"/>
                                 <constraint firstItem="WZg-CW-yGw" firstAttribute="top" secondItem="0OF-gg-TXZ" secondAttribute="top" constant="10" id="QVU-vI-V27"/>
                                 <constraint firstItem="Lbz-Ey-moE" firstAttribute="leading" secondItem="0OF-gg-TXZ" secondAttribute="leading" constant="15" id="Ryc-3p-7y1"/>
                                 <constraint firstAttribute="trailing" secondItem="Lbz-Ey-moE" secondAttribute="trailing" constant="15" id="VCP-W3-0ON"/>
                                 <constraint firstItem="WZg-CW-yGw" firstAttribute="centerX" secondItem="0OF-gg-TXZ" secondAttribute="centerX" id="eR3-iK-Zl1"/>
                                 <constraint firstAttribute="bottom" secondItem="Lbz-Ey-moE" secondAttribute="bottom" id="gYT-8w-fD6"/>
-                                <constraint firstItem="rH1-uO-XRW" firstAttribute="top" secondItem="WZg-CW-yGw" secondAttribute="bottom" constant="9" id="rYE-n8-VsK"/>
+                                <constraint firstItem="rH1-uO-XRW" firstAttribute="top" secondItem="WZg-CW-yGw" secondAttribute="bottom" constant="8" id="rYE-n8-VsK"/>
                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WZg-CW-yGw" secondAttribute="trailing" constant="10" id="t6Y-p8-CZm"/>
                                 <constraint firstItem="rH1-uO-XRW" firstAttribute="centerX" secondItem="0OF-gg-TXZ" secondAttribute="centerX" id="yEu-lA-4oH"/>
                                 <constraint firstItem="WZg-CW-yGw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0OF-gg-TXZ" secondAttribute="leading" constant="10" id="zSu-kj-QJF"/>

@@ -135,6 +135,7 @@ class ProjectDetailsViewModel {
         return Promise { fulfill, reject in
             Alamofire.request(CivilbudgetAPI.Router.Authorize(accessToken: accessToken))
                 .responseObject { (response: Response<User, NSError>) in
+                    response.data
                     guard let user = response.result.value else {
                         reject(response.result.error!)
                         return
