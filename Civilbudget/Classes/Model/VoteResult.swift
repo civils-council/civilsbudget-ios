@@ -24,7 +24,10 @@ extension VoteResult: ResponseObjectSerializable {
             throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }
         
-        self.warning = warning
-        self.success = success
+        /*self.warning = warning
+        self.success = success*/
+        
+        self.success = warning
+        self.warning = success
     }
 }

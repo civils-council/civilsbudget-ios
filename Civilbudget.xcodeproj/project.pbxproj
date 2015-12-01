@@ -70,6 +70,34 @@
 			remoteGlobalIDString = 70E6BC1DAABBB0EF9D80759A3EEFFAA4;
 			remoteInfo = XCGLogger;
 		};
+		0FE0A1F01C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6603C877EA2E22104B9C37C48EDE4EF2;
+			remoteInfo = OMGHTTPURLRQ;
+		};
+		0FE0A1F21C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E93B81D9ED085924BA15C72018953ACD;
+			remoteInfo = PromiseKit;
+		};
+		0FE0A1F41C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0589C0A37E32CFECFDDFE8FD203860FB;
+			remoteInfo = PullToRefresher;
+		};
+		0FE0A1F61C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AB57164154E15639FE529A776E3460DC;
+			remoteInfo = SCLAlertView;
+		};
 		0FF5D2871C099C5900A4648E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -123,7 +151,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2A95270FE0B2D4E32BCFAA2062A512B2;
+			remoteGlobalIDString = 19549E838D1C68734DEB9522B21E3F87;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -405,7 +433,11 @@
 				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
+				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
+				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
+				0FE0A1F51C0CFD3D00D19904 /* PullToRefresh.framework */,
+				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
@@ -513,6 +545,34 @@
 			fileType = wrapper.framework;
 			path = XCGLogger.framework;
 			remoteRef = 0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OMGHTTPURLRQ.framework;
+			remoteRef = 0FE0A1F01C0CFD3D00D19904 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PromiseKit.framework;
+			remoteRef = 0FE0A1F21C0CFD3D00D19904 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FE0A1F51C0CFD3D00D19904 /* PullToRefresh.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PullToRefresh.framework;
+			remoteRef = 0FE0A1F41C0CFD3D00D19904 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SCLAlertView.framework;
+			remoteRef = 0FE0A1F61C0CFD3D00D19904 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FF5D2881C099C5900A4648E /* KVNProgress.framework */ = {

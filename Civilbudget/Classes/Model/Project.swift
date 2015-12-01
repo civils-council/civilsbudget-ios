@@ -16,10 +16,10 @@ struct Project {
     let source: String?
     let picture: String?
     let createdAt: NSDate?
-    let likes: Int?
     let owner: String?
     let budget: Int?
-    let voted: Bool
+    var likes: Int
+    var voted: Bool
 }
 
 extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
@@ -60,7 +60,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String
         self.createdAt = Project.dateFormatter.dateFromString((representation.valueForKeyPath("createdAt") as? String) ?? "")
-        self.likes = representation.valueForKeyPath("likes_count") as? Int
+        self.likes = (representation.valueForKeyPath("likes_count") as? Int) ?? 0
         self.owner = representation.valueForKeyPath("owner") as? String
         self.budget = representation.valueForKeyPath("charge") as? Int
         self.voted = (representation.valueForKeyPath("vote") as? Bool) ?? false

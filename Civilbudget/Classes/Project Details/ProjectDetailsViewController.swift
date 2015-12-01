@@ -9,6 +9,7 @@
 import UIKit
 import BankIdSDK
 import KVNProgress
+import SCLAlertView
 
 class ProjectDetailsViewController: BaseCollectionViewController {
     struct Constants {
@@ -38,6 +39,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         // Listen to View Model changes
         viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
         viewModel.supportButtonSelected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
+        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
         viewModel.authorizationWithCompletion.observeNew { [weak self] completionHandler in
             guard let completionHandler = completionHandler, viewController = self else {
                 return
@@ -55,7 +57,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             
             let title = description ?? "Сталася прикра помилка ;("
             let alert = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "ОК", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Закрити", style: .Cancel, handler: nil))
             viewController.presentViewController(alert, animated: true, completion: nil)
         }
         
@@ -67,11 +69,32 @@ class ProjectDetailsViewController: BaseCollectionViewController {
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
         
-        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
+        viewModel.votingState.observeNew { state in
+            guard let state = state else {
+                return
+            }
+            
+            switch state {
+            case .VoteAccepted: break
+            default: return
+            }
+            
+            let alertView = SCLAlertView()
+            // alertView.addButton("Розповісти друзям", target: viewController, selector: "shareButtonTapped:")
+            alertView.showTitle("Дякуємо!", subTitle: " Ваш голос важливий для нас", duration: 0.0, completeText: "Закрити",
+                style: .Success, colorStyle: 0x525c99, colorTextButton: 0xFFFFFF)
+        }
         
         // UI Controls actions
         backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }
         supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
+    }
+    
+    func shareButtonTapped(sender: UIButton) {
+        let activityViewController = UIActivityViewController(activityItems: [NSURL(string: "https://www.facebook.com/")!], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceRect = sender.bounds
+        activityViewController.popoverPresentationController?.sourceView = sender
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
 }
 

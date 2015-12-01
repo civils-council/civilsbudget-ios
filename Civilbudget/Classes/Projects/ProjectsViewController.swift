@@ -10,6 +10,7 @@ import UIKit
 import Bond
 import Alamofire
 import PullToRefresh
+import SCLAlertView
 
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
@@ -65,6 +66,10 @@ class ProjectsViewController: BaseCollectionViewController {
         }
         
         // Bind Actions
+        loadingStateView.reloadButton.bnd_tap.observeNew { [weak self] in
+            self?.viewModel.refreshProjectList()
+        }
+        
         viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
@@ -85,6 +90,8 @@ class ProjectsViewController: BaseCollectionViewController {
         super.viewWillAppear(animated)
         
         if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
+            let selectedView = collectionView.cellForItemAtIndexPath(selectedIndexPath) as? ProjectCollectionViewCell
+            selectedView?.viewModel = viewModel.projectViewModelForIndexPath(selectedIndexPath, existingViewModel: selectedView?.viewModel)
             collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
         }
     }

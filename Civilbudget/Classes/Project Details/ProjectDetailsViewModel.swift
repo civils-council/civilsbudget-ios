@@ -10,6 +10,7 @@ import Foundation
 import Bond
 import BankIdSDK
 import Alamofire
+import PromiseKit
 
 class ProjectDetailsViewModel {
     static let dateFormatter: NSDateFormatter = {
@@ -42,6 +43,7 @@ class ProjectDetailsViewModel {
     let budgetLabel = Observable("")
     let supportButtonSelected = Observable(false)
     let loadingIndicatorVisible = Observable(false)
+    let votingState = Observable<LoadingState?>(nil)
     
     let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
     let alertWithStatus = Observable<String?>(nil)
@@ -68,42 +70,84 @@ class ProjectDetailsViewModel {
     func voteForCurrentProject() {
         if !User.isAuthorized() {
             authorizationWithCompletion.value = handleBankIdAuthorizationResult
-        } else {
-            
-        }
-    }
-    
-    func handleBankIdAuthorizationResult(result: AuthorizationResult) {
-        if let error = result.error {
-            alertWithStatus.value = error.localizedDescription
-            return
-        }
-        
-        guard let accessToken = result.value?.accessToken else {
-            log.error("Unhandled unexpected error occured")
             return
         }
         
         loadingIndicatorVisible.value = true
         
-        log.info("BankID Access token: \(accessToken)")
+        firstly {
+            voteProject(project.id, withClid: User.currentUser.value!.clid)
+        }.then { (voteResult: VoteResult) -> Void in
+            if voteResult.isSuccessful {
+                self.project.voted = true
+                self.project.likes++
+                self.updateFields()
+                self.votingState.value = .VoteAccepted(message: voteResult.success!)
+            } else {
+                self.alertWithStatus.value = voteResult.warning
+                // self?.votingState.value = LoadingState.VoteDeclined(warning: voteResult.warning)
+            }
+        }.always { _ in
+            self.loadingIndicatorVisible.value = false
+        }.error { (error: ErrorType) -> Void in
+            let error = error as NSError
+            self.alertWithStatus.value = error.localizedDescription
+        }
+    }
+    
+    func handleBankIdAuthorizationResult(result: AuthorizationResult) {
+        loadingIndicatorVisible.value = true
         
-        Alamofire.request(CivilbudgetAPI.Router.Authorize(accessToken: accessToken))
-            .responseObject { [weak self] (response: Response<User, NSError>) in
-                log.info(NSString(data: response.data!, encoding: NSUTF8StringEncoding)?.description)
-                log.info(response.description)
-                
-                guard let user = response.result.value, projectId = self?.project.id else {
-                    self?.loadingIndicatorVisible.value = false
-                    return
+        firstly {
+            checkBankIdResult(result)
+        }.then { (auth: Authorization) -> Promise<User> in
+            return self.authorizeToken(auth.accessToken)
+        }.then { (user: User) -> Void in
+            self.voteForCurrentProject()
+        }.always { _ in
+            self.loadingIndicatorVisible.value = false
+        }.error { (error: ErrorType) -> Void in
+            let error = error as NSError
+            switch (error.domain, error.code) {
+            case (BankIdSDK.Error.errorDomain, BankIdSDK.ErrorCode.Canceled.rawValue): break
+            default: self.alertWithStatus.value = error.localizedDescription
+            }
+        }
+    }
+    
+    private func checkBankIdResult(authResult: AuthorizationResult) -> Promise<Authorization> {
+        return Promise { fulfill, reject in
+            guard let auth = authResult.value else {
+                reject(authResult.error!)
+                return
+            }
+            fulfill(auth)
+        }
+    }
+    
+    private func authorizeToken(accessToken: String) -> Promise<User> {
+        return Promise { fulfill, reject in
+            Alamofire.request(CivilbudgetAPI.Router.Authorize(accessToken: accessToken))
+                .responseObject { (response: Response<User, NSError>) in
+                    guard let user = response.result.value else {
+                        reject(response.result.error!)
+                        return
+                    }
+                    User.currentUser.value = user
+                    fulfill(user)
                 }
-                
-                User.currentUser.value = user
-                
-                Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: projectId, clid: user.clid)).responseString { response in
-                    self?.loadingIndicatorVisible.value = false
-                    
-                    log.info(response.description)
+        }
+    }
+    
+    private func voteProject(projectId: Int, withClid clid: String) -> Promise<VoteResult> {
+        return Promise { fulfill, reject in
+            Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: projectId, clid: clid))
+                .responseObject { (response: Response<VoteResult, NSError>) in
+                    guard let voteResult = response.result.value else {
+                        reject(response.result.error!)
+                        return
+                    }
+                    fulfill(voteResult)
                 }
         }
     }

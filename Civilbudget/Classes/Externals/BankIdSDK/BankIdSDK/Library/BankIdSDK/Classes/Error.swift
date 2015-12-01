@@ -8,17 +8,17 @@
 
 import Foundation
 
-class Error: NSError {
+public class Error: NSError {
     
     /// BankIdSDK error domain
-    static let errorDomain = "com.bankidsdk.error"
+    public static let errorDomain = "com.bankidsdk.error"
     
     convenience init(code: ErrorCode, description: String? = nil) {
         self.init(domain: Error.errorDomain, code: code.rawValue, userInfo: [NSLocalizedFailureReasonErrorKey: description ?? code.reason])
     }
 }
 
-enum ErrorCode: Int {
+public enum ErrorCode: Int {
     case Canceled = 1
     case Timeout = 2
     

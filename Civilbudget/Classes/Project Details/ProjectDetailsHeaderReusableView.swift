@@ -9,13 +9,14 @@
 import UIKit
 
 class ProjectDetailsHeaderReusableView: UICollectionReusableView {
-    private var parentViewModel: ProjectDetailsViewModel? = nil
-    private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
+    private var _viewModel: ProjectDetailsViewModel!
     
     var viewModel: ProjectDetailsViewModel! {
         set(value) {
-            _viewModel.project = value.project
-            parentViewModel = value
+            if _viewModel == nil {
+                _viewModel = value
+                addBindings()
+            }
         }
         get {
             return _viewModel
@@ -41,7 +42,9 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         supportButton.setTitleColor(UIColor.whiteColor(), forState: .Selected)
         userProfileButton.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder, forState: .Normal)
-        
+    }
+    
+    func addBindings() {
         // Binding
         viewModel.supportedByCount.bindTo(supportedByLabel.bnd_text)
         viewModel.budgetLabel.bindTo(budgetLabel.bnd_text)
@@ -57,7 +60,7 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
         
         // UI Control actions
-        supportButton.bnd_tap.observeNew { [weak self] in self?.parentViewModel?.voteForCurrentProject() }
+        supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
         userProfileButton.bnd_tap.observeNew { [weak self] in UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton) }
     }
 }
