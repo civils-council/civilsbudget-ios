@@ -32,11 +32,11 @@ extension Service {
         var path: String {
             switch self {
             case .Authorize:
-                return "/das/authorize"
+                return "/DataAccessService/das/authorize"
             case .GetAccessToken:
-                return "/oauth/token"
+                return "/DataAccessService/oauth/token"
             case .RequestInformation:
-                return "/checked/data"
+                return "/ResourceService/checked/data"
             default:
                 return ""
             }

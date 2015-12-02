@@ -69,11 +69,7 @@ class ProjectDetailsViewModel {
     
     func voteForCurrentProject() {
         if !User.isAuthorized() {
-            if !User.warningWasShownBefore {
-                infoAlertWithDescription.value = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
-            }
-            
-            authorizationWithCompletion.value = handleBankIdAuthorizationResult
+            authorize()
             return
         }
         
@@ -91,7 +87,26 @@ class ProjectDetailsViewModel {
                 self.errorAlertWithDescription.value = voteResult.warning!
                 // self?.votingState.value = LoadingState.VoteDeclined(warning: voteResult.warning)
             }
-        }.always { _ in
+        }.always {
+            self.loadingIndicatorVisible.value = false
+        }.error { (error: ErrorType) -> Void in
+            let error = error as NSError
+            self.errorAlertWithDescription.value = error.localizedDescription
+        }
+    }
+    
+    func authorize() {
+        loadingIndicatorVisible.value = true
+        
+        firstly {
+            getSettings()
+        }.then { (settings: ServiceSettings) -> Void in
+            Service.configuration.baseAuthURLString = settings.bankIdAuthURL
+            if !User.warningWasShownBefore {
+                self.infoAlertWithDescription.value = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
+            }
+            self.authorizationWithCompletion.value = self.handleBankIdAuthorizationResult
+        }.always {
             self.loadingIndicatorVisible.value = false
         }.error { (error: ErrorType) -> Void in
             let error = error as NSError
@@ -120,6 +135,19 @@ class ProjectDetailsViewModel {
     }
     
     // MARK: Promises
+    
+    private func getSettings() -> Promise<ServiceSettings> {
+        return Promise { fulfill, reject in
+            Alamofire.request(CivilbudgetAPI.Router.GetSettings)
+                .responseObject { (response: Response<ServiceSettings, NSError>) in
+                    guard let settings = response.result.value else {
+                        reject(response.result.error!)
+                        return
+                    }
+                    fulfill(settings)
+                }
+        }
+    }
     
     private func checkBankIdResult(authResult: AuthorizationResult) -> Promise<Authorization> {
         return Promise { fulfill, reject in
