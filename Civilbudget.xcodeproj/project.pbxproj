@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */; };
+		0F3F86B41C0F62D0001173F9 /* TestAccessibleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F86B31C0F62D0001173F9 /* TestAccessibleImageView.swift */; };
 		0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4102E41C0C666300B49D1A /* UserViewModel.swift */; };
 		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
 		0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */; };
@@ -180,6 +181,7 @@
 
 /* Begin PBXFileReference section */
 		0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPrefferedLayoutWidthLabel.swift; sourceTree = "<group>"; };
+		0F3F86B31C0F62D0001173F9 /* TestAccessibleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccessibleImageView.swift; sourceTree = "<group>"; };
 		0F4102E41C0C666300B49D1A /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			children = (
 				0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */,
 				0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */,
+				0F3F86B31C0F62D0001173F9 /* TestAccessibleImageView.swift */,
 				0FF5D28C1C0A007B00A4648E /* UIView+Helpers.swift */,
 			);
 			path = View;
@@ -783,6 +786,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3F86B41C0F62D0001173F9 /* TestAccessibleImageView.swift in Sources */,
 				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
 				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
@@ -993,6 +997,7 @@
 				0FEA405F1C0E3EEE001A6B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FFF6D8F1BBE6B890042EC47 /* Build configuration list for PBXProject "Civilbudget" */ = {
 			isa = XCConfigurationList;

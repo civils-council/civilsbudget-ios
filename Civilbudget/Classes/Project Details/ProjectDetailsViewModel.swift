@@ -105,7 +105,7 @@ class ProjectDetailsViewModel {
         firstly {
             checkBankIdResult(result)
         }.then { (auth: Authorization) -> Promise<User> in
-            return self.authorizeToken(auth.accessToken)
+            self.authorizeToken(auth.accessToken)
         }.then { (user: User) -> Void in
             self.voteForCurrentProject()
         }.always { _ in
