@@ -19,6 +19,7 @@ extension ServiceSettings: ResponseObjectSerializable {
             throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }
         
-        self.bankIdAuthURL = bankIdAuthURL
+        // Base URL
+        self.bankIdAuthURL = bankIdAuthURL + "/DataAccessService"
     }
 }
