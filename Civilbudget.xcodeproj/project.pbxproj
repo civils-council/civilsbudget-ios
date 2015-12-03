@@ -16,6 +16,7 @@
 		0F52E81C1C01FC8500C76F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81A1C01FC8500C76F62 /* Main.storyboard */; };
 		0F52E81F1C01FD3500C76F62 /* BottomToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81E1C01FD3500C76F62 /* BottomToolbarView.xib */; };
 		0F5645BE1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */; };
+		0F6A4A711C10F20000FCC9CE /* ProjectCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A4A701C10F20000FCC9CE /* ProjectCellNode.swift */; };
 		0F87BA081C020D1800D7938A /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
@@ -52,6 +53,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
 			remoteInfo = AlamofireImage;
+		};
+		0F6A4A811C10F20100FCC9CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 69CEFFB08DBBFF6AF600D251C5587A2C;
+			remoteInfo = AsyncDisplayKit;
 		};
 		0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -162,7 +170,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 7BCCF7ECFA600B781776CF9B33EEDF97;
+			remoteGlobalIDString = 2549029015C39EA1C828D9894D44EF7C;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -190,6 +198,7 @@
 		0F52E81A1C01FC8500C76F62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0F52E81E1C01FD3500C76F62 /* BottomToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomToolbarView.xib; sourceTree = "<group>"; };
 		0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F6A4A701C10F20000FCC9CE /* ProjectCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCellNode.swift; sourceTree = "<group>"; };
 		0F87BA071C020D1800D7938A /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseCollectionViewController.swift; path = "Base View Controller/BaseCollectionViewController.swift"; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -317,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */,
+				0F6A4A701C10F20000FCC9CE /* ProjectCellNode.swift */,
 				0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */,
 				0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */,
 				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
@@ -465,6 +475,7 @@
 			children = (
 				0FFF75331BBE78D00042EC47 /* Alamofire.framework */,
 				0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */,
+				0F6A4A821C10F20100FCC9CE /* AsyncDisplayKit.framework */,
 				0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */,
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
@@ -586,6 +597,13 @@
 			fileType = wrapper.framework;
 			path = AlamofireImage.framework;
 			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F6A4A821C10F20100FCC9CE /* AsyncDisplayKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AsyncDisplayKit.framework;
+			remoteRef = 0F6A4A811C10F20100FCC9CE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */ = {
@@ -813,6 +831,7 @@
 				0F9BFA2C1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
 				0FE4C5A81C05E9DF00B3B66E /* BottomToolbar.swift in Sources */,
+				0F6A4A711C10F20000FCC9CE /* ProjectCellNode.swift in Sources */,
 				0F8D18C51BD02C2300B69419 /* User.swift in Sources */,
 				0FF5D28D1C0A007B00A4648E /* UIView+Helpers.swift in Sources */,
 			);

@@ -9,7 +9,61 @@
 import UIKit
 import Bond
 import Alamofire
+import AsyncDisplayKit
 
+class ProjectsViewController: UIViewController {
+    @IBOutlet var bottomToolbarContainerView: UIView!
+    @IBOutlet var loadingStateContainerView: UIView!
+    @IBOutlet var topToolbar: UIView!
+    
+    let viewModel = ProjectsViewModel()
+    var asyncCollectionView: ASCollectionView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let collectionLayout = UICollectionViewFlowLayout()
+        asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: collectionLayout, asyncDataFetching: true)
+        //asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
+        asyncCollectionView.asyncDataSource = self
+        asyncCollectionView.asyncDelegate = self
+        asyncCollectionView.backgroundColor = UIColor.lightGrayColor();
+        view.addSubview(asyncCollectionView)
+        
+        viewModel.projects.last!.observeNew { [weak self] _ in
+            self?.asyncCollectionView.reloadData()
+        }
+        viewModel.refreshProjectList()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        asyncCollectionView.frame = self.view.bounds;
+    }
+}
+
+extension ProjectsViewController: ASCollectionViewDataSource {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
+        return viewModel.projects.count
+    }
+    
+    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.projects[section].count
+    }
+    
+    func collectionView(collectionView: ASCollectionView!, nodeForItemAtIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
+        return ProjectCellNode(viewModel: viewModel.projectViewModelForIndexPath(indexPath))
+    }
+}
+
+extension ProjectsViewController: ASCollectionViewDelegateFlowLayout {
+    
+}
+
+
+
+
+
+/*
 class ProjectsViewController: BaseCollectionViewController {
     struct Constants {
         static let productCellIdentifier = "projectCell"
@@ -37,11 +91,6 @@ class ProjectsViewController: BaseCollectionViewController {
             loadingStateView.addConstraintsToFitSuperview()
             self.loadingStateView = loadingStateView
         }
-        
-        // Configure PullToRefresh
-        /* collectionView.addPullToRefresh(PullToRefresh()) { [weak self] in
-            self?.viewModel.refreshProjectList()
-        }*/
         
         // Bind View Model to UI
         viewModel.projects.bindTo(collectionView, proxyDataSource: self) { (indexPath, dataSource, collectionView) in
@@ -143,4 +192,4 @@ extension ProjectsViewController {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         viewModel.selectProjectWithIndexPath(indexPath)
     }
-}
+}*/

@@ -21,6 +21,7 @@ pod 'Locksmith', '~> 2.0'
 pod 'PromiseKit', '~> 3.0'
 pod 'SCLAlertView', '~> 0.4'
 pod 'DGActivityIndicatorView', '~> 2.0'
+pod 'AsyncDisplayKit', '~> 1.9'
 pod 'BankIdSDK', :path => '../BankIdSDK/'
 
 end
