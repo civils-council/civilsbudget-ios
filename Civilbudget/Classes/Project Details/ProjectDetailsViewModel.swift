@@ -101,7 +101,8 @@ class ProjectDetailsViewModel {
         firstly {
             getSettings()
         }.then { (settings: ServiceSettings) -> Void in
-            Service.configuration.baseAuthURLString = settings.bankIdAuthURL
+            BankIdSDK.Service.configuration.baseAuthURLString = settings.bankIdAuthURL
+            BankIdSDK.Service.configuration.redirectURI = settings.bankIdRedirectURI
             if !User.warningWasShownBefore {
                 self.infoAlertWithDescription.value = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
             }
