@@ -19,7 +19,6 @@ public class AuthorizationViewController: UIViewController {
     static var defaultAuthNibBundle: NSBundle? = NSBundle(forClass: AuthorizationViewController.self)
     
     private var completionHandler: (AuthorizationResult -> Void)?
-    private var getOnlyAuthCode = false
     private var patchIndexPage = true
     
     var requestCounter: Int = 0 {
@@ -51,10 +50,9 @@ public class AuthorizationViewController: UIViewController {
         return self.defaultAuthNibBundle
     }
     
-    public init(getOnlyAuthCode:Bool = false, patchIndexPage: Bool = true, completionHandler:AuthorizationResult -> Void) {
+    public init(patchIndexPage: Bool = true, completionHandler:AuthorizationResult -> Void) {
         super.init(nibName: self.dynamicType.authNibName(), bundle: self.dynamicType.authNibBundle())
         
-        self.getOnlyAuthCode = getOnlyAuthCode
         self.completionHandler = completionHandler
     }
     
@@ -127,26 +125,7 @@ public class AuthorizationViewController: UIViewController {
 
 extension AuthorizationViewController: UIWebViewDelegate {
     public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if let url = request.URL,
-            code = url.bid_queries["code"]
-            where url.absoluteString.hasPrefix(Service.configuration.redirectURI) {
-                
-                if getOnlyAuthCode {
-                    let auth = Authorization(authCode: code)
-                    dismissWithResult(AuthorizationResult.Success(auth))
-                } else {
-                    requestCounter++
-                    webView.loadRequest(NSURLRequest(URL: NSURL(string:"about:blank")!))
-                    disableControls()
-                    
-                    Alamofire.request(Service.Router.GetAccessToken(authCode: code))
-                        .responseBankIdObject { [weak self] (response: Response<Authorization, NSError>) in
-                            self?.dismissWithResult(response.result)
-                    }
-                }
-                
-                return false
-        }
+        webView.hidden = request.URL?.absoluteString.hasPrefix(Service.configuration.redirectURI) ?? false
         
         return true
     }
@@ -163,6 +142,22 @@ extension AuthorizationViewController: UIWebViewDelegate {
         
         if let message = currentURL?.bid_queries["message"] {
             dismissWithResult(AuthorizationResult.Failure(Error(code: .Timeout, description: message)))
+        } else if let absoluteString = currentURL?.absoluteString where absoluteString.hasPrefix(Service.configuration.redirectURI) {
+            let authorizationResult: AuthorizationResult
+            do {
+                let responseString = webView.stringByEvaluatingJavaScriptFromString("document.body.innerText")
+                guard let responseData = responseString?.dataUsingEncoding(NSUTF8StringEncoding) else {
+                    let failureReason = "JSON could not be serialized. Input data was nil or zero length."
+                    let error = Alamofire.Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
+                    throw error
+                }
+                let jsonRepresentation = try NSJSONSerialization.JSONObjectWithData(responseData, options: .AllowFragments)
+                let authorization = try Authorization(response: NSHTTPURLResponse(), representation: jsonRepresentation)
+                authorizationResult = AuthorizationResult.Success(authorization)
+            } catch let error as NSError {
+                authorizationResult = AuthorizationResult.Failure(error)
+            }
+            dismissWithResult(authorizationResult)
         }
         
         requestCounter--

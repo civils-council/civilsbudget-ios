@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure service
+        Service.configuration.clientID = "{Put your BankId agent client id}"
+        Service.configuration.redirectURI = "{Put your redirect URI here}"
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,12 +25,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func signInButtonTapped(sender: UIButton) {
-        let authViewController = AuthorizationViewController(getOnlyAuthCode: false, patchIndexPage: true) { result in
+        let authViewController = AuthorizationViewController(patchIndexPage: true) { result in
             guard let authorization = result.value else {
+                print(result.error!.debugDescription)
                 return
             }
             
-            Service.authorization = authorization
+            print(authorization.accessToken)
             
             Alamofire.request(Service.Router.RequestInformation(fields: BankIdSDK.Constants.allInfoFields))
                 .responseString { response in

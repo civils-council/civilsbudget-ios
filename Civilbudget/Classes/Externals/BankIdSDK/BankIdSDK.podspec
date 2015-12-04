@@ -33,5 +33,4 @@ Pod::Spec.new do |s|
   s.resources = 'BankIdSDK/Library/BankIdSDK/Resources/**/*'
   # s.public_header_files = 'BankIdSDK/Library/BankIdSDK/Supporting Files/BankIdSDK.h'
   s.dependency    'Alamofire',       '~> 3.1'
-  s.dependency    'CryptoSwift',     '~> 0.0'
 end

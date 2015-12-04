@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import CryptoSwift
 
 extension Service {
     
@@ -15,14 +14,13 @@ extension Service {
      */
     public enum Router: URLRequestConvertible {
         case Authorize
-        case GetAccessToken(authCode: String)
         case RefreshAccessToken(refreshToken: String)
         case RequestInformation(fields: [String: AnyObject])
         case GetDocument(link: String)
         
         var baseURLString: String {
             switch self {
-            case .Authorize, .GetAccessToken, .RefreshAccessToken:
+            case .Authorize, .RefreshAccessToken:
                 return configuration.baseAuthURLString
             case .RequestInformation, .GetDocument:
                 return configuration.baseDataURLString
@@ -33,8 +31,6 @@ extension Service {
             switch self {
             case .Authorize:
                 return "/das/authorize"
-            case .GetAccessToken:
-                return "/oauth/token"
             case .RequestInformation:
                 return "/checked/data"
             default:
@@ -44,7 +40,7 @@ extension Service {
         
         var method: Alamofire.Method {
             switch self {
-            case .Authorize, .GetAccessToken, .RefreshAccessToken, .GetDocument:
+            case .Authorize, .RefreshAccessToken, .GetDocument:
                 return .GET
             case .RequestInformation:
                 return .POST
@@ -60,14 +56,6 @@ extension Service {
             case .Authorize:
                 return Alamofire.ParameterEncoding.URL.encode(request,
                     parameters: ["response_type": "code", "client_id": configuration.clientID, "redirect_uri": configuration.redirectURI]).0
-            case .GetAccessToken(let code):
-                let calculatedClientSecret = "\(configuration.clientID)\(configuration.clientSecret)\(code)".sha1()
-                return Alamofire.ParameterEncoding.URL.encode(request,
-                    parameters: ["grant_type": "authorization_code",
-                        "client_id": configuration.clientID,
-                        "client_secret":  calculatedClientSecret,
-                        "code": code,
-                        "redirect_uri": configuration.redirectURI]).0
             case .RequestInformation(let fields):
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 if let authorization = authorization {

@@ -9,21 +9,11 @@
 import Alamofire
 
 public struct Authorization: BankIdObjectSerializable {
-    public let authCode: String?
     public let accessToken: String
     public let tokenType: String?
     public let refreshToken: String
     public let expiresIn: Int?
     public let scope: String?
-    
-    init(authCode: String) {
-        self.authCode = authCode
-        accessToken = ""
-        tokenType = nil
-        refreshToken = ""
-        expiresIn = nil
-        scope = nil
-    }
     
     public init(response: NSHTTPURLResponse, representation: AnyObject) throws {
         guard let accessToken = representation.valueForKey("access_token") as? String,
@@ -41,6 +31,5 @@ public struct Authorization: BankIdObjectSerializable {
         tokenType = representation.valueForKey("token_type") as? String
         expiresIn = representation.valueForKey("expires_in") as? Int
         scope = representation.valueForKey("scope") as? String
-        authCode = nil
     }
 }
