@@ -11,6 +11,7 @@ import AsyncDisplayKit
 class ProjectCellNode: ASCellNode {
     private var viewModel: ProjectDetailsViewModel!
     
+    private var imageNode: ASNetworkImageNode!
     private var titleTextNode: ASTextNode!
     private var descriptionTextNode: ASTextNode!
     
@@ -20,6 +21,12 @@ class ProjectCellNode: ASCellNode {
         self.viewModel = viewModel
         
         backgroundColor = UIColor.whiteColor()
+        
+        imageNode = ASNetworkImageNode()
+        imageNode.backgroundColor = UIColor.greenColor()
+        imageNode.contentMode = .ScaleAspectFill
+        imageNode.URL = viewModel.pictureURL.value ?? NSURL()
+        addSubnode(imageNode)
         
         titleTextNode = ASTextNode()
         titleTextNode.attributedString = NSAttributedString(string: viewModel.title.value)
@@ -37,11 +44,13 @@ class ProjectCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec! {
-        return ASStackLayoutSpec(direction: .Vertical,
-            spacing: 6.0,
-            justifyContent: .Start,
-            alignItems: .Start,
-            children: [ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 0.0, right: 10.0), child: titleTextNode),
-                ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0.0, left: 10.0, bottom: 10.0, right: 10.0), child: descriptionTextNode)])
+        imageNode.preferredFrameSize = CGSize(width: constrainedSize.max.width, height: 100.0)
+        
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0),
+            child: ASStackLayoutSpec(direction: .Vertical,
+                spacing: 6.0,
+                justifyContent: .Start,
+                alignItems: .Start,
+                children: [imageNode, titleTextNode, descriptionTextNode]))
     }
 }
