@@ -23,11 +23,15 @@ class ProjectCellNode: ASCellNode {
         
         titleTextNode = ASTextNode()
         titleTextNode.attributedString = NSAttributedString(string: viewModel.title.value)
+        titleTextNode.truncationAttributedString = NSAttributedString(string: "...")
+        titleTextNode.truncationMode = .ByTruncatingTail
         titleTextNode.maximumLineCount = 2
         addSubnode(titleTextNode)
         
         descriptionTextNode = ASTextNode()
         descriptionTextNode.attributedString = NSAttributedString(string: viewModel.fullDescription.value)
+        descriptionTextNode.truncationAttributedString = NSAttributedString(string: "...")
+        descriptionTextNode.truncationMode = .ByTruncatingTail
         descriptionTextNode.maximumLineCount = 3
         addSubnode(descriptionTextNode)
     }
