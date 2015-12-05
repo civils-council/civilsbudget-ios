@@ -22,9 +22,11 @@ class ProjectsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let collectionLayout = UICollectionViewFlowLayout()
+        let collectionLayout = StretchyHeaderCollectionViewLayout()
+        collectionLayout.minimumLineSpacing = 0.0
         asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: collectionLayout, asyncDataFetching: true)
-        //asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
+        asyncCollectionView.alwaysBounceVertical = true
+        asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
         asyncCollectionView.asyncDataSource = self
         asyncCollectionView.asyncDelegate = self
         asyncCollectionView.backgroundColor = UIColor.lightGrayColor();
@@ -53,10 +55,16 @@ extension ProjectsViewController: ASCollectionViewDataSource {
     func collectionView(collectionView: ASCollectionView!, nodeForItemAtIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
         return ProjectCellNode(viewModel: viewModel.projectViewModelForIndexPath(indexPath))
     }
+    
+    func collectionView(collectionView: ASCollectionView!, nodeForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
+        return ProjectsHeaderCellNode(viewModel: viewModel)
+    }
 }
 
 extension ProjectsViewController: ASCollectionViewDelegateFlowLayout {
-    
+    func collectionView(collectionView: ASCollectionView!, layout collectionViewLayout: UICollectionViewLayout!, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: asyncCollectionView.bounds.width, height: GlobalConstants.exposedHeaderViewHeight): CGSizeZero
+    }
 }
 
 

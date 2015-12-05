@@ -7,13 +7,21 @@
 //
 
 import AsyncDisplayKit
+import WebASDKImageManager
 
 class ProjectCellNode: ASCellNode {
+    static var asyncImageManager: SDWebASDKImageManager = {
+        return SDWebASDKImageManager(webImageManager: SDWebImageManager.sharedManager())
+    }()
+    
     private var viewModel: ProjectDetailsViewModel!
     
-    private var imageNode: ASNetworkImageNode!
-    private var titleTextNode: ASTextNode!
-    private var descriptionTextNode: ASTextNode!
+    private let imageNode = ASNetworkImageNode(cache: ProjectCellNode.asyncImageManager, downloader: ProjectCellNode.asyncImageManager)
+    private var titleTextNode = ASTextNode()
+    private var descriptionTextNode = ASTextNode()
+    
+    override var selected: Bool { didSet { updateBackgroundColor() } }
+    override var highlighted: Bool { didSet { updateBackgroundColor() } }
     
     convenience init(viewModel: ProjectDetailsViewModel) {
         self.init()
@@ -22,20 +30,17 @@ class ProjectCellNode: ASCellNode {
         
         backgroundColor = UIColor.whiteColor()
         
-        imageNode = ASNetworkImageNode()
         imageNode.backgroundColor = UIColor.greenColor()
         imageNode.contentMode = .ScaleAspectFill
         imageNode.URL = viewModel.pictureURL.value ?? NSURL()
         addSubnode(imageNode)
         
-        titleTextNode = ASTextNode()
         titleTextNode.attributedString = NSAttributedString(string: viewModel.title.value)
         titleTextNode.truncationAttributedString = NSAttributedString(string: "...")
         titleTextNode.truncationMode = .ByTruncatingTail
         titleTextNode.maximumLineCount = 2
         addSubnode(titleTextNode)
         
-        descriptionTextNode = ASTextNode()
         descriptionTextNode.attributedString = NSAttributedString(string: viewModel.fullDescription.value)
         descriptionTextNode.truncationAttributedString = NSAttributedString(string: "...")
         descriptionTextNode.truncationMode = .ByTruncatingTail
@@ -52,5 +57,9 @@ class ProjectCellNode: ASCellNode {
                 justifyContent: .Start,
                 alignItems: .Start,
                 children: [imageNode, titleTextNode, descriptionTextNode]))
+    }
+    
+    func updateBackgroundColor() {
+        backgroundColor = highlighted || selected ? CivilbudgetStyleKit.selectedCellBackgroundGrey : UIColor.whiteColor()
     }
 }
