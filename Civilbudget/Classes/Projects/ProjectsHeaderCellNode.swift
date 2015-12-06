@@ -22,9 +22,28 @@ class ProjectsHeaderCellNode: ASCellNode {
         
         logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
         addSubnode(logoImageNode)
+        
+        /*addSubnode(ASDisplayNode(viewBlock: {
+            return HeaderBackgroundView()
+        }))*/
     }
     
     override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec! {
         return ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: .Default, child: logoImageNode);
+    }
+    
+    override func layout() {
+        super.layout()
+    }
+}
+
+class HeaderBackgroundView: UIView {
+    override func didMoveToWindow() {
+        if let _ = window {
+            let sv = self.superview
+            //sv?.autoresizingMask = .None
+            //sv?.translatesAutoresizingMaskIntoConstraints = false
+            //sv?.addConstraintsToFitSuperview()
+        }
     }
 }

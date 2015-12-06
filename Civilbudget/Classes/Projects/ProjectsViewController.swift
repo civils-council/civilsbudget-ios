@@ -18,18 +18,20 @@ class ProjectsViewController: UIViewController {
     
     let viewModel = ProjectsViewModel()
     var asyncCollectionView: ASCollectionView!
+    var headerCell: ASCellNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let collectionLayout = StretchyHeaderCollectionViewLayout()
         collectionLayout.minimumLineSpacing = 0.0
+        collectionLayout.minimumInteritemSpacing = 0.0
         asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: collectionLayout, asyncDataFetching: true)
         asyncCollectionView.alwaysBounceVertical = true
         asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
         asyncCollectionView.asyncDataSource = self
         asyncCollectionView.asyncDelegate = self
-        asyncCollectionView.backgroundColor = UIColor.lightGrayColor();
+        asyncCollectionView.backgroundColor = UIColor.whiteColor();
         view.addSubview(asyncCollectionView)
         
         viewModel.projects.last!.observeNew { [weak self] _ in
@@ -57,7 +59,8 @@ extension ProjectsViewController: ASCollectionViewDataSource {
     }
     
     func collectionView(collectionView: ASCollectionView!, nodeForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
-        return ProjectsHeaderCellNode(viewModel: viewModel)
+        headerCell = ProjectsHeaderCellNode(viewModel: viewModel)
+        return headerCell
     }
 }
 
@@ -66,8 +69,6 @@ extension ProjectsViewController: ASCollectionViewDelegateFlowLayout {
         return section == 0 ? CGSize(width: asyncCollectionView.bounds.width, height: GlobalConstants.exposedHeaderViewHeight): CGSizeZero
     }
 }
-
-
 
 
 
