@@ -14,11 +14,12 @@ class CivilbudgetUITests: XCTestCase {
         super.setUp()
         
         let app = XCUIApplication()
+        
         setLanguage(app)
         app.launch()
     }
     
-    func testExample() {
+    func testOpenRandomProject() {
         let app = XCUIApplication()
         
         // Wait until projects to be loaded
@@ -42,5 +43,9 @@ class CivilbudgetUITests: XCTestCase {
         cellToTap.tap()
 
         snapshot("1ProjectDetails")
+    }
+    
+    override func tearDown() {
+        super.tearDown()
     }
 }
