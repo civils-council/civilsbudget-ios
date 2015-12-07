@@ -53,6 +53,27 @@
 			remoteGlobalIDString = 50ADED5B795CB898A802C99F6F30FF98;
 			remoteInfo = AlamofireImage;
 		};
+		0F265C631C15F953002604DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E1E8038B10E91DBEC1A6F9CADBB95C1E;
+			remoteInfo = AsyncDisplayKit;
+		};
+		0F265C651C15F953002604DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AEE20E3DD84B3E72FCC1C733028E717;
+			remoteInfo = SDWebImage;
+		};
+		0F265C671C15F953002604DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8353D9907A553D079C14214D72B1B6C;
+			remoteInfo = WebASDKImageManager;
+		};
 		0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -162,7 +183,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 7BCCF7ECFA600B781776CF9B33EEDF97;
+			remoteGlobalIDString = 893B5CB0F653A8C744372639E01E4674;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -465,6 +486,7 @@
 			children = (
 				0FFF75331BBE78D00042EC47 /* Alamofire.framework */,
 				0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */,
+				0F265C641C15F953002604DD /* AsyncDisplayKit.framework */,
 				0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */,
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
@@ -476,7 +498,9 @@
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
+				0F265C661C15F953002604DD /* SDWebImage.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
+				0F265C681C15F953002604DD /* WebASDKImageManager.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
 			name = Products;
@@ -586,6 +610,27 @@
 			fileType = wrapper.framework;
 			path = AlamofireImage.framework;
 			remoteRef = 0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F265C641C15F953002604DD /* AsyncDisplayKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AsyncDisplayKit.framework;
+			remoteRef = 0F265C631C15F953002604DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F265C661C15F953002604DD /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = 0F265C651C15F953002604DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F265C681C15F953002604DD /* WebASDKImageManager.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebASDKImageManager.framework;
+			remoteRef = 0F265C671C15F953002604DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */ = {
