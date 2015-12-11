@@ -68,6 +68,11 @@ class ProjectDetailsViewModel {
     }
     
     func voteForCurrentProject() {
+        if let mockvote = NSProcessInfo.processInfo().environment["mockvote"] {
+            successAlertWithDescription.value = mockvote
+            return
+        }
+        
         if !User.isAuthorized() {
             authorize()
             return
