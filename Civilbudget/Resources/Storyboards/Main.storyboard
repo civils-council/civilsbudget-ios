@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mLu-vw-yEj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="mLu-vw-yEj">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +26,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="450-GG-3Ni">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Fq6-a7-y9S">
@@ -36,7 +35,6 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-7F-qdf">
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="pNO-uO-LNf" customClass="StretchyHeaderCollectionViewLayout" customModule="Civilbudget" customModuleProvider="target">
                                     <size key="itemSize" width="300" height="193"/>
@@ -51,7 +49,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bu4-HQ-c5K" customClass="StretchyHeaderBackgroundImageView" customModule="Civilbudget" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="-47" width="600" height="324"/>
-                                            <animations/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxOffset">
                                                     <real key="value" value="50"/>
@@ -60,11 +57,9 @@
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderGradient" translatesAutoresizingMaskIntoConstraints="NO" id="7y3-ma-PfN">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                            <animations/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGv-6v-fgK">
                                             <rect key="frame" x="300" y="87" width="0.0" height="0.0"/>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" id="0DV-6w-so0"/>
@@ -73,7 +68,6 @@
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gT4-jI-JAA">
                                             <rect key="frame" x="247" y="33" width="107" height="107"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="107" id="gwg-zx-5WZ"/>
                                                 <constraint firstAttribute="width" constant="107" id="khX-kU-R8u"/>
@@ -81,7 +75,6 @@
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Tr-tT-7dF">
                                             <rect key="frame" x="287" y="0.0" width="26" height="28"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="26" id="cBe-Ce-QRT"/>
@@ -89,7 +82,6 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEB-n3-NmH">
                                             <rect key="frame" x="549" y="18" width="44" height="44"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Dpi-pV-2he"/>
                                                 <constraint firstAttribute="width" constant="44" id="Xzd-xv-FVW"/>
@@ -97,7 +89,6 @@
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-Av-vDf">
                                             <rect key="frame" x="177" y="151" width="247" height="56"/>
-                                            <animations/>
                                             <string key="text">Громадський бюджет
 в місті Черкаси 2015</string>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
@@ -106,14 +97,12 @@
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0M-kx-7bV">
                                             <rect key="frame" x="275" y="0.0" width="50" height="140"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="bb9-W3-0Rm"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <animations/>
                                     <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="DEB-n3-NmH" secondAttribute="trailing" constant="7" id="2tE-JX-7sU"/>
@@ -155,7 +144,6 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Громадський бюджет в місті Черкаси 2015" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTC-gZ-hPH">
                                         <rect key="frame" x="128" y="20" width="344" height="44"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Vnw-KQ-LAp"/>
                                         </constraints>
@@ -164,7 +152,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="GTC-gZ-hPH" firstAttribute="top" secondItem="WU4-9g-ggs" secondAttribute="top" constant="20" id="GOA-SD-nQ9"/>
@@ -176,11 +163,9 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXW-wf-ocx">
                                 <rect key="frame" x="0.0" y="260" width="600" height="296"/>
-                                <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WU4-9g-ggs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0ug-Wx-fnx"/>
@@ -226,7 +211,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dRM-m5-5ub">
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ihu-hn-xc2" customClass="StretchyHeaderCollectionViewLayout" customModule="Civilbudget" customModuleProvider="target">
                                     <size key="itemSize" width="300" height="193"/>
@@ -241,7 +225,6 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LfG-wT-4d8" customClass="StretchyHeaderBackgroundImageView" customModule="Civilbudget" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                            <animations/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxOffset">
                                                     <real key="value" value="70"/>
@@ -250,11 +233,9 @@
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProjectsHeaderGradient" translatesAutoresizingMaskIntoConstraints="NO" id="eX4-A2-Pbc">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="230"/>
-                                            <animations/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZj-Lj-lBR">
                                             <rect key="frame" x="549" y="18" width="44" height="44"/>
-                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="WGT-dB-FUX"/>
                                                 <constraint firstAttribute="height" constant="44" id="yJw-sA-y9O"/>
@@ -265,20 +246,17 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGu-M0-A0K">
                                                     <rect key="frame" x="142" y="19" width="16" height="33"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ПІДТРИМАЛО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceL-PJ-S8c">
                                                     <rect key="frame" x="120" y="9" width="60" height="11"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="56" id="160-6y-mbW"/>
@@ -293,20 +271,17 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14.12.15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmu-dp-Luy">
                                                     <rect key="frame" x="96" y="19" width="109" height="33"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="28"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КІНЦЕВА ДАТА ГОЛОСУВАННЯ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2Y-cS-4fa">
                                                     <rect key="frame" x="82" y="9" width="136" height="11"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                             <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="T2Y-cS-4fa" firstAttribute="top" secondItem="k3y-NR-ZOu" secondAttribute="top" constant="9" id="4u9-St-wdg"/>
@@ -317,14 +292,12 @@
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бюджет проекту" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM5-eK-XhY">
                                             <rect key="frame" x="241" y="145" width="119" height="15"/>
-                                            <animations/>
                                             <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMN-oL-jcz">
                                             <rect key="frame" x="287" y="0.0" width="26" height="28"/>
-                                            <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="26" id="y4l-yl-8iA"/>
@@ -332,7 +305,7 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcN-pX-olV">
                                             <rect key="frame" x="228" y="80" width="144" height="33"/>
-                                            <animations/>
+                                            <accessibility key="accessibilityConfiguration" identifier="supportButton"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <inset key="contentEdgeInsets" minX="20" minY="7" maxX="20" maxY="7"/>
                                             <state key="normal" title="ПІДТРИМАТИ"/>
@@ -342,7 +315,6 @@
                                             <state key="selected" title="ПІДТРИМАНО" image="CheckmarkSmall"/>
                                         </button>
                                     </subviews>
-                                    <animations/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="k3y-NR-ZOu" firstAttribute="width" secondItem="gFx-lY-Hpc" secondAttribute="width" id="86U-1a-PKJ"/>
@@ -391,7 +363,6 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2w-tW-MwI">
                                         <rect key="frame" x="485" y="28" width="107" height="27"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
                                         <state key="normal" title="Підтримати"/>
@@ -401,7 +372,6 @@
                                         <state key="selected" title="Підтримано" image="CheckmarkSmall"/>
                                     </button>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="u2w-tW-MwI" secondAttribute="trailing" constant="8" id="F12-HD-FkG"/>
@@ -411,7 +381,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNx-5q-Y5J">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="duc-e7-3ab">
@@ -421,7 +390,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-4l-KC9">
                                 <rect key="frame" x="0.0" y="20" width="44" height="44"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="34o-oR-SwD"/>
                                     <constraint firstAttribute="width" constant="44" id="sPM-Pm-uS7"/>
@@ -433,7 +401,6 @@
                                 </state>
                             </button>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KCe-Am-jdb" firstAttribute="top" secondItem="TNx-5q-Y5J" secondAttribute="bottom" id="1rL-2H-bv0"/>
@@ -470,13 +437,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G3i-50-6WM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Dy8-NJ-W4f">
                         <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Vyx-Nv-okp"/>
