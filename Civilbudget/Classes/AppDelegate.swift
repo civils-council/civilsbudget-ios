@@ -11,9 +11,6 @@ import Fabric
 import Crashlytics
 import XCGLogger
 import BankIdSDK
-#if DEBUG
-    import FLEX
-#endif
 
 let log = XCGLogger.defaultInstance()
 
@@ -29,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Service.configuration.clientID = "c693facc-767a-4a5d-a82a-81e020163e1a"
         
         #if DEBUG
-            // FLEXManager.sharedManager().showExplorer()
             log.setup(.Debug, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
         #else
             log.setup(.Severe, showFunctionName: false, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
