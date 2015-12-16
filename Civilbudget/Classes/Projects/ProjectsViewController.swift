@@ -41,8 +41,7 @@ class ProjectsViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
-        asyncCollectionView.frame = self.view.bounds;
-        asyncCollectionView.setNeedsLayout()
+        asyncCollectionView.frame = self.view.bounds
     }
 }
 

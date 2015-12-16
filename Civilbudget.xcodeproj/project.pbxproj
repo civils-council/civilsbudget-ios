@@ -69,6 +69,20 @@
 			remoteGlobalIDString = A5FE0D46EF2ECB4D0A485AB8E77A2BD9;
 			remoteInfo = BankIdSDK;
 		};
+		0F83BD681C21812200A1EFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6251849C6A24477C0CF3CADA16121F58;
+			remoteInfo = SDWebImage;
+		};
+		0F83BD6A1C21812200A1EFBB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 643D4348BD630E675F32DF5A7A67813A;
+			remoteInfo = WebASDKImageManager;
+		};
 		0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -146,13 +160,6 @@
 			remoteGlobalIDString = FBD96193C383DDE816EFB5BD0445C5EE;
 			remoteInfo = Bond;
 		};
-		0FFF75361BBE78D00042EC47 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4354BBEAE8AC92EEA984CB61FF273C00;
-			remoteInfo = FLEX;
-		};
 		0FFF75381BBE78D00042EC47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -171,7 +178,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 2549029015C39EA1C828D9894D44EF7C;
+			remoteGlobalIDString = 110F5F1E8C3706187738B1A8797F4A99;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -483,14 +490,15 @@
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FF8A9011BBFBA820025C59C /* CryptoSwift.framework */,
 				0FEA406F1C0E3EEE001A6B23 /* DGActivityIndicatorView.framework */,
-				0FFF75371BBE78D00042EC47 /* FLEX.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
+				0F83BD691C21812200A1EFBB /* SDWebImage.framework */,
 				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
+				0F83BD6B1C21812200A1EFBB /* WebASDKImageManager.framework */,
 				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
 			name = Products;
@@ -616,6 +624,20 @@
 			remoteRef = 0F7528D51C00617300F9ABB9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		0F83BD691C21812200A1EFBB /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = 0F83BD681C21812200A1EFBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F83BD6B1C21812200A1EFBB /* WebASDKImageManager.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebASDKImageManager.framework;
+			remoteRef = 0F83BD6A1C21812200A1EFBB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -684,13 +706,6 @@
 			fileType = wrapper.framework;
 			path = Bond.framework;
 			remoteRef = 0FFF75341BBE78D00042EC47 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FFF75371BBE78D00042EC47 /* FLEX.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = FLEX.framework;
-			remoteRef = 0FFF75361BBE78D00042EC47 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */ = {
@@ -926,6 +941,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -966,6 +983,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -990,6 +1009,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -1011,6 +1032,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.Civilbudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

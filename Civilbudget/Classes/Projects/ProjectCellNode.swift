@@ -8,6 +8,7 @@
 
 import AsyncDisplayKit
 import WebASDKImageManager
+import AlamofireImage
 
 class ProjectCellNode: ASCellNode {
     struct Constants {
@@ -27,10 +28,8 @@ class ProjectCellNode: ASCellNode {
         contentNode = ProjectCellContentNode(viewModel: viewModel)
         addSubnode(contentNode)
         
-        dividerNode.backgroundColor = UIColor.lightGrayColor()
+        dividerNode.backgroundColor = CivilbudgetStyleKit.bottomCopyrightGrey
         addSubnode(dividerNode)
-        
-        dividerNode.layoutOptions
     }
     
     
@@ -60,28 +59,32 @@ class ProjectCellContentNode: ASDisplayNode {
         static let titleFont = UIFont(name: "HelveticaNeue", size: 18.0)!
         static let descriptionFont = UIFont(name: "HelveticaNeue", size: 16.0)!
         static let detailsFont = UIFont(name: "HelveticaNeue", size: 14.0)!
+        static let detailsButtonFont = UIFont(name: "HelveticaNeue", size: 15.0)!
     }
-    
-    static var asyncImageManager: SDWebASDKImageManager = {
-        return SDWebASDKImageManager(webImageManager: SDWebImageManager.sharedManager())
-    }()
     
     private var viewModel: ProjectDetailsViewModel!
     
     private let imageNode = ASNetworkImageNode()
     private let titleTextNode = ASTextNode()
     private let descriptionTextNode = ASTextNode()
-    private let createdDateNode = ASTextNode()
-    private let votedCountNode = ASTextNode()
-    private let voteBackgroundNode = ASImageNode()
-    private let voteTextNode = ASTextNode()
+    private let createdDateTextNode = ASTextNode()
+    private let votedCountTextNode = ASTextNode()
+    private let detailsBackgroundNode = ASImageNode()
+    private let detailsButtonTextNode = ASTextNode()
 
     convenience init(viewModel: ProjectDetailsViewModel) {
         self.init()
         
         self.viewModel = viewModel
-        imageNode.backgroundColor = UIColor.greenColor()
+        imageNode.backgroundColor = CivilbudgetStyleKit.bottomCopyrightGrey
         imageNode.contentMode = .ScaleAspectFill
+        imageNode.clipsToBounds = true
+        imageNode.imageModificationBlock = { [weak self] image in
+            if let size = self?.imageNode.view.frame.size {
+                return image.af_imageAspectScaledToFillSize(size)
+            }
+            return image
+        }
         imageNode.URL = viewModel.pictureURL.value ?? NSURL()
         addSubnode(imageNode)
         
@@ -101,40 +104,51 @@ class ProjectCellContentNode: ASDisplayNode {
         let dateString = NSAttributedString(string: viewModel.createdAt.value,
             attributes: [NSFontAttributeName : Constants.detailsFont, NSForegroundColorAttributeName: CivilbudgetStyleKit.themeDarkBlue])
         createdString.appendAttributedString(dateString)
-        createdDateNode.attributedString = createdString
-        addSubnode(createdDateNode)
+        createdDateTextNode.attributedString = createdString
+        addSubnode(createdDateTextNode)
         
         let votedString = NSMutableAttributedString(string: "Підтримало: ",
             attributes: [NSFontAttributeName : Constants.detailsFont, NSForegroundColorAttributeName: UIColor.lightGrayColor()])
         let votedAmountString = NSAttributedString(string: viewModel.supportedByCount.value,
             attributes: [NSFontAttributeName : Constants.detailsFont, NSForegroundColorAttributeName: CivilbudgetStyleKit.themeDarkBlue])
         votedString.appendAttributedString(votedAmountString)
-        votedCountNode.attributedString = votedString
-        addSubnode(votedCountNode)
+        votedCountTextNode.attributedString = votedString
+        addSubnode(votedCountTextNode)
         
-        voteBackgroundNode.image = CivilbudgetStyleKit.imageOfDetailsButtonBackground
-        addSubnode(voteBackgroundNode)
+        detailsBackgroundNode.image = CivilbudgetStyleKit.imageOfDetailsButtonBackground
+        addSubnode(detailsBackgroundNode)
         
-        voteTextNode.attributedString = NSAttributedString(string: "Підтримати")
-        addSubnode(voteTextNode)
+        detailsButtonTextNode.attributedString = NSAttributedString(string: "Детальніше",
+            attributes: [NSFontAttributeName : Constants.detailsButtonFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
+        addSubnode(detailsButtonTextNode)
     }
 
     override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec! {
-        imageNode.preferredFrameSize = CGSize(width: constrainedSize.max.width, height: 120.0)
+        let horizontalPadding = CGFloat(14.0)
+        let imageHeight = CGFloat(120.0)
+        let verticalSpacing = CGFloat(6.0)
+        let rootInset = UIEdgeInsets(top: 12.0, left: horizontalPadding, bottom: 10.0, right: horizontalPadding)
+        let detailsButtonInset = UIEdgeInsets(top: 2.0, left: 10.0, bottom: 4.0, right: 10.0)
+        
+        imageNode.preferredFrameSize = CGSize(width: constrainedSize.max.width - horizontalPadding * 2, height: imageHeight)
+        
+        let spacerSpec = ASLayoutSpec()
+        spacerSpec.flexGrow = true
         
         let footerSpec = ASStackLayoutSpec(direction: .Horizontal,
-            spacing: 25.0,
+            spacing: 0,
             justifyContent: .Start,
             alignItems: .Center,
             children: [ASStackLayoutSpec(direction: .Vertical,
-                spacing: 3.0,
+                spacing: verticalSpacing / 2,
                 justifyContent: .SpaceAround,
                 alignItems: .Start,
-                children: [createdDateNode, votedCountNode]), ASBackgroundLayoutSpec(child: ASInsetLayoutSpec(insets: UIEdgeInsets(top: 2.0, left: 6.0, bottom: 3.0, right: 6.0), child: voteTextNode), background: voteBackgroundNode)])
+                children: [createdDateTextNode, votedCountTextNode]), spacerSpec, ASBackgroundLayoutSpec(child: ASInsetLayoutSpec(insets: detailsButtonInset, child: detailsButtonTextNode), background: detailsBackgroundNode)])
+        footerSpec.alignSelf = .Stretch
         
-        let fullLayoutSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 12.0, left: 14.0, bottom: 10.0, right: 14.0),
+        let fullLayoutSpec = ASInsetLayoutSpec(insets: rootInset,
             child: ASStackLayoutSpec(direction: .Vertical,
-                spacing: 6.0,
+                spacing: verticalSpacing,
                 justifyContent: .Start,
                 alignItems: .Start,
                 children: [imageNode, titleTextNode, descriptionTextNode, footerSpec]))
