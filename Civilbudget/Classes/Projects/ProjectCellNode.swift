@@ -37,9 +37,9 @@ class ProjectCellNode: ASCellNode {
         let numberOfColumns = floor(constrainedSize.width / Constants.minWidth)
         let targetWidth = floor(numberOfColumns >= 2 ? constrainedSize.width / numberOfColumns : constrainedSize.width)
         let contentSize = contentNode.measure(CGSize(width: targetWidth, height: Constants.maxHeight))
-        let trgetHeight = numberOfColumns > 1 ? Constants.maxHeight : contentSize.height
+        let targetHeight = numberOfColumns > 1 ? Constants.maxHeight : contentSize.height
         contentNode.frame = CGRect(origin: CGPoint(), size: contentSize)
-        return CGSize(width: targetWidth, height: trgetHeight)
+        return CGSize(width: targetWidth, height: targetHeight)
     }
     
     override func layout() {
@@ -114,7 +114,7 @@ class ProjectCellContentNode: ASDisplayNode {
         votedString.appendAttributedString(votedAmountString)
         votedCountTextNode.attributedString = votedString
         addSubnode(votedCountTextNode)
-        
+
         detailsBackgroundNode.image = CivilbudgetStyleKit.imageOfDetailsButtonBackground
         addSubnode(detailsBackgroundNode)
         
