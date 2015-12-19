@@ -7,7 +7,6 @@
 //
 
 import AsyncDisplayKit
-import WebASDKImageManager
 import AlamofireImage
 
 class ProjectCellNode: ASCellNode {

@@ -37,7 +37,7 @@ class BaseCollectionViewController: UIViewController {
         
         // Top bar configuration
         if let topToolbar = topToolbar {
-            topToolbar.backgroundColor = CivilbudgetStyleKit.themeDarkBlue.colorWithAlpha(GlobalConstants.topBarBackgroundOpacity)
+            topToolbar.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
         }
         
         // Load BottomToolbar XIB

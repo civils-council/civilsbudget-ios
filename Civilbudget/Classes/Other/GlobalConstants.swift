@@ -11,7 +11,7 @@ import CoreGraphics
 
 struct GlobalConstants {
     static let mainBundleName = "Main"
-    static let topBarBackgroundOpacity = CGFloat(0.85)
     static let exposedHeaderViewHeight = CGFloat(240.0)
-    static let imageLoadedAnimationDuaration = 0.2
+    static let maxHorizontalBounceDistance = CGFloat(50.0)
+    static let topToolbarHeight = CGFloat(64.0)
 }

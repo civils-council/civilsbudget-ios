@@ -11,15 +11,28 @@ import UIKit
 class StretchyHeaderCollectionViewLayout: UICollectionViewFlowLayout {
     var headerBounceThreshold = CGFloat(50.0)
     
-    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-        return true
+    override init() {
+        super.init()
+        
+        configure()
     }
     
-    override var scrollDirection: UICollectionViewScrollDirection {
-        get {
-            return .Vertical
-        }
-        set { }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        configure()
+    }
+    
+    
+    func configure() {
+        scrollDirection = .Vertical
+        minimumLineSpacing = 0.0
+        minimumInteritemSpacing = 0.0
+    }
+    
+    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+        return true
     }
 
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

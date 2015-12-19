@@ -68,6 +68,11 @@ class ProjectDetailsViewModel {
     }
     
     func voteForCurrentProject() {
+        if let mockvote = NSProcessInfo.processInfo().environment["mockvote"] {
+            successAlertWithDescription.value = mockvote
+            return
+        }
+        
         if !User.isAuthorized() {
             authorize()
             return
@@ -101,7 +106,12 @@ class ProjectDetailsViewModel {
         firstly {
             getSettings()
         }.then { (settings: ServiceSettings) -> Void in
-            Service.configuration.baseAuthURLString = settings.bankIdAuthURL
+            var configuaration = BankIdSDK.Service.configuration
+            configuaration.clientID = settings.bankIdClientId
+            configuaration.baseAuthURLString = settings.bankIdAuthURL
+            configuaration.redirectURI = settings.bankIdRedirectURI
+            Service.configuration = configuaration
+            
             if !User.warningWasShownBefore {
                 self.infoAlertWithDescription.value = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
             }

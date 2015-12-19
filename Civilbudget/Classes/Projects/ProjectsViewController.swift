@@ -11,28 +11,34 @@ import Bond
 import Alamofire
 import AsyncDisplayKit
 
-class ProjectsViewController: UIViewController {
+class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionContainerSupport, UserProfilePopupSupport {
     @IBOutlet var bottomToolbarContainerView: UIView!
     @IBOutlet var loadingStateContainerView: UIView!
-    @IBOutlet var topToolbar: UIView!
+    @IBOutlet var collectionContainerView: UIView!
+    @IBOutlet var topToolbarView: UIView!
     
     let viewModel = ProjectsViewModel()
+    var collectionController: ProjectsCollectionController!
     var asyncCollectionView: ASCollectionView!
-    var headerCell: ASCellNode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let collectionLayout = StretchyHeaderCollectionViewLayout()
-        collectionLayout.minimumLineSpacing = 0.0
-        collectionLayout.minimumInteritemSpacing = 0.0
-        asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: collectionLayout, asyncDataFetching: true)
+        configureToolbars()
+        configureCollectionContainer()
+        
+        collectionController = ProjectsCollectionController(viewModel: viewModel)
+        let layout = StretchyHeaderCollectionViewLayout()
+        asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: layout, asyncDataFetching: true)
         asyncCollectionView.alwaysBounceVertical = true
         asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
-        asyncCollectionView.asyncDataSource = self
-        asyncCollectionView.asyncDelegate = self
-        asyncCollectionView.backgroundColor = UIColor.whiteColor();
-        view.addSubview(asyncCollectionView)
+        asyncCollectionView.asyncDataSource = collectionController
+        asyncCollectionView.asyncDelegate = collectionController
+        asyncCollectionView.backgroundColor = UIColor.whiteColor()
+        collectionContainerView.addSubview(asyncCollectionView)
+        
+        collectionController.toolbarIsHiden.bindTo(topToolbarView.bnd_hidden)
+        collectionController.toolbarAlpha.bindTo(topToolbarView.bnd_alpha)
         
         viewModel.projects.last!.observeNew { [weak self] _ in
             self?.asyncCollectionView.reloadData()
@@ -40,37 +46,14 @@ class ProjectsViewController: UIViewController {
         viewModel.refreshProjectList()
     }
     
-    override func viewWillLayoutSubviews() {
-        asyncCollectionView.frame = self.view.bounds
-    }
-}
-
-extension ProjectsViewController: ASCollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
-        return viewModel.projects.count
+    override func viewDidLayoutSubviews() {
+        asyncCollectionView.frame = collectionContainerView.bounds
     }
     
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.projects[section].count
-    }
-    
-    func collectionView(collectionView: ASCollectionView!, nodeForItemAtIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
-        return ProjectCellNode(viewModel: viewModel.projectViewModelForIndexPath(indexPath))
-    }
-    
-    func collectionView(collectionView: ASCollectionView!, nodeForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
-        headerCell = ProjectsHeaderCellNode(viewModel: viewModel)
-        return headerCell
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }
-
-extension ProjectsViewController: ASCollectionViewDelegateFlowLayout {
-    func collectionView(collectionView: ASCollectionView!, layout collectionViewLayout: UICollectionViewLayout!, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: asyncCollectionView.bounds.width, height: GlobalConstants.exposedHeaderViewHeight): CGSizeZero
-    }
-}
-
-
 
 /*
 class ProjectsViewController: BaseCollectionViewController {

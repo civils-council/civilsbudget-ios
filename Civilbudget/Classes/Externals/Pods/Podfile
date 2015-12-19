@@ -21,7 +21,6 @@ pod 'PromiseKit', '~> 3.0'
 pod 'SCLAlertView', '~> 0.4'
 pod 'DGActivityIndicatorView', '~> 2.0'
 pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :branch => 'master'
-pod 'WebASDKImageManager', '~> 1.0'
 pod 'BankIdSDK', :path => '../BankIdSDK/'
 
 end

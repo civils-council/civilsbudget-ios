@@ -16,7 +16,6 @@ extension Service {
         public var baseDataURLString = "https://bankid.privatbank.ua/ResourceService"
         
         public var clientID = ""
-        public var clientSecret = ""
-        public var redirectURI = "bankidua://returncode"
+        public var redirectURI = ""
     }
 }

@@ -48,7 +48,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
                 return
             }
             
-            let authViewController = AuthorizationViewController(getOnlyAuthCode: false, patchIndexPage: true, completionHandler: completionHandler)
+            let authViewController = AuthorizationViewController(patchIndexPage: true, completionHandler: completionHandler)
             let navigationController = UINavigationController(rootViewController: authViewController)
             viewController.presentViewController(navigationController, animated: true, completion: nil)
         }
