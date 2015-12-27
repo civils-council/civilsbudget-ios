@@ -42,9 +42,9 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         // Create and configure ASCollectionView
         let layout = StretchyHeaderCollectionViewLayout()
         collectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: layout)
-        collectionView.alwaysBounceVertical = true
         collectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
-        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.alwaysBounceVertical = true
+        collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
         collectionContainerView.addSubview(collectionView)
         
         // Create ProjectsCollectionController

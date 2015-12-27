@@ -23,6 +23,7 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
+    @IBOutlet weak var dividerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,5 +31,15 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
         viewModel.title.bindTo(titleLabel.bnd_text)
         viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
         viewModel.author.bindTo(authorLabel.bnd_text)
+        
+        dividerView.backgroundColor = CivilbudgetStyleKit.bottomCopyrightGrey
+        addSubview(dividerView)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        let pixelHeight = 1.0 / UIScreen.mainScreen().scale
+        dividerView.frame = CGRect(x: 0.0, y: frame.height - pixelHeight, width: frame.width, height: pixelHeight)
     }
 }
