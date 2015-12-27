@@ -12,6 +12,10 @@ import Alamofire
 import AsyncDisplayKit
 
 class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionContainerSupport, UserProfilePopupSupport {
+    struct Constants {
+        static let productDetailsViewControllerIdentifier = "detailsViewController"
+    }
+    
     @IBOutlet var bottomToolbarContainerView: UIView!
     @IBOutlet var loadingStateContainerView: UIView!
     @IBOutlet var collectionContainerView: UIView!
@@ -19,7 +23,8 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     
     let viewModel = ProjectsViewModel()
     var collectionController: ProjectsCollectionController!
-    var asyncCollectionView: ASCollectionView!
+    var collectionView: ASCollectionView!
+    var loadingStateView: ProjectsLoadingStateView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,27 +32,53 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         configureToolbars()
         configureCollectionContainer()
         
-        collectionController = ProjectsCollectionController(viewModel: viewModel)
-        let layout = StretchyHeaderCollectionViewLayout()
-        asyncCollectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: layout, asyncDataFetching: true)
-        asyncCollectionView.alwaysBounceVertical = true
-        asyncCollectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
-        asyncCollectionView.asyncDataSource = collectionController
-        asyncCollectionView.asyncDelegate = collectionController
-        asyncCollectionView.backgroundColor = UIColor.whiteColor()
-        collectionContainerView.addSubview(asyncCollectionView)
+        // Load ProjectsLoadingState view
+        if let loadingStateView = UIView.loadFirstViewFromNibNamed("ProjectsLoadingStateView") as? ProjectsLoadingStateView {
+            loadingStateContainerView.addSubview(loadingStateView)
+            loadingStateView.addConstraintsToFitSuperview()
+            self.loadingStateView = loadingStateView
+        }
         
+        // Create and configure ASCollectionView
+        let layout = StretchyHeaderCollectionViewLayout()
+        collectionView = ASCollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.alwaysBounceVertical = true
+        collectionView.registerSupplementaryNodeOfKind(UICollectionElementKindSectionHeader)
+        collectionView.backgroundColor = UIColor.whiteColor()
+        collectionContainerView.addSubview(collectionView)
+        
+        // Create ProjectsCollectionController
+        collectionController = ProjectsCollectionController(collectionView: collectionView, viewModel: viewModel)
+        collectionView.asyncDataSource = collectionController
+        collectionView.asyncDelegate = collectionController
+        
+        // Configure bindings
         collectionController.toolbarIsHiden.bindTo(topToolbarView.bnd_hidden)
         collectionController.toolbarAlpha.bindTo(topToolbarView.bnd_alpha)
+        viewModel.collectionViewUserInteractionEnabled.bindTo(collectionView.bnd_userInteractionEnabled)
+        viewModel.loadingState.bindTo(loadingStateView.state)
         
-        viewModel.projects.last!.observeNew { [weak self] _ in
-            self?.asyncCollectionView.reloadData()
+        // Actions
+        loadingStateView.reloadButtonTap.observeNew { [weak self] in
+            self?.viewModel.refreshProjectList()
+        }.disposeIn(bnd_bag)
+        
+        viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
+            let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
+            let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
+            detailsViewController.viewModel = viewModel
+            self?.navigationController?.pushViewController(detailsViewController, animated: true)
+        }.disposeIn(bnd_bag)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if let selectedItem = collectionView.indexPathsForSelectedItems()?.last {
+            collectionView.deselectItemAtIndexPath(selectedItem, animated: true)
         }
-        viewModel.refreshProjectList()
     }
     
     override func viewDidLayoutSubviews() {
-        asyncCollectionView.frame = collectionContainerView.bounds
+        collectionView.frame = collectionContainerView.bounds
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

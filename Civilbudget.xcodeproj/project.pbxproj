@@ -51,6 +51,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0F052BFF1C30577800D2DFA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 71C88884F594D24F52058EAB769897BB;
+			remoteInfo = "Localize-Swift";
+		};
 		0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -160,7 +167,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = BB1CC818FC20445A276AF25EE63BE66B;
+			remoteGlobalIDString = 69763933F42331A62527EAEE569B0845;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -179,6 +186,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F052BF01C30577700D2DFA6 /* Civilbudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Civilbudget-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPrefferedLayoutWidthLabel.swift; sourceTree = "<group>"; };
 		0F3F86B31C0F62D0001173F9 /* TestAccessibleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestAccessibleImageView.swift; sourceTree = "<group>"; };
 		0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettings.swift; sourceTree = "<group>"; };
@@ -309,10 +317,10 @@
 			isa = PBXGroup;
 			children = (
 				0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */,
+				0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */,
 				0FDF99101C25DE840060D39C /* ProjectsCollectionController.swift */,
 				0FDF98FD1C259A240060D39C /* ProjectCellNode.swift */,
 				0FDF98FE1C259A240060D39C /* ProjectsHeaderCellNode.swift */,
-				0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */,
 				0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */,
 				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
 				0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */,
@@ -454,6 +462,7 @@
 		0FFF70821BBE78500042EC47 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F052BF01C30577700D2DFA6 /* Civilbudget-Bridging-Header.h */,
 				0FFF70831BBE78500042EC47 /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -478,6 +487,7 @@
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FEA406F1C0E3EEE001A6B23 /* DGActivityIndicatorView.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
+				0F052C001C30577800D2DFA6 /* Localize_Swift.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
@@ -588,6 +598,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0F052C001C30577800D2DFA6 /* Localize_Swift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Localize_Swift.framework;
+			remoteRef = 0F052BFF1C30577800D2DFA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -908,6 +925,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Civilbudget/Supporting Files/Civilbudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -948,6 +966,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Civilbudget/Supporting Files/Civilbudget-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

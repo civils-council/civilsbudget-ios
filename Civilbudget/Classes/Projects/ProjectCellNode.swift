@@ -122,7 +122,7 @@ class ProjectCellContentNode: ASDisplayNode {
         addSubnode(detailsButtonTextNode)
     }
 
-    override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec! {
+    override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let horizontalPadding = CGFloat(14.0)
         let imageHeight = CGFloat(120.0)
         let verticalSpacing = CGFloat(6.0)

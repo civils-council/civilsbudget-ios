@@ -12,35 +12,68 @@ import AsyncDisplayKit
 class ProjectsCollectionController: StretchyCollectionController {
     let selectedIndexPath = Observable<NSIndexPath?>(nil)
     
-    private var viewModel: ProjectsViewModel!
-    private var projects: ObservableArray<ObservableArray<Project>>!
+    private weak var collectionView: ASCollectionView?
+    private var viewModel: ProjectsViewModel
+    private var projects: ObservableArray<ObservableArray<Project>>
+    private var headerNode: ProjectsHeaderCellNode?
     
-    init(viewModel: ProjectsViewModel) {
+    init(collectionView: ASCollectionView, viewModel: ProjectsViewModel) {
+        self.collectionView = collectionView
         self.viewModel = viewModel
         projects = viewModel.projects
+        super.init()
+        
+        assert(projects.count == 2, "Projects array must contain 2 sections (header + list of projects)")
+        
+        projects.last?.observeNew { [weak self] arrayEvent in
+            guard let collectionView = self?.collectionView else {
+                return
+            }
+            
+            collectionView.performBatchAnimated(true, updates: {
+                collectionView.reloadSections(NSIndexSet(index: 1))
+            }, completion: { _ in })
+        }.disposeIn(bnd_bag)
+        
+        viewModel.refreshProjectList()
     }
 }
 
-extension ProjectsCollectionController: ASCollectionViewDataSource {
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView!) -> Int {
+// MARK: - ASCollectionView data source methods
+
+extension ProjectsCollectionController: ASCollectionDataSource {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return projects.count
     }
     
-    func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return projects[section].count
     }
     
-    func collectionView(collectionView: ASCollectionView!, nodeForItemAtIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
+    func collectionView(collectionView: ASCollectionView, nodeForItemAtIndexPath indexPath: NSIndexPath) -> ASCellNode {
         return ProjectCellNode(viewModel: viewModel.projectViewModelForIndexPath(indexPath))
     }
     
-    func collectionView(collectionView: ASCollectionView!, nodeForSupplementaryElementOfKind kind: String!, atIndexPath indexPath: NSIndexPath!) -> ASCellNode! {
-        return ProjectsHeaderCellNode(viewModel: viewModel) // <- cache it and update height while stretching
+    func collectionView(collectionView: ASCollectionView, nodeForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> ASCellNode {
+        if headerNode.isNil {
+            headerNode = ProjectsHeaderCellNode(viewModel: viewModel, height: exposedHeaderViewHeight)
+            stretchDistance
+                .map({ [unowned self] stretchDistance in
+                        let origin = CGPoint(x: 0.0, y: stretchDistance < 0 ? -stretchDistance : 0)
+                        let size = CGSize(width: self.collectionView!.frame.width, height: self.exposedHeaderViewHeight + stretchDistance)
+                        return CGRect(origin: origin, size: size)
+                    })
+                .bindTo(headerNode!.stretchedFrame)
+                .disposeIn(bnd_bag)
+        }
+        return headerNode!
     }
 }
 
-extension ProjectsCollectionController: ASCollectionViewDelegate {
-    func collectionView(collectionView: UICollectionView!, didSelectItemAtIndexPath indexPath: NSIndexPath!) {
+// MARK: - ASCollectionView delegate methods
+
+extension ProjectsCollectionController: ASCollectionDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         viewModel.selectProjectWithIndexPath(indexPath)
     }
     

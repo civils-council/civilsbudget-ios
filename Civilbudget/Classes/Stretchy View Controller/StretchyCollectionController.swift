@@ -15,7 +15,7 @@ class StretchyCollectionController: NSObject {
     
     let toolbarIsHiden = Observable(false)
     let toolbarAlpha = Observable(CGFloat(0.0))
-    let headerViewHeight = Observable(GlobalConstants.exposedHeaderViewHeight)
+    let stretchDistance = Observable(CGFloat(0.0))
 }
 
 extension StretchyCollectionController: UIScrollViewDelegate {
@@ -25,7 +25,12 @@ extension StretchyCollectionController: UIScrollViewDelegate {
         }
         
         let toolbarIsHiden = scrollView.contentOffset.y < exposedHeaderViewHeight - topToolbarHeight
-        if !toolbarIsHiden {
+        if toolbarIsHiden {
+            let headerViewOffset = min(max(-scrollView.contentOffset.y, -maxHorizontalBounceDistance), maxHorizontalBounceDistance)
+            if self.stretchDistance.value != headerViewOffset {
+                self.stretchDistance.value = headerViewOffset
+            }
+        } else {
             let toolbarAlpha =  (scrollView.contentOffset.y - exposedHeaderViewHeight + topToolbarHeight) / topToolbarHeight
             if toolbarAlpha != self.toolbarAlpha.value {
                 self.toolbarAlpha.value = toolbarAlpha

@@ -9,7 +9,9 @@
 import UIKit
 
 class StretchyHeaderBackgroundImageView: UIImageView {
-    @IBInspectable var maxOffset: CGFloat = 50.0
+    static let defaultMaxOffset = CGFloat(50.0)
+    
+    @IBInspectable var maxOffset = StretchyHeaderBackgroundImageView.defaultMaxOffset
     
     override var image: UIImage? {
         set(value) {
@@ -24,9 +26,23 @@ class StretchyHeaderBackgroundImageView: UIImageView {
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        configure()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        configure()
+    }
+    
+    func configure() {
         contentMode = .Center
         
         guard let image = image else {

@@ -13,6 +13,7 @@ class ProjectsViewModel: NSObject {
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
     let loadingState = Observable(LoadingState.Loaded)
+    let collectionViewUserInteractionEnabled = Observable(false)
     
     override init() {
         super.init()
@@ -26,7 +27,11 @@ class ProjectsViewModel: NSObject {
             var project = projects[index]
             project.likes++
             projects[index] = project
-        }
+        }.disposeIn(bnd_bag)
+        
+        loadingState
+            .map({ $0 == .Loaded })
+            .bindTo(collectionViewUserInteractionEnabled)
         
         refreshProjectList()
     }

@@ -17,6 +17,7 @@ class ProjectsLoadingStateView: UIView {
     @IBOutlet weak var loadingLabel: UILabel!
     
     let state = Observable(LoadingState.NoData(label: nil))
+    let reloadButtonTap = Observable()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,8 @@ class ProjectsLoadingStateView: UIView {
         reloadButton.titleLabel?.textAlignment = .Center
         reloadButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         loadingErrorLabel.textColor = CivilbudgetStyleKit.bottomCopyrightGrey
-        
+
+        // Configure bindings
         state.observeNew { [weak self] state in
             self?.superview?.hidden = true
             self?.loadingFailedContainerView.hidden = true
@@ -48,6 +50,7 @@ class ProjectsLoadingStateView: UIView {
                 self?.loadingFailedContainerView.hidden = false
             default: break
             }
-        }
+        }.disposeIn(bnd_bag)
+        reloadButton.bnd_tap.bindTo(reloadButtonTap).disposeIn(bnd_bag)
     }
 }

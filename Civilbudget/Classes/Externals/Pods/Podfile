@@ -20,7 +20,8 @@ pod 'Locksmith', '~> 2.0'
 pod 'PromiseKit', '~> 3.0'
 pod 'SCLAlertView', '~> 0.4'
 pod 'DGActivityIndicatorView', '~> 2.0'
-pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :branch => 'master'
+pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :branch => 'master', :commit => 'f87b915'
 pod 'BankIdSDK', :path => '../BankIdSDK/'
+pod 'Localize-Swift', '~> 1.0'
 
 end

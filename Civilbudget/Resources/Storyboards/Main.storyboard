@@ -59,8 +59,8 @@
                                     </constraint>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXW-wf-ocx">
-                                <rect key="frame" x="0.0" y="70" width="600" height="486"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXW-wf-ocx">
+                                <rect key="frame" x="0.0" y="260" width="600" height="296"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -73,11 +73,11 @@
                             <constraint firstAttribute="trailing" secondItem="jXW-wf-ocx" secondAttribute="trailing" id="G5L-WW-6eB"/>
                             <constraint firstItem="WU4-9g-ggs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="MOU-GA-evp"/>
                             <constraint firstAttribute="trailing" secondItem="450-GG-3Ni" secondAttribute="trailing" id="RDH-dq-KAk"/>
-                            <constraint firstItem="jXW-wf-ocx" firstAttribute="top" secondItem="JAf-WG-GgX" secondAttribute="top" constant="50" id="SWP-dq-9kD"/>
                             <constraint firstItem="450-GG-3Ni" firstAttribute="top" secondItem="JAf-WG-GgX" secondAttribute="bottom" id="Yln-Cl-fle"/>
                             <constraint firstItem="jXW-wf-ocx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bSd-h1-Dl6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="450-GG-3Ni" secondAttribute="bottom" id="bXf-ez-shq"/>
                             <constraint firstAttribute="trailing" secondItem="WU4-9g-ggs" secondAttribute="trailing" id="mZL-gF-mTb"/>
+                            <constraint firstItem="jXW-wf-ocx" firstAttribute="top" secondItem="JAf-WG-GgX" secondAttribute="top" constant="240" id="qYc-Ym-WM7"/>
                             <constraint firstItem="JAf-WG-GgX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" placeholder="YES" id="twi-oz-bqX"/>
                             <constraint firstItem="450-GG-3Ni" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zzS-0Q-Klc"/>
                         </constraints>

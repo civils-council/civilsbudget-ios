@@ -9,23 +9,25 @@
 import UIKit
 
 class StretchyHeaderCollectionViewLayout: UICollectionViewFlowLayout {
-    var headerBounceThreshold = CGFloat(50.0)
+    static let defaultBounceThreshold = CGFloat(50.0)
+    
+    var headerBounceThreshold = StretchyHeaderCollectionViewLayout.defaultBounceThreshold
     
     override init() {
         super.init()
         
-        configure()
+        setUpDefaults()
     }
     
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        configure()
+        setUpDefaults()
     }
     
     
-    func configure() {
+    func setUpDefaults() {
         scrollDirection = .Vertical
         minimumLineSpacing = 0.0
         minimumInteritemSpacing = 0.0

@@ -19,7 +19,6 @@ class BootomToolbar: UIView {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var fbShareButton: UIButton!
     @IBOutlet weak var vkShareButton: UIButton!
-    //@IBOutlet weak var okShareButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,9 +32,6 @@ class BootomToolbar: UIView {
         vkShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
         vkShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         vkShareButton.setTitle("\u{f189}", forState: .Normal)
-        //okShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        //okShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
-        //okShareButton.setTitle("\u{f263}", forState: .Normal)
     }
     
     
