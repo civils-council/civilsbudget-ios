@@ -285,27 +285,15 @@
                                     </constraint>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-4l-KC9">
-                                <rect key="frame" x="0.0" y="20" width="26" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-4l-KC9">
+                                <rect key="frame" x="3" y="22" width="70" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="34o-oR-SwD"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="-5" maxX="6" maxY="0.0"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="&lt;">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="33" name="LucidaGrande"/>
-                                            </attributes>
-                                        </fragment>
-                                        <fragment content="Проекти">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <state key="normal" title="Проекти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
@@ -318,9 +306,9 @@
                             <constraint firstItem="dRM-m5-5ub" firstAttribute="leading" secondItem="Jd3-Pd-uSI" secondAttribute="leading" id="86A-d2-wuP"/>
                             <constraint firstAttribute="trailing" secondItem="TNx-5q-Y5J" secondAttribute="trailing" id="HEc-i9-lqV"/>
                             <constraint firstAttribute="trailing" secondItem="Ujc-Rp-Pgk" secondAttribute="trailing" id="NSm-uG-xfO"/>
-                            <constraint firstItem="Oos-4l-KC9" firstAttribute="leading" secondItem="Jd3-Pd-uSI" secondAttribute="leading" id="Umq-qJ-t7o"/>
+                            <constraint firstItem="Oos-4l-KC9" firstAttribute="leading" secondItem="Jd3-Pd-uSI" secondAttribute="leading" constant="3" id="Umq-qJ-t7o"/>
                             <constraint firstItem="dRM-m5-5ub" firstAttribute="top" secondItem="cAy-gk-cGN" secondAttribute="bottom" placeholder="YES" id="WVe-pN-Yo2"/>
-                            <constraint firstItem="Oos-4l-KC9" firstAttribute="top" secondItem="cAy-gk-cGN" secondAttribute="bottom" id="esO-DF-jgF"/>
+                            <constraint firstItem="Oos-4l-KC9" firstAttribute="top" secondItem="cAy-gk-cGN" secondAttribute="bottom" constant="2" id="esO-DF-jgF"/>
                             <constraint firstItem="Ujc-Rp-Pgk" firstAttribute="leading" secondItem="Jd3-Pd-uSI" secondAttribute="leading" id="xK2-2Q-xLV"/>
                             <constraint firstItem="TNx-5q-Y5J" firstAttribute="top" secondItem="dRM-m5-5ub" secondAttribute="bottom" id="yBY-1r-VfA"/>
                         </constraints>

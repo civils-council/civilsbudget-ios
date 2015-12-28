@@ -28,7 +28,7 @@ class ProjectDetailsViewController: BaseCollectionViewController {
         
         // Configure UI
         collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
-        backButton.setTitle("\u{f104} Проекти", forState: .Normal)
+        backButton.setImage(CivilbudgetStyleKit.imageOfBackArrowIcon, forState: .Normal)
         supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: false), forState: .Normal)
         supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: true), forState: .Selected)
         supportButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
