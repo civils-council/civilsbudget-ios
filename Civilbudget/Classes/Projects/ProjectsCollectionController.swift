@@ -10,8 +10,6 @@ import Bond
 import AsyncDisplayKit
 
 class ProjectsCollectionController: StretchyCollectionController {
-    let selectedIndexPath = Observable<NSIndexPath?>(nil)
-    
     private weak var collectionView: ASCollectionView?
     private var viewModel: ProjectsViewModel
     private var projects: ObservableArray<ObservableArray<Project>>

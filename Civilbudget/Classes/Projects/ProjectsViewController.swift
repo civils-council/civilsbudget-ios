@@ -59,15 +59,27 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         viewModel.loadingState.bindTo(loadingStateView.state)
         
         // Actions
+        
+        // Reload project list after initial loading error
         loadingStateView.reloadButtonTap.observeNew { [weak self] in
             self?.viewModel.refreshProjectList()
         }.disposeIn(bnd_bag)
         
+        // Did select Project handler
         viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
             let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
             detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
+        }.disposeIn(bnd_bag)
+        
+        // User Profile button tap
+        UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
+            guard let (fullName, handler, sender) = value, sourceView = sender as? UIView, viewController = self
+                where viewController.navigationController?.visibleViewController == viewController else {
+                    return
+            }
+            self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }.disposeIn(bnd_bag)
     }
     
@@ -155,64 +167,5 @@ class ProjectsViewController: BaseCollectionViewController {
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
-            collectionView.deselectItemAtIndexPath(selectedIndexPath, animated: true)
-        }
-    }
 }
-
-// MARK: - UICollectionViewDataSource methods
-
-extension ProjectsViewController {
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        guard headerCell == nil else {
-            return headerCell!
-        }
-        
-        let view = super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, atIndexPath: indexPath) as! ProjectsHeaderReusableView
-        view.viewModel = viewModel
-        return view
-    }
-}
-    
-// MARK: - UICollectionViewDelegateFlowLayout methods (layout customization)
-
-extension ProjectsViewController {
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let cellMinWidth = ProjectCollectionViewCell.maxWidth
-        let containerWidth = collectionView.bounds.width
-        let numberOfColumns = floor(containerWidth / cellMinWidth)
-        let targetWidth = floor(numberOfColumns >= 2.0 ? containerWidth / numberOfColumns : containerWidth)
-
-        if sizingCell == nil {
-            sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectCollectionViewCell", owner: self, options: nil).first as? ProjectCollectionViewCell
-        }
-        
-        guard let sizingCell = sizingCell else {
-            return CGSize()
-        }
-        
-        sizingCell.viewModel = viewModel.projectViewModelForIndexPath(indexPath)
-        sizingCell.bounds = CGRectMake(0, 0, targetWidth, sizingCell.bounds.height)
-        sizingCell.contentView.bounds = sizingCell.bounds
-        
-        sizingCell.setNeedsLayout()
-        sizingCell.layoutIfNeeded()
-        
-        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
-        size.width = targetWidth
-        return size
-    }
-}
-
-// MARK: - UICollectionViewDelegate method for cell tap handling
-
-extension ProjectsViewController {
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        viewModel.selectProjectWithIndexPath(indexPath)
-    }
-}*/
+*/

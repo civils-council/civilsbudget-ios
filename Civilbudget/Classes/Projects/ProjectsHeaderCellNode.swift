@@ -16,8 +16,6 @@ class ProjectsHeaderCellNode: ASCellNode {
     }
     
     let stretchedFrame = Observable(CGRect())
-    let userProfileNodeHidden = Observable(false)
-    let userProfileNodeTap = Observable<AnyObject?>(nil)
     
     private var viewModel: ProjectsViewModel!
     
@@ -62,7 +60,7 @@ class ProjectsHeaderCellNode: ASCellNode {
             self.view.frame = frame
         }.disposeIn(bnd_bag)
         
-        userProfileNodeHidden.observeNew { [unowned self] hidden in
+        User.currentUser.map({ $0 == nil }).observe { [unowned self] hidden in
             self.userProfileNode.hidden = hidden
         }.disposeIn(bnd_bag)
     }
@@ -105,7 +103,7 @@ class ProjectsHeaderCellNode: ASCellNode {
             y: bounds.height * userProfileVerticalCenter)
     }
     
-    func userProfileNodeTapped(id: AnyObject) {
-        userProfileNodeTap.value = id
+    func userProfileNodeTapped(sender: ASDisplayNode) {
+        UserViewModel.currentUser.presentAccountDialog(sender.view)
     }
 }
