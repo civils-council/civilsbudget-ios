@@ -16,14 +16,9 @@ class RoundPullDownView: UIView {
     
     let circleLayer = CAShapeLayer()
     
-    var radius = Constants.defaultRadius
-    var progressColor = Constants.defaultProgressColor
-    
-    init(radius: CGFloat = Constants.defaultRadius) {
+    init(radius: CGFloat = Constants.defaultRadius, progressColor: UIColor = Constants.defaultProgressColor) {
         let frame = CGRect(origin: CGPoint(), size: CGSize(width: radius * 2, height: radius * 2))
         super.init(frame: frame)
-        
-        self.radius = radius
         
         let center = CGPoint(x: radius, y: radius)
         circleLayer.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(M_PI * 1.5), endAngle: CGFloat(M_PI * 3.5), clockwise: true).CGPath
@@ -38,7 +33,7 @@ class RoundPullDownView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func animateCircle(duration: NSTimeInterval) {
+    func startCountdown(duration: NSTimeInterval = 1.0) {
         // We want to animate the strokeEnd property of the circleLayer
         
         circleLayer.strokeEnd = 1.0
@@ -60,5 +55,10 @@ class RoundPullDownView: UIView {
         
         // Do the actual animation
         circleLayer.addAnimation(animation, forKey: "animateCircle")
+    }
+    
+    func cancelCountdown() {
+        circleLayer.removeAnimationForKey("animateCircle")
+        circleLayer.strokeEnd = 0.0
     }
 }

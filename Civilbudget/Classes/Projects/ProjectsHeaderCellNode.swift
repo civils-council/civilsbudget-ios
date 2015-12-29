@@ -13,6 +13,7 @@ import AsyncDisplayKit
 class ProjectsHeaderCellNode: ASCellNode {
     struct Constants {
         static let titleFont = UIFont(name: "HelveticaNeue", size: 24.0)!
+        static let pullCircleRadius = CGFloat(55)
     }
     
     let stretchedFrame = Observable(CGRect())
@@ -25,13 +26,18 @@ class ProjectsHeaderCellNode: ASCellNode {
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
     private let userProfileNode = ASImageNode()
+    private var pullDownView: RoundPullDownView!
     
     private var titleTextSize = CGSize()
+    
+    private var height: CGFloat!
+    var stretchDistance: CGFloat = GlobalConstants.maxHorizontalBounceDistance
     
     convenience init(viewModel: ProjectsViewModel, height: CGFloat) {
         self.init()
         
         self.viewModel = viewModel
+        self.height = height
         
         // Create node hierarchy
         backgroundNode = ASDisplayNode { () -> UIView in
@@ -48,16 +54,16 @@ class ProjectsHeaderCellNode: ASCellNode {
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         addSubnode(titleTextNode)
         
-        pullDownNode = ASDisplayNode { () -> UIView in
-            return RoundPullDownView(radius: 60.0)
+        pullDownNode = ASDisplayNode { [weak self] () -> UIView in
+            let pullDownView = RoundPullDownView(radius: Constants.pullCircleRadius, progressColor: CivilbudgetStyleKit.themeDarkBlue)
+            self?.pullDownView = pullDownView
+            return pullDownView
         }
         
-        
+        addSubnode(pullDownNode)
         
         logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
         addSubnode(logoImageNode)
-        
-        addSubnode(pullDownNode)
         
         userProfileNode.image = CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder
         userProfileNode.addTarget(self, action: "userProfileNodeTapped:", forControlEvents: .TouchUpInside)
@@ -67,6 +73,12 @@ class ProjectsHeaderCellNode: ASCellNode {
         // Add bindings
         stretchedFrame.observeNew { [unowned self] frame in
             self.view.frame = frame
+            
+            if frame.height == height + self.stretchDistance {
+                self.pullDownView.startCountdown()
+            } else {
+                self.pullDownView.cancelCountdown()
+            }
         }.disposeIn(bnd_bag)
         
         User.currentUser.map({ $0 == nil }).observe { [unowned self] hidden in
@@ -113,9 +125,7 @@ class ProjectsHeaderCellNode: ASCellNode {
             y: bounds.height * userProfileVerticalCenter)
     }
     
-    func userProfileNodeTapped(sender: ASDisplayNode) {
-        (pullDownNode.view as! RoundPullDownView).animateCircle(10.0)
-        
+    func userProfileNodeTapped(sender: ASDisplayNode) {        
         UserViewModel.currentUser.presentAccountDialog(sender.view)
     }
 }
