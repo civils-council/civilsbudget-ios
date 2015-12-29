@@ -47,7 +47,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         collectionView.backgroundColor = CivilbudgetStyleKit.loadingStatusBackgroundGrey
         collectionContainerView.addSubview(collectionView)
         
-        // Create ProjectsCollectionController
+        // Create and set ProjectsCollectionController
         collectionController = ProjectsCollectionController(collectionView: collectionView, viewModel: viewModel)
         collectionView.asyncDataSource = collectionController
         collectionView.asyncDelegate = collectionController
@@ -60,7 +60,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         
         // Actions
         
-        // Reload project list after initial loading error
+        // Reload project list after initial loading error on button tap
         loadingStateView.reloadButtonTap.observeNew { [weak self] in
             self?.viewModel.refreshProjectList()
         }.disposeIn(bnd_bag)

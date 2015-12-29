@@ -952,7 +952,7 @@ public class CivilbudgetStyleKit : NSObject {
             return Cache.imageOfBackArrowIcon!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(23, 27), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(22, 27), false, 0)
             CivilbudgetStyleKit.drawBackArrowIcon()
 
         Cache.imageOfBackArrowIcon = UIGraphicsGetImageFromCurrentImageContext().imageWithRenderingMode(.AlwaysOriginal)

@@ -21,6 +21,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var backgroundNode: ASDisplayNode!
     private let backgroundGradientNode = ASImageNode()
+    private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
     private let userProfileNode = ASImageNode()
@@ -47,8 +48,16 @@ class ProjectsHeaderCellNode: ASCellNode {
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         addSubnode(titleTextNode)
         
+        pullDownNode = ASDisplayNode { () -> UIView in
+            return RoundPullDownView(radius: 60.0)
+        }
+        
+        
+        
         logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
         addSubnode(logoImageNode)
+        
+        addSubnode(pullDownNode)
         
         userProfileNode.image = CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder
         userProfileNode.addTarget(self, action: "userProfileNodeTapped:", forControlEvents: .TouchUpInside)
@@ -94,6 +103,7 @@ class ProjectsHeaderCellNode: ASCellNode {
         
         logoImageNode.frame = CGRect(origin: CGPoint(), size: logoImageNode.calculatedSize)
         logoImageNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * logoVerticalCenter)
+        pullDownNode.view.center = logoImageNode.view.center
         
         titleTextNode.frame = CGRect(origin: CGPoint(), size: titleTextSize)
         titleTextNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * titleVerticalCenter)
@@ -104,6 +114,8 @@ class ProjectsHeaderCellNode: ASCellNode {
     }
     
     func userProfileNodeTapped(sender: ASDisplayNode) {
+        (pullDownNode.view as! RoundPullDownView).animateCircle(10.0)
+        
         UserViewModel.currentUser.presentAccountDialog(sender.view)
     }
 }
