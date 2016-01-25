@@ -56,6 +56,7 @@ class ProjectsLoadingStateView: UIView {
             default: break
             }
         }.disposeIn(bnd_bag)
+        
         reloadButton.bnd_tap.bindTo(reloadButtonTap).disposeIn(bnd_bag)
     }
 }

@@ -14,11 +14,15 @@ class RoundPullDownView: UIView {
     struct Constants {
         static let defaultRadius = CGFloat(60.0)
         static let defaultProgressColor = UIColor.greenColor()
+        static let activitiIndicatorSideSize = CGFloat(140.0)
+        static let countdownProgressLineWidth = CGFloat(5.0)
+        static let countdownAnimationKey = "countdownAnimationKey"
+        static let countdownAnimationDuration = NSTimeInterval(0.6)
     }
     
     let loadingState = Observable(LoadingState.Loaded)
     let circleLayer = CAShapeLayer()
-    let activityIndicatorView = DGActivityIndicatorView(type: .TripleRings, tintColor: UIColor.whiteColor(), size: 140.0)
+    let activityIndicatorView = DGActivityIndicatorView(type: .TripleRings, tintColor: UIColor.whiteColor(), size: Constants.activitiIndicatorSideSize)
     
     init(radius: CGFloat = Constants.defaultRadius, progressColor: UIColor = Constants.defaultProgressColor) {
         let frame = CGRect(origin: CGPoint(), size: CGSize(width: radius * 2, height: radius * 2))
@@ -34,11 +38,10 @@ class RoundPullDownView: UIView {
             .observeNew { [weak self] loading in
                 if loading {
                     self?.activityIndicatorView.startAnimating()
+                    self?.circleLayer.hidden = true
                 } else {
                     self?.activityIndicatorView.stopAnimating()
-                    // restart animation
                 }
-                self?.circleLayer.hidden = loading
             }
     }
 
@@ -57,12 +60,12 @@ class RoundPullDownView: UIView {
         circleLayer.path = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(M_PI * 1.25), endAngle: CGFloat(M_PI * 3.25), clockwise: true).CGPath
         circleLayer.fillColor = UIColor.clearColor().CGColor
         circleLayer.strokeColor = progressColor.CGColor
-        circleLayer.lineWidth = 5
+        circleLayer.lineWidth = Constants.countdownProgressLineWidth
         circleLayer.strokeEnd = 0.0
         circleLayer.lineCap = kCALineCapRound
     }
     
-    func startCountdown(duration: NSTimeInterval = 0.5) {
+    func startCountdown(duration: NSTimeInterval = Constants.countdownAnimationDuration) {
         if case .Loading = loadingState.value {
             return
         }
@@ -76,11 +79,11 @@ class RoundPullDownView: UIView {
         
         circleLayer.strokeEnd = 1.0
         circleLayer.hidden = false
-        circleLayer.addAnimation(animation, forKey: "animateCircle")
+        circleLayer.addAnimation(animation, forKey: Constants.countdownAnimationKey)
     }
     
     func cancelCountdown() {
-        circleLayer.removeAnimationForKey("animateCircle")
+        circleLayer.removeAnimationForKey(Constants.countdownAnimationKey)
         circleLayer.strokeEnd = 0.0
         circleLayer.hidden = true
     }
