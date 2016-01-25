@@ -18,9 +18,7 @@
 		0F5645BE1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
-		0F9BFA2C1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */; };
 		0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */; };
-		0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */; };
 		0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */; };
 		0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */; };
 		0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F31C0080E400FEA009 /* CivilbudgetAPI.swift */; };
@@ -199,9 +197,7 @@
 		0F5645BD1C03CDAD0055EAEF /* ProjectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCollectionViewCell.xib; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsHeaderReusableView.swift; sourceTree = "<group>"; };
 		0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
-		0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
 		0FB3A2F31C0080E400FEA009 /* CivilbudgetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetAPI.swift; sourceTree = "<group>"; };
@@ -323,10 +319,8 @@
 				0FDF99101C25DE840060D39C /* ProjectsCollectionController.swift */,
 				0FDF98FD1C259A240060D39C /* ProjectCellNode.swift */,
 				0FDF98FE1C259A240060D39C /* ProjectsHeaderCellNode.swift */,
-				0FB3A2EE1C0080E400FEA009 /* ProjectCollectionViewCell.swift */,
-				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
-				0F9BFA2B1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift */,
 				0FBF993A1C318E6F0000EB79 /* RoundPullDownView.swift */,
+				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
 			);
 			path = Projects;
 			sourceTree = "<group>";
@@ -813,7 +807,6 @@
 				0FDF99111C25DE840060D39C /* ProjectsCollectionController.swift in Sources */,
 				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
-				0FB3A2F71C0080E400FEA009 /* ProjectCollectionViewCell.swift in Sources */,
 				0FF5D28B1C09FFE600A4648E /* GlobalConstants.swift in Sources */,
 				0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */,
 				0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */,
@@ -831,7 +824,6 @@
 				0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */,
 				0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
-				0F9BFA2C1C0B9A3000FC69B7 /* ProjectsHeaderReusableView.swift in Sources */,
 				0FDF991F1C2609650060D39C /* StretchyCollectionController.swift in Sources */,
 				0FDF99221C2609650060D39C /* ViewControllerProtocols.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,

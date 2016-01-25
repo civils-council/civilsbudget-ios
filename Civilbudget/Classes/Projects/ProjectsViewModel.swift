@@ -11,6 +11,7 @@ import Alamofire
 
 class ProjectsViewModel: NSObject {
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
+    let projectListIsEmpty = Observable(true)
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
     let loadingState = Observable(LoadingState.Loaded)
     let collectionViewUserInteractionEnabled = Observable(false)
@@ -29,14 +30,14 @@ class ProjectsViewModel: NSObject {
             projects[index] = project
         }.disposeIn(bnd_bag)
         
-        loadingState
-            .map({ $0 == .Loaded })
+        combineLatest(loadingState, projectListIsEmpty)
+            .map({ $0.0 == .Loaded || !$0.1})
             .bindTo(collectionViewUserInteractionEnabled)
         
-        refreshProjectList()
+        reloadProjectList()
     }
     
-    func refreshProjectList() {
+    func reloadProjectList() {
         if loadingState.value == .Loading(label: nil) {
             return
         }
@@ -47,8 +48,9 @@ class ProjectsViewModel: NSObject {
                 switch response.result {
                 case let .Success(projects):
                     self?.projects.array.last?.array = projects
-                    let state = projects.count > 0 ? LoadingState.Loaded : LoadingState.NoData(label: "Список проектів порожній")
+                    let state = projects.isEmpty ? LoadingState.NoData(label: "Список проектів порожній") : LoadingState.Loaded
                     self?.loadingState.value = state
+                    self?.projectListIsEmpty.value = projects.isEmpty
                 case let .Failure(error):
                     log.error(error.localizedDescription)
                     self?.loadingState.value = .Failure(description: "Помилка завантаження")

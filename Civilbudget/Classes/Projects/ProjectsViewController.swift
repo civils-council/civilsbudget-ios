@@ -56,13 +56,13 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         collectionController.toolbarIsHiden.bindTo(topToolbarView.bnd_hidden)
         collectionController.toolbarAlpha.bindTo(topToolbarView.bnd_alpha)
         viewModel.collectionViewUserInteractionEnabled.bindTo(collectionView.bnd_userInteractionEnabled)
-        viewModel.loadingState.bindTo(loadingStateView.state)
+        combineLatest(viewModel.loadingState, viewModel.projectListIsEmpty).bindTo(loadingStateView.state)
         
         // Actions
         
         // Reload project list after initial loading error on button tap
         loadingStateView.reloadButtonTap.observeNew { [weak self] in
-            self?.viewModel.refreshProjectList()
+            self?.viewModel.reloadProjectList()
         }.disposeIn(bnd_bag)
         
         // Did select Project handler

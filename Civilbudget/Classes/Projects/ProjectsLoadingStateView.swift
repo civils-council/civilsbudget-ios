@@ -16,7 +16,7 @@ class ProjectsLoadingStateView: UIView {
     @IBOutlet weak var loadingContainerView: UIView!
     @IBOutlet weak var loadingLabel: UILabel!
     
-    let state = Observable(LoadingState.NoData(label: nil))
+    let state = Observable(loading: LoadingState.NoData(label: nil), isEmpty: true)
     let reloadButtonTap = Observable()
     
     override func awakeFromNib() {
@@ -33,9 +33,14 @@ class ProjectsLoadingStateView: UIView {
         // Configure bindings
         state.observeNew { [weak self] state in
             self?.superview?.hidden = true
+            
+            if !state.isEmpty {
+                return
+            }
+            
             self?.loadingFailedContainerView.hidden = true
             self?.loadingContainerView.hidden = true
-            switch state {
+            switch state.loading {
             case let .Loading(label):
                 self?.superview?.hidden = false
                 self?.loadingLabel.text = label

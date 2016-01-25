@@ -33,7 +33,7 @@ class ProjectsCollectionController: StretchyCollectionController {
             }, completion: { _ in })
         }.disposeIn(bnd_bag)
         
-        viewModel.refreshProjectList()
+        viewModel.reloadProjectList()
     }
 }
 

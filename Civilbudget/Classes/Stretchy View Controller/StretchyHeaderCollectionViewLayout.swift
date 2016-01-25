@@ -19,13 +19,11 @@ class StretchyHeaderCollectionViewLayout: UICollectionViewFlowLayout {
         setUpDefaults()
     }
     
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setUpDefaults()
     }
-    
     
     func setUpDefaults() {
         scrollDirection = .Vertical

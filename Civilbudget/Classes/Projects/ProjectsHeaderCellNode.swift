@@ -54,9 +54,14 @@ class ProjectsHeaderCellNode: ASCellNode {
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         addSubnode(titleTextNode)
         
-        pullDownNode = ASDisplayNode { [weak self] () -> UIView in
+        pullDownNode = ASDisplayNode { [unowned self] () -> UIView in
             let pullDownView = RoundPullDownView(radius: Constants.pullCircleRadius, progressColor: CivilbudgetStyleKit.themeDarkBlue)
-            self?.pullDownView = pullDownView
+            viewModel.loadingState.bindTo(pullDownView.loadingState)
+            pullDownView.loadingState.filter({ $0 == .Loading(label: nil) })
+                .observeNew { _ in
+                    viewModel.reloadProjectList()
+                }.disposeIn(self.bnd_bag)
+            self.pullDownView = pullDownView
             return pullDownView
         }
         
