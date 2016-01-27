@@ -74,7 +74,7 @@ class ProjectCellContentNode: ASDisplayNode {
         self.init()
         
         self.viewModel = viewModel
-        imageNode.backgroundColor = CivilbudgetStyleKit.bottomCopyrightGrey
+        imageNode.backgroundColor = CivilbudgetStyleKit.placeholderBackgroundGrey
         imageNode.contentMode = .ScaleAspectFill
         imageNode.clipsToBounds = true
         imageNode.imageModificationBlock = { [weak self] image in
@@ -83,6 +83,7 @@ class ProjectCellContentNode: ASDisplayNode {
             }
             return image
         }
+        imageNode.defaultImage = CivilbudgetStyleKit.imageOfPicturePlaceholder
         imageNode.URL = viewModel.pictureURL.value ?? NSURL()
         addSubnode(imageNode)
         
