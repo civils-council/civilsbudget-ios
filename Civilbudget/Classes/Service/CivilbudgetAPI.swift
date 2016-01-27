@@ -51,7 +51,7 @@ struct CivilbudgetAPI {
             case let .Authorize(accessToken):
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: ["code": accessToken]).0
             case let .GetProjects(clid):
-                let parameters: [String: AnyObject]? = clid != nil ? ["clid": clid!] : nil
+                let parameters: [String: AnyObject]? = clid.isNil ? nil : ["clid": clid!]
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: parameters).0
             case let .LikeProject(_, clid):
                 return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["clid": clid]).0

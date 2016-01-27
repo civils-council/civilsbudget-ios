@@ -19,7 +19,7 @@ extension VoteResult: ResponseObjectSerializable {
         let warning = representation.valueForKey("warning") as? String
         let success = representation.valueForKey("success") as? String
         
-        if (warning != nil) && (success != nil) {
+        if warning.isNil && success.isNil {
             let failureReason = "Can't create VoteResult without one of mandatory fields (warning or success)"
             throw Error.errorWithCode(.JSONSerializationFailed, failureReason: failureReason)
         }

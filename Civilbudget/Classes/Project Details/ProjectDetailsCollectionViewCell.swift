@@ -14,14 +14,9 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
     @IBOutlet weak var dividerView: UIView!
     
-    private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
-    
     var viewModel: ProjectDetailsViewModel! {
-        set(value) {
-            _viewModel.project = value.project
-        }
-        get {
-            return _viewModel
+        didSet {
+            reconfigureBindings()
         }
     }
     
@@ -44,10 +39,6 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewModel.title.bindTo(titleLabel.bnd_text)
-        viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
-        viewModel.author.bindTo(authorLabel.bnd_text)
-        
         dividerView.backgroundColor = CivilbudgetStyleKit.bottomCopyrightGrey
         addSubview(dividerView)
     }
@@ -57,5 +48,13 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
         
         let pixelHeight = 1.0 / UIScreen.mainScreen().scale
         dividerView.frame = CGRect(x: 0.0, y: frame.height - pixelHeight, width: frame.width, height: pixelHeight)
+    }
+    
+    private func reconfigureBindings() {
+        bnd_bag.dispose()
+        
+        viewModel.title.bindTo(titleLabel.bnd_text)
+        viewModel.fullDescription.bindTo(descriptionLabel.bnd_text)
+        viewModel.author.bindTo(authorLabel.bnd_text)
     }
 }

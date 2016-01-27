@@ -8,6 +8,7 @@
 
 import KVNProgress
 import SCLAlertView
+import BankIdSDK
 import Bond
 import UIKit
 
@@ -44,6 +45,9 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
         // Configure bindings
         collectionController.toolbarIsHiden.bindTo(topToolbarView.bnd_hidden)
         collectionController.toolbarAlpha.bindTo(topToolbarView.bnd_alpha)
+        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
+        viewModel.supportButtonUserInterationEnabled.bindTo(supportButton.bnd_userInteractionEnabled)
+        viewModel.supportButtonEnabled.bindTo(supportButton.bnd_enabled)
         
         // Actions
         backButton.bnd_tap.observeNew { [weak self] in
@@ -54,13 +58,14 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
             self?.viewModel.voteForCurrentProject()
         }.disposeIn(bnd_bag)
         
-        /*
-        // Listen to View Model changes
-        combineLatest(viewModel.supportButtonSelected, User.currentUser).map { $0 && $1 != nil }.bindTo(supportButton.bnd_selected)
-        supportButton.bnd_selected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
-        combineLatest(viewModel.supportButtonSelected, User.currentUser, UserViewModel.currentUser.votedProject)
-            .map { !(!$0 && $1 != nil && $2 != nil) }.bindTo(supportButton.bnd_enabled)
-        viewModel.loadingIndicatorVisible.observeNew { visible in visible ? KVNProgress.show() : KVNProgress.dismiss() }
+        viewModel.loadingIndicatorVisible.observeNew { visible in
+            if visible {
+                KVNProgress.show()
+            } else {
+                KVNProgress.dismiss()
+            }
+        }.disposeIn(bnd_bag)
+        
         viewModel.authorizationWithCompletion.observeNew { [weak self] completionHandler in
             guard let completionHandler = completionHandler, viewController = self else {
                 return
@@ -71,16 +76,8 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
             viewController.presentViewController(navigationController, animated: true, completion: nil)
         }
         
-        viewModel.errorAlertWithDescription.observeNew { [weak self] description in
-            self?.showAlertWithTitle("Помилка", subtitle: description, style: .Error)
-        }
-        
-        viewModel.infoAlertWithDescription.observeNew { [weak self] description in
-            self?.showAlertWithTitle("Увага!", subtitle: description, closeTitle: "Зрозуміло", style: .Info)
-        }
-        
-        viewModel.successAlertWithDescription.observeNew { [weak self] _ in            
-            self?.showAlertWithTitle("Дякуємо!", subtitle: "Ваш голос важливий для нас", style: .Success)
+        viewModel.userAlertWithData.observeNew { [weak self] (let type, let title, let message) in
+            self?.showAlertWithTitle(title, subtitle: message, style: type)
         }
         
         UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
@@ -90,21 +87,20 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
             }
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         
-        // UI Controls actions
-        backButton.bnd_tap.observeNew { [weak self] in self?.navigationController?.popViewControllerAnimated(true) }
-        supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
     
     func showAlertWithTitle(title: String, subtitle: String, closeTitle: String = "Закрити", style: SCLAlertViewStyle) {
         SCLAlertView().showTitle(title, subTitle: subtitle, duration: 0.0, completeText: closeTitle,
             style: style, colorStyle: 0x525c99, colorTextButton: 0xFFFFFF)
-    }
-    
-        */
-    }
-
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
 }

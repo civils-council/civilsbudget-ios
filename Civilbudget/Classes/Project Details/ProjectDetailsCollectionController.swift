@@ -9,8 +9,8 @@
 class ProjectDetailsCollectionController: StretchyCollectionController {
     struct Constants {
         static let sectionsCount = 2
-        static let firstSectionItemsCount = 0
-        static let otherSectionItemsCount = 1
+        static let headerSectionItemsCount = 0
+        static let detailsSectionItemsCount = 1
         static let detailsCellIdentifier = "detailsCell"
         static let headerCellIdentifier = "headerCell"
     }
@@ -41,7 +41,7 @@ extension ProjectDetailsCollectionController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? Constants.firstSectionItemsCount : Constants.otherSectionItemsCount
+        return section == 0 ? Constants.headerSectionItemsCount : Constants.detailsSectionItemsCount
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

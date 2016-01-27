@@ -71,7 +71,7 @@ class ProjectCellContentNode: ASDisplayNode {
     private let detailsBackgroundNode = ASImageNode()
     private let detailsButtonTextNode = ASTextNode()
 
-    convenience init(viewModel: ProjectDetailsViewModel) {
+    convenience init(viewModel: ProjectDetailsViewModel) {        
         self.init()
         
         self.viewModel = viewModel

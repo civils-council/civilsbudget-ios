@@ -14,6 +14,7 @@ import Alamofire
 class UserViewModel {
     static let currentUser = UserViewModel()
     
+    let isAuthorized = Observable(false)
     let votedProject = Observable(User.currentUser.value?.votedProjectId)
     let recentlyVotedProject = Observable<Int?>(nil)
     let accountDialog = Observable<(String, ((UIAlertAction) -> Void), AnyObject?)?>(nil)
@@ -26,6 +27,8 @@ class UserViewModel {
     }
     
     init() {
+        User.currentUser.map({ !$0.isNil }).bindTo(isAuthorized)
+        
         User.currentUser.observeNew { [weak self] user in
             self?.votedProject.value = user?.votedProjectId
         }

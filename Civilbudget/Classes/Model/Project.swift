@@ -27,7 +27,7 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         let formatterDictionaryKey = "CreatedDateFormatterKey"
         let threadDictionary = NSThread.currentThread().threadDictionary
         var formatter = threadDictionary[formatterDictionaryKey] as? NSDateFormatter
-        if formatter == nil {
+        if formatter.isNil {
             formatter = NSDateFormatter()
             formatter!.dateFormat = "YYYY-MM-dd'T'HH:mm:ssxx"
             threadDictionary[formatterDictionaryKey] = formatter!

@@ -10,17 +10,9 @@ import UIKit
 import Bond
 
 class ProjectDetailsHeaderReusableView: UICollectionReusableView {
-    private var _viewModel: ProjectDetailsViewModel!
-    
     var viewModel: ProjectDetailsViewModel! {
-        set(value) {
-            if _viewModel == nil {
-                _viewModel = value
-                addBindings()
-            }
-        }
-        get {
-            return _viewModel
+        didSet {
+            reconfigureBindings()
         }
     }
     
@@ -35,7 +27,7 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Appearence
+        // Configure appearence
         supportedByContainerView.backgroundColor = CivilbudgetStyleKit.themeLightBlue
         endDateContainerView.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
         supportButton.setBackgroundImage(CivilbudgetStyleKit.imageOfSupportButtonBackground(supported: false), forState: .Normal)
@@ -45,8 +37,10 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         userProfileButton.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder, forState: .Normal)
     }
     
-    func addBindings() {
-        // Binding
+    private func reconfigureBindings() {
+        bnd_bag.dispose()
+        
+        // Bindings
         viewModel.supportedByCount.bindTo(supportedByLabel.bnd_text)
         viewModel.budgetLabel.bindTo(budgetLabel.bnd_text)
         viewModel.pictureURL.observe { [weak self] url in
@@ -55,15 +49,20 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
             } else {
                 self?.pictureImageView.image = nil
             }
-        }
-        combineLatest(viewModel.supportButtonSelected, User.currentUser).map { $0 && $1 != nil }.bindTo(supportButton.bnd_selected)
-        supportButton.bnd_selected.map { !$0 }.bindTo(supportButton.bnd_userInteractionEnabled)
-        combineLatest(viewModel.supportButtonSelected, User.currentUser, UserViewModel.currentUser.votedProject)
-            .map { !(!$0 && $1 != nil && $2 != nil) }.bindTo(supportButton.bnd_enabled)
-        User.currentUser.map({ $0 == nil }).bindTo(userProfileButton.bnd_hidden)
+        }.disposeIn(bnd_bag)
         
-        // UI Control actions
-        supportButton.bnd_tap.observeNew { [weak self] in self?.viewModel.voteForCurrentProject() }
-        userProfileButton.bnd_tap.observeNew { [weak self] in UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton) }
+        viewModel.supportButtonSelected.bindTo(supportButton.bnd_selected)
+        viewModel.supportButtonUserInterationEnabled.bindTo(supportButton.bnd_userInteractionEnabled)
+        viewModel.supportButtonEnabled.bindTo(supportButton.bnd_enabled)
+        viewModel.userProfileButtonHidden.bindTo(userProfileButton.bnd_hidden)
+        
+        // Actions
+        supportButton.bnd_tap.observeNew { [weak self] in
+            self?.viewModel.voteForCurrentProject()
+        }.disposeIn(bnd_bag)
+        
+        userProfileButton.bnd_tap.observeNew { [weak self] in
+            UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton)
+        }.disposeIn(bnd_bag)
     }
 }

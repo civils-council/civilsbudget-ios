@@ -18,8 +18,6 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     let stretchedFrame = Observable(CGRect())
     
-    private var viewModel: ProjectsViewModel!
-    
     private var backgroundNode: ASDisplayNode!
     private let backgroundGradientNode = ASImageNode()
     private var pullDownNode: ASDisplayNode!
@@ -30,14 +28,10 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var titleTextSize = CGSize()
     
-    private var height: CGFloat!
     var stretchDistance: CGFloat = GlobalConstants.maxHorizontalBounceDistance
     
     convenience init(viewModel: ProjectsViewModel, height: CGFloat) {
         self.init()
-        
-        self.viewModel = viewModel
-        self.height = height
         
         // Create node hierarchy
         backgroundNode = ASDisplayNode { () -> UIView in
@@ -86,7 +80,7 @@ class ProjectsHeaderCellNode: ASCellNode {
             }
         }.disposeIn(bnd_bag)
         
-        User.currentUser.map({ $0 == nil }).observe { [unowned self] hidden in
+        User.currentUser.map({ $0.isNil }).observe { [unowned self] hidden in
             self.userProfileNode.hidden = hidden
         }.disposeIn(bnd_bag)
     }

@@ -11,7 +11,7 @@ import UIKit
 class AccessibleImageView: UIImageView {
     override var image: UIImage? {
         didSet {
-            self.accessibilityIdentifier = image != nil ? "loadedImage" : "emptyImage"
+            self.accessibilityIdentifier = image.isNil ? "emptyImage" : "loadedImage"
         }
     }
     
