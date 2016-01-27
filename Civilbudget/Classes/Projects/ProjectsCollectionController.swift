@@ -19,6 +19,7 @@ class ProjectsCollectionController: StretchyCollectionController {
         self.collectionView = collectionView
         self.viewModel = viewModel
         projects = viewModel.projects
+        
         super.init()
         
         assert(projects.count == 2, "Projects array must contain 2 sections (header + list of projects)")

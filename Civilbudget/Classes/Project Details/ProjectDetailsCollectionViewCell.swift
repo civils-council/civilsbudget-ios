@@ -9,6 +9,11 @@
 import UIKit
 
 class ProjectDetailsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
+    @IBOutlet weak var dividerView: UIView!
+    
     private var _viewModel: ProjectDetailsViewModel = ProjectDetailsViewModel()
     
     var viewModel: ProjectDetailsViewModel! {
@@ -20,10 +25,21 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
-    @IBOutlet weak var dividerView: UIView!
+    private static var sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectDetailsCollectionViewCell", owner: nil, options: nil).first as! ProjectDetailsCollectionViewCell
+    
+    class func sizeWithViewModel(viewModel: ProjectDetailsViewModel, constrainedWidth: CGFloat) -> CGSize {
+        sizingCell.viewModel = viewModel
+        sizingCell.bounds = CGRectMake(0, 0, constrainedWidth, sizingCell.bounds.height)
+        sizingCell.contentView.bounds = sizingCell.bounds
+        
+        sizingCell.setNeedsLayout()
+        sizingCell.layoutIfNeeded()
+        
+        var size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize)
+        size.width = constrainedWidth
+        
+        return size
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

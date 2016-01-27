@@ -6,10 +6,10 @@
 //  Copyright © 2015 Build Apps. All rights reserved.
 //
 
-import UIKit
 import Bond
 import Alamofire
 import AsyncDisplayKit
+import UIKit
 
 class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionContainerSupport, UserProfilePopupSupport {
     struct Constants {
@@ -21,7 +21,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     @IBOutlet var collectionContainerView: UIView!
     @IBOutlet var topToolbarView: UIView!
     
-    let viewModel = ProjectsViewModel()
+    var viewModel = ProjectsViewModel()
     var collectionController: ProjectsCollectionController!
     var collectionView: ASCollectionView!
     var loadingStateView: ProjectsLoadingStateView!
