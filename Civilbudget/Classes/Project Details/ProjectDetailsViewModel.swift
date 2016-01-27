@@ -61,10 +61,10 @@ class ProjectDetailsViewModel: NSObject {
         supportButtonSelected.map({ !$0 }).bindTo(supportButtonUserInterationEnabled)
         UserViewModel.currentUser.isAuthorized.map({ !$0 }).bindTo(userProfileButtonHidden)
         
-        updateFieldsFromProject(project)
+        updateFieldsUsingProject(project)
     }
     
-    private func updateFieldsFromProject(project: Project) {
+    private func updateFieldsUsingProject(project: Project) {
         pictureURL.value = NSURL(string: project.picture ?? "")
         title.value = project.title
         fullDescription.value = project.description
@@ -94,7 +94,7 @@ class ProjectDetailsViewModel: NSObject {
                 var mutableProject = self.project
                 mutableProject.voted = true
                 mutableProject.likes++
-                self.updateFieldsFromProject(mutableProject)
+                self.updateFieldsUsingProject(mutableProject)
                 self.userAlertWithData.value = self.alertDataWithType(.Success, message: voteResult.success!)
             } else {
                 self.userAlertWithData.value = self.alertDataWithType(.Error, message: voteResult.warning!)

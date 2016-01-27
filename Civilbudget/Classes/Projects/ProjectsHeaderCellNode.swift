@@ -14,6 +14,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     struct Constants {
         static let titleFont = UIFont(name: "HelveticaNeue", size: 24.0)!
         static let pullCircleRadius = CGFloat(55)
+        static let userProfileButtonTapzoneInset = UIEdgeInsets(top: -12.0, left: -12.0, bottom: -12.0, right: -12.0)
     }
     
     let stretchedFrame = Observable(CGRect())
@@ -23,7 +24,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
-    private let userProfileNode = ASImageNode()
+    private let userProfileNode = ASButtonNode()
     private var pullDownView: RoundPullDownView!
     
     private var titleTextSize = CGSize()
@@ -64,9 +65,10 @@ class ProjectsHeaderCellNode: ASCellNode {
         logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
         addSubnode(logoImageNode)
         
-        userProfileNode.image = CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder
+        userProfileNode.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder, forState: ASButtonStateNormal)
+        userProfileNode.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder.tintedImageUsingColor(UIColor.blackColor().colorWithAlpha(0.4)), forState: ASButtonStateHighlighted)
         userProfileNode.addTarget(self, action: "userProfileNodeTapped:", forControlEvents: .TouchUpInside)
-        userProfileNode.hitTestSlop = UIEdgeInsets(top: -12.0, left: -12.0, bottom: -12.0, right: -12.0)
+        userProfileNode.hitTestSlop = Constants.userProfileButtonTapzoneInset
         addSubnode(userProfileNode)
         
         // Add bindings

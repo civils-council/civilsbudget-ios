@@ -18,6 +18,7 @@
 		0F52E81F1C01FD3500C76F62 /* BottomToolbarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81E1C01FD3500C76F62 /* BottomToolbarView.xib */; };
 		0F8D18C41BD02C2300B69419 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B51BD02C2300B69419 /* Project.swift */; };
 		0F8D18C51BD02C2300B69419 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D18B61BD02C2300B69419 /* User.swift */; };
+		0F8E2B641C592F3600B868CB /* UIImage+TintedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E2B631C592F3600B868CB /* UIImage+TintedImage.swift */; };
 		0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */; };
 		0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */; };
 		0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */; };
@@ -196,6 +197,7 @@
 		0F52E81E1C01FD3500C76F62 /* BottomToolbarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomToolbarView.xib; sourceTree = "<group>"; };
 		0F8D18B51BD02C2300B69419 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		0F8D18B61BD02C2300B69419 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0F8E2B631C592F3600B868CB /* UIImage+TintedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TintedImage.swift"; sourceTree = "<group>"; };
 		0FB3A2EC1C0080E400FEA009 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
 		0FB3A2EF1C0080E400FEA009 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		0FB3A2F11C0080E400FEA009 /* AlamofireSerialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireSerialization.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */,
 				0F3F86B31C0F62D0001173F9 /* TestAccessibleImageView.swift */,
 				0FF5D28C1C0A007B00A4648E /* UIView+Helpers.swift */,
+				0F8E2B631C592F3600B868CB /* UIImage+TintedImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
 				0FDF991F1C2609650060D39C /* StretchyCollectionController.swift in Sources */,
+				0F8E2B641C592F3600B868CB /* UIImage+TintedImage.swift in Sources */,
 				0FDF99221C2609650060D39C /* StretchyViewControllerProtocols.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
 				0FDF99201C2609650060D39C /* StretchyHeaderBackgroundImageView.swift in Sources */,
