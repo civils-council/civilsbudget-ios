@@ -43,9 +43,8 @@ class ProjectCellNode: ASCellNode {
     
     override func layout() {
         super.layout()
-
-        let pixelHeight = 1.0 / UIScreen.mainScreen().scale
-        dividerNode.frame = CGRect(x: 0.0, y: calculatedSize.height - pixelHeight, width: calculatedSize.width, height: pixelHeight)
+        
+        dividerNode.frame = CGRect(x: 0.0, y: calculatedSize.height - UIScreen.mainScreen().pixelHeight, width: calculatedSize.width, height: UIScreen.mainScreen().pixelHeight)
     }
     
     func updateBackgroundColor() {

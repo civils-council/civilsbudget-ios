@@ -22,8 +22,6 @@ class ProjectDetailsViewModel: NSObject {
     
     static let currencyFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
-        // formatter.locale = NSLocale(localeIdentifier: "ua_UKR")
-        // formatter.numberStyle = .CurrencyStyle
         formatter.groupingSeparator = " "
         formatter.numberStyle = .DecimalStyle
         return formatter
@@ -44,7 +42,6 @@ class ProjectDetailsViewModel: NSObject {
     let userProfileButtonHidden = Observable(false)
     
     let loadingIndicatorVisible = Observable(false)
-    
     let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
     let userAlertWithData = Observable((type: SCLAlertViewStyle.Success, title: "", message: ""))
     
@@ -53,12 +50,13 @@ class ProjectDetailsViewModel: NSObject {
         
         super.init()
 
-        // Already voted for current project
+        // Handle already voted states
         UserViewModel.currentUser.votedProject.map({ [weak self] in $0 == self?.project.id }).bindTo(supportButtonSelected)
         combineLatest(supportButtonSelected, User.currentUser, UserViewModel.currentUser.votedProject)
             .map({ $0 || $1.isNil || $2.isNil })
             .bindTo(supportButtonEnabled)
         supportButtonSelected.map({ !$0 }).bindTo(supportButtonUserInterationEnabled)
+        
         UserViewModel.currentUser.isAuthorized.map({ !$0 }).bindTo(userProfileButtonHidden)
         
         updateFieldsUsingProject(project)
@@ -169,9 +167,11 @@ class ProjectDetailsViewModel: NSObject {
         }
         return (type, title, message)
     }
-    
-    // MARK: Promises
-    
+}
+
+// MARK: Promises
+
+extension ProjectDetailsViewModel {
     private func getSettings() -> Promise<ServiceSettings> {
         return Promise { fulfill, reject in
             Alamofire.request(CivilbudgetAPI.Router.GetSettings)

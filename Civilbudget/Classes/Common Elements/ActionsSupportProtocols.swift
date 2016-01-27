@@ -18,11 +18,10 @@ protocol ToolbarsSupport {
 
 extension ToolbarsSupport {
     func configureToolbars() {
-        // Top bar configuration
         topToolbarView.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
         
         // Load BottomToolbar XIB
-        if let toolbar = UIView.loadFirstViewFromNibNamed("BottomToolbarView") {
+        if let toolbar = UIView.loadFirstViewFromNibNamed(BottomToolbarView.defaultNibName) {
             bottomToolbarContainerView.addSubview(toolbar)
             toolbar.addConstraintsToFitSuperview()
         }

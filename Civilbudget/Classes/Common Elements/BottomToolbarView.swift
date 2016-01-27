@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BootomToolbar: UIView {
+class BottomToolbarView: UIView, LoadableView {
     enum Link: String {
         case Facebook = "https://www.facebook.com/civilscouncil"
         case VKontakte = "https://vk.com/civilscouncil"
@@ -16,9 +16,14 @@ class BootomToolbar: UIView {
         case HomePage = "http://www.golos.ck.ua"
     }
     
+    struct Constants {
+        static let facebookIconSymbol = "\u{f09a}"
+        static let vkontakteIconSymbol = "\u{f189}"
+    }
+    
     @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var fbShareButton: UIButton!
-    @IBOutlet weak var vkShareButton: UIButton!
+    @IBOutlet weak var facebookShareButton: UIButton!
+    @IBOutlet weak var vkontakteShareButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,35 +31,31 @@ class BootomToolbar: UIView {
         // Configure UI
         self.backgroundColor = CivilbudgetStyleKit.themeDarkBlue
         yearLabel.textColor = CivilbudgetStyleKit.bottomCopyrightGrey
-        fbShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        fbShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
-        fbShareButton.setTitle("\u{f09a}", forState: .Normal)
-        vkShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        vkShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
-        vkShareButton.setTitle("\u{f189}", forState: .Normal)
+        facebookShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        facebookShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
+        facebookShareButton.setTitle(Constants.facebookIconSymbol, forState: .Normal)
+        vkontakteShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
+        vkontakteShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
+        vkontakteShareButton.setTitle(Constants.vkontakteIconSymbol, forState: .Normal)
     }
-    
     
     @IBAction func siteLinkButtonTapped(sender: UIButton) {
         openPage(.HomePage)
     }
     
-    @IBAction func fbShareButtonTapped(sender: UIButton) {
+    @IBAction func facebookShareButtonTapped(sender: UIButton) {
         openPage(.Facebook)
     }
     
-    @IBAction func vkShareButtonTapped(sender: UIButton) {
+    @IBAction func vkontakteShareButtonTapped(sender: UIButton) {
         openPage(.VKontakte)
-    }
-    
-    @IBAction func okShareButtonTapped(sender: UIButton) {
-        openPage(.Odnoklassniki)
     }
     
     func openPage(link: Link) {
         guard let URL = NSURL(string: link.rawValue) else {
             return
         }
+        
         UIApplication.sharedApplication().openURL(URL)
     }
 }

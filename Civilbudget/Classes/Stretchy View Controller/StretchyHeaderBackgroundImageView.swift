@@ -29,7 +29,7 @@ class StretchyHeaderBackgroundImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
+        setUpDefaults()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,10 +39,10 @@ class StretchyHeaderBackgroundImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        configure()
+        setUpDefaults()
     }
     
-    func configure() {
+    func setUpDefaults() {
         contentMode = .Center
         
         guard let image = image else {

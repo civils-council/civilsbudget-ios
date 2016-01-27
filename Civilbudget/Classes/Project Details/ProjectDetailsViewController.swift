@@ -100,7 +100,8 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
     }
     
     func showAlertWithTitle(title: String, subtitle: String, closeTitle: String = "Закрити", style: SCLAlertViewStyle) {
+        let themeMainColor = UInt(0x525c99) // Int representation of CivilbudgetStyleKit.themeDarkBlue
         SCLAlertView().showTitle(title, subTitle: subtitle, duration: 0.0, completeText: closeTitle,
-            style: style, colorStyle: 0x525c99, colorTextButton: 0xFFFFFF)
+            style: style, colorStyle: themeMainColor, colorTextButton: 0xFFFFFF)
     }
 }

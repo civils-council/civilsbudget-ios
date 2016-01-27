@@ -9,7 +9,7 @@
 import UIKit
 import Bond
 
-class ProjectsLoadingStateView: UIView {
+class ProjectsLoadingStateView: UIView, LoadableView {
     @IBOutlet weak var loadingFailedContainerView: UIView!
     @IBOutlet weak var loadingErrorLabel: UILabel!
     @IBOutlet weak var reloadButton: UIButton!

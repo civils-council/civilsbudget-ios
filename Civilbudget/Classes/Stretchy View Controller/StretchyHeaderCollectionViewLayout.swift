@@ -46,6 +46,7 @@ class StretchyHeaderCollectionViewLayout: UICollectionViewFlowLayout {
         let minY = -insets.top
 
         if offset.y < minY + headerReferenceSize.height {
+            
             // Calculate limited by `headerBounceThreshold` deltaY
             let deltaY = min(max(-(offset.y - minY), -headerBounceThreshold), headerBounceThreshold)
             for attribute in attributes {

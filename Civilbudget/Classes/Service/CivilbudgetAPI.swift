@@ -82,3 +82,4 @@ func ==(a: LoadingState, b: LoadingState) -> Bool {
     default: return false
     }
 }
+

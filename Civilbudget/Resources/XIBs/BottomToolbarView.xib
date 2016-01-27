@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="FontAwesome.otf">
@@ -13,12 +13,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="BootomToolbar" customModule="Civilbudget" customModuleProvider="target">
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUX-Mn-VKf" customClass="BottomToolbarView" customModule="Civilbudget" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-mL-w4d">
                     <rect key="frame" x="55" y="284" width="122" height="32"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="www.golos.ck.ua">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,7 +28,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-1D-IMt">
                     <rect key="frame" x="561" y="278" width="34" height="44"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="12l-9e-Eag"/>
                         <constraint firstAttribute="width" constant="34" id="u0y-wH-eyY"/>
@@ -40,12 +38,11 @@
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="vkShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="QJc-ED-rQW"/>
+                        <action selector="vkontakteShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="EzJ-Qw-orU"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-9P-OMK">
                     <rect key="frame" x="527" y="278" width="34" height="44"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="YXC-eM-4Co"/>
                         <constraint firstAttribute="height" constant="44" id="hKw-E1-cKn"/>
@@ -56,18 +53,16 @@
                         <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="fbShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="Ep9-7G-RY6"/>
+                        <action selector="facebookShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="IJg-Ut-KvZ"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2015" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
                     <rect key="frame" x="10" y="294" width="42" height="15"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="ONY-1D-IMt" secondAttribute="centerY" id="9Sv-0X-HMC"/>
@@ -86,8 +81,8 @@
                 </constraint>
             </constraints>
             <connections>
-                <outlet property="fbShareButton" destination="njj-9P-OMK" id="7lr-TL-axh"/>
-                <outlet property="vkShareButton" destination="ONY-1D-IMt" id="SbL-w9-2BQ"/>
+                <outlet property="facebookShareButton" destination="njj-9P-OMK" id="n8d-Gz-pne"/>
+                <outlet property="vkontakteShareButton" destination="ONY-1D-IMt" id="Tlk-dC-UgD"/>
                 <outlet property="yearLabel" destination="q0g-0G-2Lw" id="O51-ik-eSa"/>
             </connections>
         </view>

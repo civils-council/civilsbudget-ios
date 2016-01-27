@@ -33,7 +33,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         configureCollectionContainer()
         
         // Load ProjectsLoadingState view
-        if let loadingStateView = UIView.loadFirstViewFromNibNamed("ProjectsLoadingStateView") as? ProjectsLoadingStateView {
+        if let loadingStateView = UIView.loadFirstViewFromNibNamed(ProjectsLoadingStateView.defaultNibName) as? ProjectsLoadingStateView {
             loadingStateContainerView.addSubview(loadingStateView)
             loadingStateView.addConstraintsToFitSuperview()
             self.loadingStateView = loadingStateView
@@ -67,7 +67,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         
         // Did select Project handler
         viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
-            let storyboard = UIStoryboard(name: GlobalConstants.mainBundleName, bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
             detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)

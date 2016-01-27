@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectDetailsCollectionViewCell: UICollectionViewCell {
+class ProjectDetailsCollectionViewCell: UICollectionViewCell, LoadableView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var authorLabel: AutoPrefferedLayoutWidthLabel!
@@ -20,7 +20,7 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private static var sizingCell = NSBundle.mainBundle().loadNibNamed("ProjectDetailsCollectionViewCell", owner: nil, options: nil).first as! ProjectDetailsCollectionViewCell
+    private static var sizingCell = NSBundle.mainBundle().loadNibNamed(ProjectDetailsCollectionViewCell.defaultNibName, owner: nil, options: nil).first as! ProjectDetailsCollectionViewCell
     
     class func sizeWithViewModel(viewModel: ProjectDetailsViewModel, constrainedWidth: CGFloat) -> CGSize {
         sizingCell.viewModel = viewModel
@@ -46,8 +46,7 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let pixelHeight = 1.0 / UIScreen.mainScreen().scale
-        dividerView.frame = CGRect(x: 0.0, y: frame.height - pixelHeight, width: frame.width, height: pixelHeight)
+        dividerView.frame = CGRect(x: 0.0, y: frame.height - UIScreen.mainScreen().pixelHeight, width: frame.width, height: UIScreen.mainScreen().pixelHeight)
     }
     
     private func reconfigureBindings() {

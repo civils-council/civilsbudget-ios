@@ -7,7 +7,6 @@
 //
 
 import Bond
-import Localize_Swift
 import AsyncDisplayKit
 
 class ProjectsHeaderCellNode: ASCellNode {
@@ -29,7 +28,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var titleTextSize = CGSize()
     
-    var stretchDistance: CGFloat = GlobalConstants.maxHorizontalBounceDistance
+    var stretchDistance: CGFloat = StretchyCollectionController.Constants.defaultMaxHorizontalBounceDistance
     
     convenience init(viewModel: ProjectsViewModel, height: CGFloat) {
         self.init()
@@ -45,7 +44,7 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundGradientNode.image = UIImage(named: "ProjectsHeaderGradient")!
         addSubnode(backgroundGradientNode)
         
-        titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2015".localized(),
+        titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2015",
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         addSubnode(titleTextNode)
         

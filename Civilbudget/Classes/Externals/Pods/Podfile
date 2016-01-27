@@ -1,12 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
-
 platform :ios, '8.1'
 
 use_frameworks!
-
-link_with 'Civilbudget'
-
 target 'Civilbudget' do
+
+xcodeproj '../../../../Civilbudget'
 
 pod 'Fabric'
 pod 'Crashlytics'
@@ -22,6 +20,5 @@ pod 'SCLAlertView', '~> 0.4'
 pod 'DGActivityIndicatorView', '~> 2.0'
 pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :branch => 'master', :commit => 'f87b915'
 pod 'BankIdSDK', :path => '../BankIdSDK/'
-pod 'Localize-Swift', '~> 1.0'
 
 end

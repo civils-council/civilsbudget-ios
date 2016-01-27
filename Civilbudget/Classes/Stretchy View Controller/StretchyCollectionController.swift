@@ -9,9 +9,15 @@
 import Bond
 
 class StretchyCollectionController: NSObject {
-    var maxHorizontalBounceDistance = GlobalConstants.maxHorizontalBounceDistance
-    var exposedHeaderViewHeight = GlobalConstants.exposedHeaderViewHeight
-    var topToolbarHeight = GlobalConstants.topToolbarHeight
+    struct Constants {
+        static let defaultExposedHeaderViewHeight = CGFloat(240.0)
+        static let defaultMaxHorizontalBounceDistance = CGFloat(50.0)
+        static let defaultTopToolbarHeight = CGFloat(64.0)
+    }
+    
+    var maxHorizontalBounceDistance = Constants.defaultMaxHorizontalBounceDistance
+    var exposedHeaderViewHeight = Constants.defaultExposedHeaderViewHeight
+    var topToolbarHeight = Constants.defaultTopToolbarHeight
     
     let toolbarIsHiden = Observable(false)
     let toolbarAlpha = Observable(CGFloat(0.0))
