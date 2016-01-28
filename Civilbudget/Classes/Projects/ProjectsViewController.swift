@@ -84,12 +84,16 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         if let selectedItem = collectionView.indexPathsForSelectedItems()?.last {
             collectionView.deselectItemAtIndexPath(selectedItem, animated: false)
         }
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         collectionView.frame = collectionContainerView.bounds
     }
     
