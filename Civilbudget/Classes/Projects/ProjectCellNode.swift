@@ -62,7 +62,7 @@ class ProjectCellContentNode: ASDisplayNode {
     
     private var viewModel: ProjectDetailsViewModel!
     
-    private let imageNode = ASNetworkImageNode()
+    private let imageNode = ASNetworkImageNode(cache: ASImageManger.sharedInstance, downloader: ASImageManger.sharedInstance)
     private let titleTextNode = ASTextNode()
     private let descriptionTextNode = ASTextNode()
     private let createdDateTextNode = ASTextNode()

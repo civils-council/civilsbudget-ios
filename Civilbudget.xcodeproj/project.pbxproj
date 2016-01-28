@@ -13,6 +13,7 @@
 		0F3F86B71C0F704D001173F9 /* ServiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */; };
 		0F40E79C1C5804DC003B5A44 /* ProjectDetailsCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F40E79B1C5804DC003B5A44 /* ProjectDetailsCollectionController.swift */; };
 		0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4102E41C0C666300B49D1A /* UserViewModel.swift */; };
+		0F432B861C5A45B000D76F79 /* ASImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F432B851C5A45B000D76F79 /* ASImageManager.swift */; };
 		0F52E8081C0124ED00C76F62 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8071C0124ED00C76F62 /* FontAwesome.otf */; };
 		0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */; };
 		0F52E81C1C01FC8500C76F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F52E81A1C01FC8500C76F62 /* Main.storyboard */; };
@@ -186,6 +187,7 @@
 		0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettings.swift; sourceTree = "<group>"; };
 		0F40E79B1C5804DC003B5A44 /* ProjectDetailsCollectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsCollectionController.swift; sourceTree = "<group>"; };
 		0F4102E41C0C666300B49D1A /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		0F432B851C5A45B000D76F79 /* ASImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageManager.swift; sourceTree = "<group>"; };
 		0F52E8071C0124ED00C76F62 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = Fonts/FontAwesome.otf; sourceTree = "<group>"; };
 		0F52E8191C01FC8500C76F62 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F52E81A1C01FC8500C76F62 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				0F8D18B61BD02C2300B69419 /* User.swift */,
 				0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */,
 				0FF5D27C1C099C5800A4648E /* VoteResult.swift */,
+				0F432B851C5A45B000D76F79 /* ASImageManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 				0FDF99111C25DE840060D39C /* ProjectsCollectionController.swift in Sources */,
 				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
+				0F432B861C5A45B000D76F79 /* ASImageManager.swift in Sources */,
 				0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */,
 				0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
