@@ -59,11 +59,8 @@ class ProjectsViewModel: NSObject {
     }
     
     func projectViewModelForIndexPath(indexPath: NSIndexPath) -> ProjectDetailsViewModel {
-        guard let project = projects.array.last?[indexPath.row] else {
-            assert(false)
-        }
-    
-        return ProjectDetailsViewModel(project: project)
+        let project = projects.array.last?[indexPath.row]
+        return ProjectDetailsViewModel(project: project!)
     }
     
     func selectProjectWithIndexPath(indexPath: NSIndexPath) {
