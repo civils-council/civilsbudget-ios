@@ -19,7 +19,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     let stretchedFrame = Observable(CGRect())
     
     private var backgroundNode: ASDisplayNode!
-    private let backgroundGradientNode = ASImageNode()
+    private var backgroundGradientNode: ASDisplayNode!
     private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
@@ -41,7 +41,9 @@ class ProjectsHeaderCellNode: ASCellNode {
         }
         addSubnode(backgroundNode)
         
-        backgroundGradientNode.image = UIImage(named: "ProjectsHeaderGradient")!
+        backgroundGradientNode = ASDisplayNode { () -> UIView in
+            return UIImageView(image: UIImage(named: "ProjectsHeaderGradient"))
+        }
         addSubnode(backgroundGradientNode)
         
         titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2015",
