@@ -85,7 +85,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     
     override func viewDidAppear(animated: Bool) {
         if let selectedItem = collectionView.indexPathsForSelectedItems()?.last {
-            collectionView.deselectItemAtIndexPath(selectedItem, animated: true)
+            collectionView.deselectItemAtIndexPath(selectedItem, animated: false)
         }
     }
     
