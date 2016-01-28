@@ -19,7 +19,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     let stretchedFrame = Observable(CGRect())
     
     private var backgroundNode: ASDisplayNode!
-    private var backgroundGradientNode: ASDisplayNode!
+    private var backgroundGradientNode = ASImageNode()
     private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
@@ -41,13 +41,13 @@ class ProjectsHeaderCellNode: ASCellNode {
         }
         addSubnode(backgroundNode)
         
-        backgroundGradientNode = ASDisplayNode { () -> UIView in
-            return UIImageView(image: UIImage(named: "ProjectsHeaderGradient"))
-        }
+        backgroundGradientNode.image = UIImage(named: "ProjectsHeaderGradient")
+        backgroundGradientNode.displaysAsynchronously = false
         addSubnode(backgroundGradientNode)
         
         titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2015",
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
+        titleTextNode.displaysAsynchronously = false
         addSubnode(titleTextNode)
         
         pullDownNode = ASDisplayNode { [unowned self] () -> UIView in
@@ -64,12 +64,14 @@ class ProjectsHeaderCellNode: ASCellNode {
         addSubnode(pullDownNode)
         
         logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
+        logoImageNode.displaysAsynchronously = false
         addSubnode(logoImageNode)
         
         userProfileNode.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder, forState: ASButtonStateNormal)
         userProfileNode.setImage(CivilbudgetStyleKit.imageOfUserProfileImagePlaceholder.tintedImageUsingColor(UIColor.blackColor().colorWithAlpha(0.4)), forState: ASButtonStateHighlighted)
         userProfileNode.addTarget(self, action: "userProfileNodeTapped:", forControlEvents: .TouchUpInside)
         userProfileNode.hitTestSlop = Constants.userProfileButtonTapzoneInset
+        userProfileNode.displaysAsynchronously = false
         addSubnode(userProfileNode)
         
         // Add bindings
