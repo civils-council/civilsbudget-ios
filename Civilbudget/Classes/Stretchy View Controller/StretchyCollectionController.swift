@@ -27,7 +27,7 @@ class StretchyCollectionController: NSObject {
 extension StretchyCollectionController: UIScrollViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if scrollView.contentOffset.y < -maxHorizontalBounceDistance {
-            scrollView.contentOffset = CGPointMake(0, -maxHorizontalBounceDistance)
+            scrollView.contentOffset = CGPoint(x: 0.0, y: -maxHorizontalBounceDistance)
         }
         
         let toolbarIsHiden = scrollView.contentOffset.y < exposedHeaderViewHeight - topToolbarHeight

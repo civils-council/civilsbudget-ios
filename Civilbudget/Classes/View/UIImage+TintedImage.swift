@@ -12,7 +12,7 @@ extension UIImage {
     func tintedImageUsingColor(color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
-        let drawRect = CGRectMake(0, 0, self.size.width, self.size.height)
+        let drawRect = CGRect(x: 0.0, y: 0.0, width: self.size.width, height: self.size.height)
         self.drawInRect(drawRect)
         
         color.set()

@@ -24,7 +24,7 @@ class ProjectDetailsCollectionViewCell: UICollectionViewCell, LoadableView {
     
     class func sizeWithViewModel(viewModel: ProjectDetailsViewModel, constrainedWidth: CGFloat) -> CGSize {
         sizingCell.viewModel = viewModel
-        sizingCell.bounds = CGRectMake(0, 0, constrainedWidth, sizingCell.bounds.height)
+        sizingCell.bounds = CGRect(x: 0.0, y: 0.0, width: constrainedWidth, height: sizingCell.bounds.height)
         sizingCell.contentView.bounds = sizingCell.bounds
         
         sizingCell.setNeedsLayout()

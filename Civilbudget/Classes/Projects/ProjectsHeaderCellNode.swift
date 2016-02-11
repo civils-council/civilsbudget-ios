@@ -16,7 +16,7 @@ class ProjectsHeaderCellNode: ASCellNode {
         static let userProfileButtonTapzoneInset = UIEdgeInsets(top: -12.0, left: -12.0, bottom: -12.0, right: -12.0)
     }
     
-    let stretchedFrame = Observable(CGRect())
+    let stretchedFrame = Observable(CGRect.zero)
     
     private var backgroundNode: ASDisplayNode!
     private var backgroundGradientNode = ASImageNode()
@@ -117,14 +117,14 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundNode.frame = bounds
         backgroundGradientNode.frame = bounds
         
-        logoImageNode.frame = CGRect(origin: CGPoint(), size: logoImageNode.calculatedSize)
+        logoImageNode.frame = CGRect(origin: CGPoint.zero, size: logoImageNode.calculatedSize)
         logoImageNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * logoVerticalCenter)
         pullDownNode.view.center = logoImageNode.view.center
         
-        titleTextNode.frame = CGRect(origin: CGPoint(), size: titleTextSize)
+        titleTextNode.frame = CGRect(origin: CGPoint.zero, size: titleTextSize)
         titleTextNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * titleVerticalCenter)
         
-        userProfileNode.frame = CGRect(origin: CGPoint(), size: userProfileNode.calculatedSize)
+        userProfileNode.frame = CGRect(origin: CGPoint.zero, size: userProfileNode.calculatedSize)
         userProfileNode.view.center = CGPoint(x: bounds.width - userProfileNode.frame.width / 2.0 - userProfileRightPadding,
             y: bounds.height * userProfileVerticalCenter)
     }

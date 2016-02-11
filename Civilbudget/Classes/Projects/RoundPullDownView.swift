@@ -25,7 +25,7 @@ class RoundPullDownView: UIView {
     let activityIndicatorView = DGActivityIndicatorView(type: .TripleRings, tintColor: UIColor.whiteColor(), size: Constants.activitiIndicatorSideSize)
     
     init(radius: CGFloat = Constants.defaultRadius, progressColor: UIColor = Constants.defaultProgressColor) {
-        let frame = CGRect(origin: CGPoint(), size: CGSize(width: radius * 2, height: radius * 2))
+        let frame = CGRect(origin: CGPoint.zero, size: CGSize(width: radius * 2, height: radius * 2))
         super.init(frame: frame)
         
         configureCircleLayer(radius: radius, progressColor: progressColor)

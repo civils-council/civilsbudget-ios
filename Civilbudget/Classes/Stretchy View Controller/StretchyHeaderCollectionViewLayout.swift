@@ -51,10 +51,8 @@ class StretchyHeaderCollectionViewLayout: UICollectionViewFlowLayout {
             let deltaY = min(max(-(offset.y - minY), -headerBounceThreshold), headerBounceThreshold)
             for attribute in attributes {
                 if attribute.representedElementKind == UICollectionElementKindSectionHeader {
-                    var headerRect = attribute.frame
-                    headerRect.size.height = max(minY, headerReferenceSize.height + deltaY);
-                    headerRect.origin.y = headerRect.origin.y - deltaY;
-                    attribute.frame = headerRect
+                    attribute.frame.size.height = max(minY, headerReferenceSize.height + deltaY);
+                    attribute.frame.origin.y -= deltaY;
                     break
                 }
             }

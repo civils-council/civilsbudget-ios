@@ -37,7 +37,7 @@ class ProjectCellNode: ASCellNode {
         let targetWidth = floor(numberOfColumns >= 2 ? constrainedSize.width / numberOfColumns : constrainedSize.width)
         let contentSize = contentNode.measure(CGSize(width: targetWidth, height: Constants.maxHeight))
         let targetHeight = numberOfColumns > 1 ? Constants.maxHeight : contentSize.height
-        contentNode.frame = CGRect(origin: CGPoint(), size: contentSize)
+        contentNode.frame = CGRect(origin: CGPoint.zero, size: contentSize)
         return CGSize(width: targetWidth, height: targetHeight)
     }
     
