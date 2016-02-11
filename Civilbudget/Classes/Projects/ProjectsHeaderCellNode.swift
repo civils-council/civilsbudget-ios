@@ -26,7 +26,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     private let userProfileNode = ASButtonNode()
     private var pullDownView: RoundPullDownView!
     
-    private var titleTextSize = CGSize()
+    private var titleTextSize = CGSize.zero
     
     var stretchDistance: CGFloat = StretchyCollectionController.Constants.defaultMaxHorizontalBounceDistance
     

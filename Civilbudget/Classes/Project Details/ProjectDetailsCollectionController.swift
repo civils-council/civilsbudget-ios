@@ -30,7 +30,7 @@ class ProjectDetailsCollectionController: StretchyCollectionController {
         collectionView.registerNib(UINib(nibName: ProjectDetailsCollectionViewCell.defaultNibName, bundle: nil), forCellWithReuseIdentifier: Constants.detailsCellIdentifier)
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.headerReferenceSize = CGSizeMake(collectionView.frame.size.width, StretchyCollectionController.Constants.defaultExposedHeaderViewHeight);
+            layout.headerReferenceSize = CGSize(width: collectionView.frame.size.width, height: StretchyCollectionController.Constants.defaultExposedHeaderViewHeight);
         }
     }
 }
@@ -67,7 +67,7 @@ extension ProjectDetailsCollectionController: UICollectionViewDataSource {
 
 extension ProjectDetailsCollectionController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: collectionView.bounds.width, height: StretchyCollectionController.Constants.defaultExposedHeaderViewHeight): CGSize()
+        return section == 0 ? CGSize(width: collectionView.bounds.width, height: StretchyCollectionController.Constants.defaultExposedHeaderViewHeight): CGSize.zero
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {

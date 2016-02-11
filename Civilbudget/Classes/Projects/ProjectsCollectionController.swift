@@ -77,6 +77,6 @@ extension ProjectsCollectionController: ASCollectionDelegate {
     }
     
     func collectionView(collectionView: ASCollectionView!, layout collectionViewLayout: UICollectionViewLayout!, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: collectionView.bounds.width, height: exposedHeaderViewHeight) : CGSize()
+        return section == 0 ? CGSize(width: collectionView.bounds.width, height: exposedHeaderViewHeight) : CGSize.zero
     }
 }
