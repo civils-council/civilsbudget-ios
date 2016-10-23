@@ -74,6 +74,20 @@
 			remoteGlobalIDString = 2B3855B20090411235D2A572A7F83AAE;
 			remoteInfo = Locksmith;
 		};
+		0FA219BE1DBC127900BFA353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 77472629076B6CE5EE464BF4E247C827;
+			remoteInfo = PINCache;
+		};
+		0FA219C01DBC127900BFA353 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D27626C35F7687FF0D2FBEF6C97F9C3;
+			remoteInfo = PINRemoteImage;
+		};
 		0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -162,7 +176,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 19E3C1403A5FB980E90E77281C90C1DA;
+			remoteGlobalIDString = 0801DFE4BC054E7B7A77DC158EA80B5F;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -492,6 +506,8 @@
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
+				0FA219BF1DBC127900BFA353 /* PINCache.framework */,
+				0FA219C11DBC127900BFA353 /* PINRemoteImage.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
@@ -552,13 +568,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0FFF6DA61BBE6B890042EC47 /* Build configuration list for PBXNativeTarget "Civilbudget" */;
 			buildPhases = (
-				0F614C721BC96F7D002482B1 /* Check Pods Manifest.lock */,
+				0F614C721BC96F7D002482B1 /* [CP] Check Pods Manifest.lock */,
 				0FFF6D901BBE6B890042EC47 /* Sources */,
 				0FFF6D911BBE6B890042EC47 /* Frameworks */,
 				0FFF6D921BBE6B890042EC47 /* Resources */,
 				0F0F98111BBFBFC600219A10 /* Copy Frameworks */,
-				0F0F98141BBFC14700219A10 /* Embed Pods Frameworks */,
-				0F0F98151BBFC17A00219A10 /* Copy Pods Resources */,
+				0F0F98141BBFC14700219A10 /* [CP] Embed Pods Frameworks */,
+				0F0F98151BBFC17A00219A10 /* [CP] Copy Pods Resources */,
 				0FFF75471BBE81570042EC47 /* Fabric Script */,
 			);
 			buildRules = (
@@ -636,6 +652,20 @@
 			fileType = wrapper.framework;
 			path = Locksmith.framework;
 			remoteRef = 0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FA219BF1DBC127900BFA353 /* PINCache.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PINCache.framework;
+			remoteRef = 0FA219BE1DBC127900BFA353 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0FA219C11DBC127900BFA353 /* PINRemoteImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PINRemoteImage.framework;
+			remoteRef = 0FA219C01DBC127900BFA353 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FD9F0791BC3DB230046316F /* XCGLogger.framework */ = {
@@ -742,14 +772,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F0F98141BBFC14700219A10 /* Embed Pods Frameworks */ = {
+		0F0F98141BBFC14700219A10 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -757,14 +787,14 @@
 			shellScript = "\"${SRCROOT}/Civilbudget/Classes/Externals/Pods/Pods/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0F0F98151BBFC17A00219A10 /* Copy Pods Resources */ = {
+		0F0F98151BBFC17A00219A10 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,19 +802,19 @@
 			shellScript = "\"${SRCROOT}/Civilbudget/Classes/Externals/Pods/Pods/Target Support Files/Pods-Civilbudget/Pods-Civilbudget-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0F614C721BC96F7D002482B1 /* Check Pods Manifest.lock */ = {
+		0F614C721BC96F7D002482B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		0FFF75471BBE81570042EC47 /* Fabric Script */ = {
