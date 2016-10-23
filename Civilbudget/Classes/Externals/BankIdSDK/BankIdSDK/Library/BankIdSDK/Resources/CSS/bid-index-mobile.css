@@ -39,10 +39,14 @@ html {
     color: #00BFFF;
     font-weight: 900;
 }
+.pumb {
+    
+}
 .banks {
     overflow: hidden;
     padding: 0px;
     text-align: left;
+    margin-left: 0px;
 }
 .privat {
     cursor: pointer;
@@ -76,12 +80,13 @@ html {
     cursor: pointer;
     padding: 5px;
     margin-top: 65px;
-    margin-left: 150px;
+    margin-left: 0px;
     height: 25px;
     width: 145px;
     border: 1px solid #FFFFFF;
     border-radius: 5px;
-    position: absolute;
+    position: relative;
+    float: left;
 }
 .plbank:hover {
     border-color: #415e30;
@@ -137,7 +142,7 @@ html {
     cursor: pointer;
     padding: 5px;
     padding-bottom: 10px;
-    margin-top: 270px;
+    margin-top: 268px;
     text-align: center;
     margin-left: 5px;
     height: 35px;
@@ -235,6 +240,7 @@ html {
     color: #999999;
     margin-left: 9px;
     text-decoration: none;
+    display: none;
 }
 .languages a:focus {
     text-decoration: underline;
@@ -243,11 +249,12 @@ html {
     font-weight: bold;
 }
 .footer {
-    margin-top: 0px;
+    /* margin-top: 0px; */
     border-top: 1px solid #b8b8b8;
     width: 310px;
     padding-bottom: 4px;
-    font-size: 12px;
+    margin-top: 30px;
+    font-size: 9px;
 }
 .info {
     /* margin-top: 10px; */
@@ -291,12 +298,12 @@ html {
     /* position: relative; */
 }
 .info-menu {
-    width: 310px;
+    width: 300px;
     height: 330px;
-    /* float: right; */
-    padding-top: 15px;
-    /* display: block; */
-    /* position: relative; */
+    /* float: left; */
+    padding-top: 300px;
+    display: block;
+    position: relative;
     clear: both;
 }
 .preloder {
@@ -358,4 +365,15 @@ html {
 .ecp-img {
     margin-left: 40px;
     width: 25px;
+}
+
+.pumb {
+    margin-top: 170px;
+    margin-left: 0px;
+}
+
+.concord {
+    margin-top: 115px;
+    padding-left: 5px;
+    margin-left: 0px;
 }

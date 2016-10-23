@@ -53,6 +53,7 @@ public class AuthorizationViewController: UIViewController {
     public init(patchIndexPage: Bool = true, completionHandler:AuthorizationResult -> Void) {
         super.init(nibName: self.dynamicType.authNibName(), bundle: self.dynamicType.authNibBundle())
         
+        self.patchIndexPage = patchIndexPage
         self.completionHandler = completionHandler
     }
     
