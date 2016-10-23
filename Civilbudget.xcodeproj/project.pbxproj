@@ -74,20 +74,6 @@
 			remoteGlobalIDString = 2B3855B20090411235D2A572A7F83AAE;
 			remoteInfo = Locksmith;
 		};
-		0FA219BE1DBC127900BFA353 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 77472629076B6CE5EE464BF4E247C827;
-			remoteInfo = PINCache;
-		};
-		0FA219C01DBC127900BFA353 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4D27626C35F7687FF0D2FBEF6C97F9C3;
-			remoteInfo = PINRemoteImage;
-		};
 		0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -176,7 +162,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 0801DFE4BC054E7B7A77DC158EA80B5F;
+			remoteGlobalIDString = 19E3C1403A5FB980E90E77281C90C1DA;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -506,8 +492,6 @@
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
 				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
-				0FA219BF1DBC127900BFA353 /* PINCache.framework */,
-				0FA219C11DBC127900BFA353 /* PINRemoteImage.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
@@ -652,20 +636,6 @@
 			fileType = wrapper.framework;
 			path = Locksmith.framework;
 			remoteRef = 0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FA219BF1DBC127900BFA353 /* PINCache.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PINCache.framework;
-			remoteRef = 0FA219BE1DBC127900BFA353 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FA219C11DBC127900BFA353 /* PINRemoteImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = PINRemoteImage.framework;
-			remoteRef = 0FA219C01DBC127900BFA353 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FD9F0791BC3DB230046316F /* XCGLogger.framework */ = {
@@ -946,7 +916,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -994,7 +964,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1028,6 +998,7 @@
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Fabric",
 				);
 				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
@@ -1049,6 +1020,7 @@
 					"$(PROJECT_DIR)/Civilbudget/Classes/Externals/Pods/Pods/Fabric",
 				);
 				INFOPLIST_FILE = "Civilbudget/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
