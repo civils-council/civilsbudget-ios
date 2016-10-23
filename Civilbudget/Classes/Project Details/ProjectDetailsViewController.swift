@@ -73,7 +73,15 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
             
             let authViewController = AuthorizationViewController(patchIndexPage: true, completionHandler: completionHandler)
             let navigationController = UINavigationController(rootViewController: authViewController)
-            viewController.presentViewController(navigationController, animated: true, completion: nil)
+            viewController.presentViewController(navigationController, animated: true) { [weak self] in
+                if !User.warningWasShownBefore {
+                    let message = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
+                    
+                    if let messageData = self?.viewModel.alertDataWithType(.Info, message: message) {
+                        self?.showAlertWithTitle(messageData.1, subtitle: messageData.2, style: messageData.0)
+                    }
+                }
+            }
         }
         
         viewModel.userAlertWithData.observeNew { [weak self] (let type, let title, let message) in
@@ -100,8 +108,9 @@ class ProjectDetailsViewController: UIViewController, ToolbarsSupport, Collectio
     }
     
     func showAlertWithTitle(title: String, subtitle: String, closeTitle: String = "Закрити", style: SCLAlertViewStyle) {
-        let themeMainColor = UInt(0x525c99) // Int representation of CivilbudgetStyleKit.themeDarkBlue
-        SCLAlertView().showTitle(title, subTitle: subtitle, duration: 0.0, completeText: closeTitle,
-            style: style, colorStyle: themeMainColor, colorTextButton: 0xFFFFFF)
+        let presentingViewController = self.presentedViewController ?? self
+        let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: closeTitle, style: .Cancel, handler: nil))
+        presentingViewController.presentViewController(alert, animated: true, completion: nil)
     }
 }

@@ -116,11 +116,6 @@ class ProjectDetailsViewModel: NSObject {
             configuaration.baseAuthURLString = settings.bankIdAuthURL
             configuaration.redirectURI = settings.bankIdRedirectURI
             Service.configuration = configuaration
-            
-            if !User.warningWasShownBefore {
-                let message = "BankID – це спосіб ідентифікації громадян.\nПри ідентифікації громадян через BankID НЕ ПЕРЕДАЄТЬСЯ фінансова та будь-яка інша приватна інформація. Тільки та інформація, що надається в паперовій формі при голосуванні за проекти Громадський Бюджет (ім’я, прізвище, по-батькові, стать, дата народження, адреса та ідентифікаційний номер).\nОтримані дані використовуються лише для ідентифікації громадян."
-                self.userAlertWithData.value = self.alertDataWithType(.Info, message: message)
-            }
             self.authorizationWithCompletion.value = self.handleBankIdAuthorizationResult
         }.always {
             self.loadingIndicatorVisible.value = false
