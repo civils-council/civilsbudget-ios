@@ -13,7 +13,7 @@ class BottomToolbarView: UIView, LoadableView {
         case Facebook = "https://www.facebook.com/civilscouncil"
         case VKontakte = "https://vk.com/civilscouncil"
         case Odnoklassniki = "http://ok.ru"
-        case HomePage = "http://www.golos.ck.ua"
+        case HomePage = "http://vote.imisto.com.ua"
     }
     
     struct Constants {
