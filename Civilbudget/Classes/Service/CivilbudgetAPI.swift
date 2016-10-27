@@ -10,7 +10,7 @@ import Alamofire
 
 struct CivilbudgetAPI {
     enum Router: URLRequestConvertible {
-        static let baseURLString = "http://vote.imisto.com.ua/api"
+        static let baseURLString = "http://test.golos.ck.ua/api"
         
         case GetSettings
         case Authorize(accessToken: String)
@@ -51,7 +51,12 @@ struct CivilbudgetAPI {
             case let .Authorize(accessToken):
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: ["code": accessToken]).0
             case let .GetProjects(clid):
-                let parameters: [String: AnyObject]? = clid.isNil ? nil : ["clid": clid!]
+                var parameters: [String: AnyObject] = ["city": "ЧЕРКАСИ"]
+               
+                if let clid = clid {
+                    parameters["clid"] = clid
+                }
+                
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: parameters).0
             case let .LikeProject(_, clid):
                 return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["clid": clid]).0
