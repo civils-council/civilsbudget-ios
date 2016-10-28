@@ -214,10 +214,10 @@ extension ProjectDetailsViewModel {
                         return
                     }
                     
-                    if voteResult.isSuccessful {
+                    /*if voteResult.isSuccessful {
                         User.currentUser.value?.votedProjectId = projectId
                         UserViewModel.currentUser.recentlyVotedProject.value = projectId
-                    }
+                    }*/
                     
                     fulfill(voteResult)
             }

@@ -16,7 +16,7 @@ struct VoteResult {
 
 extension VoteResult: ResponseObjectSerializable {
     init(response: NSHTTPURLResponse, let representation: AnyObject) throws {
-        let warning = representation.valueForKey("warning") as? String
+        let warning = representation.valueForKey("danger") as? String
         let success = representation.valueForKey("success") as? String
         
         if warning.isNil && success.isNil {

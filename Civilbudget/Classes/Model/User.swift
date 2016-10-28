@@ -75,14 +75,25 @@ extension User {
     static let currentUser: Observable<User?> = {
         let user = User.readFromSecureStorage()
         let observable = Observable<User?>(user)
-        observable.observeNew { user in
+        
+        // Store user only during app launch
+        /* observable.observeNew { user in
             user?.saveToSecureStorage()
-        }
+        }*/
+        
         return observable
     }()
     
     static func clearCurrentUser() {
         User.currentUser.value?.removeFromSecureStorage()
+        
+        let cookiesStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        if let url = NSURL(string: CivilbudgetAPI.Router.rootURL), cookies = cookiesStorage.cookiesForURL(url) {
+            for cookie in cookies {
+                cookiesStorage.deleteCookie(cookie)
+            }
+        }
+        
         User.currentUser.value = nil
     }
     

@@ -48,7 +48,7 @@ extension Request {
     public func responseCollection<T: ResponseCollectionSerializable>(completionHandler: Response<[T], NSError> -> Void) -> Self {
         let responseSerializer = ResponseSerializer<[T], NSError> { request, response, data, error in
             guard error.isNil else { return .Failure(error!) }
-            
+            print(NSString(data: data!, encoding: NSUTF8StringEncoding))
             let JSONSerializer = Request.JSONResponseSerializer(options: .AllowFragments)
             let result = JSONSerializer.serializeResponse(request, response, data, error)
             
