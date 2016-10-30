@@ -45,7 +45,7 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundGradientNode.displaysAsynchronously = false
         addSubnode(backgroundGradientNode)
         
-        titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2015",
+        titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2016",
             attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         titleTextNode.displaysAsynchronously = false
         addSubnode(titleTextNode)
