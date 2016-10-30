@@ -10,7 +10,7 @@ import Alamofire
 
 struct CivilbudgetAPI {
     enum Router: URLRequestConvertible {
-        static let rootURL = "http://test.golos.ck.ua"
+        static let rootURL = "https://vote.imisto.com.ua"
         static let baseURLString = "\(rootURL)/api"
         
         case GetSettings
