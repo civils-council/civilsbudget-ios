@@ -11,3 +11,5 @@ Please note that app uses CocoaPods with '--no-integrate' switch (without Worksp
 ./podinstall.sh
 ```
 from `./Civilbudget/Classes/Externals/Pods/` folder.
+# Notes
+Please keep in mind that this project violates KISS principle in favor of application speed on legacy iOS devices (like iPhone 4, 4s, 5, 5s) which are widespread among the target audience of this service.
