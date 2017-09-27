@@ -1,79 +1,70 @@
 PODS:
-  - Alamofire (3.1.5)
-  - AlamofireImage (2.3.0):
-    - Alamofire (~> 3.1)
+  - Alamofire (3.5.1)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
   - AsyncDisplayKit (1.9.4):
     - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.4)
   - AsyncDisplayKit/ASDealloc2MainObject (1.9.4)
   - BankIdSDK (0.1.0):
     - Alamofire (~> 3.1)
-  - Bond (4.1.1)
+  - Bond (6.4.0):
+    - Differ (~> 1.0.0)
+    - ReactiveKit (~> 3.7.0)
   - Crashlytics (3.8.6):
     - Fabric (~> 1.6.3)
   - DGActivityIndicatorView (2.1.1)
+  - Differ (1.0.0)
   - Fabric (1.6.13)
   - KVNProgress (2.3.1)
-  - Locksmith (2.0.8)
-  - OMGHTTPURLRQ (3.2.2):
-    - OMGHTTPURLRQ/RQ (= 3.2.2)
-  - OMGHTTPURLRQ/FormURLEncode (3.2.2)
-  - OMGHTTPURLRQ/RQ (3.2.2):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (3.2.2)
-  - PromiseKit (3.5.3):
-    - PromiseKit/Foundation (= 3.5.3)
-    - PromiseKit/QuartzCore (= 3.5.3)
-    - PromiseKit/UIKit (= 3.5.3)
-  - PromiseKit/CorePromise (3.5.3)
-  - PromiseKit/Foundation (3.5.3):
-    - OMGHTTPURLRQ (~> 3.2.0)
+  - Locksmith (3.0.0)
+  - PromiseKit (4.4.0):
+    - PromiseKit/Foundation (= 4.4.0)
+    - PromiseKit/QuartzCore (= 4.4.0)
+    - PromiseKit/UIKit (= 4.4.0)
+  - PromiseKit/CorePromise (4.4.0)
+  - PromiseKit/Foundation (4.4.0):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (3.5.3):
+  - PromiseKit/QuartzCore (4.4.0):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (3.5.3):
+  - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
-  - SCLAlertView (0.4.3)
-  - SwiftyJSON (2.4.0)
-  - XCGLogger (3.1.1)
+  - ReactiveKit (3.7.1)
+  - SCLAlertView (0.7.0)
 
 DEPENDENCIES:
-  - Alamofire (= 3.1.5)
-  - AlamofireImage (~> 2.0)
+  - Alamofire
+  - AlamofireImage
   - AsyncDisplayKit (= 1.9.4)
   - BankIdSDK (from `../BankIdSDK/`)
-  - Bond (= 4.1.1)
+  - Bond
   - Crashlytics
-  - DGActivityIndicatorView (~> 2.0)
+  - DGActivityIndicatorView
   - Fabric
-  - KVNProgress (~> 2.2)
-  - Locksmith (~> 2.0)
-  - PromiseKit (~> 3.0)
-  - SCLAlertView (= 0.4.3)
-  - SwiftyJSON (~> 2.3)
-  - XCGLogger (= 3.1.1)
+  - KVNProgress
+  - Locksmith
+  - PromiseKit
+  - SCLAlertView
 
 EXTERNAL SOURCES:
   BankIdSDK:
     :path: ../BankIdSDK/
 
 SPEC CHECKSUMS:
-  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
-  AlamofireImage: 4013fb5b99b10117bf2554a67b9bd2231d476b45
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
   AsyncDisplayKit: 0932ff6f78364130a195039ab9a1c2ff63adc665
   BankIdSDK: c08d4f318fcd8b7f255785a07ecd368a836011d6
-  Bond: 4f92e106f56dce65974b6d9eb367275840c8991c
+  Bond: e4c36a1d3b0ebd3969611001738934f744a6fd4c
   Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
+  Differ: ac8137d4099659e06f3de6aa26d2c6416d986946
   Fabric: 2fb5676bc811af011a04513451f463dac6803206
   KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
-  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
-  OMGHTTPURLRQ: edb14c7d28add69226b79d826f930805927a0ffa
-  PromiseKit: d3393df0dfd7ed208cec0267dce13c66d9c09d0a
-  SCLAlertView: a5c726a80a938fd3127edd7dbc19da33fb936ca3
-  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
-  XCGLogger: e111a313f609432394c3ae378d99511634fd2e3c
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
+  ReactiveKit: e9c4a610e853fdf57779e3bb2d7b3033733b87fa
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
 
-PODFILE CHECKSUM: 4a053a5a5f965e265f9349a3055bfa01ff2e8964
+PODFILE CHECKSUM: ddd28e28837baabefe716acaa24063ee8fc0bea6
 
 COCOAPODS: 1.3.1

@@ -53,6 +53,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0F080EF01F7C3E46000D4C98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1999B28D9863777EF11B84AC1C8CC009;
+			remoteInfo = Differ;
+		};
+		0F080EF21F7C3E46000D4C98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DA5620A404CCE79CFDD07DFE4B261E2D;
+			remoteInfo = ReactiveKit;
+		};
 		0F0F98291BBFF0D500219A10 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
@@ -74,26 +88,12 @@
 			remoteGlobalIDString = 2B3855B20090411235D2A572A7F83AAE;
 			remoteInfo = Locksmith;
 		};
-		0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 70E6BC1DAABBB0EF9D80759A3EEFFAA4;
-			remoteInfo = XCGLogger;
-		};
 		0FDF990E1C259A240060D39C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 641F705964D23B6D6F0E6DF4D90A4A03;
 			remoteInfo = AsyncDisplayKit;
-		};
-		0FE0A1F01C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6603C877EA2E22104B9C37C48EDE4EF2;
-			remoteInfo = OMGHTTPURLRQ;
 		};
 		0FE0A1F21C0CFD3D00D19904 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -151,18 +151,11 @@
 			remoteGlobalIDString = E53F4AFD51078FD02FBD1F8410706E6E;
 			remoteInfo = "Pods-Civilbudget";
 		};
-		0FFF753E1BBE78D00042EC47 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D4A83B7585DDF4A527D083B346C50887;
-			remoteInfo = SwiftyJSON;
-		};
 		0FFF75451BBE7DE30042EC47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0FFF75281BBE78D00042EC47 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 1D545D0EC1B7B741D1283F0FFBF624B9;
+			remoteGlobalIDString = A95150920D8A262A6E5819284904FC7C;
 			remoteInfo = "Pods-Civilbudget";
 		};
 /* End PBXContainerItemProxy section */
@@ -489,14 +482,13 @@
 				0F7528D61C00617300F9ABB9 /* BankIdSDK.framework */,
 				0FFF75351BBE78D00042EC47 /* Bond.framework */,
 				0FEA406F1C0E3EEE001A6B23 /* DGActivityIndicatorView.framework */,
+				0F080EF11F7C3E46000D4C98 /* Differ.framework */,
 				0FF5D2881C099C5900A4648E /* KVNProgress.framework */,
 				0F9BFA381C0B9A3100FC69B7 /* Locksmith.framework */,
-				0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */,
 				0FFF75391BBE78D00042EC47 /* Pods_Civilbudget.framework */,
 				0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */,
+				0F080EF31F7C3E46000D4C98 /* ReactiveKit.framework */,
 				0FE0A1F71C0CFD3D00D19904 /* SCLAlertView.framework */,
-				0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */,
-				0FD9F0791BC3DB230046316F /* XCGLogger.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -617,6 +609,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0F080EF11F7C3E46000D4C98 /* Differ.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Differ.framework;
+			remoteRef = 0F080EF01F7C3E46000D4C98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F080EF31F7C3E46000D4C98 /* ReactiveKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveKit.framework;
+			remoteRef = 0F080EF21F7C3E46000D4C98 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0F0F982A1BBFF0D500219A10 /* AlamofireImage.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -638,25 +644,11 @@
 			remoteRef = 0F9BFA371C0B9A3100FC69B7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0FD9F0791BC3DB230046316F /* XCGLogger.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = XCGLogger.framework;
-			remoteRef = 0FD9F0781BC3DB230046316F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		0FDF990F1C259A240060D39C /* AsyncDisplayKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = AsyncDisplayKit.framework;
 			remoteRef = 0FDF990E1C259A240060D39C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0FE0A1F11C0CFD3D00D19904 /* OMGHTTPURLRQ.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OMGHTTPURLRQ.framework;
-			remoteRef = 0FE0A1F01C0CFD3D00D19904 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FE0A1F31C0CFD3D00D19904 /* PromiseKit.framework */ = {
@@ -708,13 +700,6 @@
 			remoteRef = 0FFF75381BBE78D00042EC47 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0FFF753F1BBE78D00042EC47 /* SwiftyJSON.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftyJSON.framework;
-			remoteRef = 0FFF753E1BBE78D00042EC47 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -755,13 +740,12 @@
 				"${BUILT_PRODUCTS_DIR}/BankIdSDK/BankIdSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
 				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/KVNProgress/KVNProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
-				"${BUILT_PRODUCTS_DIR}/OMGHTTPURLRQ/OMGHTTPURLRQ.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -771,13 +755,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BankIdSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KVNProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OMGHTTPURLRQ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -980,6 +963,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Civilbudget/Supporting Files/Civilbudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1029,6 +1013,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/Civilbudget/Supporting Files/Civilbudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
