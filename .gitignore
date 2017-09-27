@@ -19,7 +19,6 @@ DerivedData
 
 #Cocoapods
 Civilbudget/Classes/Externals/Pods/Pods/
-Civilbudget/Classes/Externals/Pods/Podfile.lock
 
 #Fastlane
 Preview.html
