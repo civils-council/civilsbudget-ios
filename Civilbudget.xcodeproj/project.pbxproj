@@ -13,6 +13,18 @@
 		0F97F1011F9B3E520043516E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F97F0FF1F9B3E520043516E /* LaunchScreen.storyboard */; };
 		0F97F1021F9B3E520043516E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F97F1001F9B3E520043516E /* Main.storyboard */; };
 		0FC16BB11F9B453F00FCA9BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FC16BB01F9B453F00FCA9BD /* Assets.xcassets */; };
+		0FC16BBA1F9B550500FCA9BD /* BankIdSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */; };
+		0FC16BBD1F9B550500FCA9BD /* ServiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BB81F9B550500FCA9BD /* ServiceSettings.swift */; };
+		0FC16BBF1F9C921A00FCA9BD /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BBE1F9C921A00FCA9BD /* Project.swift */; };
+		0FC16BC11F9C988800FCA9BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC01F9C988800FCA9BD /* User.swift */; };
+		0FC16BC31F9C9EB900FCA9BD /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */; };
+		0FC16BC51F9C9FA400FCA9BD /* Voting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC41F9C9FA400FCA9BD /* Voting.swift */; };
+		0FC16BC61F9C9FA400FCA9BD /* Voting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC41F9C9FA400FCA9BD /* Voting.swift */; };
+		0FC16BC71F9C9FAD00FCA9BD /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BBE1F9C921A00FCA9BD /* Project.swift */; };
+		0FC16BC81F9C9FAF00FCA9BD /* ServiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BB81F9B550500FCA9BD /* ServiceSettings.swift */; };
+		0FC16BC91F9C9FB100FCA9BD /* BankIdSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */; };
+		0FC16BCA1F9C9FB400FCA9BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC01F9C988800FCA9BD /* User.swift */; };
+		0FC16BCB1F9C9FB700FCA9BD /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +48,12 @@
 		0F97F0FF1F9B3E520043516E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F97F1001F9B3E520043516E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0FC16BB01F9B453F00FCA9BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdSession.swift; sourceTree = "<group>"; };
+		0FC16BB81F9B550500FCA9BD /* ServiceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettings.swift; sourceTree = "<group>"; };
+		0FC16BBE1F9C921A00FCA9BD /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		0FC16BC01F9C988800FCA9BD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResult.swift; sourceTree = "<group>"; };
+		0FC16BC41F9C9FA400FCA9BD /* Voting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +114,7 @@
 		0F97F0F51F9B397A0043516E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0FC16BB31F9B546700FCA9BD /* Model */,
 				0F97F0F61F9B39AD0043516E /* AppDelegate.swift */,
 				0F97F0F71F9B39AD0043516E /* ViewController.swift */,
 			);
@@ -150,6 +169,19 @@
 				0FC16BB01F9B453F00FCA9BD /* Assets.xcassets */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		0FC16BB31F9B546700FCA9BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FC16BC41F9C9FA400FCA9BD /* Voting.swift */,
+				0FC16BBE1F9C921A00FCA9BD /* Project.swift */,
+				0FC16BB81F9B550500FCA9BD /* ServiceSettings.swift */,
+				0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */,
+				0FC16BC01F9C988800FCA9BD /* User.swift */,
+				0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F97F0F81F9B39AD0043516E /* AppDelegate.swift in Sources */,
+				0FC16BBD1F9B550500FCA9BD /* ServiceSettings.swift in Sources */,
+				0FC16BC11F9C988800FCA9BD /* User.swift in Sources */,
 				0F97F0F91F9B39AD0043516E /* ViewController.swift in Sources */,
+				0FC16BC31F9C9EB900FCA9BD /* VoteResult.swift in Sources */,
+				0FC16BBF1F9C921A00FCA9BD /* Project.swift in Sources */,
+				0FC16BC51F9C9FA400FCA9BD /* Voting.swift in Sources */,
+				0FC16BBA1F9B550500FCA9BD /* BankIdSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC16BC61F9C9FA400FCA9BD /* Voting.swift in Sources */,
 				0F97F0EB1F9B354A0043516E /* CivilbudgetTests.swift in Sources */,
+				0FC16BCA1F9C9FB400FCA9BD /* User.swift in Sources */,
+				0FC16BC81F9C9FAF00FCA9BD /* ServiceSettings.swift in Sources */,
+				0FC16BCB1F9C9FB700FCA9BD /* VoteResult.swift in Sources */,
+				0FC16BC91F9C9FB100FCA9BD /* BankIdSession.swift in Sources */,
+				0FC16BC71F9C9FAD00FCA9BD /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
