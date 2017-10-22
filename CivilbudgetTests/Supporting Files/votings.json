@@ -1,0 +1,14 @@
+{
+    "votings": [{
+                "id": 1,
+                "status": "active",
+                "title": "string title",
+                "description": "string description",
+                "location": "Cherkasy",
+                "max_votes_count": 4,
+                "date_from": "2017-09-23T18:14:15+00:00",
+                "date_to": "2017-09-25T18:14:15+00:00",
+                "logo": "http://imisto.com.ua/img/logo.png",
+                "background_image": "http://imisto.com.ua/bg.png"
+                }]
+}
