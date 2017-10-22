@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F97F0EB1F9B354A0043516E /* CivilbudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97F0EA1F9B354A0043516E /* CivilbudgetTests.swift */; };
 		0F97F0F81F9B39AD0043516E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97F0F61F9B39AD0043516E /* AppDelegate.swift */; };
 		0F97F0F91F9B39AD0043516E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F97F0F71F9B39AD0043516E /* ViewController.swift */; };
 		0F97F1011F9B3E520043516E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F97F0FF1F9B3E520043516E /* LaunchScreen.storyboard */; };
@@ -25,6 +24,15 @@
 		0FC16BC91F9C9FB100FCA9BD /* BankIdSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */; };
 		0FC16BCA1F9C9FB400FCA9BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC01F9C988800FCA9BD /* User.swift */; };
 		0FC16BCB1F9C9FB700FCA9BD /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */; };
+		0FC16BCE1F9CA57D00FCA9BD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FC16BCD1F9CA57D00FCA9BD /* Info.plist */; };
+		0FC16BD21F9CA83900FCA9BD /* VotingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD11F9CA83900FCA9BD /* VotingTests.swift */; };
+		0FC16BD41F9CAF2500FCA9BD /* projects.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FC16BD31F9CAF2500FCA9BD /* projects.json */; };
+		0FC16BD61F9CD0BD00FCA9BD /* VotingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD51F9CD0BD00FCA9BD /* VotingsList.swift */; };
+		0FC16BD71F9CD0BD00FCA9BD /* VotingsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD51F9CD0BD00FCA9BD /* VotingsList.swift */; };
+		0FC16BD91F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */; };
+		0FC16BDA1F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */; };
+		0FC16BDC1F9CFDFE00FCA9BD /* VotingsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */; };
+		0FC16BDE1F9D00D700FCA9BD /* votings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FC16BDD1F9D00D700FCA9BD /* votings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +48,6 @@
 /* Begin PBXFileReference section */
 		0F97F0D21F9B354A0043516E /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F97F0E61F9B354A0043516E /* CivilbudgetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CivilbudgetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0F97F0EA1F9B354A0043516E /* CivilbudgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CivilbudgetTests.swift; sourceTree = "<group>"; };
-		0F97F0EC1F9B354A0043516E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F97F0F61F9B39AD0043516E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F97F0F71F9B39AD0043516E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F97F0FB1F9B3A6C0043516E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +60,13 @@
 		0FC16BC01F9C988800FCA9BD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResult.swift; sourceTree = "<group>"; };
 		0FC16BC41F9C9FA400FCA9BD /* Voting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voting.swift; sourceTree = "<group>"; };
+		0FC16BCD1F9CA57D00FCA9BD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FC16BD11F9CA83900FCA9BD /* VotingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingTests.swift; sourceTree = "<group>"; };
+		0FC16BD31F9CAF2500FCA9BD /* projects.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = projects.json; sourceTree = "<group>"; };
+		0FC16BD51F9CD0BD00FCA9BD /* VotingsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingsList.swift; sourceTree = "<group>"; };
+		0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsList.swift; sourceTree = "<group>"; };
+		0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingsListTests.swift; sourceTree = "<group>"; };
+		0FC16BDD1F9D00D700FCA9BD /* votings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = votings.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +118,8 @@
 		0F97F0E91F9B354A0043516E /* CivilbudgetTests */ = {
 			isa = PBXGroup;
 			children = (
-				0F97F0EA1F9B354A0043516E /* CivilbudgetTests.swift */,
-				0F97F0EC1F9B354A0043516E /* Info.plist */,
+				0FC16BD01F9CA58F00FCA9BD /* Model */,
+				0FC16BCC1F9CA57D00FCA9BD /* Supporting Files */,
 			);
 			path = CivilbudgetTests;
 			sourceTree = "<group>";
@@ -175,11 +188,32 @@
 			isa = PBXGroup;
 			children = (
 				0FC16BC41F9C9FA400FCA9BD /* Voting.swift */,
+				0FC16BD51F9CD0BD00FCA9BD /* VotingsList.swift */,
 				0FC16BBE1F9C921A00FCA9BD /* Project.swift */,
+				0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */,
 				0FC16BB81F9B550500FCA9BD /* ServiceSettings.swift */,
 				0FC16BB51F9B550500FCA9BD /* BankIdSession.swift */,
 				0FC16BC01F9C988800FCA9BD /* User.swift */,
 				0FC16BC21F9C9EB900FCA9BD /* VoteResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0FC16BCC1F9CA57D00FCA9BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0FC16BDD1F9D00D700FCA9BD /* votings.json */,
+				0FC16BD31F9CAF2500FCA9BD /* projects.json */,
+				0FC16BCD1F9CA57D00FCA9BD /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0FC16BD01F9CA58F00FCA9BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0FC16BD11F9CA83900FCA9BD /* VotingTests.swift */,
+				0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC16BCE1F9CA57D00FCA9BD /* Info.plist in Resources */,
 				0F97F1011F9B3E520043516E /* LaunchScreen.storyboard in Resources */,
 				0FC16BB11F9B453F00FCA9BD /* Assets.xcassets in Resources */,
 				0F97F1021F9B3E520043516E /* Main.storyboard in Resources */,
@@ -277,6 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FC16BDE1F9D00D700FCA9BD /* votings.json in Resources */,
+				0FC16BD41F9CAF2500FCA9BD /* projects.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +329,9 @@
 				0FC16BC11F9C988800FCA9BD /* User.swift in Sources */,
 				0F97F0F91F9B39AD0043516E /* ViewController.swift in Sources */,
 				0FC16BC31F9C9EB900FCA9BD /* VoteResult.swift in Sources */,
+				0FC16BD61F9CD0BD00FCA9BD /* VotingsList.swift in Sources */,
 				0FC16BBF1F9C921A00FCA9BD /* Project.swift in Sources */,
+				0FC16BD91F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */,
 				0FC16BC51F9C9FA400FCA9BD /* Voting.swift in Sources */,
 				0FC16BBA1F9B550500FCA9BD /* BankIdSession.swift in Sources */,
 			);
@@ -303,12 +342,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FC16BC61F9C9FA400FCA9BD /* Voting.swift in Sources */,
-				0F97F0EB1F9B354A0043516E /* CivilbudgetTests.swift in Sources */,
 				0FC16BCA1F9C9FB400FCA9BD /* User.swift in Sources */,
+				0FC16BD71F9CD0BD00FCA9BD /* VotingsList.swift in Sources */,
 				0FC16BC81F9C9FAF00FCA9BD /* ServiceSettings.swift in Sources */,
+				0FC16BDC1F9CFDFE00FCA9BD /* VotingsListTests.swift in Sources */,
 				0FC16BCB1F9C9FB700FCA9BD /* VoteResult.swift in Sources */,
+				0FC16BD21F9CA83900FCA9BD /* VotingTests.swift in Sources */,
 				0FC16BC91F9C9FB100FCA9BD /* BankIdSession.swift in Sources */,
 				0FC16BC71F9C9FAD00FCA9BD /* Project.swift in Sources */,
+				0FC16BDA1F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +509,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75MA7AA7LG;
-				INFOPLIST_FILE = CivilbudgetTests/Info.plist;
+				INFOPLIST_FILE = "CivilbudgetTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.CivilbudgetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,7 +526,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75MA7AA7LG;
-				INFOPLIST_FILE = CivilbudgetTests/Info.plist;
+				INFOPLIST_FILE = "CivilbudgetTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxodnovolyk.CivilbudgetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
