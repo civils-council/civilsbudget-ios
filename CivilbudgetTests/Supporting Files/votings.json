@@ -1,14 +1,56 @@
 {
-    "votings": [{
+    "votings": [
+                {
+                "voted": 3633,
                 "id": 1,
-                "status": "active",
-                "title": "string title",
-                "description": "string description",
-                "location": "Cherkasy",
+                "status": "archived",
+                "title": "виріши долю громадського бюджету міста Полтава на 2017 рік.",
+                "description": "Опис Малих проектів",
+                "max_votes_count": 1,
+                "date_from": "2016-10-17T00:00:00+00:00",
+                "date_to": "2016-10-31T23:59:00+00:00",
+                "logo": "http://zaharcuk.com.ua/bundles/app/img/logo_poltava.png",
+                "background_image": "http://zaharcuk.com.ua/bundles/app/img/homebanner_poltava.png",
+                "location": "ПОЛТАВА"
+                },
+                {
+                "voted": 3434,
+                "id": 2,
+                "status": "archived",
+                "title": "виріши долю громадського бюджету міста Полтава на 2017 рік.\r\n\r\nУ випадку перемоги проект буде реалізовано структурними підрозділами Полтавської  міської ради протягом 2017 року.",
+                "description": "Опис Великих проектів",
+                "max_votes_count": 1,
+                "date_from": "2016-10-17T00:00:00+00:00",
+                "date_to": "2016-10-31T23:59:00+00:00",
+                "logo": "http://zaharcuk.com.ua/bundles/app/img/logo_poltava.png",
+                "background_image": "http://zaharcuk.com.ua/bundles/app/img/homebanner_poltava.png",
+                "location": "ПОЛТАВА"
+                },
+                {
+                "voted": 10527,
+                "id": 3,
+                "status": "archived",
+                "title": "виріши долю громадського бюджету міста Черкас на 2017 рік",
+                "description": "Опис голосувань за Черкаси",
                 "max_votes_count": 4,
-                "date_from": "2017-09-23T18:14:15+00:00",
-                "date_to": "2017-09-25T18:14:15+00:00",
-                "logo": "http://imisto.com.ua/img/logo.png",
-                "background_image": "http://imisto.com.ua/bg.png"
-                }]
+                "date_from": "2016-11-01T00:00:00+00:00",
+                "date_to": "2016-11-14T23:59:00+00:00",
+                "logo": "http://zaharcuk.com.ua/bundles/app/img/logo.png",
+                "background_image": "http://zaharcuk.com.ua/bundles/app/img/homebanner.png",
+                "location": "ЧЕРКАСИ"
+                },
+                {
+                "voted": 0,
+                "id": 5,
+                "status": "future",
+                "title": "виріши долю громадського бюджету міста Черкас на 2018 рік",
+                "description": "Опис голосувань за Черкаси",
+                "max_votes_count": 3,
+                "date_from": "2017-11-01T00:00:00+00:00",
+                "date_to": "2017-11-14T23:59:00+00:00",
+                "logo": "http://zaharcuk.com.ua/bundles/app/img/logo.png",
+                "background_image": "http://zaharcuk.com.ua/bundles/app/img/homebanner.png",
+                "location": "ЧЕРКАСИ"
+                }
+                ]
 }
