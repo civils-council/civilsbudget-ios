@@ -1,25 +1,25 @@
 //
-//  VotingsListTests.swift
+//  ProjectsListTests.swift
 //  CivilbudgetTests
 //
-//  Created by Max Odnovolyk on 10/22/17.
+//  Created by Max Odnovolyk on 10/23/17.
 //  Copyright © 2017 Max Odnovolyk. All rights reserved.
 //
 
 import XCTest
 
-class VotingsListTests: XCTestCase {
+class ProjectsListTests: XCTestCase {
     
     func testDecodeFromJson() {
         let bundle = Bundle(for: type(of: self))
-        let path = bundle.path(forResource: "votings", ofType: "json")!
+        let path = bundle.path(forResource: "projects", ofType: "json")!
         let jsonData = NSData(contentsOfFile: path)! as Data
         
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         
-        let votingsList = try! decoder.decode(VotingsList.self, from: jsonData)
+        let projectsList = try! decoder.decode(ProjectsList.self, from: jsonData)
         
-        XCTAssertEqual(votingsList.items.count, 4)
+        XCTAssertEqual(projectsList.items.count, 106)
     }
 }

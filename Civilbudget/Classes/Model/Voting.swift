@@ -21,6 +21,7 @@ struct Voting: Decodable {
     let title: String
     let description: String?
     let location: String
+    let voted: Int
     let maxVotesCount: Int
     let dateFrom: Date
     let dateTo: Date
@@ -33,6 +34,7 @@ struct Voting: Decodable {
         case title
         case description
         case location
+        case voted
         case maxVotesCount = "max_votes_count"
         case dateFrom = "date_from"
         case dateTo = "date_to"

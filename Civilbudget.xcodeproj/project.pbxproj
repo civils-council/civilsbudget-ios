@@ -33,6 +33,12 @@
 		0FC16BDA1F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */; };
 		0FC16BDC1F9CFDFE00FCA9BD /* VotingsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */; };
 		0FC16BDE1F9D00D700FCA9BD /* votings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FC16BDD1F9D00D700FCA9BD /* votings.json */; };
+		0FC16BF31F9E65A300FCA9BD /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BED1F9E65A300FCA9BD /* ProjectTests.swift */; };
+		0FC16BF41F9E65A300FCA9BD /* ProjectsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BEE1F9E65A300FCA9BD /* ProjectsListTests.swift */; };
+		0FC16BF51F9E65A300FCA9BD /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BEF1F9E65A300FCA9BD /* UserTests.swift */; };
+		0FC16BF61F9E65A300FCA9BD /* BankIdSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BF01F9E65A300FCA9BD /* BankIdSessionTests.swift */; };
+		0FC16BF71F9E65A300FCA9BD /* VoteResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BF11F9E65A300FCA9BD /* VoteResultTests.swift */; };
+		0FC16BF81F9E65A300FCA9BD /* ServiceSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC16BF21F9E65A300FCA9BD /* ServiceSettingsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,12 @@
 		0FC16BD81F9CD0CF00FCA9BD /* ProjectsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsList.swift; sourceTree = "<group>"; };
 		0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingsListTests.swift; sourceTree = "<group>"; };
 		0FC16BDD1F9D00D700FCA9BD /* votings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = votings.json; sourceTree = "<group>"; };
+		0FC16BED1F9E65A300FCA9BD /* ProjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
+		0FC16BEE1F9E65A300FCA9BD /* ProjectsListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsListTests.swift; sourceTree = "<group>"; };
+		0FC16BEF1F9E65A300FCA9BD /* UserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		0FC16BF01F9E65A300FCA9BD /* BankIdSessionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankIdSessionTests.swift; sourceTree = "<group>"; };
+		0FC16BF11F9E65A300FCA9BD /* VoteResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResultTests.swift; sourceTree = "<group>"; };
+		0FC16BF21F9E65A300FCA9BD /* ServiceSettingsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettingsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +226,12 @@
 			children = (
 				0FC16BD11F9CA83900FCA9BD /* VotingTests.swift */,
 				0FC16BDB1F9CFDFE00FCA9BD /* VotingsListTests.swift */,
+				0FC16BED1F9E65A300FCA9BD /* ProjectTests.swift */,
+				0FC16BEE1F9E65A300FCA9BD /* ProjectsListTests.swift */,
+				0FC16BF21F9E65A300FCA9BD /* ServiceSettingsTests.swift */,
+				0FC16BF01F9E65A300FCA9BD /* BankIdSessionTests.swift */,
+				0FC16BEF1F9E65A300FCA9BD /* UserTests.swift */,
+				0FC16BF11F9E65A300FCA9BD /* VoteResultTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,14 +361,20 @@
 			files = (
 				0FC16BC61F9C9FA400FCA9BD /* Voting.swift in Sources */,
 				0FC16BCA1F9C9FB400FCA9BD /* User.swift in Sources */,
+				0FC16BF31F9E65A300FCA9BD /* ProjectTests.swift in Sources */,
+				0FC16BF41F9E65A300FCA9BD /* ProjectsListTests.swift in Sources */,
 				0FC16BD71F9CD0BD00FCA9BD /* VotingsList.swift in Sources */,
+				0FC16BF61F9E65A300FCA9BD /* BankIdSessionTests.swift in Sources */,
 				0FC16BC81F9C9FAF00FCA9BD /* ServiceSettings.swift in Sources */,
 				0FC16BDC1F9CFDFE00FCA9BD /* VotingsListTests.swift in Sources */,
 				0FC16BCB1F9C9FB700FCA9BD /* VoteResult.swift in Sources */,
+				0FC16BF71F9E65A300FCA9BD /* VoteResultTests.swift in Sources */,
+				0FC16BF81F9E65A300FCA9BD /* ServiceSettingsTests.swift in Sources */,
 				0FC16BD21F9CA83900FCA9BD /* VotingTests.swift in Sources */,
 				0FC16BC91F9C9FB100FCA9BD /* BankIdSession.swift in Sources */,
 				0FC16BC71F9C9FAD00FCA9BD /* Project.swift in Sources */,
 				0FC16BDA1F9CD0CF00FCA9BD /* ProjectsList.swift in Sources */,
+				0FC16BF51F9E65A300FCA9BD /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

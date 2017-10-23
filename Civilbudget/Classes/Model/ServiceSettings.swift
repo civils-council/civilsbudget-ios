@@ -11,8 +11,8 @@ import Foundation
 struct ServiceSettings: Decodable {
     
     let bankIdClientId: String
-    let bankIdAuthURL: String
-    let bankIdRedirectURI: String
+    let bankIdAuthURL: URL
+    let bankIdRedirectURI: URL
     
     private enum CodingKeys: String, CodingKey {
         case bankIdClientId = "bi_client_id"
@@ -24,7 +24,7 @@ struct ServiceSettings: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         bankIdClientId = try container.decode(String.self, forKey: .bankIdClientId)
-        bankIdAuthURL = try container.decode(String.self, forKey: .bankIdAuthURL) + "/DataAccessService"
-        bankIdRedirectURI = try container.decode(String.self, forKey: .bankIdRedirectURI)
+        bankIdAuthURL = try container.decode(URL.self, forKey: .bankIdAuthURL).appendingPathComponent("DataAccessService")
+        bankIdRedirectURI = try container.decode(URL.self, forKey: .bankIdRedirectURI)
     }
 }

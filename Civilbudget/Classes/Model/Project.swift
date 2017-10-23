@@ -17,7 +17,7 @@ struct Project: Decodable {
     let picture: URL?
     let createdAt: Date
     let owner: String?
-    let ownerPicture: URL?
+    let ownerAvatar: URL?
     let budget: Int
     var likes: Int
     var voted: Bool
@@ -28,11 +28,11 @@ struct Project: Decodable {
         case description
         case source
         case picture
-        case createdAt
+        case createdAt = "created_at"
         case owner
-        case ownerPicture = "avatar_owner"
+        case ownerAvatar = "owner_avatar"
         case budget = "charge"
         case likes = "likes_count"
-        case voted = "vote"
+        case voted
     }
 }
