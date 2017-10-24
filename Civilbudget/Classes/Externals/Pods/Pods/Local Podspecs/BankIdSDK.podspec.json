@@ -1,0 +1,26 @@
+{
+  "name": "BankIdSDK",
+  "version": "0.1.0",
+  "summary": "Easy and quick way to access Ukrainian BankId System",
+  "description": "To be delivered...",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/BankIdSDK",
+  "license": "MIT",
+  "authors": {
+    "Max Odnovolyk": "modnovolyk@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/BankIdSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "BankIdSDK/Library/BankIdSDK/Classes/**/*",
+  "resources": "BankIdSDK/Library/BankIdSDK/Resources/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 3.1"
+    ]
+  }
+}
