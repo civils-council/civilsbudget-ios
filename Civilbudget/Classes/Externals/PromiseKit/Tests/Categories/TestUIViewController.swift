@@ -11,7 +11,7 @@ class Test_UIViewController_Swift: UIKitTestCase {
         let ex = expectationWithDescription("")
         let p: Promise<Int> = rootvc.promiseViewController(UIViewController(), animate: [])
         p.error { error in
-            if case UIViewController.PMKError.NotPromisable = error {
+            if case UIViewControllerPMKError.NotPromisable = error {
                 ex.fulfill()
             }
         }
@@ -22,7 +22,7 @@ class Test_UIViewController_Swift: UIKitTestCase {
         let ex = expectationWithDescription("")
         let p: Promise<Int> = rootvc.promiseViewController(MockViewController(), animate: [])
         p.error { error in
-            if case UIViewController.PMKError.NilPromisable = error {
+            if case UIViewControllerPMKError.NilPromisable = error {
                 ex.fulfill()
             }
         }
@@ -35,7 +35,7 @@ class Test_UIViewController_Swift: UIKitTestCase {
         my.promise = Promise(true)
         let p: Promise<Int> = rootvc.promiseViewController(my, animate: [])
         p.error { err in
-            if case UIViewController.PMKError.NotGenericallyPromisable = err {
+            if case UIViewControllerPMKError.NotGenericallyPromisable = err {
                 ex.fulfill()
             }
         }

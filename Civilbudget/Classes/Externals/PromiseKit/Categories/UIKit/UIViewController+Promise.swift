@@ -19,15 +19,16 @@ import PromiseKit
 
     import PromiseKit
 */
-extension UIViewController {
 
-    public enum PMKError: ErrorType {
-        case NavigationControllerEmpty
-        case NoImageFound
-        case NotPromisable
-        case NotGenericallyPromisable
-        case NilPromisable
-    }
+public enum UIViewControllerPMKError: ErrorType {
+    case NavigationControllerEmpty
+    case NoImageFound
+    case NotPromisable
+    case NotGenericallyPromisable
+    case NilPromisable
+}
+
+extension UIViewController {
 
     public enum FulfillmentType {
         case OnceDisappeared
@@ -45,7 +46,7 @@ extension UIViewController {
 
         switch vc {
         case let nc as UINavigationController:
-            guard let vc = nc.viewControllers.first else { return Promise(error: PMKError.NavigationControllerEmpty) }
+            guard let vc = nc.viewControllers.first else { return Promise(error: UIViewControllerPMKError.NavigationControllerEmpty) }
             pvc = vc
         default:
             pvc = vc
@@ -54,13 +55,13 @@ extension UIViewController {
         let promise: Promise<T>
 
         if !pvc.conformsToProtocol(Promisable) {
-            promise = Promise(error: PMKError.NotPromisable)
+            promise = Promise(error: UIViewControllerPMKError.NotPromisable)
         } else if let p = pvc.valueForKeyPath("promise") as? Promise<T> {
             promise = p
         } else if let _: AnyObject = pvc.valueForKeyPath("promise") {
-            promise = Promise(error: PMKError.NotGenericallyPromisable)
+            promise = Promise(error: UIViewControllerPMKError.NotGenericallyPromisable)
         } else {
-            promise = Promise(error: PMKError.NilPromisable)
+            promise = Promise(error: UIViewControllerPMKError.NilPromisable)
         }
 
         if !promise.pending {
@@ -105,7 +106,7 @@ extension UIViewController {
             if let img = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 return img
             }
-            throw PMKError.NoImageFound
+            throw UIViewControllerPMKError.NoImageFound
         }.always {
             vc.presentingViewController?.dismissViewControllerAnimated(animated, completion: nil)
         }
@@ -150,20 +151,18 @@ extension UIViewController {
     }
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        reject(UIImagePickerController.Error.Cancelled)
+        reject(UIImagePickerControllerError.Cancelled)
         retainCycle = nil
     }
 }
 
 
-extension UIImagePickerController {
-    public enum Error: CancellableErrorType {
-        case Cancelled
+public enum UIImagePickerControllerError: CancellableErrorType {
+    case Cancelled
 
-        public var cancelled: Bool {
-            switch self {
-                case .Cancelled: return true
-            }
+    public var cancelled: Bool {
+        switch self {
+            case .Cancelled: return true
         }
     }
 }
