@@ -48,7 +48,7 @@ DEPENDENCIES:
   - Fabric
   - KVNProgress (~> 2.2)
   - Locksmith (~> 2.0)
-  - PromiseKit (~> 3.0)
+  - PromiseKit (from `../PromiseKit/`)
   - SCLAlertView (= 0.4.3)
   - SwiftyJSON (~> 2.3)
   - XCGLogger (= 3.1.1)
@@ -56,6 +56,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   BankIdSDK:
     :path: "../BankIdSDK/"
+  PromiseKit:
+    :path: "../PromiseKit/"
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
@@ -69,11 +71,11 @@ SPEC CHECKSUMS:
   KVNProgress: 8167b1f19e2758290c0b6143020ed9dcbb0477a1
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   OMGHTTPURLRQ: edb14c7d28add69226b79d826f930805927a0ffa
-  PromiseKit: d3393df0dfd7ed208cec0267dce13c66d9c09d0a
+  PromiseKit: a22d4410e42daf4b0a27d4f2bb3a7e9a53ee6d5c
   SCLAlertView: a5c726a80a938fd3127edd7dbc19da33fb936ca3
   SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
   XCGLogger: e111a313f609432394c3ae378d99511634fd2e3c
 
-PODFILE CHECKSUM: 4a053a5a5f965e265f9349a3055bfa01ff2e8964
+PODFILE CHECKSUM: 0a5851d31873db5397a6b9dcb9d6e59d2a40f33f
 
 COCOAPODS: 1.1.0
