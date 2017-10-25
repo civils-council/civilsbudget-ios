@@ -18,12 +18,10 @@ class BottomToolbarView: UIView, LoadableView {
     
     struct Constants {
         static let facebookIconSymbol = "\u{f09a}"
-        static let vkontakteIconSymbol = "\u{f189}"
     }
     
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var facebookShareButton: UIButton!
-    @IBOutlet weak var vkontakteShareButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,9 +32,6 @@ class BottomToolbarView: UIView, LoadableView {
         facebookShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
         facebookShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
         facebookShareButton.setTitle(Constants.facebookIconSymbol, forState: .Normal)
-        vkontakteShareButton.setBackgroundImage(CivilbudgetStyleKit.imageOfBottomSocialButtonBackground, forState: .Normal)
-        vkontakteShareButton.setTitleColor(CivilbudgetStyleKit.themeDarkBlue, forState: .Normal)
-        vkontakteShareButton.setTitle(Constants.vkontakteIconSymbol, forState: .Normal)
     }
     
     @IBAction func siteLinkButtonTapped(sender: UIButton) {
@@ -45,10 +40,6 @@ class BottomToolbarView: UIView, LoadableView {
     
     @IBAction func facebookShareButtonTapped(sender: UIButton) {
         openPage(.Facebook)
-    }
-    
-    @IBAction func vkontakteShareButtonTapped(sender: UIButton) {
-        openPage(.VKontakte)
     }
     
     func openPage(link: Link) {

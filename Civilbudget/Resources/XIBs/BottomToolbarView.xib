@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="FontAwesome.otf">
-            <string>FontAwesome</string>
             <string>FontAwesome</string>
         </mutableArray>
     </customFonts>
@@ -17,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9I-mL-w4d">
-                    <rect key="frame" x="55" y="284" width="101" height="32"/>
+                    <rect key="frame" x="54" y="284" width="101" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="imisto.com.ua">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,23 +25,8 @@
                         <action selector="siteLinkButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="UMT-RR-PuH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONY-1D-IMt">
-                    <rect key="frame" x="561" y="278" width="34" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="12l-9e-Eag"/>
-                        <constraint firstAttribute="width" constant="34" id="u0y-wH-eyY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
-                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="1" maxY="-2"/>
-                    <state key="normal">
-                        <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="vkontakteShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="EzJ-Qw-orU"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njj-9P-OMK">
-                    <rect key="frame" x="527" y="278" width="34" height="44"/>
+                    <rect key="frame" x="561" y="278" width="34" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="34" id="YXC-eM-4Co"/>
                         <constraint firstAttribute="height" constant="44" id="hKw-E1-cKn"/>
@@ -56,8 +40,8 @@
                         <action selector="facebookShareButtonTapped:" destination="bUX-Mn-VKf" eventType="touchUpInside" id="IJg-Ut-KvZ"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
-                    <rect key="frame" x="10" y="294" width="42" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0g-0G-2Lw">
+                    <rect key="frame" x="10" y="294" width="41" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -65,24 +49,17 @@
             </subviews>
             <color key="backgroundColor" red="0.318519518" green="0.67200092909999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="ONY-1D-IMt" secondAttribute="centerY" id="9Sv-0X-HMC"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="leading" secondItem="q0g-0G-2Lw" secondAttribute="trailing" constant="3" id="E1p-mx-ScM"/>
                 <constraint firstItem="q0g-0G-2Lw" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" constant="1" id="FL7-tp-x4V"/>
                 <constraint firstItem="K9I-mL-w4d" firstAttribute="centerY" secondItem="bUX-Mn-VKf" secondAttribute="centerY" id="Hyy-xY-4JR"/>
-                <constraint firstItem="ONY-1D-IMt" firstAttribute="centerY" secondItem="K9I-mL-w4d" secondAttribute="centerY" id="S54-kY-Z6h"/>
-                <constraint firstAttribute="trailing" secondItem="ONY-1D-IMt" secondAttribute="trailing" constant="5" id="TTG-L1-aw1">
-                    <variation key="widthClass=regular" constant="14"/>
-                </constraint>
+                <constraint firstAttribute="trailing" secondItem="njj-9P-OMK" secondAttribute="trailing" constant="5" id="Kt5-Q5-8wD"/>
                 <constraint firstItem="q0g-0G-2Lw" firstAttribute="leading" secondItem="bUX-Mn-VKf" secondAttribute="leading" constant="10" id="Vnk-Kf-Lzs">
                     <variation key="widthClass=regular" constant="18"/>
                 </constraint>
-                <constraint firstItem="ONY-1D-IMt" firstAttribute="leading" secondItem="njj-9P-OMK" secondAttribute="trailing" id="gtW-ju-XuS">
-                    <variation key="widthClass=regular" constant="5"/>
-                </constraint>
+                <constraint firstItem="njj-9P-OMK" firstAttribute="centerY" secondItem="K9I-mL-w4d" secondAttribute="centerY" id="z1R-Z5-CAV"/>
             </constraints>
             <connections>
                 <outlet property="facebookShareButton" destination="njj-9P-OMK" id="n8d-Gz-pne"/>
-                <outlet property="vkontakteShareButton" destination="ONY-1D-IMt" id="Tlk-dC-UgD"/>
                 <outlet property="yearLabel" destination="q0g-0G-2Lw" id="O51-ik-eSa"/>
             </connections>
         </view>
