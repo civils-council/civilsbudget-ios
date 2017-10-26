@@ -33,6 +33,10 @@
 		0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */; };
 		0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */; };
 		0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */; };
+		0FB3E4911FA2603D00287264 /* VotingsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3E4901FA2603D00287264 /* VotingsPresentationController.swift */; };
+		0FB3E4931FA260F200287264 /* VotingsTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3E4921FA260F200287264 /* VotingsTransitioningDelegate.swift */; };
+		0FB3E4951FA261B800287264 /* VotingsAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3E4941FA261B800287264 /* VotingsAnimatedTransitioning.swift */; };
+		0FB3E4971FA2766600287264 /* VotingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB3E4961FA2766600287264 /* VotingsViewController.swift */; };
 		0FBF993B1C318E6F0000EB79 /* RoundPullDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBF993A1C318E6F0000EB79 /* RoundPullDownView.swift */; };
 		0FDF98FF1C259A240060D39C /* ProjectCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF98FD1C259A240060D39C /* ProjectCellNode.swift */; };
 		0FDF99001C259A240060D39C /* ProjectsHeaderCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDF98FE1C259A240060D39C /* ProjectsHeaderCellNode.swift */; };
@@ -208,6 +212,10 @@
 		0FB3A2F51C0080E400FEA009 /* CivilbudgetStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CivilbudgetStyleKit.swift; sourceTree = "<group>"; };
 		0FB3A2FC1C00813D00FEA009 /* ProjectsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewModel.swift; sourceTree = "<group>"; };
 		0FB3A2FE1C00816700FEA009 /* ProjectDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewModel.swift; sourceTree = "<group>"; };
+		0FB3E4901FA2603D00287264 /* VotingsPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsPresentationController.swift; sourceTree = "<group>"; };
+		0FB3E4921FA260F200287264 /* VotingsTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsTransitioningDelegate.swift; sourceTree = "<group>"; };
+		0FB3E4941FA261B800287264 /* VotingsAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		0FB3E4961FA2766600287264 /* VotingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsViewController.swift; sourceTree = "<group>"; };
 		0FBF993A1C318E6F0000EB79 /* RoundPullDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundPullDownView.swift; path = Civilbudget/Classes/Projects/RoundPullDownView.swift; sourceTree = SOURCE_ROOT; };
 		0FDF98FD1C259A240060D39C /* ProjectCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCellNode.swift; sourceTree = "<group>"; };
 		0FDF98FE1C259A240060D39C /* ProjectsHeaderCellNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsHeaderCellNode.swift; sourceTree = "<group>"; };
@@ -292,6 +300,15 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		0F786C2A1FA09D51005B1678 /* Votings */ = {
+			isa = PBXGroup;
+			children = (
+				0FB3E48F1FA2603D00287264 /* Presentation */,
+				0FB3E4961FA2766600287264 /* VotingsViewController.swift */,
+			);
+			path = Votings;
+			sourceTree = "<group>";
+		};
 		0F8D18B41BD02C2300B69419 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +387,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0FB3E48F1FA2603D00287264 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				0FB3E4901FA2603D00287264 /* VotingsPresentationController.swift */,
+				0FB3E4941FA261B800287264 /* VotingsAnimatedTransitioning.swift */,
+				0FB3E4921FA260F200287264 /* VotingsTransitioningDelegate.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		0FDF99161C2609650060D39C /* Stretchy View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +457,7 @@
 				0FB3A2F41C0080E400FEA009 /* View */,
 				0F8E2B731C5952A600B868CB /* Common Elements */,
 				0FDF99161C2609650060D39C /* Stretchy View Controller */,
+				0F786C2A1FA09D51005B1678 /* Votings */,
 				0FB3A2ED1C0080E400FEA009 /* Projects */,
 				0FB3A2EB1C0080E400FEA009 /* Project Details */,
 				0F4102D91C0C664500B49D1A /* User Profile */,
@@ -834,6 +862,7 @@
 				0FF5D2921C0A1CE200A4648E /* ProjectsLoadingStateView.swift in Sources */,
 				0FDF99211C2609650060D39C /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				0F3F86B71C0F704D001173F9 /* ServiceSettings.swift in Sources */,
+				0FB3E4951FA261B800287264 /* VotingsAnimatedTransitioning.swift in Sources */,
 				0F40E79C1C5804DC003B5A44 /* ProjectDetailsCollectionController.swift in Sources */,
 				0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */,
 				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
@@ -842,10 +871,13 @@
 				0F8E2B791C595BF600B868CB /* LoadableView.swift in Sources */,
 				0F4102E51C0C666300B49D1A /* UserViewModel.swift in Sources */,
 				0FB3A2F91C0080E400FEA009 /* AlamofireSerialization.swift in Sources */,
+				0FB3E4911FA2603D00287264 /* VotingsPresentationController.swift in Sources */,
 				0F8E2B771C5952A600B868CB /* ActionsSupportProtocols.swift in Sources */,
 				0FDF991F1C2609650060D39C /* StretchyCollectionController.swift in Sources */,
 				0F8E2B641C592F3600B868CB /* UIImage+TintedImage.swift in Sources */,
+				0FB3E4971FA2766600287264 /* VotingsViewController.swift in Sources */,
 				0F8D18C41BD02C2300B69419 /* Project.swift in Sources */,
+				0FB3E4931FA260F200287264 /* VotingsTransitioningDelegate.swift in Sources */,
 				0FDF99201C2609650060D39C /* StretchyHeaderBackgroundImageView.swift in Sources */,
 				0F8E2B7B1C596EC300B868CB /* UIScreen+PixelHeight.swift in Sources */,
 				0FDF99001C259A240060D39C /* ProjectsHeaderCellNode.swift in Sources */,

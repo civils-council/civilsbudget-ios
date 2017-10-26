@@ -21,10 +21,12 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     @IBOutlet var collectionContainerView: UIView!
     @IBOutlet var topToolbarView: UIView!
     
-    var viewModel = ProjectsViewModel()
+    let viewModel = ProjectsViewModel()
     var collectionController: ProjectsCollectionController!
     var collectionView: ASCollectionView!
     var loadingStateView: ProjectsLoadingStateView!
+    
+    let votingsTransitioningDelegate = VotingsTransitioningDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +91,8 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         if let selectedItem = collectionView.indexPathsForSelectedItems()?.last {
             collectionView.deselectItemAtIndexPath(selectedItem, animated: false)
         }
+        
+        presentVotings(animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -99,5 +103,13 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    func presentVotings(animated animated: Bool = true) {
+        let votingsViewController = VotingsViewController()
+        votingsViewController.transitioningDelegate = votingsTransitioningDelegate
+        votingsViewController.modalPresentationStyle = .Custom
+        
+        presentViewController(votingsViewController, animated: animated, completion: nil)
     }
 }
