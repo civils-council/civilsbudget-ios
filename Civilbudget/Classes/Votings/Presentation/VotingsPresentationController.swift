@@ -14,6 +14,7 @@ class VotingsPresentationController: UIPresentationController {
     
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         super.init(presentedViewController:presentedViewController, presentingViewController:presentingViewController)
+        
         chromeView.backgroundColor = UIColor(white:0.0, alpha:0.4)
         chromeView.alpha = 0.0
         
@@ -31,13 +32,14 @@ class VotingsPresentationController: UIPresentationController {
         var presentedViewFrame = CGRectZero
         let containerBounds = containerView!.bounds
         presentedViewFrame.size = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerBounds.size)
-        presentedViewFrame.origin.x = containerBounds.size.width - presentedViewFrame.size.width
         
         return presentedViewFrame
     }
     
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSizeMake(CGFloat((floorf(Float(parentSize.width / 3.0)))), parentSize.height)
+        let width = max(ceil(parentSize.width * CGFloat(0.75)), 290.0)
+            
+        return CGSizeMake(width, parentSize.height)
     }
     
     override func presentationTransitionWillBegin() {
@@ -73,10 +75,12 @@ class VotingsPresentationController: UIPresentationController {
     }
     
     override func shouldPresentInFullscreen() -> Bool {
+        
         return true
     }
     
     override func adaptivePresentationStyle() -> UIModalPresentationStyle {
+        
         return .FullScreen
     }
 }

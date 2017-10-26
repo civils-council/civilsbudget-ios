@@ -10,6 +10,8 @@ import UIKit
 
 class VotingsAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 
+    let defaultAnimationDuration = 0.3
+    
     private let isPresenting: Bool
     
     init(presenting: Bool) {
@@ -20,44 +22,36 @@ class VotingsAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransition
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         
-        return 0.3
+        return defaultAnimationDuration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
+        guard let fromView = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)?.view,
+            let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)?.view,
             let containerView = transitionContext.containerView() else {
                 
                 return
         }
         
-        let fromView = fromViewController.view
-        let toView = toViewController.view
-        
-        
         if isPresenting {
-            containerView.addSubview(toView!)
+            containerView.addSubview(toView)
         }
         
-        let animatingVC = isPresenting ? toViewController : fromViewController
-        let animatingView = animatingVC.view
+        let animatingView = isPresenting ? toView : fromView
         
-        let finalFrameForVC = transitionContext.finalFrameForViewController(animatingVC)
-        var initialFrameForVC = finalFrameForVC
-        initialFrameForVC.origin.x += initialFrameForVC.size.width;
+        var initialFrame = animatingView.frame
+        initialFrame.origin.x = isPresenting ? -initialFrame.width : 0.0
         
-        let initialFrame = isPresenting ? initialFrameForVC : finalFrameForVC
-        let finalFrame = isPresenting ? finalFrameForVC : initialFrameForVC
+        var finalFrame = animatingView.frame
+        finalFrame.origin.x = isPresenting ? 0.0 : -finalFrame.width
         
-        print(finalFrame)
+        animatingView.frame = initialFrame
         
-        animatingView?.frame = initialFrame
-        
-        UIView.animateWithDuration(transitionDuration(transitionContext), delay:0, usingSpringWithDamping:300.0, initialSpringVelocity:5.0, options:UIViewAnimationOptions.AllowUserInteraction, animations:{
-                animatingView?.frame = finalFrame
-            }, completion:{ (value: Bool) in
+        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+                animatingView.frame = finalFrame
+            }, completion: { completed in
                 if !self.isPresenting {
-                    fromView?.removeFromSuperview()
+                    fromView.removeFromSuperview()
                 }
                 transitionContext.completeTransition(true)
         })
