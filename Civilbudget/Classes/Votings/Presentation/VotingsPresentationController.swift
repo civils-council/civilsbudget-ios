@@ -10,12 +10,17 @@ import UIKit
 
 class VotingsPresentationController: UIPresentationController {
     
+    struct Constants {
+        static let minPresentingViewControllerWidth = CGFloat(290.0)
+        static let presentingViewControllerWidth = CGFloat(0.75)
+    }
+    
     let chromeView = UIView()
     
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
         super.init(presentedViewController:presentedViewController, presentingViewController:presentingViewController)
         
-        chromeView.backgroundColor = UIColor(white:0.0, alpha:0.4)
+        chromeView.backgroundColor = UIColor.blackColor().colorWithAlpha(0.4)
         chromeView.alpha = 0.0
         
         let tap = UITapGestureRecognizer(target: self, action: "chromeViewTapped:")
@@ -23,34 +28,36 @@ class VotingsPresentationController: UIPresentationController {
     }
     
     func chromeViewTapped(gesture: UIGestureRecognizer) {
-        if (gesture.state == UIGestureRecognizerState.Ended) {
+        if gesture.state == .Ended {
             presentingViewController.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
     override func frameOfPresentedViewInContainerView() -> CGRect {
+        guard let containerBounds = containerView?.bounds else {
+            return CGRectZero
+        }
+        
         var presentedViewFrame = CGRectZero
-        let containerBounds = containerView!.bounds
         presentedViewFrame.size = sizeForChildContentContainer(presentedViewController, withParentContainerSize: containerBounds.size)
         
         return presentedViewFrame
     }
     
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        let width = max(ceil(parentSize.width * CGFloat(0.75)), 290.0)
+        let width = max(ceil(parentSize.width * Constants.presentingViewControllerWidth), Constants.minPresentingViewControllerWidth)
             
         return CGSizeMake(width, parentSize.height)
     }
     
     override func presentationTransitionWillBegin() {
-        chromeView.frame = self.containerView!.bounds
+        containerView?.insertSubview(chromeView, atIndex:0)
+        
         chromeView.alpha = 0.0
-        containerView!.insertSubview(chromeView, atIndex:0)
-        let coordinator = presentedViewController.transitionCoordinator()
-        if (coordinator != nil) {
-            coordinator!.animateAlongsideTransition({
-                (context:UIViewControllerTransitionCoordinatorContext!) -> Void in
-                self.chromeView.alpha = 1.0
+        
+        if let coordinator = presentedViewController.transitionCoordinator() {
+            coordinator.animateAlongsideTransition({ context in
+                    self.chromeView.alpha = 1.0
                 }, completion:nil)
         } else {
             chromeView.alpha = 1.0
@@ -58,20 +65,21 @@ class VotingsPresentationController: UIPresentationController {
     }
     
     override func dismissalTransitionWillBegin() {
-        let coordinator = presentedViewController.transitionCoordinator()
-        if (coordinator != nil) {
-            coordinator!.animateAlongsideTransition({
-                (context:UIViewControllerTransitionCoordinatorContext!) -> Void in
+        if let coordinator = presentedViewController.transitionCoordinator() {
+            coordinator.animateAlongsideTransition({ context in
                 self.chromeView.alpha = 0.0
-                }, completion:nil)
+            }, completion:nil)
         } else {
             chromeView.alpha = 0.0
         }
     }
     
     override func containerViewWillLayoutSubviews() {
-        chromeView.frame = containerView!.bounds
-        presentedView()!.frame = frameOfPresentedViewInContainerView()
+        if let bounds = containerView?.bounds {
+            chromeView.frame = bounds
+        }
+        
+        presentedView()?.frame = frameOfPresentedViewInContainerView()
     }
     
     override func shouldPresentInFullscreen() -> Bool {
