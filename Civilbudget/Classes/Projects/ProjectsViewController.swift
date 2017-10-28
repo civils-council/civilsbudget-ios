@@ -14,6 +14,7 @@ import UIKit
 class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionContainerSupport, UserProfilePopupSupport {
     struct Constants {
         static let productDetailsViewControllerIdentifier = "detailsViewController"
+        static let votingsViewControllerIdentifier = "votingsViewController"
     }
     
     @IBOutlet var bottomToolbarContainerView: UIView!
@@ -40,6 +41,8 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             loadingStateView.addConstraintsToFitSuperview()
             self.loadingStateView = loadingStateView
         }
+        
+        (topToolbarView as? ProjectsTopToolbarView)?.viewModel.value = viewModel
         
         // Create and configure ASCollectionView
         let layout = StretchyHeaderCollectionViewLayout()
@@ -75,6 +78,10 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }.disposeIn(bnd_bag)
         
+        viewModel.shouldPresentVotingsList.observeNew { [weak self] in
+            self?.presentVotings(animated: true, allowDismiss: true)
+        }.disposeIn(bnd_bag)
+        
         // User Profile button tap
         UserViewModel.currentUser.accountDialog.observeNew { [weak self] value in
             guard let (fullName, handler, sender) = value, sourceView = sender as? UIView, viewController = self
@@ -85,14 +92,18 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         }.disposeIn(bnd_bag)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presentVotings(animated: false, allowDismiss: false)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         if let selectedItem = collectionView.indexPathsForSelectedItems()?.last {
             collectionView.deselectItemAtIndexPath(selectedItem, animated: false)
         }
-        
-        presentVotings(animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,8 +116,9 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         return .LightContent
     }
     
-    func presentVotings(animated animated: Bool = true) {
+    func presentVotings(animated animated: Bool, allowDismiss: Bool) {
         let votingsViewController = VotingsViewController()
+        
         votingsViewController.transitioningDelegate = votingsTransitioningDelegate
         votingsViewController.modalPresentationStyle = .Custom
         

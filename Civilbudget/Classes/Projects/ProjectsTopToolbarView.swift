@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import Bond
 
 class ProjectsTopToolbarView: UIView {
     
+    let viewModel = Observable<ProjectsViewModel?>(nil)
+    
     @IBOutlet var votingsListButton: UIButton!
+    @IBOutlet var votingTitleLabel: UILabel!
+    
+    private var bindBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         votingsListButton.setTitle("\u{f0c9}", forState: .Normal)
-    }
-    
-    @IBAction func votingsListButtonTapped(sender: UIButton) {
-        print("votingsListButtonTapped")
+        
+        viewModel.observeNew { [weak self] viewModel in
+            self?.bindBag = DisposeBag()
+            
+            if let viewModel = viewModel, let strongSelf = self {
+                viewModel.votingTitle.bindTo(strongSelf.votingTitleLabel.bnd_text).disposeIn(strongSelf.bindBag)
+                strongSelf.votingsListButton.bnd_tap.bindTo(viewModel.shouldPresentVotingsList).disposeIn(strongSelf.bindBag)
+            }
+        }
     }
 }

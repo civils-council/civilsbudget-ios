@@ -10,11 +10,13 @@ import Bond
 import Alamofire
 
 class ProjectsViewModel: NSObject {
+    let votingTitle = Observable("Громадський бюджет\n в місті Черкаси 2017")
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let projectListIsEmpty = Observable(true)
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
     let loadingState = Observable(LoadingState.Loaded)
     let collectionViewUserInteractionEnabled = Observable(false)
+    let shouldPresentVotingsList = Observable()
     
     override init() {
         super.init()

@@ -62,9 +62,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="0.85201733732876717" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="votingsListButtonTapped:" destination="WU4-9g-ggs" eventType="touchUpInside" id="C9J-5p-LrS"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -85,7 +82,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outlet property="votingsListButton" destination="k7a-HH-IEZ" id="8gW-wi-sNg"/>
+                                    <outlet property="votingTitleLabel" destination="GTC-gZ-hPH" id="ZYM-Kq-Mt3"/>
+                                    <outlet property="votingsListButton" destination="k7a-HH-IEZ" id="2JO-30-YA4"/>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="450-GG-3Ni">

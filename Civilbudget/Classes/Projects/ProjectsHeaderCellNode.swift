@@ -31,10 +31,14 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var titleTextSize = CGSize.zero
     
+    private var viewModel: ProjectsViewModel!
+    
     var stretchDistance: CGFloat = StretchyCollectionController.Constants.defaultMaxHorizontalBounceDistance
     
     convenience init(viewModel: ProjectsViewModel, height: CGFloat) {
         self.init()
+        
+        self.viewModel = viewModel
         
         // Create node hierarchy
         backgroundNode = ASDisplayNode { () -> UIView in
@@ -48,8 +52,6 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundGradientNode.displaysAsynchronously = false
         addSubnode(backgroundGradientNode)
         
-        titleTextNode.attributedString = NSAttributedString(string: "Громадський бюджет\n в місті Черкаси 2016",
-            attributes: [NSFontAttributeName: Constants.titleFont, NSForegroundColorAttributeName: UIColor.whiteColor()])
         titleTextNode.displaysAsynchronously = false
         addSubnode(titleTextNode)
         
@@ -99,6 +101,12 @@ class ProjectsHeaderCellNode: ASCellNode {
             } else {
                 self.pullDownView.cancelCountdown()
             }
+        }.disposeIn(bnd_bag)
+        
+        viewModel.votingTitle.observe { title in
+            self.titleTextNode.attributedString = NSAttributedString(string: title,
+                                                                     attributes: [NSFontAttributeName: Constants.titleFont,
+                                                                        NSForegroundColorAttributeName: UIColor.whiteColor()])
         }.disposeIn(bnd_bag)
         
         User.currentUser.map({ $0.isNil }).observe { [unowned self] hidden in
@@ -157,6 +165,6 @@ class ProjectsHeaderCellNode: ASCellNode {
     }
     
     func votingsListNodeTapped(sender: ASDisplayNode) {
-        print("votingsListNodeTapped")
+        viewModel.shouldPresentVotingsList.value = ()
     }
 }
