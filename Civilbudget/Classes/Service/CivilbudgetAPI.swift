@@ -10,11 +10,12 @@ import Alamofire
 
 struct CivilbudgetAPI {
     enum Router: URLRequestConvertible {
-        static let rootURL = "https://vote.imisto.com.ua"
+        static let rootURL = "https://test.vote.imisto.com.ua"
         static let baseURLString = "\(rootURL)/api"
         
         case GetSettings
         case Authorize(accessToken: String)
+        case GetVotings
         case GetProjects(clid: String?)
         case GetProject(id: Int)
         case LikeProject(id: Int, clid: String)
@@ -25,6 +26,8 @@ struct CivilbudgetAPI {
                 return "/settings"
             case .Authorize:
                 return "/authorization"
+            case .GetVotings:
+                return "/votings"
             case .GetProjects(_):
                 return "/projects"
             case let .GetProject(id):
@@ -38,7 +41,7 @@ struct CivilbudgetAPI {
             switch self {
             case .LikeProject:
                 return .POST
-            case .GetSettings, .Authorize, .GetProjects, .GetProject:
+            case .GetSettings, .Authorize, .GetVotings, .GetProjects, .GetProject:
                 return .GET
             }
         }

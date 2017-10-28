@@ -33,8 +33,6 @@ class ProjectsCollectionController: StretchyCollectionController {
                 collectionView.reloadSections(NSIndexSet(index: 1))
             }, completion: { _ in })
         }.disposeIn(bnd_bag)
-        
-        viewModel.reloadProjectList()
     }
 }
 

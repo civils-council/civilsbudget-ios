@@ -11,7 +11,16 @@ import Bond
 
 class ProjectsTopToolbarView: UIView {
     
-    let viewModel = Observable<ProjectsViewModel?>(nil)
+    var viewModel: ProjectsViewModel? = nil {
+        didSet {
+            bindBag = DisposeBag()
+            
+            if let viewModel = viewModel {
+                viewModel.votingTitle.bindTo(votingTitleLabel.bnd_text).disposeIn(bindBag)
+                votingsListButton.bnd_tap.bindTo(viewModel.shouldPresentVotingsList).disposeIn(bindBag)
+            }
+        }
+    }
     
     @IBOutlet var votingsListButton: UIButton!
     @IBOutlet var votingTitleLabel: UILabel!
@@ -22,14 +31,5 @@ class ProjectsTopToolbarView: UIView {
         super.awakeFromNib()
         
         votingsListButton.setTitle("\u{f0c9}", forState: .Normal)
-        
-        viewModel.observeNew { [weak self] viewModel in
-            self?.bindBag = DisposeBag()
-            
-            if let viewModel = viewModel, let strongSelf = self {
-                viewModel.votingTitle.bindTo(strongSelf.votingTitleLabel.bnd_text).disposeIn(strongSelf.bindBag)
-                strongSelf.votingsListButton.bnd_tap.bindTo(viewModel.shouldPresentVotingsList).disposeIn(strongSelf.bindBag)
-            }
-        }
     }
 }

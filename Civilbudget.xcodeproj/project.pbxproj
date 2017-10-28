@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		034760A4A90D808EA16FD445 /* Pods_Civilbudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCEFF31828580B4DFCC835D0 /* Pods_Civilbudget.framework */; };
+		0F15C23E1FA4B89A00680BA2 /* VotingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15C23D1FA4B89A00680BA2 /* VotingsViewModel.swift */; };
+		0F15C24D1FA4B90400680BA2 /* VotingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15C24C1FA4B90400680BA2 /* VotingsTableController.swift */; };
+		0F15C24F1FA4BB3B00680BA2 /* VotingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15C24E1FA4BB3B00680BA2 /* VotingTableViewCell.swift */; };
+		0F15C2511FA5259600680BA2 /* LoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F15C2501FA5259600680BA2 /* LoadingStateView.swift */; };
 		0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */; };
 		0F3F86B41C0F62D0001173F9 /* AccessibleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F86B31C0F62D0001173F9 /* AccessibleImageView.swift */; };
 		0F3F86B71C0F704D001173F9 /* ServiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */; };
@@ -51,8 +55,7 @@
 		0FEA40721C0E3F1F001A6B23 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA40711C0E3F1F001A6B23 /* SnapshotHelper.swift */; };
 		0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D27C1C099C5800A4648E /* VoteResult.swift */; };
 		0FF5D28D1C0A007B00A4648E /* UIView+LoadAndConstrainSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D28C1C0A007B00A4648E /* UIView+LoadAndConstrainSubview.swift */; };
-		0FF5D28F1C0A0EC300A4648E /* ProjectsLoadingStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF5D28E1C0A0EC300A4648E /* ProjectsLoadingStateView.xib */; };
-		0FF5D2921C0A1CE200A4648E /* ProjectsLoadingStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */; };
+		0FF5D28F1C0A0EC300A4648E /* LoadingStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF5D28E1C0A0EC300A4648E /* LoadingStateView.xib */; };
 		0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */; };
 		0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FFF70811BBE78500042EC47 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -187,6 +190,10 @@
 
 /* Begin PBXFileReference section */
 		0F052BF01C30577700D2DFA6 /* Civilbudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Civilbudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		0F15C23D1FA4B89A00680BA2 /* VotingsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsViewModel.swift; sourceTree = "<group>"; };
+		0F15C24C1FA4B90400680BA2 /* VotingsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingsTableController.swift; sourceTree = "<group>"; };
+		0F15C24E1FA4BB3B00680BA2 /* VotingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingTableViewCell.swift; sourceTree = "<group>"; };
+		0F15C2501FA5259600680BA2 /* LoadingStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingStateView.swift; sourceTree = "<group>"; };
 		0F3B89261C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoPrefferedLayoutWidthLabel.swift; sourceTree = "<group>"; };
 		0F3F86B31C0F62D0001173F9 /* AccessibleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibleImageView.swift; sourceTree = "<group>"; };
 		0F3F86B61C0F704D001173F9 /* ServiceSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceSettings.swift; sourceTree = "<group>"; };
@@ -232,8 +239,7 @@
 		0FEA40711C0E3F1F001A6B23 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		0FF5D27C1C099C5800A4648E /* VoteResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteResult.swift; sourceTree = "<group>"; };
 		0FF5D28C1C0A007B00A4648E /* UIView+LoadAndConstrainSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LoadAndConstrainSubview.swift"; sourceTree = "<group>"; };
-		0FF5D28E1C0A0EC300A4648E /* ProjectsLoadingStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsLoadingStateView.xib; sourceTree = "<group>"; };
-		0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsLoadingStateView.swift; sourceTree = "<group>"; };
+		0FF5D28E1C0A0EC300A4648E /* LoadingStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingStateView.xib; sourceTree = "<group>"; };
 		0FFF6D941BBE6B890042EC47 /* Civilbudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Civilbudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFF6DAA1BBE784F0042EC47 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FFF70811BBE78500042EC47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -294,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				0F52E81E1C01FD3500C76F62 /* BottomToolbarView.xib */,
-				0FF5D28E1C0A0EC300A4648E /* ProjectsLoadingStateView.xib */,
+				0FF5D28E1C0A0EC300A4648E /* LoadingStateView.xib */,
 				0FE4C5971C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib */,
 			);
 			path = XIBs;
@@ -305,6 +311,9 @@
 			children = (
 				0FB3E48F1FA2603D00287264 /* Presentation */,
 				0FB3E4961FA2766600287264 /* VotingsViewController.swift */,
+				0F15C23D1FA4B89A00680BA2 /* VotingsViewModel.swift */,
+				0F15C24C1FA4B90400680BA2 /* VotingsTableController.swift */,
+				0F15C24E1FA4BB3B00680BA2 /* VotingTableViewCell.swift */,
 			);
 			path = Votings;
 			sourceTree = "<group>";
@@ -326,6 +335,7 @@
 			children = (
 				0F8E2B741C5952A600B868CB /* BottomToolbarView.swift */,
 				0F8E2B751C5952A600B868CB /* ActionsSupportProtocols.swift */,
+				0F15C2501FA5259600680BA2 /* LoadingStateView.swift */,
 			);
 			path = "Common Elements";
 			sourceTree = "<group>";
@@ -351,7 +361,6 @@
 				0FDF98FD1C259A240060D39C /* ProjectCellNode.swift */,
 				0FDF98FE1C259A240060D39C /* ProjectsHeaderCellNode.swift */,
 				0FBF993A1C318E6F0000EB79 /* RoundPullDownView.swift */,
-				0FF5D2911C0A1CE200A4648E /* ProjectsLoadingStateView.swift */,
 				0F786C1A1FA0965B005B1678 /* ProjectsTopToolbarView.swift */,
 			);
 			path = Projects;
@@ -761,7 +770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F52E81B1C01FC8500C76F62 /* LaunchScreen.storyboard in Resources */,
-				0FF5D28F1C0A0EC300A4648E /* ProjectsLoadingStateView.xib in Resources */,
+				0FF5D28F1C0A0EC300A4648E /* LoadingStateView.xib in Resources */,
 				0FE4C5981C05C04100B3B66E /* ProjectDetailsCollectionViewCell.xib in Resources */,
 				0FFF71511BBE78500042EC47 /* Images.xcassets in Resources */,
 				0F52E81F1C01FD3500C76F62 /* BottomToolbarView.xib in Resources */,
@@ -853,18 +862,21 @@
 				0FDF99111C25DE840060D39C /* ProjectsCollectionController.swift in Sources */,
 				0FB3A2FD1C00813D00FEA009 /* ProjectsViewModel.swift in Sources */,
 				0FB3A2F81C0080E400FEA009 /* ProjectsViewController.swift in Sources */,
+				0F15C24D1FA4B90400680BA2 /* VotingsTableController.swift in Sources */,
 				0F432B861C5A45B000D76F79 /* ASImageManager.swift in Sources */,
 				0FF5D27D1C099C5800A4648E /* VoteResult.swift in Sources */,
 				0F3B89271C07238E00BF817E /* AutoPrefferedLayoutWidthLabel.swift in Sources */,
+				0F15C23E1FA4B89A00680BA2 /* VotingsViewModel.swift in Sources */,
 				0FFF70841BBE78500042EC47 /* AppDelegate.swift in Sources */,
 				0FB3A2FF1C00816700FEA009 /* ProjectDetailsViewModel.swift in Sources */,
 				0FB3A2FA1C0080E400FEA009 /* CivilbudgetAPI.swift in Sources */,
-				0FF5D2921C0A1CE200A4648E /* ProjectsLoadingStateView.swift in Sources */,
 				0FDF99211C2609650060D39C /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				0F3F86B71C0F704D001173F9 /* ServiceSettings.swift in Sources */,
 				0FB3E4951FA261B800287264 /* VotingsAnimatedTransitioning.swift in Sources */,
 				0F40E79C1C5804DC003B5A44 /* ProjectDetailsCollectionController.swift in Sources */,
+				0F15C2511FA5259600680BA2 /* LoadingStateView.swift in Sources */,
 				0FE4C5AC1C05EA5400B3B66E /* ProjectDetailsHeaderReusableView.swift in Sources */,
+				0F15C24F1FA4BB3B00680BA2 /* VotingTableViewCell.swift in Sources */,
 				0FB3A2F61C0080E400FEA009 /* ProjectDetailsViewController.swift in Sources */,
 				0FB3A2FB1C0080E400FEA009 /* CivilbudgetStyleKit.swift in Sources */,
 				0FE4C5A41C05C1C500B3B66E /* ProjectDetailsCollectionViewCell.swift in Sources */,

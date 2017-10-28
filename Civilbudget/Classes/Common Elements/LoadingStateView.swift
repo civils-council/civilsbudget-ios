@@ -1,5 +1,5 @@
 //
-//  ProjectsLoadingStateView.swift
+//  LoadingStateView.swift
 //  Civilbudget
 //
 //  Created by Max Odnovolyk on 11/28/15.
@@ -9,7 +9,7 @@
 import UIKit
 import Bond
 
-class ProjectsLoadingStateView: UIView, LoadableView {
+class LoadingStateView: UIView, LoadableView {
     @IBOutlet weak var loadingFailedContainerView: UIView!
     @IBOutlet weak var loadingErrorLabel: UILabel!
     @IBOutlet weak var reloadButton: UIButton!

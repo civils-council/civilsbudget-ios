@@ -7,12 +7,12 @@
 //
 
 import Bond
-import Alamofire
 import AsyncDisplayKit
 import UIKit
 
 class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionContainerSupport, UserProfilePopupSupport {
     struct Constants {
+        static let storyboardName = "Main"
         static let productDetailsViewControllerIdentifier = "detailsViewController"
         static let votingsViewControllerIdentifier = "votingsViewController"
     }
@@ -25,7 +25,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     let viewModel = ProjectsViewModel()
     var collectionController: ProjectsCollectionController!
     var collectionView: ASCollectionView!
-    var loadingStateView: ProjectsLoadingStateView!
+    var loadingStateView: LoadingStateView!
     
     let votingsTransitioningDelegate = VotingsTransitioningDelegate()
     
@@ -36,13 +36,15 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         configureCollectionContainer()
         
         // Load ProjectsLoadingState view
-        if let loadingStateView = UIView.loadFirstViewFromNibNamed(ProjectsLoadingStateView.defaultNibName) as? ProjectsLoadingStateView {
+        if let loadingStateView = UIView.loadFirstViewFromNibNamed(LoadingStateView.defaultNibName) as? LoadingStateView {
             loadingStateContainerView.addSubview(loadingStateView)
             loadingStateView.addConstraintsToFitSuperview()
             self.loadingStateView = loadingStateView
         }
         
-        (topToolbarView as? ProjectsTopToolbarView)?.viewModel.value = viewModel
+        if let topToolbarView = topToolbarView as? ProjectsTopToolbarView {
+            topToolbarView.viewModel = viewModel
+        }
         
         // Create and configure ASCollectionView
         let layout = StretchyHeaderCollectionViewLayout()
@@ -72,7 +74,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         
         // Did select Project handler
         viewModel.selectedProjectDetailsViewModel.observeNew { [weak self] viewModel in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name:Constants.storyboardName, bundle: nil)
             let detailsViewController = storyboard.instantiateViewControllerWithIdentifier(Constants.productDetailsViewControllerIdentifier) as! ProjectDetailsViewController
             detailsViewController.viewModel = viewModel
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
@@ -95,7 +97,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        presentVotings(animated: false, allowDismiss: false)
+        presentVotings(animated: false, allowDismiss: true)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -117,12 +119,18 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     }
     
     func presentVotings(animated animated: Bool, allowDismiss: Bool) {
-        let votingsViewController = VotingsViewController()
+        let storyboard = UIStoryboard(name:Constants.storyboardName, bundle: nil)
+        
+        guard let votingsNavigationController = storyboard.instantiateViewControllerWithIdentifier(Constants.votingsViewControllerIdentifier) as? UINavigationController,
+              let votingsViewController = votingsNavigationController.topViewController as? VotingsViewController else {
+            
+            return
+        }
         
         votingsTransitioningDelegate.allowChromeDismiss = allowDismiss
-        votingsViewController.transitioningDelegate = votingsTransitioningDelegate
-        votingsViewController.modalPresentationStyle = .Custom
+        votingsNavigationController.transitioningDelegate = votingsTransitioningDelegate
+        votingsNavigationController.modalPresentationStyle = .Custom
         
-        presentViewController(votingsViewController, animated: animated, completion: nil)
+        navigationController?.presentViewController(votingsNavigationController, animated: animated, completion: nil)
     }
 }

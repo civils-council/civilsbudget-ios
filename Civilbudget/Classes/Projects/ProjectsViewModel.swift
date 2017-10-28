@@ -10,11 +10,16 @@ import Bond
 import Alamofire
 
 class ProjectsViewModel: NSObject {
-    let votingTitle = Observable("Громадський бюджет\n в місті Черкаси 2017")
+    
+    struct Constanst {
+        static let loadingState = LoadingState.Loading(label: "Завантаження проектів")
+    }
+    
+    let votingTitle = Observable("")
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let projectListIsEmpty = Observable(true)
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
-    let loadingState = Observable(LoadingState.Loaded)
+    let loadingState = Observable(Constanst.loadingState)
     let collectionViewUserInteractionEnabled = Observable(false)
     let shouldPresentVotingsList = Observable()
     
@@ -35,16 +40,14 @@ class ProjectsViewModel: NSObject {
         combineLatest(loadingState, projectListIsEmpty)
             .map({ $0.0 == .Loaded || !$0.1})
             .bindTo(collectionViewUserInteractionEnabled)
-        
-        reloadProjectList()
     }
     
     func reloadProjectList() {
-        if loadingState.value == .Loading(label: nil) {
+        if loadingState.value == Constanst.loadingState {
             return
         }
         
-        loadingState.value = .Loading(label: "Завантаження проектів")
+        loadingState.value = Constanst.loadingState
         Alamofire.request(CivilbudgetAPI.Router.GetProjects(clid: User.currentUser.value?.clid))
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {

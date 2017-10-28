@@ -125,11 +125,69 @@
                         <outlet property="loadingStateContainerView" destination="jXW-wf-ocx" id="ky2-I9-k9L"/>
                         <outlet property="topToolbarView" destination="WU4-9g-ggs" id="jtj-fY-dqT"/>
                         <segue destination="PeF-nS-mhY" kind="show" identifier="showProjectDetailsIdentifier" id="BwJ-Vg-l9i"/>
+                        <segue destination="sM1-Tt-16T" kind="presentation" identifier="showVotingsIdentifier" id="Pz8-p5-67u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="951" y="220"/>
+        </scene>
+        <!--Оберіть місто та проект-->
+        <scene sceneID="bV0-1f-890">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNh-sN-nRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="lLQ-e4-S3B" customClass="VotingsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZFz-kG-JBR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="votingCellIdentifier" id="w8s-d6-S5a">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w8s-d6-S5a" id="SDT-A3-aRQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Cell Prototyle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN8-V9-0BN">
+                                            <rect key="frame" x="122" y="11" width="167" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sN8-V9-0BN" firstAttribute="leading" secondItem="SDT-A3-aRQ" secondAttribute="leading" constant="122" id="6QH-4a-Kv4"/>
+                                        <constraint firstItem="sN8-V9-0BN" firstAttribute="centerY" secondItem="SDT-A3-aRQ" secondAttribute="centerY" id="oo8-ol-R5Y"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lLQ-e4-S3B" id="oB8-El-w9A"/>
+                            <outlet property="delegate" destination="lLQ-e4-S3B" id="7MZ-Cc-Cs6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Оберіть місто та проект" id="2KO-uH-ddM"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1750" y="-833"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f63-vc-bvb">
+            <objects>
+                <navigationController storyboardIdentifier="votingsViewController" id="sM1-Tt-16T" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmr-6K-ibK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lLQ-e4-S3B" kind="relationship" relationship="rootViewController" id="R63-Lu-WV8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xDH-yN-DgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="-833"/>
         </scene>
         <!--Project Details View Controller-->
         <scene sceneID="ASt-0B-YGf">
