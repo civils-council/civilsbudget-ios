@@ -10,9 +10,11 @@ import UIKit
 
 class VotingsTransitioningDelegate: NSObject, UIViewControllerTransitioningDelegate {
     
+    var allowChromeDismiss = true
+    
     func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
     
-        return VotingsPresentationController(presentedViewController:presented, presentingViewController:presenting)
+        return VotingsPresentationController(presentedViewController:presented, presentingViewController:presenting, allowChromeDismiss: allowChromeDismiss)
     }
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

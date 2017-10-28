@@ -27,6 +27,12 @@ class VotingsPresentationController: UIPresentationController {
         chromeView.addGestureRecognizer(tap)
     }
     
+    convenience init(presentedViewController: UIViewController, presentingViewController: UIViewController, allowChromeDismiss: Bool) {
+        self.init(presentedViewController:presentedViewController, presentingViewController:presentingViewController)
+        
+        chromeView.userInteractionEnabled = allowChromeDismiss
+    }
+    
     func chromeViewTapped(gesture: UIGestureRecognizer) {
         if gesture.state == .Ended {
             presentingViewController.dismissViewControllerAnimated(true, completion: nil)

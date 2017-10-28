@@ -119,6 +119,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     func presentVotings(animated animated: Bool, allowDismiss: Bool) {
         let votingsViewController = VotingsViewController()
         
+        votingsTransitioningDelegate.allowChromeDismiss = allowDismiss
         votingsViewController.transitioningDelegate = votingsTransitioningDelegate
         votingsViewController.modalPresentationStyle = .Custom
         
