@@ -21,6 +21,9 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
     @IBOutlet var loadingStateContainerView: UIView!
     @IBOutlet var collectionContainerView: UIView!
     @IBOutlet var topToolbarView: UIView!
+    @IBOutlet var votingsListButton: UIButton!
+    @IBOutlet var votingTitleLabel: UILabel!
+    
     
     let viewModel = ProjectsViewModel()
     var collectionController: ProjectsCollectionController!
@@ -42,9 +45,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             self.loadingStateView = loadingStateView
         }
         
-        if let topToolbarView = topToolbarView as? ProjectsTopToolbarView {
-            topToolbarView.viewModel = viewModel
-        }
+        votingsListButton.setTitle("\u{f0c9}", forState: .Normal)
         
         // Create and configure ASCollectionView
         let layout = StretchyHeaderCollectionViewLayout()
@@ -64,6 +65,8 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         collectionController.toolbarAlpha.bindTo(topToolbarView.bnd_alpha)
         viewModel.collectionViewUserInteractionEnabled.bindTo(collectionView.bnd_userInteractionEnabled)
         combineLatest(viewModel.loadingState, viewModel.projectListIsEmpty).bindTo(loadingStateView.state)
+        loadingStateView.bnd_hidden.bindTo(loadingStateContainerView.bnd_hidden)
+        viewModel.votingTitle.bindTo(votingTitleLabel.bnd_text)
         
         // Actions
         
@@ -80,7 +83,8 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             self?.navigationController?.pushViewController(detailsViewController, animated: true)
         }.disposeIn(bnd_bag)
         
-        viewModel.shouldPresentVotingsList.observeNew { [weak self] in
+        // Open Votings Side List
+        votingsListButton.bnd_tap.observeNew { [weak self] in
             self?.presentVotings(animated: true, allowDismiss: true)
         }.disposeIn(bnd_bag)
         
@@ -92,10 +96,6 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             }
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }.disposeIn(bnd_bag)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
         
         presentVotings(animated: false, allowDismiss: true)
     }

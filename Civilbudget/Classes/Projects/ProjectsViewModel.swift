@@ -13,15 +13,15 @@ class ProjectsViewModel: NSObject {
     
     struct Constanst {
         static let loadingState = LoadingState.Loading(label: "Завантаження проектів")
+        static let noDataState = LoadingState.NoData(label: "Список проектів порожній")
     }
     
     let votingTitle = Observable("")
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let projectListIsEmpty = Observable(true)
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
-    let loadingState = Observable(Constanst.loadingState)
+    let loadingState = Observable(Constanst.noDataState)
     let collectionViewUserInteractionEnabled = Observable(false)
-    let shouldPresentVotingsList = Observable()
     
     override init() {
         super.init()
@@ -53,7 +53,7 @@ class ProjectsViewModel: NSObject {
                 switch response.result {
                 case let .Success(projects):
                     self?.projects.array.last?.array = projects
-                    let state = projects.isEmpty ? LoadingState.NoData(label: "Список проектів порожній") : LoadingState.Loaded
+                    let state = projects.isEmpty ? Constanst.noDataState : LoadingState.Loaded
                     self?.loadingState.value = state
                     self?.projectListIsEmpty.value = projects.isEmpty
                 case let .Failure(error):

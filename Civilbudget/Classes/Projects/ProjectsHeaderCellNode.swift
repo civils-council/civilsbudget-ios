@@ -22,7 +22,6 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var backgroundNode: ASDisplayNode!
     private var backgroundGradientNode = ASImageNode()
-    private let votingsListNode = ASButtonNode()
     private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASImageNode()
     private let titleTextNode = ASTextNode()
@@ -31,14 +30,10 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     private var titleTextSize = CGSize.zero
     
-    private var viewModel: ProjectsViewModel!
-    
     var stretchDistance: CGFloat = StretchyCollectionController.Constants.defaultMaxHorizontalBounceDistance
     
     convenience init(viewModel: ProjectsViewModel, height: CGFloat) {
         self.init()
-        
-        self.viewModel = viewModel
         
         // Create node hierarchy
         backgroundNode = ASDisplayNode { () -> UIView in
@@ -78,19 +73,6 @@ class ProjectsHeaderCellNode: ASCellNode {
         userProfileNode.hitTestSlop = Constants.userProfileButtonTapzoneInset
         userProfileNode.displaysAsynchronously = false
         addSubnode(userProfileNode)
-
-        let hamburgerIcon = NSAttributedString(string: "\u{f0c9}",
-                                               attributes: [NSFontAttributeName: Constants.fontAwesome,
-                                                            NSForegroundColorAttributeName: UIColor.whiteColor()])
-        let hamburgerIconHighlighted = NSAttributedString(string: "\u{f0c9}",
-                                                          attributes: [NSFontAttributeName: Constants.fontAwesome,
-                                                                       NSForegroundColorAttributeName: UIColor(white: 0.7, alpha: 1.0)])
-        votingsListNode.setAttributedTitle(hamburgerIcon, forState: ASButtonStateNormal)
-        votingsListNode.setAttributedTitle(hamburgerIconHighlighted, forState: ASButtonStateHighlighted)
-        votingsListNode.addTarget(self, action: "votingsListNodeTapped:", forControlEvents: .TouchUpInside)
-        votingsListNode.hitTestSlop = Constants.votingsListButtonTapzoneInset
-        votingsListNode.displaysAsynchronously = false
-        addSubnode(votingsListNode)
         
         // Add bindings
         stretchedFrame.observeNew { [unowned self] frame in
@@ -125,7 +107,6 @@ class ProjectsHeaderCellNode: ASCellNode {
         self.titleTextSize = titleTextSize
         
         userProfileNode.measure(constrainedSize)
-        votingsListNode.measure(constrainedSize)
         
         return constrainedSize
     }
@@ -138,8 +119,6 @@ class ProjectsHeaderCellNode: ASCellNode {
         let titleVerticalCenter = CGFloat(0.8)
         let userProfileVerticalCenter = CGFloat(0.175)
         let userProfileRightPadding = CGFloat(9.0)
-        let votingsListVerticalCenter = CGFloat(0.156)
-        let votingsListRightPadding = CGFloat(4.0)
         
         backgroundNode.frame = bounds
         backgroundGradientNode.frame = bounds
@@ -154,17 +133,9 @@ class ProjectsHeaderCellNode: ASCellNode {
         userProfileNode.frame = CGRect(origin: .zero, size: userProfileNode.calculatedSize)
         userProfileNode.view.center = CGPoint(x: bounds.width - userProfileNode.frame.width / 2.0 - userProfileRightPadding,
             y: bounds.height * userProfileVerticalCenter)
-        
-        votingsListNode.frame = CGRect(origin: .zero, size: votingsListNode.calculatedSize)
-        votingsListNode.view.center = CGPoint(x: userProfileNode.frame.width / 2.0 + votingsListRightPadding,
-            y: bounds.height * votingsListVerticalCenter)
     }
     
     func userProfileNodeTapped(sender: ASDisplayNode) {        
         UserViewModel.currentUser.presentAccountDialog(sender.view)
-    }
-    
-    func votingsListNodeTapped(sender: ASDisplayNode) {
-        viewModel.shouldPresentVotingsList.value = ()
     }
 }

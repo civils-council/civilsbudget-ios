@@ -10,7 +10,7 @@ import UIKit
 
 class VotingsAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 
-    let defaultAnimationDuration = 0.3
+    let defaultAnimationDuration = 0.25
     
     private let isPresenting: Bool
     

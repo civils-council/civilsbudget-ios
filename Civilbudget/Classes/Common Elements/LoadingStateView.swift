@@ -32,7 +32,8 @@ class LoadingStateView: UIView, LoadableView {
 
         // Configure bindings
         state.observeNew { [weak self] state in
-            self?.superview?.hidden = true
+            self?.hidden = true
+            self?.bnd_hidden.value = true
             
             if !state.isEmpty {
                 return
@@ -42,18 +43,22 @@ class LoadingStateView: UIView, LoadableView {
             self?.loadingContainerView.hidden = true
             switch state.loading {
             case let .Loading(label):
-                self?.superview?.hidden = false
+                self?.hidden = false
                 self?.loadingLabel.text = label
                 self?.loadingContainerView.hidden = false
             case let .Failure(description):
-                self?.superview?.hidden = false
+                self?.hidden = false
                 self?.loadingErrorLabel.text = description
                 self?.loadingFailedContainerView.hidden = false
             case let .NoData(description):
-                self?.superview?.hidden = false
+                self?.hidden = false
                 self?.loadingErrorLabel.text = description
                 self?.loadingFailedContainerView.hidden = false
             default: break
+            }
+            
+            if let strongSelf = self {
+                self?.bnd_hidden.value = strongSelf.hidden
             }
         }.disposeIn(bnd_bag)
         

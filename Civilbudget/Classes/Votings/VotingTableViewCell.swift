@@ -10,5 +10,13 @@ import UIKit
 
 class VotingTableViewCell: UITableViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     
+    var viewModel: VotingViewModel? = nil {
+        didSet {
+            titleLabel.text = viewModel?.title
+            locationLabel.text = viewModel?.location
+        }
+    }
 }

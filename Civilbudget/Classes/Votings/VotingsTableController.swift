@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import Bond
 
 class VotingsTableController: NSObject {
     
-    let cellIdentifier = "votingCellIdentifier"
+    private let cellIdentifier = "votingCellIdentifier"
+    
+    private weak var tableView: UITableView?
+    private var votings: ObservableArray<Voting>
     
     init(tableView: UITableView, viewModel: VotingsViewModel) {
+        self.tableView = tableView
+        self.votings = viewModel.votings
         
+        super.init()
+        
+        tableView.dataSource = self
+        
+        votings.observeNew { [weak self] arrayEvent in
+            guard let tableView = self?.tableView else {
+                return
+            }
+            
+            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+        }.disposeIn(bnd_bag)
     }
 }
 
@@ -24,11 +41,15 @@ extension VotingsTableController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return votings.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
+        
+        if let cell = cell as? VotingTableViewCell {
+            cell.viewModel = VotingViewModel(voting: votings[indexPath.row])
+        }
         
         return cell
     }

@@ -19,17 +19,14 @@ class VotingsViewController: UITableViewController {
         super.viewDidLoad()
         
         configureLoadingStateView()
+        configurePullDownToRefresh()
         
         tableController = VotingsTableController(tableView: tableView, viewModel: viewModel)
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.bnd_controlEvent.filter({ $0 == .ValueChanged }).observeNew { _ in
-            print("Load something")
-        }.disposeIn(bnd_bag)
+        viewModel.loadVotingsList()
     }
     
     func configureLoadingStateView() {
-        
         if let loadingStateView = UIView.loadFirstViewFromNibNamed(LoadingStateView.defaultNibName) as? LoadingStateView,
            let navigationController = navigationController {
             
@@ -40,14 +37,28 @@ class VotingsViewController: UITableViewController {
             
             navigationController.view.insertSubview(loadingStateView, belowSubview: navigationBar)
             loadingStateView.addConstraintsToFitSuperview(UIEdgeInsets(top: topOffset, left: 0.0, bottom: 0.0, right: 0.0))
+            
             self.loadingStateView = loadingStateView
         }
         
-        combineLatest(viewModel.loadingState, viewModel.projectListIsEmpty).bindTo(loadingStateView.state)
+        combineLatest(viewModel.loadingState, viewModel.votingsListIsEmpty).bindTo(loadingStateView.state)
         
         loadingStateView.reloadButtonTap.observeNew { [weak self] in
-            self?.viewModel.reloadVotingsList()
+            self?.viewModel.loadVotingsList()
         }.disposeIn(bnd_bag)
+    }
+    
+    func configurePullDownToRefresh() {
+        refreshControl = UIRefreshControl()
+        refreshControl?.bnd_controlEvent.filter({ $0 == .ValueChanged }).observeNew { [weak self] _ in
+            self?.viewModel.loadVotingsList()
+        }.disposeIn(bnd_bag)
+        
+        viewModel.loadingState.map({ !($0 == VotingsViewModel.Constanst.loadingState) }).observeNew { [weak self] shouldStop in
+            if shouldStop {
+                self?.refreshControl?.endRefreshing()
+            }
+        }
     }
     
     deinit {
