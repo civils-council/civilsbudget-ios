@@ -85,10 +85,11 @@ class ProjectsHeaderCellNode: ASCellNode {
             }
         }.disposeIn(bnd_bag)
         
-        viewModel.votingTitle.observe { title in
-            self.titleTextNode.attributedString = NSAttributedString(string: title,
-                                                                     attributes: [NSFontAttributeName: Constants.titleFont,
+        viewModel.votingTitle.observe { [weak self] title in
+            self?.titleTextNode.attributedString = NSAttributedString(string: title,
+                                                                      attributes: [NSFontAttributeName: Constants.titleFont,
                                                                         NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self?.setNeedsLayout()
         }.disposeIn(bnd_bag)
         
         User.currentUser.map({ $0.isNil }).observe { [unowned self] hidden in

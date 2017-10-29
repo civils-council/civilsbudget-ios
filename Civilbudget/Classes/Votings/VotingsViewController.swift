@@ -12,18 +12,36 @@ import Bond
 class VotingsViewController: UITableViewController {
     
     let viewModel = VotingsViewModel()
+    let selectedVotingViewModel = Observable<VotingViewModel?>(nil)
     var tableController: VotingsTableController!
     var loadingStateView: LoadingStateView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationItems()
         configureLoadingStateView()
         configurePullDownToRefresh()
         
-        tableController = VotingsTableController(tableView: tableView, viewModel: viewModel)
+        tableController = VotingsTableController(tableView: tableView, viewModel: viewModel, selectedVoting: selectedVotingViewModel.value)
         
         viewModel.loadVotingsList()
+    }
+    
+    func configureNavigationItems() {
+        if let _ = selectedVotingViewModel.value {
+            let closeButton = UIButton(type: .System)
+            closeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 24.0)
+            closeButton.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 2.0, right: 0.0)
+            closeButton.setTitle("\u{00d7}", forState: .Normal)
+            closeButton.sizeToFit()
+            
+            closeButton.bnd_tap.observeNew { [weak self] _ in
+                self?.dismissViewControllerAnimated(true, completion: nil)
+            }.disposeIn(bnd_bag)
+            
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
+        }
     }
     
     func configureLoadingStateView() {
@@ -59,6 +77,13 @@ class VotingsViewController: UITableViewController {
                 self?.refreshControl?.endRefreshing()
             }
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let votingCell = tableView.cellForRowAtIndexPath(indexPath) as? VotingTableViewCell
+        selectedVotingViewModel.value = votingCell?.viewModel
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     deinit {

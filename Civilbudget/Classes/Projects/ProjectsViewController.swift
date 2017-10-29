@@ -97,7 +97,7 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
             self?.presentUserProfilePopupWithFullName(fullName, sourceView: sourceView, logoutHandler: handler)
         }.disposeIn(bnd_bag)
         
-        presentVotings(animated: false, allowDismiss: true)
+        presentVotings(animated: false, allowDismiss: false)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -130,6 +130,9 @@ class ProjectsViewController: UIViewController, ToolbarsSupport, CollectionConta
         votingsTransitioningDelegate.allowChromeDismiss = allowDismiss
         votingsNavigationController.transitioningDelegate = votingsTransitioningDelegate
         votingsNavigationController.modalPresentationStyle = .Custom
+        
+        votingsViewController.selectedVotingViewModel.value = viewModel.selectedVoting.value
+        votingsViewController.selectedVotingViewModel.skip(1).bindTo(viewModel.selectedVoting).disposeIn(votingsViewController.bnd_bag)
         
         navigationController?.presentViewController(votingsNavigationController, animated: animated, completion: nil)
     }

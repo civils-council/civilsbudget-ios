@@ -22,6 +22,9 @@ class ProjectsViewModel: NSObject {
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
     let loadingState = Observable(Constanst.noDataState)
     let collectionViewUserInteractionEnabled = Observable(false)
+    let selectedVoting = Observable<VotingViewModel?>(nil)
+    
+    private weak var currentRequest: Request? = nil
     
     override init() {
         super.init()
@@ -40,6 +43,17 @@ class ProjectsViewModel: NSObject {
         combineLatest(loadingState, projectListIsEmpty)
             .map({ $0.0 == .Loaded || !$0.1})
             .bindTo(collectionViewUserInteractionEnabled)
+        
+        selectedVoting.observeNew { [weak self] voting in
+            if let voting = voting {
+                self?.projects.array.last?.array = []
+                self?.projectListIsEmpty.value = true
+                    
+                self?.loadProjectList(voting: voting)
+            }
+        }.disposeIn(bnd_bag)
+        
+        selectedVoting.map({ $0?.title ?? "" }).bindTo(votingTitle)
     }
     
     func reloadProjectList() {
@@ -47,8 +61,16 @@ class ProjectsViewModel: NSObject {
             return
         }
         
+        if let selectedVoting = selectedVoting.value {
+            loadProjectList(voting: selectedVoting)
+        }
+    }
+    
+    func loadProjectList(voting voting: VotingViewModel) {
+        currentRequest?.cancel()
+        
         loadingState.value = Constanst.loadingState
-        Alamofire.request(CivilbudgetAPI.Router.GetProjects(clid: User.currentUser.value?.clid))
+        currentRequest = Alamofire.request(CivilbudgetAPI.Router.GetProjects(votingId: voting.id))
             .responseCollection { [weak self] (response: Response<[Project], NSError>) in
                 switch response.result {
                 case let .Success(projects):

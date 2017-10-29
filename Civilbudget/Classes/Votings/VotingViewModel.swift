@@ -10,11 +10,19 @@ import Foundation
 
 struct VotingViewModel {
     
+    let id: Int
     let title: String
     let location: String?
     
     init(voting: Voting) {
+        id = voting.id
         title = voting.title
         location = voting.location?.lowercaseString.capitalizedString
     }
+}
+
+extension VotingViewModel: Equatable { }
+
+func ==(lhs: VotingViewModel, rhs: VotingViewModel) -> Bool {
+    return lhs.id == rhs.id
 }

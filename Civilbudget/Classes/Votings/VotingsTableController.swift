@@ -15,10 +15,12 @@ class VotingsTableController: NSObject {
     
     private weak var tableView: UITableView?
     private var votings: ObservableArray<Voting>
+    private var selectedVoting: VotingViewModel?
     
-    init(tableView: UITableView, viewModel: VotingsViewModel) {
+    init(tableView: UITableView, viewModel: VotingsViewModel, selectedVoting: VotingViewModel?) {
         self.tableView = tableView
         self.votings = viewModel.votings
+        self.selectedVoting = selectedVoting
         
         super.init()
         
@@ -30,6 +32,14 @@ class VotingsTableController: NSObject {
             }
             
             tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            
+            if let selectedVoting = self?.selectedVoting,
+               votings = self?.votings.array,
+               selectedIndex = votings.indexOf({ $0.id == selectedVoting.id }) {
+                    
+                self?.tableView?.selectRowAtIndexPath(NSIndexPath(forRow: selectedIndex, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.None)
+            
+            }
         }.disposeIn(bnd_bag)
     }
 }

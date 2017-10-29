@@ -68,7 +68,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7a-HH-IEZ">
-                                <rect key="frame" x="4" y="21" width="26" height="42"/>
+                                <rect key="frame" x="4" y="23" width="26" height="42"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="9" maxX="16" maxY="13"/>
                                 <state key="normal">
@@ -100,7 +100,7 @@
                             <constraint firstAttribute="trailing" secondItem="JAf-WG-GgX" secondAttribute="trailing" id="4Vi-95-SwK"/>
                             <constraint firstItem="k7a-HH-IEZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="4" id="DB6-Pt-d40"/>
                             <constraint firstAttribute="trailing" secondItem="jXW-wf-ocx" secondAttribute="trailing" id="G5L-WW-6eB"/>
-                            <constraint firstItem="k7a-HH-IEZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="LJU-ga-jye"/>
+                            <constraint firstItem="k7a-HH-IEZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="LJU-ga-jye"/>
                             <constraint firstItem="WU4-9g-ggs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="MOU-GA-evp"/>
                             <constraint firstAttribute="trailing" secondItem="450-GG-3Ni" secondAttribute="trailing" id="RDH-dq-KAk"/>
                             <constraint firstItem="450-GG-3Ni" firstAttribute="top" secondItem="JAf-WG-GgX" secondAttribute="bottom" id="Yln-Cl-fle"/>
@@ -131,7 +131,6 @@
         <!--Оберіть місто та проект-->
         <scene sceneID="bV0-1f-890">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fNh-sN-nRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="lLQ-e4-S3B" customClass="VotingsViewController" customModule="Civilbudget" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZFz-kG-JBR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -148,13 +147,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN8-V9-0BN">
                                             <rect key="frame" x="10" y="-2" width="34" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2IF-Sa-efb">
                                             <rect key="frame" x="10" y="19" width="66" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -178,6 +177,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Оберіть місто та проект" id="2KO-uH-ddM"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNh-sN-nRj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1750" y="-833"/>
         </scene>
