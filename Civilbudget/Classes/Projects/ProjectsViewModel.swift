@@ -87,7 +87,7 @@ class ProjectsViewModel: NSObject {
     
     func projectViewModelForIndexPath(indexPath: NSIndexPath) -> ProjectDetailsViewModel {
         let project = projects.array.last?[indexPath.row]
-        return ProjectDetailsViewModel(project: project!)
+        return ProjectDetailsViewModel(voting: selectedVoting.value!, project: project!)
     }
     
     func selectProjectWithIndexPath(indexPath: NSIndexPath) {

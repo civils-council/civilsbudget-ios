@@ -18,7 +18,7 @@ struct CivilbudgetAPI {
         case GetVotings
         case GetProjects(votingId: Int)
         case GetProject(votingId: Int, projectId: Int)
-        case LikeProject(id: Int, clid: String)
+        case Vote(votingId: Int, projectId: Int)
         
         var path: String {
             switch self {
@@ -32,14 +32,14 @@ struct CivilbudgetAPI {
                 return "/votings/\(votingId)/projects"
             case let .GetProject(votingId, projectId):
                 return "/votings/\(votingId)/projects/\(projectId)"
-            case let .LikeProject(id, _):
-                return "/projects/\(id)/like"
+            case let .Vote(votingId, projectId):
+                return "/votings/\(votingId)/projects/\(projectId)/vote"
             }
         }
         
         var method:  Alamofire.Method {
             switch self {
-            case .LikeProject:
+            case .Vote:
                 return .POST
             case .GetSettings, .Authorize, .GetVotings, .GetProjects, .GetProject:
                 return .GET
@@ -54,8 +54,6 @@ struct CivilbudgetAPI {
             switch self {
             case let .Authorize(accessToken):
                 return Alamofire.ParameterEncoding.URL.encode(request, parameters: ["code": accessToken]).0
-            case let .LikeProject(_, clid):
-                return Alamofire.ParameterEncoding.JSON.encode(request, parameters: ["clid": clid]).0
             default:
                 return request
             }

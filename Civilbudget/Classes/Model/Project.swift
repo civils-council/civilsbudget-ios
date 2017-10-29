@@ -60,10 +60,10 @@ extension Project: ResponseObjectSerializable, ResponseCollectionSerializable {
         self.source = representation.valueForKeyPath("source") as? String
         self.picture = representation.valueForKeyPath("picture") as? String
         self.createdAt = Project.dateFormatter.dateFromString((representation.valueForKeyPath("createdAt") as? String) ?? "")
-        self.likes = (representation.valueForKeyPath("likes_count") as? Int) ?? 0
+        self.likes = (representation.valueForKeyPath("voted") as? Int) ?? 0
         self.owner = representation.valueForKeyPath("owner") as? String
         self.budget = representation.valueForKeyPath("charge") as? Int
-        self.voted = (representation.valueForKeyPath("vote") as? Bool) ?? false
+        self.voted = (representation.valueForKeyPath("is_voted") as? Bool) ?? false
     }
     
     static func collection(response response: NSHTTPURLResponse, representation: AnyObject) throws -> [Project] {

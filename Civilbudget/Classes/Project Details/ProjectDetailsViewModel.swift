@@ -27,6 +27,7 @@ class ProjectDetailsViewModel: NSObject {
         return formatter
     }()
     
+    let voting: VotingViewModel!
     let project: Project!
     
     let pictureURL = Observable<NSURL?>(nil)
@@ -45,7 +46,8 @@ class ProjectDetailsViewModel: NSObject {
     let authorizationWithCompletion: Observable<(AuthorizationResult -> Void)?> = Observable(nil)
     let userAlertWithData = Observable((type: SCLAlertViewStyle.Success, title: "", message: ""))
     
-    init(project: Project) {
+    init(voting: VotingViewModel, project: Project) {
+        self.voting = voting
         self.project = project
         
         super.init()
@@ -86,7 +88,7 @@ class ProjectDetailsViewModel: NSObject {
         loadingIndicatorVisible.value = true
         
         firstly {
-            voteProject(project.id, withClid: User.currentUser.value!.clid)
+            voteProject(votingId: voting.id, projectId: project.id)
         }.then { (voteResult: VoteResult) -> Void in
             if voteResult.isSuccessful {
                 var mutableProject = self.project
@@ -205,9 +207,9 @@ extension ProjectDetailsViewModel {
         }
     }
     
-    private func voteProject(projectId: Int, withClid clid: String) -> Promise<VoteResult> {
+    private func voteProject(votingId votingId: Int, projectId: Int) -> Promise<VoteResult> {
         return Promise { fulfill, reject in
-            Alamofire.request(CivilbudgetAPI.Router.LikeProject(id: projectId, clid: clid))
+            Alamofire.request(CivilbudgetAPI.Router.Vote(votingId: votingId, projectId: projectId))
                 .responseObject { (response: Response<VoteResult, NSError>) in
                     guard let voteResult = response.result.value else {
                         reject(response.result.error!)
