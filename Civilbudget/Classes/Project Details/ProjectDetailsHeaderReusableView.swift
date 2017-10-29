@@ -23,6 +23,7 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var supportButton: UIButton!
     @IBOutlet weak var userProfileButton: UIButton!
+    @IBOutlet weak var endDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,5 +65,7 @@ class ProjectDetailsHeaderReusableView: UICollectionReusableView {
         userProfileButton.bnd_tap.observeNew { [weak self] in
             UserViewModel.currentUser.presentAccountDialog(self?.userProfileButton)
         }.disposeIn(bnd_bag)
+        
+        endDateLabel.text = viewModel.voting.endDate
     }
 }

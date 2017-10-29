@@ -349,6 +349,7 @@
                                             <connections>
                                                 <outlet property="budgetLabel" destination="jM5-eK-XhY" id="daX-XK-K2Z"/>
                                                 <outlet property="endDateContainerView" destination="k3y-NR-ZOu" id="pmj-BC-KUQ"/>
+                                                <outlet property="endDateLabel" destination="fmu-dp-Luy" id="F7f-tY-QRY"/>
                                                 <outlet property="pictureImageView" destination="LfG-wT-4d8" id="lzW-3g-cmT"/>
                                                 <outlet property="supportButton" destination="AcN-pX-olV" id="gIb-ZJ-zSa"/>
                                                 <outlet property="supportedByContainerView" destination="gFx-lY-Hpc" id="4cs-Nk-qdd"/>

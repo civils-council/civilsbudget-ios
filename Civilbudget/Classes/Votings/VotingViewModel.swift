@@ -13,16 +13,27 @@ struct VotingViewModel {
     let id: Int
     let title: String
     let location: String?
+    let endDate: String
     
     init(voting: Voting) {
         id = voting.id
         title = voting.title
         location = voting.location?.lowercaseString.capitalizedString
+        endDate = VotingViewModel.endDateFormatter.stringFromDate(voting.dateTo)
     }
 }
 
-extension VotingViewModel: Equatable { }
-
-func ==(lhs: VotingViewModel, rhs: VotingViewModel) -> Bool {
-    return lhs.id == rhs.id
+extension VotingViewModel {
+    
+    static var endDateFormatter: NSDateFormatter {
+        let formatterDictionaryKey = "EndVotingDateFormatterKey"
+        let threadDictionary = NSThread.currentThread().threadDictionary
+        var formatter = threadDictionary[formatterDictionaryKey] as? NSDateFormatter
+        if formatter.isNil {
+            formatter = NSDateFormatter()
+            formatter!.dateFormat = "dd.MM.YY"
+            threadDictionary[formatterDictionaryKey] = formatter!
+        }
+        return formatter!
+    }
 }
