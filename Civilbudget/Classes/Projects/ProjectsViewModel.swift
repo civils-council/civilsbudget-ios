@@ -17,6 +17,7 @@ class ProjectsViewModel: NSObject {
     }
     
     let votingTitle = Observable("")
+    let votingLogo = Observable<NSURL?>(nil)
     let projects = ObservableArray([ObservableArray<Project>([]), ObservableArray<Project>([])])
     let projectListIsEmpty = Observable(true)
     let selectedProjectDetailsViewModel = Observable<ProjectDetailsViewModel?>(nil)
@@ -54,6 +55,7 @@ class ProjectsViewModel: NSObject {
         }.disposeIn(bnd_bag)
         
         selectedVoting.map({ $0?.title ?? "" }).bindTo(votingTitle)
+        selectedVoting.map({ $0?.logo }).bindTo(votingLogo)
     }
     
     func reloadProjectList() {

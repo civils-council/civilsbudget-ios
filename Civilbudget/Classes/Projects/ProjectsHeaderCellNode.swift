@@ -23,7 +23,7 @@ class ProjectsHeaderCellNode: ASCellNode {
     private var backgroundNode: ASDisplayNode!
     private var backgroundGradientNode = ASImageNode()
     private var pullDownNode: ASDisplayNode!
-    private let logoImageNode = ASImageNode()
+    private let logoImageNode = ASNetworkImageNode(cache: ASImageManger.sharedInstance, downloader: ASImageManger.sharedInstance)
     private let titleTextNode = ASTextNode()
     private let userProfileNode = ASButtonNode()
     private var pullDownView: RoundPullDownView!
@@ -47,7 +47,9 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundGradientNode.displaysAsynchronously = false
         addSubnode(backgroundGradientNode)
         
+        titleTextNode.maximumNumberOfLines = 2
         titleTextNode.displaysAsynchronously = false
+        titleTextNode.truncationMode = .ByWordWrapping
         addSubnode(titleTextNode)
         
         pullDownNode = ASDisplayNode { [unowned self] () -> UIView in
@@ -63,7 +65,9 @@ class ProjectsHeaderCellNode: ASCellNode {
         
         addSubnode(pullDownNode)
         
-        logoImageNode.image = UIImage(named: "ProjectsHeaderLogo")!
+        logoImageNode.defaultImage = UIImage(named: "ProjectsHeaderLogo")!
+        logoImageNode.clipsToBounds = true
+        logoImageNode.contentMode = .ScaleAspectFill
         logoImageNode.displaysAsynchronously = false
         addSubnode(logoImageNode)
         
@@ -85,11 +89,20 @@ class ProjectsHeaderCellNode: ASCellNode {
             }
         }.disposeIn(bnd_bag)
         
-        viewModel.votingTitle.observe { [weak self] title in
+        viewModel.votingTitle.observeNew { [weak self] title in
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .Center
+            
             self?.titleTextNode.attributedString = NSAttributedString(string: title,
                                                                       attributes: [NSFontAttributeName: Constants.titleFont,
+                                                                        NSParagraphStyleAttributeName: paragraphStyle,
                                                                         NSForegroundColorAttributeName: UIColor.whiteColor()])
+            
             self?.setNeedsLayout()
+        }.disposeIn(bnd_bag)
+        
+        viewModel.votingLogo.observeNew { [weak self] logo in
+            self?.logoImageNode.URL = logo
         }.disposeIn(bnd_bag)
         
         User.currentUser.map({ $0.isNil }).observe { [unowned self] hidden in
@@ -99,12 +112,12 @@ class ProjectsHeaderCellNode: ASCellNode {
     
     override func calculateSizeThatFits(constrainedSize: CGSize) -> CGSize {
         logoImageNode.measure(constrainedSize)
-        titleTextNode.measure(constrainedSize)
+        titleTextNode.measure(CGSize(width: constrainedSize.width - 70.0, height: constrainedSize.height))
         
         // Round title size to prevent image misaligning
         var titleTextSize = titleTextNode.calculatedSize
-        titleTextSize.width = ceil(titleTextSize.width)
-        titleTextSize.height = ceil(titleTextSize.height)
+        titleTextSize.width = ceil(titleTextSize.width) + 1.0
+        titleTextSize.height = ceil(titleTextSize.height) + 1.0
         self.titleTextSize = titleTextSize
         
         userProfileNode.measure(constrainedSize)
@@ -121,10 +134,12 @@ class ProjectsHeaderCellNode: ASCellNode {
         let userProfileVerticalCenter = CGFloat(0.175)
         let userProfileRightPadding = CGFloat(9.0)
         
+        let logoSize = CGSize(width: 107, height: 107)
+        
         backgroundNode.frame = bounds
         backgroundGradientNode.frame = bounds
         
-        logoImageNode.frame = CGRect(origin: .zero, size: logoImageNode.calculatedSize)
+        logoImageNode.frame = CGRect(origin: .zero, size: logoSize)
         logoImageNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * logoVerticalCenter)
         pullDownNode.view.center = logoImageNode.view.center
         

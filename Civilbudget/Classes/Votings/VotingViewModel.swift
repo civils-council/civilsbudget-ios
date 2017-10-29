@@ -14,12 +14,14 @@ struct VotingViewModel {
     let title: String
     let location: String?
     let endDate: String
+    let logo: NSURL?
     
     init(voting: Voting) {
         id = voting.id
         title = voting.title
         location = voting.location?.lowercaseString.capitalizedString
         endDate = VotingViewModel.endDateFormatter.stringFromDate(voting.dateTo)
+        logo = voting.logo
     }
 }
 
