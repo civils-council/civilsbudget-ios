@@ -85,8 +85,4 @@ class VotingsViewController: UITableViewController {
         
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    deinit {
-        print("Deinit")
-    }
 }
