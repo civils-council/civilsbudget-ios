@@ -12,7 +12,7 @@ import AsyncDisplayKit
 class ProjectsHeaderCellNode: ASCellNode {
     struct Constants {
         static let titleFont = UIFont(name: "HelveticaNeue", size: 24.0)!
-        static let fontAwesome = UIFont(name: "FontAwesome", size: 20.0)!
+        static let locationFont = UIFont(name: "HelveticaNeue-Light", size: 20.0)!
         static let pullCircleRadius = CGFloat(55)
         static let userProfileButtonTapzoneInset = UIEdgeInsets(top: -12.0, left: -12.0, bottom: -12.0, right: -12.0)
         static let votingsListButtonTapzoneInset = UIEdgeInsets(top: -22.0, left: -22.0, bottom: -22.0, right: -22.0)
@@ -24,11 +24,13 @@ class ProjectsHeaderCellNode: ASCellNode {
     private var backgroundGradientNode = ASImageNode()
     private var pullDownNode: ASDisplayNode!
     private let logoImageNode = ASNetworkImageNode(cache: ASImageManger.sharedInstance, downloader: ASImageManger.sharedInstance)
+    private let locationTextNode = ASTextNode()
     private let titleTextNode = ASTextNode()
     private let userProfileNode = ASButtonNode()
     private var pullDownView: RoundPullDownView!
     
     private var titleTextSize = CGSize.zero
+    private var locationTextSize = CGSize.zero
     
     var stretchDistance: CGFloat = StretchyCollectionController.Constants.defaultMaxHorizontalBounceDistance
     
@@ -46,6 +48,10 @@ class ProjectsHeaderCellNode: ASCellNode {
         backgroundGradientNode.image = UIImage(named: "ProjectsHeaderGradient")
         backgroundGradientNode.displaysAsynchronously = false
         addSubnode(backgroundGradientNode)
+        
+        locationTextNode.maximumNumberOfLines = 1
+        locationTextNode.displaysAsynchronously = false
+        addSubnode(locationTextNode)
         
         titleTextNode.maximumNumberOfLines = 2
         titleTextNode.displaysAsynchronously = false
@@ -105,6 +111,14 @@ class ProjectsHeaderCellNode: ASCellNode {
             self?.logoImageNode.URL = logo
         }.disposeIn(bnd_bag)
         
+        viewModel.votingLocation.observeNew { [weak self] location in
+            self?.locationTextNode.attributedString = NSAttributedString(string: location,
+                                                                         attributes: [NSFontAttributeName: Constants.locationFont,
+                                                                                      NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlpha(0.8)])
+            
+            self?.setNeedsLayout()
+        }
+        
         User.currentUser.map({ $0.isNil }).observe { [unowned self] hidden in
             self.userProfileNode.hidden = hidden
         }.disposeIn(bnd_bag)
@@ -113,12 +127,18 @@ class ProjectsHeaderCellNode: ASCellNode {
     override func calculateSizeThatFits(constrainedSize: CGSize) -> CGSize {
         logoImageNode.measure(constrainedSize)
         titleTextNode.measure(CGSize(width: constrainedSize.width - 70.0, height: constrainedSize.height))
+        locationTextNode.measure(constrainedSize)
         
         // Round title size to prevent image misaligning
         var titleTextSize = titleTextNode.calculatedSize
         titleTextSize.width = ceil(titleTextSize.width) + 1.0
         titleTextSize.height = ceil(titleTextSize.height) + 1.0
         self.titleTextSize = titleTextSize
+        
+        var locationTextSize = locationTextNode.calculatedSize
+        locationTextSize.width = ceil(locationTextSize.width) + 1.0
+        locationTextSize.height = ceil(locationTextSize.height) + 1.0
+        self.locationTextSize = locationTextSize
         
         userProfileNode.measure(constrainedSize)
         
@@ -130,7 +150,8 @@ class ProjectsHeaderCellNode: ASCellNode {
         
         // Select percents that will not misalign images
         let logoVerticalCenter = CGFloat(0.375)
-        let titleVerticalCenter = CGFloat(0.8)
+        let titleVerticalCenter = CGFloat(0.85)
+        let locationVerticalCenter = CGFloat(0.69)
         let userProfileVerticalCenter = CGFloat(0.175)
         let userProfileRightPadding = CGFloat(9.0)
         
@@ -145,6 +166,9 @@ class ProjectsHeaderCellNode: ASCellNode {
         
         titleTextNode.frame = CGRect(origin: .zero, size: titleTextSize)
         titleTextNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * titleVerticalCenter)
+        
+        locationTextNode.frame = CGRect(origin: .zero, size: locationTextSize)
+        locationTextNode.view.center = CGPoint(x: bounds.width / 2.0, y: bounds.height * locationVerticalCenter)
         
         userProfileNode.frame = CGRect(origin: .zero, size: userProfileNode.calculatedSize)
         userProfileNode.view.center = CGPoint(x: bounds.width - userProfileNode.frame.width / 2.0 - userProfileRightPadding,
