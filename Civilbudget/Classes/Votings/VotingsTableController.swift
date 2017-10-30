@@ -46,7 +46,7 @@ class VotingsTableController: NSObject {
                let sections = self?.sections.value,
                let selectedIndexPath = self?.indexPathFor(selectedVoting, within: sections) {
                     
-                self?.tableView?.selectRowAtIndexPath(selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+                self?.tableView?.selectRowAtIndexPath(selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
             
             }
         }.disposeIn(bnd_bag)
