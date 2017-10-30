@@ -19,6 +19,7 @@ class VotingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationBar()
         configureNavigationItems()
         configureLoadingStateView()
         configurePullDownToRefresh()
@@ -28,10 +29,20 @@ class VotingsViewController: UITableViewController {
         viewModel.loadVotingsList()
     }
     
+    func configureNavigationBar() {
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barTintColor = CivilbudgetStyleKit.themeDarkBlue
+            navigationBar.barStyle = .Black
+            navigationBar.translucent = false
+            navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        }
+    }
+    
     func configureNavigationItems() {
         if let _ = selectedVotingViewModel.value {
             let closeButton = UIButton(type: .System)
             closeButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 24.0)
+            closeButton.setTitleColor(.whiteColor(), forState: .Normal)
             closeButton.contentEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 2.0, right: 0.0)
             closeButton.setTitle("\u{00d7}", forState: .Normal)
             closeButton.sizeToFit()
