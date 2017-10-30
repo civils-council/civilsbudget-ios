@@ -82,3 +82,32 @@ extension Voting: ResponseObjectSerializable, ResponseCollectionSerializable {
         return representation.flatMap { try! Voting(response: response, representation: $0) }
     }
 }
+
+extension VotingStatus {
+    
+    var title: String {
+        switch self {
+        case .Active:
+            return "Активні голосування"
+        case .Archived:
+            return "Архів"
+        case .Future:
+            return "Майбутні голосування"
+        case .Other:
+            return "Інші голосування"
+        }
+    }
+    
+    var sortingIndex: Int {
+        switch self {
+        case .Future:
+            return 0
+        case .Active:
+            return 1
+        case .Archived:
+            return 2
+        case .Other:
+            return 3
+        }
+    }
+}

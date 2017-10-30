@@ -9,13 +9,19 @@
 import UIKit
 import Bond
 
+struct VotingGroup {
+    let status: VotingStatus
+    let items: [Voting]
+}
+
 class VotingsTableController: NSObject {
     
     private let cellIdentifier = "votingCellIdentifier"
     
     private weak var tableView: UITableView?
-    private var votings: ObservableArray<Voting>
-    private var selectedVoting: VotingViewModel?
+    private let votings: ObservableArray<Voting>
+    private let sections = Observable<[VotingGroup]>([])
+    private let selectedVoting: VotingViewModel?
     
     init(tableView: UITableView, viewModel: VotingsViewModel, selectedVoting: VotingViewModel?) {
         self.tableView = tableView
@@ -26,39 +32,72 @@ class VotingsTableController: NSObject {
         
         tableView.dataSource = self
         
-        votings.observeNew { [weak self] arrayEvent in
+        votings.map(groupVotings).bindTo(sections)
+
+        sections.observeNew { [weak self] arrayEvent in
             guard let tableView = self?.tableView else {
                 return
             }
             
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            //tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
+            tableView.reloadData()
             
             if let selectedVoting = self?.selectedVoting,
-               votings = self?.votings.array,
-               selectedIndex = votings.indexOf({ $0.id == selectedVoting.id }) {
+               let sections = self?.sections.value,
+               let selectedIndexPath = self?.indexPathFor(selectedVoting, within: sections) {
                     
-                self?.tableView?.selectRowAtIndexPath(NSIndexPath(forRow: selectedIndex, inSection: 0), animated: false, scrollPosition: UITableViewScrollPosition.None)
+                self?.tableView?.selectRowAtIndexPath(selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
             
             }
         }.disposeIn(bnd_bag)
+    }
+    
+    func groupVotings(event: ObservableArrayEvent<Array<Voting>>) -> [VotingGroup] {
+        let votings = event.sequence
+        var groupedVotings: [VotingStatus: [Voting]] = [:]
+        
+        votings.forEach { voting in
+            if case nil = groupedVotings[voting.status]?.append(voting) {
+                groupedVotings[voting.status] = [voting]
+            }
+        }
+        
+        let groups = groupedVotings.map { VotingGroup(status: $0.0, items: $0.1) }
+        let sortedGroups = groups.sort { $0.0.status.sortingIndex < $0.1.status.sortingIndex }
+        
+        return sortedGroups
+    }
+    
+    func indexPathFor(selectedVoting: VotingViewModel, within sections: [VotingGroup]) -> NSIndexPath? {
+        for (sectionIndex, section) in sections.enumerate() {
+            if let rowIndex = section.items.indexOf({ $0.id == selectedVoting.id }) {
+                return NSIndexPath(forRow: rowIndex, inSection: sectionIndex)
+            }
+        }
+        
+        return nil
     }
 }
 
 extension VotingsTableController: UITableViewDataSource {
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return sections.value.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return votings.count
+        return sections.value[section].items.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections.value[section].status.title
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         if let cell = cell as? VotingTableViewCell {
-            cell.viewModel = VotingViewModel(voting: votings[indexPath.row])
+            cell.viewModel = VotingViewModel(voting: sections.value[indexPath.section].items[indexPath.row])
         }
         
         return cell
