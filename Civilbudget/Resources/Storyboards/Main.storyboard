@@ -148,7 +148,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyj-eS-t8Y">
                                             <rect key="frame" x="8" y="8" width="584" height="124"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-My-abO">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-My-abO" customClass="AccessibleImageView" customModule="Civilbudget" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="584" height="124"/>
                                                     <color key="backgroundColor" white="0.69883948559999998" alpha="1" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -177,7 +177,7 @@
                                             <color key="shadowColor" white="0.0" alpha="0.5040667808219178" colorSpace="calibratedWhite"/>
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-TA-7Ju">
+                                        <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cR-TA-7Ju" customClass="AccessibleImageView" customModule="Civilbudget" customModuleProvider="target">
                                             <rect key="frame" x="12" y="12" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Gth-NB-wUp"/>

@@ -5,6 +5,12 @@
 //  Created by Felix Krause on 10/8/15.
 //  Copyright © 2015 Felix Krause. All rights reserved.
 //
+// -----------------------------------------------------
+// IMPORTANT: When modifying this file, make sure to
+//            increment the version number at the very
+//            bottom of the file to notify users about
+//            the new SnapshotHelper.swift
+// -----------------------------------------------------
 
 import Foundation
 import XCTest
@@ -56,4 +62,4 @@ class Snapshot: NSObject {
 
 // Please don't remove the lines below
 // They are used to detect outdated configuration files
-// SnapshotHelperVersion [[1.0]]
+// SnapshotHelperVersion [[1.6]]
