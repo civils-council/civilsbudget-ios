@@ -11,8 +11,7 @@ import UIKit
 class VotingsPresentationController: UIPresentationController {
     
     struct Constants {
-        static let minPresentingViewControllerWidth = CGFloat(290.0)
-        static let presentingViewControllerWidth = CGFloat(0.75)
+        static let rightPresentingGap = CGFloat(33.0)
     }
     
     let chromeView = UIView()
@@ -51,9 +50,8 @@ class VotingsPresentationController: UIPresentationController {
     }
     
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        let width = max(ceil(parentSize.width * Constants.presentingViewControllerWidth), Constants.minPresentingViewControllerWidth)
-            
-        return CGSizeMake(width, parentSize.height)
+        
+        return CGSizeMake(parentSize.width - Constants.rightPresentingGap, parentSize.height)
     }
     
     override func presentationTransitionWillBegin() {
