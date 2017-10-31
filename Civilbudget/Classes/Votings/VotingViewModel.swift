@@ -19,6 +19,8 @@ struct VotingViewModel {
     let background: NSURL?
     let isActive: Bool
     let votes: String?
+    let imageAlpha: CGFloat
+    let textAlpha: CGFloat
     
     init(voting: Voting) {
         id = voting.id
@@ -34,6 +36,9 @@ struct VotingViewModel {
         isActive = voting.status == .Active || voting.status == .Future
         
         votes = voting.status == .Future ? nil : "Підтримало: \(voting.voted ?? 0)"
+        
+        imageAlpha = isActive ? CGFloat(1.0) : 0.8
+        textAlpha = isActive ? CGFloat(1.0) : 0.75
     }
 }
 

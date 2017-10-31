@@ -21,26 +21,43 @@ class VotingTableViewCell: UITableViewCell {
     
     var viewModel: VotingViewModel? = nil {
         didSet {
-            titleLabel.text = viewModel?.title
-            locationLabel.text = viewModel?.location
-            votedLabel.text = viewModel?.votes
-            termsLabel.text = viewModel?.terms
-            
-            backgroundImage.image = nil
-            logoImage.image = nil
-            
-            if let viewModel = viewModel {
-                loadImage(viewModel.background, into: backgroundImage, active: viewModel.isActive)
-                loadImage(viewModel.logo, into: logoImage, active: viewModel.isActive)
+            guard let viewModel = viewModel else {
+                return
             }
+            
+            titleLabel.text = viewModel.title
+            locationLabel.text = viewModel.location
+            votedLabel.text = viewModel.votes
+            termsLabel.text = viewModel.terms
+            
+            titleLabel.alpha = viewModel.textAlpha
+            locationLabel.alpha = viewModel.textAlpha
+            votedLabel.alpha = viewModel.textAlpha
+            termsLabel.alpha = viewModel.textAlpha
+            
+            backgroundImage.alpha = viewModel.imageAlpha
+            logoImage.alpha = viewModel.imageAlpha
+            
+            loadImage(viewModel.background, into: backgroundImage, active: viewModel.isActive)
+            loadImage(viewModel.logo, into: logoImage, active: viewModel.isActive)
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundImage.backgroundColor = .darkGrayColor()
+        backgroundImage.backgroundColor = .grayColor()
         backgroundImage.layer.cornerRadius = 2
+        
+        shadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        shadowView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        shadowView.layer.shadowOpacity = 0.4
+        shadowView.layer.shadowRadius =  2.0
+        
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = CivilbudgetStyleKit.selectedCellBackgroundGrey
+        
+        self.selectedBackgroundView = selectedBackgroundView
     }
     
     func loadImage(url: NSURL?, into imageView: UIImageView, active: Bool) {
@@ -50,28 +67,33 @@ class VotingTableViewCell: UITableViewCell {
             return
         }
         
-        if active {
-            imageView.af_setImageWithURL(url)
-        } else {
-            imageView.af_setImageWithURL(url, placeholderImage: nil, filter: InactiveVotingFilter())
-        }
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        shadowView.layer.shadowColor = UIColor.blackColor().CGColor
-        shadowView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        shadowView.layer.shadowOpacity = selected ? 0.6 : 0.2
-        shadowView.layer.shadowRadius =  2.0
+        let filter: ImageFilter = active ? ActiveImageFilter() : InactiveImageFilter()
+        imageView.af_setImageWithURL(url, placeholderImage: nil, filter: filter)
     }
 }
 
-struct InactiveVotingFilter: ImageFilter {
+struct ActiveImageFilter: ImageFilter {
+    
+    let identifier = "activeFilter"
+    
+    let filter: Image -> Image = { image in
+        return image.af_imageWithAppliedCoreImageFilter("CIExposureAdjust",
+                                                        filterParameters: ["inputEV": NSNumber(double: 0.8)]) ?? image
+        
+    }
+}
+
+struct InactiveImageFilter: ImageFilter {
     
     let identifier = "inactiveFilter"
     
     let filter: Image -> Image = { image in
-        return image.af_imageWithAppliedCoreImageFilter("CIColorMonochrome",
-                                                        filterParameters: ["inputIntensity": NSNumber(double: 1.0),
-                                                                           "inputColor": CIColor(color: UIColor.whiteColor())]) ?? image
+        let blackAndWhiteImage = image.af_imageWithAppliedCoreImageFilter("CIColorMonochrome",
+                                                                          filterParameters: ["inputIntensity": NSNumber(double: 1),
+                                                                                             "inputColor": CIColor(color: UIColor.whiteColor())]) ?? image
+        let darkenImage = blackAndWhiteImage.af_imageWithAppliedCoreImageFilter("CIExposureAdjust",
+                                                                                filterParameters: ["inputEV": NSNumber(double: -1.7)]) ?? blackAndWhiteImage
+        
+        return darkenImage
     }
 }
