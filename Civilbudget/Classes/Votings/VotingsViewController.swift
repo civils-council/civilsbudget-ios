@@ -88,6 +88,8 @@ class VotingsViewController: UITableViewController {
                 self?.refreshControl?.endRefreshing()
             }
         }
+        
+        navigationController?.view.backgroundColor = .whiteColor()
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

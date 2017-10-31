@@ -31,19 +31,22 @@ class VotingsTableController: NSObject {
         super.init()
         
         tableView.dataSource = self
+        tableView.hidden = true
         
         votings.map(groupVotings).bindTo(sections)
 
-        sections.observeNew { [weak self] arrayEvent in
+        sections.observeNew { [weak self] sections in
             guard let tableView = self?.tableView else {
                 return
             }
             
-            //tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
             tableView.reloadData()
             
+            if tableView.hidden {
+                self?.presentTableView(tableView)
+            }
+            
             if let selectedVoting = self?.selectedVoting,
-               let sections = self?.sections.value,
                let selectedIndexPath = self?.indexPathFor(selectedVoting, within: sections) {
                     
                 self?.tableView?.selectRowAtIndexPath(selectedIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.Middle)
@@ -76,6 +79,15 @@ class VotingsTableController: NSObject {
         }
         
         return nil
+    }
+    
+    func presentTableView(tableView: UITableView) {
+        tableView.alpha = 0.0
+        tableView.hidden = false
+        
+        UIView.animateWithDuration(0.3) {
+            tableView.alpha = 1.0
+        }
     }
 }
 
