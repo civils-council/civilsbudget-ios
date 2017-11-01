@@ -35,34 +35,34 @@ class CivilbudgetUITests: XCTestCase {
         
         snapshot("0VotingsList")
         
-//        let firstVoting = app.tables.cells.elementBoundByIndex(0)
-//        firstVoting.tap()
-//        
-//        // Wait until projects to be loaded
-//        let projects = app.collectionViews.cells
-//        let checkProjectsCount = NSPredicate(format: "count > 0")
-//        expectationForPredicate(checkProjectsCount, evaluatedWithObject: projects, handler: nil)
-//        waitForExpectationsWithTimeout(5, handler: nil)
-//        
-//        // Wait until all proeject pictures to be loaded
-//        let projectsCount = projects.count
-//        let projectImages = app.images.containingPredicate(NSPredicate(format: "identifier == 'loadedImage'"))
-//        let checkImagesCount = NSPredicate(format: "count == %i", projectsCount)
-//        expectationForPredicate(checkImagesCount, evaluatedWithObject: projectImages, handler: nil)
-//        waitForExpectationsWithTimeout(5, handler: nil)
-//
-//        snapshot("1ProjectList")
-//        
-//        // Open random visible project
-//        let randomVisibleCellIndex = UInt(arc4random_uniform(UInt32(projectsCount)))
-//        let cellToTap = app.collectionViews.cells.elementBoundByIndex(randomVisibleCellIndex)
-//        cellToTap.tap()
-//
-//        snapshot("2ProjectDetails")
-//        
-//        app.buttons["supportButton"].tap()
-//        
-//        snapshot("3VoteResult")
+        let firstVoting = app.tables.cells.elementBoundByIndex(0)
+        firstVoting.tap()
+        
+        // Wait until projects to be loaded
+        let projects = app.collectionViews.cells
+        let checkProjectsCount = NSPredicate(format: "count > 0")
+        expectationForPredicate(checkProjectsCount, evaluatedWithObject: projects, handler: nil)
+        waitForExpectationsWithTimeout(5, handler: nil)
+        
+        // Wait until all proeject pictures to be loaded
+        let projectsCount = projects.count
+        let projectImages = app.images.containingPredicate(NSPredicate(format: "identifier == 'loadedImage'"))
+        let checkImagesCount = NSPredicate(format: "count == %i", projectsCount)
+        expectationForPredicate(checkImagesCount, evaluatedWithObject: projectImages, handler: nil)
+        waitForExpectationsWithTimeout(5, handler: nil)
+
+        snapshot("1ProjectList")
+        
+        // Open random visible project
+        let randomVisibleCellIndex = UInt(arc4random_uniform(UInt32(projectsCount)))
+        let cellToTap = app.collectionViews.cells.elementBoundByIndex(randomVisibleCellIndex)
+        cellToTap.tap()
+
+        snapshot("2ProjectDetails")
+        
+        app.buttons["supportButton"].tap()
+        
+        snapshot("3VoteResult")
     }
     
     override func tearDown() {

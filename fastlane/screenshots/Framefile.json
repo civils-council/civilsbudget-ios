@@ -24,20 +24,26 @@
 
 
   "data": [
-    {
-      "filter": "0ProjectList",
+     {
+      "filter": "0VotingsList",
       "keyword": {
         "color": "#525c99"
       }
     },
     {
-      "filter": "1ProjectDetails",
+      "filter": "1ProjectList",
       "keyword": {
         "color": "#525c99"
       }
     },
     {
-      "filter": "2VoteResult",
+      "filter": "2ProjectDetails",
+      "keyword": {
+        "color": "#525c99"
+      }
+    },
+    {
+      "filter": "3VoteResult",
       "keyword": {
         "color": "#525c99"
       }
